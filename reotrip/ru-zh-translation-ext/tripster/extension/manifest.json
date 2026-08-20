@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "name": "Tripster 俄译中",
+  "version": "1.0.0",
+  "description": "experience.tripster.ru 词典优先翻译（俄→简中），给运营/采购看站用。与 Sputnik8 插件互不影响。",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_title": "Tripster 俄译中",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png"
+    }
+  },
+  "permissions": ["storage"],
+  "host_permissions": [
+    "*://experience.tripster.ru/*",
+    "*://tripster.ru/*",
+    "*://www.tripster.ru/*",
+    "*://*.tripster.ru/*",
+    "https://translate.googleapis.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://experience.tripster.ru/*",
+        "*://tripster.ru/*",
+        "*://www.tripster.ru/*",
+        "*://*.tripster.ru/*"
+      ],
+      "js": ["src/engine.js", "src/content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["data/*.json"],
+      "matches": [
+        "*://experience.tripster.ru/*",
+        "*://tripster.ru/*",
+        "*://www.tripster.ru/*",
+        "*://*.tripster.ru/*"
+      ]
+    }
+  ]
+}

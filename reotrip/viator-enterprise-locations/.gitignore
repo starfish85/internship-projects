@@ -1,0 +1,11 @@
+browser-profile/
+.playwright-mcp/
+**/__pycache__/
+*.pyc
+.DS_Store
+.venv/
+venv/
+*.xlsx~
+~$*.xlsx
+data/checkpoints/*.json
+data/raw/*/checkpoint.json

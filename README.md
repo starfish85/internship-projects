@@ -15,6 +15,9 @@ Python 练手项目已迁到个人项目仓库：https://github.com/starfish85/p
 | [reotrip/shinkansen-delivery-pack](reotrip/shinkansen-delivery-pack) | 新干线 Skill 交付包 | 同一任务的正式提交材料（任务说明、过程记录、提交目录） |
 | [reotrip/tokyo-ticket-collector](reotrip/tokyo-ticket-collector) | 东京影城门票采集 | 只读采集 Warner Bros. Studio Tour Tokyo 可售日期和时段 |
 | [reotrip/nol-listing-toolkit](reotrip/nol-listing-toolkit) | NOL 上架工具包 | 门票/接送上架 Skills + 后台韩→简体翻译插件 |
+| [reotrip/transfer-order-check](reotrip/transfer-order-check) | 接送订单校验 | 按航班/船/车核对接送枢纽和方向，判断订反线路和过晚接送 |
+| [reotrip/ru-zh-translation-ext](reotrip/ru-zh-translation-ext) | 俄语站翻译插件 | Sputnik8 / Tripster 俄译中浏览器扩展，方便运营看俄语产品页 |
+| [reotrip/viator-enterprise-locations](reotrip/viator-enterprise-locations) | Viator 企业位置核对 | 核对 ReoTrip 在 Viator 已上线产品及 Tripadvisor 企业位置展示 |
 
 ## 整理说明
 

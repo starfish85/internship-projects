@@ -1,0 +1,30 @@
+body {
+  font: 13px/1.45 -apple-system, BlinkMacSystemFont, "PingFang SC", sans-serif;
+  width: 280px;
+  margin: 0;
+  padding: 14px 16px 16px;
+  color: #1f2933;
+  background: #eef4f8;
+}
+header h1 {
+  margin: 0 0 2px;
+  font-size: 15px;
+}
+header p {
+  margin: 0 0 12px;
+  color: #6b7280;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid #d5e0e8;
+}
+.hint {
+  margin: 10px 0 0;
+  color: #6b7280;
+  font-size: 12px;
+}
+code { font-size: 11px; }

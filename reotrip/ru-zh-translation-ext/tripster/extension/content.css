@@ -1,0 +1,13 @@
+html.ts-i18n-highlight [data-ts-i18n-hit="dict"],
+html.ts-i18n-highlight [data-ts-i18n-hit="regex"] {
+  outline: 1px dashed #16a34a;
+  outline-offset: 1px;
+}
+html.ts-i18n-highlight [data-ts-i18n-hit="mixed"] {
+  outline: 1px dashed #ca8a04;
+  outline-offset: 1px;
+}
+html.ts-i18n-highlight [data-ts-i18n-hit="mt"] {
+  outline: 1px dashed #ea580c;
+  outline-offset: 1px;
+}

@@ -1,0 +1,304 @@
+{
+  "site": "tripster",
+  "regex": [
+    {
+      "id": "from_price",
+      "re": "^от\\s+([\\d\\s\\u00a0]+)\\s*₽$",
+      "zh": "$1 ₽ 起",
+      "context": "price",
+      "flags": "i"
+    },
+    {
+      "id": "price_rub",
+      "re": "^([\\d\\s\\u00a0]+)\\s*₽$",
+      "zh": "$1 ₽",
+      "context": "price",
+      "flags": "i"
+    },
+    {
+      "id": "duration_to_h",
+      "re": "^до\\s+(\\d+(?:[.,]\\d+)?)\\s*ч\\.?$",
+      "zh": "最长 $1 小时",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "duration_h",
+      "re": "^(\\d+(?:[.,]\\d+)?)\\s*ч\\.?$",
+      "zh": "$1 小时",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "duration_to_hm",
+      "re": "^до\\s+(\\d+)\\s*ч\\.\\s*(\\d+)\\s*мин\\.?$",
+      "zh": "最长 $1 小时 $2 分",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "duration_hm",
+      "re": "^(\\d+)\\s*ч\\.\\s*(\\d+)\\s*мин\\.?$",
+      "zh": "$1 小时 $2 分",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "duration_days",
+      "re": "^(\\d+)\\s*(день|дня|дней)$",
+      "zh": "$1 天",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "persons_count",
+      "re": "^(\\d+)\\s*чел\\.?$",
+      "zh": "$1 人",
+      "context": "group",
+      "flags": "i"
+    },
+    {
+      "id": "max_group",
+      "re": "^до\\s+(\\d+)\\s*человек$",
+      "zh": "最多 $1 人",
+      "context": "group",
+      "flags": "i"
+    },
+    {
+      "id": "today_at",
+      "re": "^(сегодня|Сегодня)\\s+в\\s+(\\d{1,2}:\\d{2})$",
+      "zh": "今天 $2",
+      "context": "schedule",
+      "flags": ""
+    },
+    {
+      "id": "tomorrow_at",
+      "re": "^(завтра|Завтра)\\s+в\\s+(\\d{1,2}:\\d{2})$",
+      "zh": "明天 $2",
+      "context": "schedule",
+      "flags": ""
+    },
+    {
+      "id": "yesterday_at",
+      "re": "^(вчера|Вчера)\\s+в\\s+(\\d{1,2}:\\d{2})$",
+      "zh": "昨天 $2",
+      "context": "schedule",
+      "flags": ""
+    },
+    {
+      "id": "weekday_short_date",
+      "re": "^(вс|вск|пн|пнд|вт|втр|ср|срд|чт|чтв|пт|птн|сб|суб),?\\s+(\\d{1,2})\\s+(янв|фев|мар|апр|мая|май|июн|июл|авг|сент?|окт|нояб?|дек)\\.?,?(?:\\s+в)?\\s*(\\d{1,2}:\\d{2})?$",
+      "zh": null,
+      "kind": "weekday_short_date",
+      "context": "schedule",
+      "flags": "i"
+    },
+    {
+      "id": "day_month",
+      "re": "^(\\d{1,2})\\s+(января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)$",
+      "zh": null,
+      "kind": "day_month",
+      "context": "schedule",
+      "flags": "i"
+    },
+    {
+      "id": "day_month_year",
+      "re": "^(\\d{1,2})\\s+(января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)\\s+(\\d{4})$",
+      "zh": null,
+      "kind": "day_month_year",
+      "context": "schedule",
+      "flags": "i"
+    },
+    {
+      "id": "month_year",
+      "re": "^(январ[ья]|феврал[ья]|март[а]?|апрел[ья]|ма[йя]|июн[ья]|июл[ья]|август[а]?|сентябр[ья]|октябр[ья]|ноябр[ья]|декабр[ья])\\s+(\\d{4})$",
+      "zh": null,
+      "kind": "month_year",
+      "context": "schedule",
+      "flags": "i"
+    },
+    {
+      "id": "reviews_n",
+      "re": "^(\\d+)\\s+(отзыв|отзыва|отзывов),?$",
+      "zh": "$1 条评价",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "duration_hours_word",
+      "re": "^(\\d+(?:[.,]\\d+)?)\\s*(час|часа|часов)$",
+      "zh": "$1 小时",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "duration_minutes_word",
+      "re": "^(\\d+)\\s*(минута|минуты|минут)$",
+      "zh": "$1 分钟",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "photo_n",
+      "re": "^(\\d+)\\s*фото$",
+      "zh": "$1 张照片",
+      "context": "gallery",
+      "flags": "i"
+    },
+    {
+      "id": "photo_index",
+      "re": "^Фото\\s+(\\d+)$",
+      "zh": "照片 $1",
+      "context": "gallery",
+      "flags": "i"
+    },
+    {
+      "id": "any_dates_persons",
+      "re": "^Любые даты,\\s*(\\d+)\\s*чел\\.?$",
+      "zh": "不限日期，$1 人",
+      "context": "filter",
+      "flags": "i"
+    },
+    {
+      "id": "persons_range_tail",
+      "re": "^,?\\s*1[–\\-—](\\d+)\\s*чел\\.?$",
+      "zh": "1–$1 人",
+      "context": "group",
+      "flags": "i"
+    },
+    {
+      "id": "all_offers_n",
+      "re": "^Все предложения\\s*·\\s*(\\d+)$",
+      "zh": "全部产品 · $1",
+      "context": "list",
+      "flags": "i"
+    },
+    {
+      "id": "guide_on_tripster",
+      "re": "^Гид\\s+(.+)\\s+на Tripster$",
+      "zh": "向导 $1 · Tripster",
+      "context": "card",
+      "flags": "i"
+    },
+    {
+      "id": "rating_by_reviews",
+      "re": "^([\\d.,]+)\\s+(балл|балла|баллов)\\s+по\\s+(\\d+)\\s+(отзыву|отзывам|отзывов)$",
+      "zh": "$1 分 · $3 条评价",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "all_reviews_n",
+      "re": "^Все\\s+(\\d+)\\s+(отзыв|отзыва|отзывов)$",
+      "zh": "全部 $1 条评价",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "per_group_hyphen",
+      "re": "^за группу,\\s*1[–\\-—](\\d+)\\s*чел\\.?$",
+      "zh": "每团价，1–$1 人",
+      "context": "price",
+      "flags": "i"
+    },
+    {
+      "id": "weekend_range",
+      "re": "^выходные\\s+(\\d{1,2})[–\\-—](\\d{1,2})\\s+(янв|фев|мар|апр|мая|май|июн|июл|авг|сент?|окт|нояб?|дек)\\.?$",
+      "zh": null,
+      "kind": "weekend_range",
+      "context": "schedule",
+      "flags": "i"
+    },
+    {
+      "id": "visited_n",
+      "re": "^(\\d+)\\s+(посетил|посетили)$",
+      "zh": "$1 人参加过",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "exp_count",
+      "re": "^(\\d+)\\s+(экскурсия|экскурсии|экскурсий)$",
+      "zh": "$1 条行程",
+      "context": "count",
+      "flags": "i"
+    },
+    {
+      "id": "offer_count_dot",
+      "re": "^(\\d+)\\s+(предложение|предложения|предложений)\\s*∙?$",
+      "zh": "$1 个产品 ∙",
+      "context": "count",
+      "flags": "i"
+    },
+    {
+      "id": "read_min",
+      "re": "^Читать\\s+(\\d+)\\s*мин$",
+      "zh": "阅读 $1 分钟",
+      "context": "journal",
+      "flags": "i"
+    },
+    {
+      "id": "from_price_inline",
+      "re": "^от\\s+([\\d\\s\\u00a0]+)\\s*₽$",
+      "zh": "$1 ₽ 起",
+      "context": "price",
+      "flags": "i"
+    },
+    {
+      "id": "tour_count",
+      "re": "^(\\d+)\\s+(тур|тура|туров)$",
+      "zh": "$1 条多日游",
+      "context": "count",
+      "flags": "i"
+    },
+    {
+      "id": "hours_ago",
+      "re": "^(\\d+)\\s+(час|часа|часов)\\s+назад$",
+      "zh": "$1 小时前",
+      "context": "time",
+      "flags": "i"
+    },
+    {
+      "id": "days_ago",
+      "re": "^(\\d+)\\s+(день|дня|дней)\\s+назад$",
+      "zh": "$1 天前",
+      "context": "time",
+      "flags": "i"
+    },
+    {
+      "id": "experience_n",
+      "re": "^Опыт:\\s*(\\d+)\\s+(экскурсия|экскурсии|экскурсий)$",
+      "zh": "经验：$1 条行程",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "rating_of_5",
+      "re": "^Рейтинг:\\s*([\\d.,]+)\\s+из\\s+5$",
+      "zh": "评分：$1 / 5",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "per_group_range",
+      "re": "^за группу,\\s*1[–-—](\\d+)\\s*чел\\.?$",
+      "zh": "每团价，1–$1 人",
+      "context": "price",
+      "flags": "i"
+    },
+    {
+      "id": "discount_pct",
+      "re": "^скидка\\s+(\\d+)\\s*%$",
+      "zh": "$1% 折扣",
+      "context": "price",
+      "flags": "i"
+    },
+    {
+      "id": "page_n",
+      "re": "^Страница\\s+(\\d+)\\s+из\\s+(\\d+)$",
+      "zh": "第 $1 / $2 页",
+      "context": "list",
+      "flags": "i"
+    }
+  ]
+}

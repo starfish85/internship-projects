@@ -1,0 +1,90 @@
+{
+  "airports": [
+    {"code": "NRT", "names": ["成田", "成田机场", "成田空港", "成田国际", "Narita", "NRT"]},
+    {"code": "HND", "names": ["羽田", "羽田机场", "羽田空港", "东京国际机场", "Haneda", "HND"]},
+    {"code": "KIX", "names": ["关西", "关西机场", "関西空港", "Kansai", "KIX"]},
+    {"code": "ITM", "names": ["伊丹", "伊丹机场", "大阪国际", "Itami", "ITM"]},
+    {"code": "UKB", "names": ["神户机场", "神戸空港", "Kobe Airport", "UKB"]},
+    {"code": "NGO", "names": ["中部", "名古屋机场", "セントレア", "Chubu", "Centrair", "NGO"]},
+    {"code": "FUK", "names": ["福冈", "福岡空港", "Fukuoka", "FUK"]},
+    {"code": "CTS", "names": ["新千岁", "新千歳", "札幌机场", "New Chitose", "CTS"]},
+    {"code": "OKA", "names": ["那霸", "那覇空港", "冲绳机场", "Naha", "OKA"]},
+    {"code": "SDJ", "names": ["仙台机场", "仙台空港", "Sendai", "SDJ"]},
+    {"code": "HIJ", "names": ["广岛机场", "広島空港", "Hiroshima", "HIJ"]},
+    {"code": "KMJ", "names": ["熊本机场", "熊本空港", "Kumamoto", "KMJ"]},
+    {"code": "KOJ", "names": ["鹿儿岛机场", "鹿児島空港", "Kagoshima", "KOJ"]},
+    {"code": "HKG", "names": ["香港机场", "香港国际", "Hong Kong", "HKG"]},
+    {"code": "TPE", "names": ["桃园", "台北机场", "Taoyuan", "TPE"]},
+    {"code": "ICN", "names": ["仁川", "Incheon", "ICN"]},
+    {"code": "PVG", "names": ["浦东", "上海浦东", "Pudong", "PVG"]},
+    {"code": "SHA", "names": ["虹桥", "上海虹桥", "Hongqiao", "SHA"]},
+    {"code": "PKX", "names": ["大兴", "北京大兴", "Daxing", "PKX"]},
+    {"code": "PEK", "names": ["首都机场", "北京首都", "Capital", "PEK"]},
+    {"code": "CAN", "names": ["白云", "广州白云", "Baiyun", "CAN"]},
+    {"code": "SIN", "names": ["樟宜", "新加坡机场", "Changi", "SIN"]}
+  ],
+  "ports": [
+    {
+      "code": "TYO-TICT",
+      "city": "tokyo",
+      "names": ["东京国际邮轮码头", "东京国际邮轮", "TICT", "有明邮轮", "Tokyo International Cruise Terminal", "东京港有明"]
+    },
+    {
+      "code": "TYO-HARUMI",
+      "city": "tokyo",
+      "names": ["晴海", "晴海客船", "晴海码头", "Harumi", "晴海客船ターミナル"]
+    },
+    {
+      "code": "TYO",
+      "city": "tokyo",
+      "names": ["东京港", "东京港口", "Tokyo Port", "東京港"]
+    },
+    {
+      "code": "YOK-OSANBASHI",
+      "city": "yokohama",
+      "names": ["大栈桥", "大さん橋", "Osanbashi", "横滨大栈桥"]
+    },
+    {
+      "code": "YOK-SHINKO",
+      "city": "yokohama",
+      "names": ["横滨新港", "新港", "Shinko", "横浜新港"]
+    },
+    {
+      "code": "YOK",
+      "city": "yokohama",
+      "names": ["横滨港", "横浜港", "Yokohama", "横滨港口"]
+    },
+    {
+      "code": "UKB-PORT",
+      "city": "kobe",
+      "names": ["神户港", "神戸港", "Kobe Port", "ポートターミナル", "Kobe Port Terminal", "4Q", "4O", "S-4Q"]
+    },
+    {
+      "code": "UKB-NAKA",
+      "city": "kobe",
+      "names": ["中突堤", "NAKA", "中突堤旅客", "Meriken"]
+    }
+  ],
+  "stations": [
+    {"code": "TYO-STA", "names": ["东京站", "東京駅", "Tokyo Station"]},
+    {"code": "SGW", "names": ["品川站", "品川駅", "Shinagawa"]},
+    {"code": "SJK", "names": ["新宿站", "新宿駅", "Shinjuku Station"]},
+    {"code": "UEN", "names": ["上野站", "上野駅", "Ueno Station"]},
+    {"code": "SOJ", "names": ["新大阪", "新大阪駅", "Shin-Osaka"]},
+    {"code": "KYO", "names": ["京都站", "京都駅", "Kyoto Station"]},
+    {"code": "NGY", "names": ["名古屋站", "名古屋駅", "Nagoya Station"]},
+    {"code": "HKT", "names": ["博多站", "博多駅", "Hakata Station"]},
+    {"code": "KOBE-STA", "names": ["三宫", "三ノ宮", "新神户", "新神戸", "Sannomiya", "Shin-Kobe"]}
+  ],
+  "drive_minutes": {
+    "city_to_NRT": 90,
+    "city_to_HND": 50,
+    "yokohama_to_HND": 40,
+    "yokohama_to_NRT": 80,
+    "osaka_to_KIX": 70,
+    "osaka_to_ITM": 40,
+    "kobe_to_KIX": 70,
+    "near_hub": 20,
+    "default": 50
+  }
+}

@@ -1,0 +1,751 @@
+{
+  "total": 38,
+  "FAIL": 1,
+  "WARN": 1,
+  "NEED_INFO": 33,
+  "PASS": 3,
+  "results": [
+    {
+      "verdict": "WARN",
+      "order_id": 14315,
+      "hub_id": "Diamond Princess",
+      "kind": "port",
+      "product_direction": "dropoff",
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "YOK",
+      "actual_hub": "YOK-OSANBASHI",
+      "pickup_time": "2026-08-16T09:30:00+09:00",
+      "scheduled_time": "2026-08-16T15:00:00+09:00",
+      "issues": [
+        {
+          "level": "WARN",
+          "code": "HUB_TOO_GENERIC",
+          "msg": "产品只写到 YOK，实际停靠 YOK-OSANBASHI，需确认码头/航站是否同一产品"
+        }
+      ]
+    },
+    {
+      "verdict": "PASS",
+      "order_id": 16860,
+      "hub_id": "Diamond Princess",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": null,
+      "actual_hub": "YOK-OSANBASHI",
+      "pickup_time": "2026-08-26T10:30:00+09:00",
+      "scheduled_time": "2026-08-26T15:00:00+09:00",
+      "issues": []
+    },
+    {
+      "verdict": "PASS",
+      "order_id": 16874,
+      "hub_id": "DL281",
+      "kind": "airport",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "PVG",
+      "actual_hub": "PVG",
+      "pickup_time": "2026-09-08T21:00:00+09:00",
+      "scheduled_time": "2026-09-08T19:50:00+09:00",
+      "issues": []
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 16953,
+      "hub_id": "terminal to Tokyo hotel. We have not not",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": null,
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2026-09-11T09:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 terminal to Tokyo hotel. We have not not 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "FAIL",
+      "order_id": 17087,
+      "hub_id": "ms Westerdam",
+      "kind": "port",
+      "product_direction": "pickup",
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "TYO-TICT",
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2026-09-27T09:00:00+09:00",
+      "scheduled_time": "2026-09-27T19:00:00+09:00",
+      "issues": [
+        {
+          "level": "FAIL",
+          "code": "REVERSED_ROUTE",
+          "msg": "枢纽是出发，订单却是接，疑似订反线路"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 17243,
+      "hub_id": "Luminous",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": null,
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2026-10-09T11:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Luminous 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "PASS",
+      "order_id": 17286,
+      "hub_id": "のぞみ18",
+      "kind": "station",
+      "product_direction": "dropoff",
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "SOJ",
+      "actual_hub": "SOJ",
+      "pickup_time": "2026-10-28T10:00:00+09:00",
+      "scheduled_time": "2026-10-28T12:06:00+09:00",
+      "issues": []
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 15411,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-10-17T09:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 16127,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-08-26T08:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 10746,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": "dropoff",
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-08-26T10:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 15686,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-09-11T10:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 17095,
+      "hub_id": "Port: Private Transfer To/From Tokyo hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": null,
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2026-09-23T09:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 15535,
+      "hub_id": "Port: Private Transfer To/From Tokyo hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": null,
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2026-09-27T10:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 13768,
+      "hub_id": "Port: Private Transfer To/From Tokyo hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": null,
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2026-10-02T11:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 15898,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-10-07T08:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 15216,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-10-09T09:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 15117,
+      "hub_id": "Port Private Transfer 7seat Tokyo Cruise",
+      "kind": "airport",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "HND",
+      "actual_hub": "HND",
+      "pickup_time": "2026-10-09T11:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port Private Transfer 7seat Tokyo Cruise 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 15996,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-10-17T07:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 10513,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-10-17T09:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 16276,
+      "hub_id": "",
+      "kind": "airport",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "NRT",
+      "actual_hub": "NRT",
+      "pickup_time": "2026-10-17T16:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_HUB_ID",
+          "msg": "订单里找不到航班号/船名/列车号"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 10621,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-10-18T09:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 16275,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-10-18T12:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 14163,
+      "hub_id": "Port Private Transfer 7seat HND to Tokyo",
+      "kind": "airport",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "HND",
+      "actual_hub": "HND",
+      "pickup_time": "2026-10-20T08:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port Private Transfer 7seat HND to Tokyo 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 13348,
+      "hub_id": "",
+      "kind": "station",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "TYO-STA",
+      "actual_hub": "TYO-STA",
+      "pickup_time": "2026-10-23T08:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_HUB_ID",
+          "msg": "订单里找不到航班号/船名/列车号"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 14165,
+      "hub_id": "Port Private Transfer 7seat Tokyo Cruise",
+      "kind": "airport",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "HND",
+      "actual_hub": "HND",
+      "pickup_time": "2026-10-31T10:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port Private Transfer 7seat Tokyo Cruise 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 17021,
+      "hub_id": "Port: Private Transfer To/From Tokyo hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": null,
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2026-11-08T11:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 14668,
+      "hub_id": "",
+      "kind": "airport",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "ITM",
+      "actual_hub": "ITM",
+      "pickup_time": "2026-11-25T10:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_HUB_ID",
+          "msg": "订单里找不到航班号/船名/列车号"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 14166,
+      "hub_id": "",
+      "kind": "airport",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "NRT",
+      "actual_hub": "NRT",
+      "pickup_time": "2026-11-27T12:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_HUB_ID",
+          "msg": "订单里找不到航班号/船名/列车号"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 16875,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2026-11-30T09:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 14597,
+      "hub_id": "Port: Private Transfer To/From Tokyo hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": null,
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2026-11-30T11:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 12864,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2027-03-02T09:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 17281,
+      "hub_id": "Terminal and Tokyo City 4Pax Tokyo Cruis",
+      "kind": "port",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "TYO-TICT",
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2027-03-06T07:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Terminal and Tokyo City 4Pax Tokyo Cruis 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 16516,
+      "hub_id": "Port: Private Transfer To/From Tokyo hot",
+      "kind": "port",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "TYO-TICT",
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2027-03-06T08:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 16026,
+      "hub_id": "",
+      "kind": "airport",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "HND",
+      "actual_hub": "HND",
+      "pickup_time": "2027-03-06T09:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_HUB_ID",
+          "msg": "订单里找不到航班号/船名/列车号"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 13285,
+      "hub_id": "Port: Private Transfer To/From Tokyo hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": null,
+      "actual_hub": "TYO-TICT",
+      "pickup_time": "2027-03-14T09:30:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 13283,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": "pickup",
+      "actual_direction": "arrival",
+      "expected_direction": "pickup",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2027-03-21T07:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 16378,
+      "hub_id": "Port: Private Transfer To/From Tokyo Hot",
+      "kind": "port",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "YOK",
+      "actual_hub": "YOK",
+      "pickup_time": "2027-04-10T11:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_SCHEDULE",
+          "msg": "未查到 Port: Private Transfer To/From Tokyo Hot 在出行日的官方时刻"
+        }
+      ]
+    },
+    {
+      "verdict": "NEED_INFO",
+      "order_id": 16637,
+      "hub_id": "",
+      "kind": "airport",
+      "product_direction": null,
+      "actual_direction": "departure",
+      "expected_direction": "dropoff",
+      "product_hub": "HND",
+      "actual_hub": "HND",
+      "pickup_time": "2027-07-23T12:00:00+09:00",
+      "scheduled_time": null,
+      "issues": [
+        {
+          "level": "NEED_INFO",
+          "code": "NO_HUB_ID",
+          "msg": "订单里找不到航班号/船名/列车号"
+        }
+      ]
+    }
+  ]
+}

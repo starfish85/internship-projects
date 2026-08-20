@@ -1,0 +1,225 @@
+{
+  "version": 1,
+  "regex": [
+    {
+      "id": "from_price",
+      "re": "^от\\s+([\\d\\s\\u00a0]+)\\s*₽$",
+      "zh": "$1 ₽ 起",
+      "context": "price",
+      "flags": "i"
+    },
+    {
+      "id": "price_rub",
+      "re": "^([\\d\\s\\u00a0]+)\\s*₽$",
+      "zh": "$1 ₽",
+      "context": "price",
+      "flags": "i"
+    },
+    {
+      "id": "duration_to_h",
+      "re": "^до\\s+(\\d+(?:[.,]\\d+)?)\\s*ч\\.?$",
+      "zh": "最长 $1 小时",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "duration_h",
+      "re": "^(\\d+(?:[.,]\\d+)?)\\s*ч\\.?$",
+      "zh": "$1 小时",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "duration_to_hm",
+      "re": "^до\\s+(\\d+)\\s*ч\\.\\s*(\\d+)\\s*мин\\.?$",
+      "zh": "最长 $1 小时 $2 分",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "duration_hm",
+      "re": "^(\\d+)\\s*ч\\.\\s*(\\d+)\\s*мин\\.?$",
+      "zh": "$1 小时 $2 分",
+      "context": "duration",
+      "flags": "i"
+    },
+    {
+      "id": "today_at",
+      "re": "^(сегодня|Сегодня)\\s+в\\s+(\\d{1,2}:\\d{2})$",
+      "zh": "今天 $2",
+      "context": "schedule",
+      "flags": ""
+    },
+    {
+      "id": "tomorrow_at",
+      "re": "^(завтра|Завтра)\\s+в\\s+(\\d{1,2}:\\d{2})$",
+      "zh": "明天 $2",
+      "context": "schedule",
+      "flags": ""
+    },
+    {
+      "id": "aftertomorrow_at",
+      "re": "^(послезавтра|Послезавтра)\\s+в\\s+(\\d{1,2}:\\d{2})$",
+      "zh": "后天 $2",
+      "context": "schedule",
+      "flags": ""
+    },
+    {
+      "id": "weekday_date_time",
+      "re": "^(Вс|Пн|Вт|Ср|Чт|Пт|Сб),\\s+(\\d{1,2})\\s+(янв|фев|мар|апр|мая|май|июн|июл|авг|сен|окт|ноя|дек)\\.?,?\\s*(\\d{1,2}:\\d{2})?$",
+      "zh": null,
+      "context": "schedule",
+      "flags": "i",
+      "kind": "weekday_short_date"
+    },
+    {
+      "id": "reviews_n",
+      "re": "^(\\d[\\d\\s]*)\\s+(отзыв|отзыва|отзывов)$",
+      "zh": "$1 条评价",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "reviews_paren",
+      "re": "^\\((\\d[\\d\\s]*)\\s+(отзыв|отзыва|отзывов)\\)$",
+      "zh": "（$1 条评价）",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "score_of_5",
+      "re": "^(\\d(?:[.,]\\d)?)\\s+из\\s+5$",
+      "zh": "$1 / 5",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "ratings_visited",
+      "re": "^(\\d[\\d\\s]*)\\s+оценок\\s*•\\s*посетили\\s+([\\d\\s]+)\\+$",
+      "zh": "$1 条评分 · $2+ 人参加过",
+      "context": "review",
+      "flags": "i"
+    },
+    {
+      "id": "tours_n",
+      "re": "^(\\d[\\d\\s]*)\\s+(экскурсия|экскурсии|экскурсий)$",
+      "zh": "$1 条行程",
+      "context": "count",
+      "flags": "i"
+    },
+    {
+      "id": "offers_n",
+      "re": "^(\\d[\\d\\s]*)\\s+(предложение|предложения|предложений)$",
+      "zh": "$1 个结果",
+      "context": "count",
+      "flags": "i"
+    },
+    {
+      "id": "group_up_to",
+      "re": "^Размер группы до\\s+(\\d+)\\s+человек$",
+      "zh": "最多 $1 人",
+      "context": "group",
+      "flags": "i"
+    },
+    {
+      "id": "up_to_people",
+      "re": "^до\\s+(\\d+)\\s+человек$",
+      "zh": "最多 $1 人",
+      "context": "group",
+      "flags": "i"
+    },
+    {
+      "id": "plus_photos",
+      "re": "^\\+(\\d+)\\s*фото$",
+      "zh": "+$1 张图",
+      "context": "media",
+      "flags": "i"
+    },
+    {
+      "id": "about_hours_ago",
+      "re": "^около\\s+(\\d+)\\s+(час|часа|часов)\\s+назад$",
+      "zh": "约 $1 小时前",
+      "context": "time",
+      "flags": "i"
+    },
+    {
+      "id": "about_1_month_ago",
+      "re": "^около\\s+1\\s+месяца\\s+назад$",
+      "zh": "约 1 个月前",
+      "context": "time",
+      "flags": "i"
+    },
+    {
+      "id": "almost_years_ago",
+      "re": "^почти\\s+(\\d+)\\s+(год|года|лет)\\s+назад$",
+      "zh": "将近 $1 年前",
+      "context": "time",
+      "flags": "i"
+    },
+    {
+      "id": "over_year_ago",
+      "re": "^(более|свыше)\\s+(\\d+)\\s+(год|года|лет)\\s+назад$",
+      "zh": "超过 $2 年前",
+      "context": "time",
+      "flags": "i"
+    },
+    {
+      "id": "n_days_ago",
+      "re": "^(\\d+)\\s+(день|дня|дней)\\s+назад$",
+      "zh": "$1 天前",
+      "context": "time",
+      "flags": "i"
+    },
+    {
+      "id": "n_weeks_ago",
+      "re": "^(\\d+)\\s+(неделю|недели|недель)\\s+назад$",
+      "zh": "$1 周前",
+      "context": "time",
+      "flags": "i"
+    },
+    {
+      "id": "up_to_years",
+      "re": "^до\\s+(\\d+)\\s+лет$",
+      "zh": "$1 岁以下",
+      "context": "age",
+      "flags": "i"
+    },
+    {
+      "id": "adult_plus",
+      "re": "^Взрослый\\s*\\((\\d+)\\+\\)$",
+      "zh": "成人（$1+）",
+      "context": "ticket",
+      "flags": "i"
+    },
+    {
+      "id": "child_to",
+      "re": "^Детский\\s*\\(до\\s+(\\d+)\\s+лет\\)$",
+      "zh": "儿童（$1 岁以下）",
+      "context": "ticket",
+      "flags": "i"
+    },
+    {
+      "id": "child_from_to",
+      "re": "^Детский\\s*\\(от\\s+(\\d+)\\s+до\\s+(\\d+)\\s+лет\\)$",
+      "zh": "儿童（$1–$2 岁）",
+      "context": "ticket",
+      "flags": "i"
+    },
+    {
+      "id": "month_year",
+      "re": "^(январ[ья]|феврал[ья]|март[а]?|апрел[ья]|ма[йя]|июн[ья]|июл[ья]|август[а]?|сентябр[ья]|октябр[ья]|ноябр[ья]|декабр[ья])\\s+(\\d{4})\\s*г\\.?$",
+      "zh": null,
+      "context": "time",
+      "flags": "i",
+      "kind": "month_year"
+    },
+    {
+      "id": "day_month",
+      "re": "^(\\d{1,2})\\s+(января|февраля|марта|апреля|мая|июня|июля|августа|сентября|октября|ноября|декабря)$",
+      "zh": null,
+      "context": "time",
+      "flags": "i",
+      "kind": "day_month"
+    }
+  ]
+}

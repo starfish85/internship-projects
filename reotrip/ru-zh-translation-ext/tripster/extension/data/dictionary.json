@@ -1,0 +1,6642 @@
+{
+  "site": "tripster",
+  "lang": "ru-zh",
+  "entries": [
+    {
+      "src": "Куда вы собираетесь?",
+      "zh": "你要去哪？",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "О проекте",
+      "zh": "关于我们",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "О Tripster",
+      "zh": "关于 Tripster",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Помощь",
+      "zh": "帮助",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Войти",
+      "zh": "登录",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Избранное",
+      "zh": "收藏",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсии",
+      "zh": "行程",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Многодневные туры",
+      "zh": "多日游",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Туры",
+      "zh": "多日游",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Журнал Трипстера",
+      "zh": "Tripster 杂志",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Журнал",
+      "zh": "杂志",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отзыв о сайте 🙋",
+      "zh": "给网站提意见",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "отзыв о сайте",
+      "zh": "给网站提意见",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Главная",
+      "zh": "首页",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Поиск",
+      "zh": "搜索",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Найти",
+      "zh": "搜索",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Закрыть",
+      "zh": "关闭",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Применить",
+      "zh": "应用",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отменить",
+      "zh": "取消",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сбросить",
+      "zh": "重置",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Показать",
+      "zh": "显示",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Показать ещё",
+      "zh": "展开更多",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Показать еще",
+      "zh": "展开更多",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Показать все",
+      "zh": "显示全部",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Смотреть все",
+      "zh": "查看全部",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Свернуть",
+      "zh": "收起",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Развернуть",
+      "zh": "展开",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ещё",
+      "zh": "更多",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ещё темы",
+      "zh": "更多主题",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "ещё",
+      "zh": "更多",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Подробнее",
+      "zh": "了解更多",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Читать полностью",
+      "zh": "阅读全文",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Читать 5 мин",
+      "zh": "阅读 5 分钟",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Читать 6 мин",
+      "zh": "阅读 6 分钟",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Читать 13 мин",
+      "zh": "阅读 13 分钟",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Читать 19 мин",
+      "zh": "阅读 19 分钟",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Читать 21 мин",
+      "zh": "阅读 21 分钟",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Читать 23 мин",
+      "zh": "阅读 23 分钟",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Читать 28 мин",
+      "zh": "阅读 28 分钟",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Читать 29 мин",
+      "zh": "阅读 29 分钟",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Поделиться",
+      "zh": "分享",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Скопировать ссылку",
+      "zh": "复制链接",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ссылка скопирована",
+      "zh": "链接已复制",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "ВКонтакте",
+      "zh": "VK",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Одноклассники",
+      "zh": "OK",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Телеграм",
+      "zh": "Telegram",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Перейти на главную",
+      "zh": "回到首页",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Перейти к странице",
+      "zh": "打开页面",
+      "context": "header",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Какие бывают экскурсии",
+      "zh": "行程有哪些类型",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Как заказать экскурсию",
+      "zh": "怎么下单",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Как задать вопросы гиду",
+      "zh": "怎么问向导",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Как происходит оплата",
+      "zh": "怎么付款",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Как отменить заказ и вернуть деньги",
+      "zh": "怎么取消订单并退款",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Часто задаваемые вопросы",
+      "zh": "常见问题",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Частые вопросы",
+      "zh": "常见问题",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Показать больше вопросов",
+      "zh": "展开更多问题",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мы на связи с 9 до 21 часа по Москве",
+      "zh": "客服时间：莫斯科时间 9:00–21:00",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мы на связи",
+      "zh": "我们在线",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "с 9 до 21 часа",
+      "zh": "9:00–21:00",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "по Москве.",
+      "zh": "（莫斯科时间）",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "9–21 МСК",
+      "zh": "莫斯科时间 9–21 点",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Написать ВКонтакте",
+      "zh": "写给 VK",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Написать нам в чат",
+      "zh": "在线聊天",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Написать в Max",
+      "zh": "写给 Max",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "нам в чат",
+      "zh": "在线聊天",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Написать",
+      "zh": "写信",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Поддержка",
+      "zh": "客服",
+      "context": "nav.help",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсии в кармане",
+      "zh": "行程装进口袋",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсии, отзывы и чаты с гидами — в приложении Трипстера",
+      "zh": "行程、评价和向导聊天，都在 Tripster App 里",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Скачать",
+      "zh": "下载",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Скачайте",
+      "zh": "下载",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Загрузите",
+      "zh": "下载",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Аудиогиды",
+      "zh": "语音导览",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Трансферы",
+      "zh": "接送",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "На фото",
+      "zh": "图中",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Посмотреть экскурсии",
+      "zh": "查看行程",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Посмотреть туры",
+      "zh": "查看多日游",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Посмотреть все туры",
+      "zh": "查看全部多日游",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Посмотреть все статьи",
+      "zh": "查看全部文章",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Посмотреть экскурсии гида",
+      "zh": "查看该向导的行程",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Перейти на главную страницу",
+      "zh": "回到首页",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Форматы впечатлений для любого настроения",
+      "zh": "各种心情都有对应玩法",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Увлечённые гиды с живыми историями",
+      "zh": "会讲故事的用心向导",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Интересное в путешествиях и рядом с домом",
+      "zh": "远行和家门口都有好玩的",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Популярные направления",
+      "zh": "热门目的地",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "1030 городов в 121 стране",
+      "zh": "121 个国家、1030 个城市",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Идеи для впечатлений в этом сезоне",
+      "zh": "这个季节可以这样玩",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Встречи с интересными людьми, куда бы вы ни поехали",
+      "zh": "不管去哪，都能遇到有意思的人",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ру",
+      "zh": "俄",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "En",
+      "zh": "英",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Популярные экскурсии",
+      "zh": "热门行程",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Многодневные туры и экскурсии",
+      "zh": "多日游与行程",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Путешествия в места, которые не посмотреть за день",
+      "zh": "一天看不完的地方",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гиды по призванию",
+      "zh": "把向导当事业的人",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Журнал о путешествиях",
+      "zh": "旅行杂志",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсии для местных",
+      "zh": "给本地人的行程",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "C нами путешествуют миллионы",
+      "zh": "已有数百万人和我们一起出行",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Как классно провести лето ⛵",
+      "zh": "夏天可以这样玩 ⛵",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Как оплатить экскурсию?",
+      "zh": "怎么付行程款？",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Как задать вопросы гиду?",
+      "zh": "怎么问向导？",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Картой российского банка",
+      "zh": "俄罗斯银行卡",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Картой зарубежного банка",
+      "zh": "外国银行卡",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Партнёрам и турагентам",
+      "zh": "给合作方和旅行社",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Регистрация для турагентов",
+      "zh": "旅行社注册",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Кабинет партнёра и турагента",
+      "zh": "合作方 / 旅行社后台",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Справка",
+      "zh": "帮助",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Трансферы в/из аэропорта",
+      "zh": "机场接送",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Необычные экскурсии и туры по всему миру",
+      "zh": "全球小众行程与多日游",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "бронируйте авторские экскурсии по всему миру.",
+      "zh": "预订全球向导自制行程。",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Планируйте путешествие на ходу",
+      "zh": "随时规划行程",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Планируйте",
+      "zh": "规划",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "путешествие на ходу",
+      "zh": "随时出行",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Скачать приложение",
+      "zh": "下载 App",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Скачайте приложение Tripster для путешественников",
+      "zh": "下载 Tripster 旅客 App",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Приложение Трипстера",
+      "zh": "Tripster App",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "в приложении Трипстера",
+      "zh": "在 Tripster App 里",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Лучшие гиды по всему миру —",
+      "zh": "全球优质向导 —",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "20 тысяч гидов по всему миру —",
+      "zh": "全球两万名向导 —",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Снимок города в телефоне",
+      "zh": "手机里的城市速写",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсии и туры от экспертов Трипстера",
+      "zh": "Tripster 精选行程与多日游",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсии и туры от редакторов Трипстера",
+      "zh": "Tripster 编辑推荐行程",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Классные места, скидки и интересные события у вас в почте ·",
+      "zh": "好去处、折扣和活动会发到你邮箱 ·",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Скидки, классные места и интересные события у вас в почте —",
+      "zh": "折扣、好去处和活动会发到你邮箱 —",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Будем рекомендовать интересные места и события в вашем городе",
+      "zh": "会按你所在城市推荐好玩的地方和活动",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Доступно",
+      "zh": "可用",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "в Google Play",
+      "zh": "Google Play",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Загрузить",
+      "zh": "下载",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "в App Store",
+      "zh": "App Store",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Наведите камеру на QR-код, чтобы скачать",
+      "zh": "用相机扫码下载",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "QR-код для скачивания приложения Трипстера",
+      "zh": "Tripster App 下载二维码",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отсканируйте",
+      "zh": "请扫码",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "чтобы начать слушать",
+      "zh": "即可开始收听",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Слушать аудиогид можно только",
+      "zh": "语音导览只能",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "в приложении",
+      "zh": "在 App 里听",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Аудиогиды живут в приложении",
+      "zh": "语音导览只在 App 里",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Подписаться",
+      "zh": "订阅",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вы уже подписаны",
+      "zh": "已订阅",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Эл. почта",
+      "zh": "邮箱",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Пример письма",
+      "zh": "邮件示例",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Полезные статьи",
+      "zh": "实用文章",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Полезные",
+      "zh": "实用",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "статьи",
+      "zh": "文章",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Увлеченные гиды",
+      "zh": "用心的向导",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Необычные экскурсии",
+      "zh": "小众行程",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Только личное общение",
+      "zh": "只做面对面交流",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "За что нас любят путешественники",
+      "zh": "旅客为什么喜欢我们",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Как мы работаем",
+      "zh": "我们怎么做",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Выбирайте экскурсию на сайте",
+      "zh": "在网站上选行程",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Можно пообщаться с гидом до оплаты",
+      "zh": "付款前就能跟向导沟通",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Не нужно платить все деньги сразу",
+      "zh": "不用一次付清",
+      "context": "home",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Фильтры",
+      "zh": "筛选",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Рубрики",
+      "zh": "栏目",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Подборки туров",
+      "zh": "多日游精选",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Тема, формат, достопримечательность",
+      "zh": "主题、形式、景点",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ничего не найдено",
+      "zh": "没有找到",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ничего не нашлось — попробуйте изменить фильтры",
+      "zh": "没有结果，试试改筛选",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Нет категории",
+      "zh": "无分类",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Не указана",
+      "zh": "未填写",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Не указаны",
+      "zh": "未填写",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "ТОП",
+      "zh": "热门",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Все",
+      "zh": "全部",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Со скидкой",
+      "zh": "有折扣",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Новые",
+      "zh": "新品",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Даты",
+      "zh": "日期",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Любые даты",
+      "zh": "不限日期",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Все даты",
+      "zh": "全部日期",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Формат",
+      "zh": "形式",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Формат проведения",
+      "zh": "出行形式",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Цена",
+      "zh": "价格",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Цена за экскурсию, {currentSign}",
+      "zh": "行程总价，{currentSign}",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Цена за человека, {currentSign}",
+      "zh": "每人价格，{currentSign}",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Цена за экскурсию, {currencySymbol}",
+      "zh": "行程总价，{currencySymbol}",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Цена за человека, {currencySymbol}",
+      "zh": "每人价格，{currencySymbol}",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Цены в {currency}",
+      "zh": "{currency} 标价",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Валюта отображения",
+      "zh": "显示币种",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Длительность",
+      "zh": "时长",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Длительность, дней",
+      "zh": "时长（天）",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Участники",
+      "zh": "人数",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Дети",
+      "zh": "儿童",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Можно с детьми",
+      "zh": "可带儿童",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Время начала",
+      "zh": "开始时间",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Комфорт на маршруте",
+      "zh": "路上舒适度",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Варианты размещения",
+      "zh": "住宿类型",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Детали об организации проживания указаны в программе предложения",
+      "zh": "住宿安排详见行程说明",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Уровень активности",
+      "zh": "活动强度",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Способ передвижения",
+      "zh": "交通方式",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вид отдыха",
+      "zh": "度假类型",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Активность, формат, тема",
+      "zh": "活动、形式、主题",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Все регионы",
+      "zh": "全部地区",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Найдено",
+      "zh": "已找到",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "{message} временно не проводятся.",
+      "zh": "{message} 暂不开放。",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Все предложения",
+      "zh": "全部产品",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Все предложения ·",
+      "zh": "全部产品 ·",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Все экскурсии",
+      "zh": "全部行程",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Все туры",
+      "zh": "全部多日游",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Нет предложений",
+      "zh": "暂无产品",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Похоже на то, что вы ищете",
+      "zh": "猜你想找",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Популярно в {cityName5Ru}",
+      "zh": "{cityName5Ru}热门",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Посмотрите также",
+      "zh": "你可能还想看",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсии по Москве",
+      "zh": "莫斯科行程",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсии в Москве",
+      "zh": "莫斯科行程",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсии по Санкт-Петербургу",
+      "zh": "圣彼得堡行程",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Необычные экскурсии от местных жителей. Цены на экскурсии по городу от 199 ₽",
+      "zh": "本地向导的小众行程。市内价格 199 ₽ 起",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Любые даты, 1 чел.",
+      "zh": "不限日期，1 人",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Показать варианты",
+      "zh": "查看可选",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Забронировать",
+      "zh": "预订",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Лучшие",
+      "zh": "精选",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ночные",
+      "zh": "夜间",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Нажимая «Подписаться», вы даете",
+      "zh": "点击「订阅」即表示",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "согласие",
+      "zh": "同意",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Главное фото рубрики",
+      "zh": "栏目主图",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вторичное фото рубрики",
+      "zh": "栏目配图",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Речные прогулки в Москве",
+      "zh": "莫斯科河上观光",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Прогулки на теплоходах",
+      "zh": "游船观光",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Прогулки по Москве-реке",
+      "zh": "莫斯科河观光",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Необычные и авторские прогулки",
+      "zh": "小众向导自制步行",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Необычные маршруты",
+      "zh": "小众路线",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Городские экскурсии",
+      "zh": "城市行程",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Уникальный опыт",
+      "zh": "独特体验",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Что ещё посмотреть",
+      "zh": "还可以看",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Тематические",
+      "zh": "主题",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "В музее",
+      "zh": "在博物馆",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Когда вы планируете посетить экскурсию?",
+      "zh": "你打算哪天参加行程？",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Организатор предоставил документы об аттестации",
+      "zh": "组织方已提供资质文件",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Написать отзыв можно только после посещения.",
+      "zh": "只有参加过后才能写评价。",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "на получение рекламных и информационных сообщений от Tripster в соответствии c",
+      "zh": "接收 Tripster 优惠和资讯，依据",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "условиями политики обработки персональных данных",
+      "zh": "个人信息处理政策",
+      "context": "list.filters",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сортировать",
+      "zh": "排序",
+      "context": "list.sort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "По умолчанию",
+      "zh": "默认",
+      "context": "list.sort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "По популярности",
+      "zh": "按热度",
+      "context": "list.sort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "По новизне",
+      "zh": "按上新",
+      "context": "list.sort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "По цене",
+      "zh": "按价格",
+      "context": "list.sort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "По отзывам",
+      "zh": "按评价",
+      "context": "list.sort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "По размеру скидки",
+      "zh": "按折扣幅度",
+      "context": "list.sort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Групповой",
+      "zh": "拼团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Групповые",
+      "zh": "拼团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Индивидуальный",
+      "zh": "包团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Индивидуальные",
+      "zh": "包团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мини-группа",
+      "zh": "小团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мини-группы",
+      "zh": "小团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вы будете на экскурсии в группе с другими участникамии",
+      "zh": "你会和其他旅客一起参加",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вы будете на экскурсии в группе с другими участниками",
+      "zh": "你会和其他旅客一起参加",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Личная встреча с гидом только для вас и вашей компании",
+      "zh": "向导只接待你和同行的人",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Групповой формат до 10 человек",
+      "zh": "最多 10 人的拼团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "С другими участникамии",
+      "zh": "和其他旅客一起",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "С другими участниками",
+      "zh": "和其他旅客一起",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Только для вас и вашей компании",
+      "zh": "只接待你和同行的人",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "До 10 человек в группе",
+      "zh": "每团最多 10 人",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Групповой формат. С вами будут другие участники",
+      "zh": "拼团：会和其他旅客一起",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Самостоятельный формат. Прогулка в своём темпе с аудиогидом",
+      "zh": "自助：按自己节奏听语音导览",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Индивидуальный формат",
+      "zh": "包团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Групповой формат",
+      "zh": "拼团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "индивидуальная экскурсия",
+      "zh": "包团行程",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "индивидуальные экскурсии",
+      "zh": "包团行程",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "индивидуальная",
+      "zh": "包团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "индивидуальные",
+      "zh": "包团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "групповая экскурсия",
+      "zh": "拼团行程",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "групповые экскурсии",
+      "zh": "拼团行程",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "групповая",
+      "zh": "拼团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "групповые",
+      "zh": "拼团",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "авторский тур",
+      "zh": "向导自制多日游",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "многодневные туры",
+      "zh": "多日游",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "многодневная экскурсия",
+      "zh": "多日行程",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "многодневные экскурсии",
+      "zh": "多日行程",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Самостоятельная",
+      "zh": "自助",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Самостоятельные",
+      "zh": "自助",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "другие самостоятельные",
+      "zh": "其他自助项目",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "новая самостоятельная",
+      "zh": "新上自助项目",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "другие экскурсии",
+      "zh": "其他行程",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "новая экскурсия",
+      "zh": "新行程",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "другие трансферы",
+      "zh": "其他接送",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "новый трансфер",
+      "zh": "新接送",
+      "context": "list.format",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "сегодня",
+      "zh": "今天",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "вчера",
+      "zh": "昨天",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "завтра",
+      "zh": "明天",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "выходные",
+      "zh": "周末",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сегодня",
+      "zh": "今天",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Завтра",
+      "zh": "明天",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вчера",
+      "zh": "昨天",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "с 6:00 до 12:00",
+      "zh": "6:00–12:00",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "с 12:00 до 17:00",
+      "zh": "12:00–17:00",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "с 17:00 до 0:00",
+      "zh": "17:00–0:00",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "с 0:00 до 6:00",
+      "zh": "0:00–6:00",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Утром",
+      "zh": "上午",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Днём",
+      "zh": "白天",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вечером",
+      "zh": "傍晚",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ночью",
+      "zh": "夜间",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Пешком",
+      "zh": "步行",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "На кораблике",
+      "zh": "小船",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "На теплоходе",
+      "zh": "游船",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "На катере",
+      "zh": "快艇",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "На каяках",
+      "zh": "皮划艇",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "На автобусе",
+      "zh": "巴士",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "До 2 часов",
+      "zh": "2 小时以内",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "От 2 до 4",
+      "zh": "2–4 小时",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "От 4 до 6",
+      "zh": "4–6 小时",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "6+ часов",
+      "zh": "6 小时以上",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "до 2 дней",
+      "zh": "最多 2 天",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "от {day}",
+      "zh": "{day} 起",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "до {day}",
+      "zh": "至 {day}",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "от {price}",
+      "zh": "{price} 起",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "до {price}",
+      "zh": "至 {price}",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "от",
+      "zh": "起",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "за билет",
+      "zh": "每张票",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "за всех",
+      "zh": "全团",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "за одного",
+      "zh": "每人",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "за человека",
+      "zh": "每人",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "за группу",
+      "zh": "每团",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "за 1 чел.",
+      "zh": "1 人价",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "чел.",
+      "zh": "人",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "человек",
+      "zh": "人",
+      "context": "list.time_price",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Хит продаж",
+      "zh": "热销",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Новое",
+      "zh": "新品",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Новинка",
+      "zh": "新品",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Промо",
+      "zh": "推广",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Прямо сейчас",
+      "zh": "正在进行",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "скидка",
+      "zh": "折扣",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Продвигается",
+      "zh": "正在推广",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "В фокусе",
+      "zh": "焦点",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Смотрите",
+      "zh": "看这里",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Временно недоступно",
+      "zh": "暂不可订",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ждёт отзывов",
+      "zh": "暂无评价",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Рейтинг организатора",
+      "zh": "组织方评分",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Добавить в избранное",
+      "zh": "加入收藏",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Убрать из избранного",
+      "zh": "取消收藏",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "В избранное",
+      "zh": "收藏",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "В избранном",
+      "zh": "已收藏",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Проживание не включено в стоимость",
+      "zh": "住宿不含在价格内",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Проживание не продаётся и не оформляется через платформу. Детали проживания согласовываются напрямую с организатором",
+      "zh": "住宿不通过平台售卖。细节直接跟组织方确认",
+      "context": "list.badge",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Дикие условия",
+      "zh": "野外条件",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Простой",
+      "zh": "简易",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Стандартный",
+      "zh": "标准",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Премиум",
+      "zh": "高端",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Минимальный",
+      "zh": "最低",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Лёгкий",
+      "zh": "轻松",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Средний",
+      "zh": "中等",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Высокий",
+      "zh": "高强度",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Без физической нагрузки. Короткие прогулки, передвижение на транспорте",
+      "zh": "几乎不走路，短途散步，主要坐车",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Спокойный темп, пешие прогулки до 15 км. Физподготовка не нужна",
+      "zh": "节奏慢，步行不超过 15 公里，无需体能",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Активные передвижения, маршруты до 25 км. Нужна базовая физподготовка",
+      "zh": "活动量大，路线最长 25 公里，需基本体能",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Интенсивные нагрузки, сложные маршруты со сменой рельефа. Для людей с опытом",
+      "zh": "强度高、地形有变化，适合有经验的人",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Палатки, кемпинги. Удобства на улице или их нет, горячей воды может не быть",
+      "zh": "帐篷/露营。卫浴在室外或没有，可能没有热水",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отели 1–2★, гостевые дома. Удобства в номере или на этаже, базовые условия",
+      "zh": "1–2 星酒店或民宿。卫浴在房间或楼层，条件一般",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отели 3★, апартаменты. Удобства в номере, обычно есть питание и уборка",
+      "zh": "3 星酒店或公寓。房间有卫浴，通常含餐和打扫",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отели 4–5★, глэмпинги. Лучшие номера и сервис, часто есть бассейн или спа",
+      "zh": "4–5 星或豪华露营。房间和服务更好，常有泳池或水疗",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отели 3★",
+      "zh": "3 星酒店",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отели 4–5★",
+      "zh": "4–5 星酒店",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гостевые дома",
+      "zh": "民宿",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Коттеджи, виллы, шале",
+      "zh": "木屋、别墅、山地小屋",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Кемпинги и палатки",
+      "zh": "露营和帐篷",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Глэмпинги",
+      "zh": "豪华露营",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отели 1–2★ и хостелы",
+      "zh": "1–2 星酒店和青旅",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "SPA-отели",
+      "zh": "水疗酒店",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Уникальное жильё",
+      "zh": "特色住宿",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бутик-отели, замки, юрты, бунгало",
+      "zh": "精品酒店、城堡、蒙古包、平房",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Яхты и корабли",
+      "zh": "游艇和轮船",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Поезда",
+      "zh": "火车",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Без проживания",
+      "zh": "不含住宿",
+      "context": "list.comfort",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ваганьковское кладбище",
+      "zh": "瓦甘科沃公墓",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оружейная палата",
+      "zh": "兵器馆",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Аудиогиды Трипстера",
+      "zh": "Tripster 语音导览",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Новодевичье кладбище",
+      "zh": "新圣女公墓",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Останкинская башня",
+      "zh": "奥斯坦金诺电视塔",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Шоколадная фабрика",
+      "zh": "巧克力工厂",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Воробьёвы горы",
+      "zh": "麻雀山",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Храм Христа Спасителя",
+      "zh": "救世主大教堂",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мистические",
+      "zh": "神秘主题",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Москва-Сити",
+      "zh": "莫斯科城",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "«Красный Октябрь»",
+      "zh": "「红色十月」",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Булгаков",
+      "zh": "布尔加科夫",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Переделкино",
+      "zh": "佩列杰尔基诺",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Красная площадь",
+      "zh": "红场",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Патриаршие пруды",
+      "zh": "牧首池",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Большой театр",
+      "zh": "大剧院",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Москва Шехтеля",
+      "zh": "舍赫捷尔的莫斯科",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Московский Кремль",
+      "zh": "莫斯科克里姆林宫",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Обзорные",
+      "zh": "观光总览",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Метро",
+      "zh": "地铁",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Развлечения",
+      "zh": "娱乐",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Парк «Зарядье»",
+      "zh": "扎里亚季耶公园",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сталинские высотки",
+      "zh": "斯大林七姐妹",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "На автобусе",
+      "zh": "巴士",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Особняки",
+      "zh": "宅邸",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гастрономические",
+      "zh": "美食",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Третьяковская галерея",
+      "zh": "特列季亚科夫画廊",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Усадьба Кусково",
+      "zh": "库斯科沃庄园",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Монастыри, церкви, храмы",
+      "zh": "修道院、教堂",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "За городом и природа",
+      "zh": "近郊与自然",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Старый Арбат",
+      "zh": "老阿尔巴特",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Коломенское",
+      "zh": "科洛缅斯科耶",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Храм Вооруженных сил",
+      "zh": "武装力量主教堂",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Парк «Патриот»",
+      "zh": "「爱国者」公园",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "За городом",
+      "zh": "出城",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Квесты",
+      "zh": "实景解谜",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Фотосессии",
+      "zh": "跟拍",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "ВДНХ",
+      "zh": "国民经济成就展",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мастер-классы",
+      "zh": "手作课",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "ГУМ",
+      "zh": "古姆百货",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Пушкинский музей",
+      "zh": "普希金博物馆",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "По барам",
+      "zh": "酒吧",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Для детей",
+      "zh": "亲子",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Музей космонавтики",
+      "zh": "航天博物馆",
+      "context": "list.moscow_tags",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Что вас ожидает",
+      "zh": "行程亮点",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Что будет на маршруте",
+      "zh": "沿途会看到",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Организационные детали",
+      "zh": "组织细节",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Важно знать",
+      "zh": "重要须知",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Программа",
+      "zh": "行程安排",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Начало тура",
+      "zh": "多日游出发",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Начало экскурсии",
+      "zh": "行程开始",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Финиш",
+      "zh": "结束",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "День",
+      "zh": "第几天",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Похожие предложения",
+      "zh": "相似推荐",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Доступные даты",
+      "zh": "可订日期",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Выбрать дату",
+      "zh": "选择日期",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Выбрать время",
+      "zh": "选择时间",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Выбрать",
+      "zh": "选择",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Купить",
+      "zh": "购买",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Слушать аудиогид",
+      "zh": "听语音导览",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Послушать отрывок",
+      "zh": "试听片段",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Воспроизвести отрывок",
+      "zh": "播放片段",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Поставить на паузу",
+      "zh": "暂停",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Остановить",
+      "zh": "停止",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Задать вопрос",
+      "zh": "提问",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Остались вопросы?",
+      "zh": "还有问题？",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Напишите организатору и уточните всё важное до оплаты",
+      "zh": "先写信问组织方，付款前把关键问题问清",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "организатору можно в заказе до оплаты",
+      "zh": "可在订单里、付款前问组织方",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "можно до оплаты",
+      "zh": "付款前可以问",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Напишите мне",
+      "zh": "给我写信",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Как мы работаем с отзывами",
+      "zh": "我们如何处理评价",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Публикуем только настоящие отзывы",
+      "zh": "只发布真实评价",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отзывы",
+      "zh": "评价",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отзыв путешественника",
+      "zh": "旅客评价",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Есть ответ организатора",
+      "zh": "组织方已回复",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Автор аудиогида",
+      "zh": "语音导览作者",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Авторы аудиогида",
+      "zh": "语音导览作者",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Нет фото",
+      "zh": "暂无照片",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "фото",
+      "zh": "张照片",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Фото",
+      "zh": "照片",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "От организатора",
+      "zh": "组织方提供",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "От путешественников",
+      "zh": "旅客实拍",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Источник фото: организатор",
+      "zh": "图片来源：组织方",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Источник фото: коллекция Трипстер",
+      "zh": "图片来源：Tripster 图库",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Источник фото: коллекция Трипстер, фотосток",
+      "zh": "图片来源：Tripster 图库 / 图库",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Полезная информация",
+      "zh": "实用信息",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Включено в стоимость",
+      "zh": "费用包含",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Не включено в стоимость",
+      "zh": "费用不含",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Входит в стоимость тура",
+      "zh": "含在多日游价格内",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Дополнительные услуги",
+      "zh": "附加服务",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Условия бронирования",
+      "zh": "预订条件",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Проживание",
+      "zh": "住宿",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Примеры размещения на маршруте",
+      "zh": "沿途住宿示例",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Проживание не является частью покупки на платформе. По запросу организатор подскажет актуальные варианты и условия.",
+      "zh": "住宿不在平台成交范围内。需要的话组织方会告知当前可选方案和条件。",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гарантия лучшей цены: вернём разницу, если найдёте дешевле.",
+      "zh": "低价保障：若找到更便宜，我们退差价。",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Моментальное бронирование без ожидания ответа гида",
+      "zh": "即时确认，不用等向导回复",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Билеты не подлежат возврату",
+      "zh": "门票不可退",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Особые условия отмены в организационных деталях",
+      "zh": "特殊取消规则见组织细节",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бесплатная отмена за 48 часов",
+      "zh": "出发前 48 小时可免费取消",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Для предоплаты на Трипстере принимаем карты российских и иностранных банков",
+      "zh": "Tripster 预付接受俄罗斯和外国银行卡",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Задать вопросы организатору можно в заказе до предоплаты",
+      "zh": "预付前可在订单里问组织方",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Организатор есть в реестре туроператоров",
+      "zh": "组织方已登记为旅游运营商",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Стандартный билет",
+      "zh": "标准票",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Билет",
+      "zh": "门票",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Билеты",
+      "zh": "门票",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "недоступно",
+      "zh": "不可订",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "В валюте организатора",
+      "zh": "按组织方币种结算",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оплата проходит в валюте организатора, поэтому сумма в {currency} зависит от курса ЦБ РФ на день оплаты",
+      "zh": "按组织方币种付款，折合 {currency} 的金额以付款当日俄央行汇率为准",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "проживание не включено в стоимость",
+      "zh": "住宿不含在价格内",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Доступны с {startDate} по {endDate}",
+      "zh": "可订日期 {startDate} 至 {endDate}",
+      "context": "product.section",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Кондиционер",
+      "zh": "空调",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Туалет",
+      "zh": "卫生间",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Закрытый салон",
+      "zh": "封闭客舱",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Открытая палуба",
+      "zh": "开放甲板",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ресторан",
+      "zh": "餐厅",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бар",
+      "zh": "酒吧",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Пледы",
+      "zh": "毛毯",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Музыка",
+      "zh": "音乐",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Свободная посадка",
+      "zh": "自由入座",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Экскурсия",
+      "zh": "行程",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Аудиогид",
+      "zh": "语音导览",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Можно с животными",
+      "zh": "可带宠物",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Можно со своей едой",
+      "zh": "可自带食物",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Можно со своими напитками",
+      "zh": "可自带饮料",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Можно с коляской",
+      "zh": "可带婴儿车",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Можно с велосипедом",
+      "zh": "可带自行车",
+      "context": "product.amenities",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отель 1–2★",
+      "zh": "1–2 星酒店",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отель 3★",
+      "zh": "3 星酒店",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отель 4★",
+      "zh": "4 星酒店",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отель 5★",
+      "zh": "5 星酒店",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Апартаменты",
+      "zh": "公寓",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гостевой дом",
+      "zh": "民宿",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Спа-отель",
+      "zh": "水疗酒店",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Поезд",
+      "zh": "火车",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Коттедж и шале",
+      "zh": "木屋和山地小屋",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Глэмпинг",
+      "zh": "豪华露营",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Хостел",
+      "zh": "青旅",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Кемпинг и палатки",
+      "zh": "露营和帐篷",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бутик-отель",
+      "zh": "精品酒店",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Яхта",
+      "zh": "游艇",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Корабль",
+      "zh": "轮船",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Хаусбот",
+      "zh": "船屋",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Дом на колёсах",
+      "zh": "房车",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Юрта",
+      "zh": "蒙古包",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вилла",
+      "zh": "别墅",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бунгало",
+      "zh": "平房",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Замок",
+      "zh": "城堡",
+      "context": "product.stay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Проходит на русском. {otherLanguagesStr}",
+      "zh": "俄语讲解。{otherLanguagesStr}",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "По запросу — на {additionalLanguage}",
+      "zh": "可按要求改用{additionalLanguage}",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "языке",
+      "zh": "种语言",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "языках",
+      "zh": "种语言",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "иврите",
+      "zh": "希伯来语",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Русский",
+      "zh": "俄语",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Английский",
+      "zh": "英语",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бесплатно",
+      "zh": "免费",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Предоплата {onsitePayment}%",
+      "zh": "预付 {onsitePayment}%",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": ", остальное — организатору напрямую",
+      "zh": "，余款直接付给组织方",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "{percent}% скидка при заказе до {expiration}",
+      "zh": "在 {expiration} 前下单享 {percent}% 折扣",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Только для вас и вашей компании, {personsCountString}",
+      "zh": "只接待你和同行的人，{personsCountString}",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "С вами будут другие участники, группа до {personsCountString}",
+      "zh": "会和其他旅客一起，最多 {personsCountString}",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "за группу, 1–{maxPersons} чел.",
+      "zh": "每团价，1–{maxPersons} 人",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "за 1-{maxPersons} человек, независимо от числа участников",
+      "zh": "1–{maxPersons} 人同一价，与实际人数无关",
+      "context": "product.lang_pay",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Опыт: {travelerLevel}",
+      "zh": "经验：{travelerLevel}",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "менее часа назад",
+      "zh": "不到 1 小时前",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "час назад",
+      "zh": "1 小时前",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "часа назад",
+      "zh": "小时前",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "часов назад",
+      "zh": "小时前",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "назад",
+      "zh": "前",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "представитель агентства",
+      "zh": "旅行社代表",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "гид",
+      "zh": "向导",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "организатор",
+      "zh": "组织方",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "представитель команды гидов",
+      "zh": "向导团队代表",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Проверям фотографии. Занимает некоторое время",
+      "zh": "正在审核照片，需要一点时间",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Проверям фото. Занимает до суток",
+      "zh": "正在审核照片，最多一天",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Фото из отзыва",
+      "zh": "评价配图",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Написать отзыв",
+      "zh": "写评价",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Посмотреть отзыв",
+      "zh": "查看评价",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Написать отзыв можно только после посещения",
+      "zh": "只有参加过后才能写评价",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Написать отзыв можно только после посещения мероприятия",
+      "zh": "只有参加过后才能写评价",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "отзыв",
+      "zh": "条评价",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "отзыва",
+      "zh": "条评价",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "отзывов",
+      "zh": "条评价",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "оценки",
+      "zh": "条评分",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "оценок",
+      "zh": "条评分",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "балл",
+      "zh": "分",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "балла",
+      "zh": "分",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "баллов",
+      "zh": "分",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "отзыву",
+      "zh": "条评价",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "отзывам",
+      "zh": "条评价",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "посетил",
+      "zh": "人参加过",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "посетили",
+      "zh": "人参加过",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Наша миссия — знакомить путешественников с классными гидами. При работе с гидами мы, так же как и вы, ориентируемся на отзывы, поэтому нам важно, чтобы отзывы были настоящими.",
+      "zh": "我们的目标是帮旅客找到靠谱向导。选向导时我们和你一样看评价，所以评价必须真实。",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Написать отзыв можно только после посещения. Мы проверяем подлинность отзывов и прекращаем работать с гидами, которые пытаются накрутить свой рейтинг.",
+      "zh": "只有参加过后才能写评价。我们会核验真实性，刷分的向导会停合作。",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "У каждого путешественника на Трипстере есть право рассказать о своем опыте. А гид может ответить на отзыв и представить свою точку зрения.",
+      "zh": "每位旅客都可以写自己的体验。向导也可以回复，说明自己的看法。",
+      "context": "review",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Заказать",
+      "zh": "下单",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оформить заказ",
+      "zh": "提交订单",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оформить новый заказ",
+      "zh": "重新下单",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отправить",
+      "zh": "发送",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Изменение заказа",
+      "zh": "修改订单",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Участники",
+      "zh": "出行人",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Исключить",
+      "zh": "移除",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Пригласить",
+      "zh": "邀请",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Участник исключен",
+      "zh": "已移除该出行人",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Осталось слишком мало мест",
+      "zh": "剩余名额很少",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Выберите время",
+      "zh": "请选择时间",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Укажите количество участников",
+      "zh": "请填写人数",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Выберите хотя бы один платный тариф",
+      "zh": "请至少选一个收费票种",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Обязательное поле",
+      "zh": "必填",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Эта экскурсия максимум для",
+      "zh": "本行程最多",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Спросите гида",
+      "zh": "问问向导",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": ", можно ли провести ее для большего числа участников",
+      "zh": "能否接受更多人",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Уменьшите количество участников.",
+      "zh": "请减少人数。",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "На это время доступно",
+      "zh": "该时段还可订",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Если вас больше, выберите другое время или дату.",
+      "zh": "人更多的话，请换一个时间或日期。",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Если вас больше, выберите другой день.",
+      "zh": "人更多的话，请换一天。",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Можно заказать за",
+      "zh": "最晚需提前",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "до начала",
+      "zh": "出发前下单",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Стоимость",
+      "zh": "价格",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Стоимость:",
+      "zh": "价格：",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Итого",
+      "zh": "合计",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Промокод",
+      "zh": "优惠码",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Промокод активирован, скидка",
+      "zh": "优惠码已生效，折扣",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Дата",
+      "zh": "日期",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Время",
+      "zh": "时间",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Дата и время:",
+      "zh": "日期和时间：",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Изменить",
+      "zh": "修改",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сохранить",
+      "zh": "保存",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Текст сообщения",
+      "zh": "留言内容",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Переписка по заказу",
+      "zh": "订单沟通",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Переписка и детали заказа всегда под рукой",
+      "zh": "订单沟通和细节随时可看",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Спросить гида",
+      "zh": "问向导",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оплатить",
+      "zh": "付款",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Внести предоплату",
+      "zh": "支付预付",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "предоплату",
+      "zh": "预付",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "и сервисный сбор",
+      "zh": "和服务费",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Способы оплаты",
+      "zh": "支付方式",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Картой РФ",
+      "zh": "俄罗斯银行卡",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Зарубежной картой",
+      "zh": "外国银行卡",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оплата заказа",
+      "zh": "支付订单",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Покупка завершится после оплаты",
+      "zh": "付款后才算买成",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оплатите билет",
+      "zh": "请支付门票",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Для завершения бронирования оплатите",
+      "zh": "要完成预订，请支付",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Заказ подтвержден и ожидает оплаты",
+      "zh": "订单已确认，待付款",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оплатите в течение",
+      "zh": "请在时限内付款",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Заказ отменен",
+      "zh": "订单已取消",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Заказ отменён",
+      "zh": "订单已取消",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Забронировано",
+      "zh": "已预订",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отменен",
+      "zh": "已取消",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ожидает оплаты",
+      "zh": "待付款",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Завершён",
+      "zh": "已完成",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ждет подтверждения",
+      "zh": "待确认",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ждет подтверждения организатора",
+      "zh": "待组织方确认",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Номер заказа:",
+      "zh": "订单号：",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Уточнить детали",
+      "zh": "补充细节",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Укажите недостающие детали, чтобы мы рассчитали для вас стоимость заказа",
+      "zh": "请补全信息，我们好计算订单价格",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Открыть памятку",
+      "zh": "打开出行须知",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Открыть билет",
+      "zh": "打开票据",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Скачать билет",
+      "zh": "下载票据",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Предъявите билет на входе.",
+      "zh": "入场请出示票据。",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Распечатывать билет не обязательно, можете показать его с телефона.",
+      "zh": "不必打印，手机出示即可。",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Политика возврата",
+      "zh": "退款政策",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бесплатная отмена заказа за",
+      "zh": "免费取消须提前",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Контакты станут доступны после внесения предоплаты",
+      "zh": "预付后才能看到联系方式",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Контакты станут доступны после подтверждения и предоплаты",
+      "zh": "确认并预付后才能看到联系方式",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Посмотрите контакты и место встречи",
+      "zh": "查看联系方式和集合点",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Организационные детали и место встречи указаны в",
+      "zh": "组织细节和集合点见",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Нет связи с Трипстером",
+      "zh": "连不上 Tripster",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Проверьте, подключены ли вы к интернету.",
+      "zh": "请检查网络是否通。",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ошибка на сервере",
+      "zh": "服务器出错",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Что-то пошло не так",
+      "zh": "出了点问题",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Произошла техническая ошибка, попробуйте снова или",
+      "zh": "系统出错，请再试一次，或",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Прочитано",
+      "zh": "已读",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Не прочитано",
+      "zh": "未读",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Прочитано организатором",
+      "zh": "组织方已读",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Прочитано путешественником",
+      "zh": "旅客已读",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Прочитано организатором и путешественником",
+      "zh": "双方已读",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "подтвердил",
+      "zh": "已确认",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "изменил",
+      "zh": "已修改",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Имя",
+      "zh": "名字",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Имя на табличке:",
+      "zh": "接机牌姓名：",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Телефон",
+      "zh": "电话",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Телефон:",
+      "zh": "电话：",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Языки",
+      "zh": "语言",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "О себе",
+      "zh": "自我介绍",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Соцсети",
+      "zh": "社交账号",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Инфо о гиде",
+      "zh": "向导资料",
+      "context": "order",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Заказ отменен путешественником",
+      "zh": "旅客已取消订单",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Заказ отменен организатором",
+      "zh": "组织方已取消订单",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Заказ отменен автоматически",
+      "zh": "系统已自动取消订单",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Заказ отменен поддержкой Трипстера",
+      "zh": "Tripster 客服已取消订单",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Время на оплату истекло. Заказ отменен автоматически.",
+      "zh": "付款超时，订单已自动取消。",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Аудиогид куплен",
+      "zh": "语音导览已购买",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оплатите аудиогид",
+      "zh": "请支付语音导览",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "После оплаты аудиогид появится в приложении Tripster и будет доступен в течение 1 года",
+      "zh": "付款后语音导览会出现在 Tripster App，有效期 1 年",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "После покупки вернуть аудиогид не получится",
+      "zh": "语音导览购买后不可退",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оплата проходит в рублях РФ, но можно использовать карту в любой валюте — сумма автоматически пересчитается по курсу вашего банка",
+      "zh": "按卢布收款，外币卡会按你的银行汇率换算",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "На Трипстере вы оплачиваете",
+      "zh": "在 Tripster 你支付的是",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Если карта в другой валюте, ваш банк конвертирует сумму по своему курсу",
+      "zh": "若卡是外币，银行会按自己的汇率换算",
+      "context": "order.status",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Регистрация",
+      "zh": "注册",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Код подтверждения",
+      "zh": "验证码",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Войти по паролю",
+      "zh": "用密码登录",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Почта",
+      "zh": "邮箱",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Заполните поле",
+      "zh": "请填写",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Имя и фамилия: Заполните поле",
+      "zh": "姓名：请填写",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Телефон: Заполните поле",
+      "zh": "电话：请填写",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Произошла ошибка",
+      "zh": "出错了",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Не удалось отправить код. Попробуйте еще раз.",
+      "zh": "验证码没发出去，请再试一次。",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Время входа истекло",
+      "zh": "登录已超时",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мы сохранили ваши данные — попробуйте войти ещё раз",
+      "zh": "已保存你填的信息，请重新登录",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отправили в СМС на",
+      "zh": "已发短信到",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отправили в письме на",
+      "zh": "已发邮件到",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "конфиденциальность",
+      "zh": "隐私",
+      "context": "auth",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Путешественникам",
+      "zh": "给旅客",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Безопасность платежей",
+      "zh": "支付安全",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гидам",
+      "zh": "给向导",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Стать гидом",
+      "zh": "成为向导",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Партнерам",
+      "zh": "给合作方",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Стать партнёром",
+      "zh": "成为合作方",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Кабинет партнёра",
+      "zh": "合作方后台",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Документация",
+      "zh": "文档",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вакансии",
+      "zh": "招聘",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Юридические документы",
+      "zh": "法律文件",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Частные гиды",
+      "zh": "私人向导",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Достопримечательности",
+      "zh": "景点",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Отзывы на экскурсии",
+      "zh": "行程评价",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Организаторы туров и экскурсий",
+      "zh": "多日游与行程组织方",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Организаторы туров",
+      "zh": "多日游组织方",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "из других городов России",
+      "zh": "从俄罗斯其他城市出发",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Туры в городах",
+      "zh": "各城市多日游",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Обзоры необычных мест по всему миру, новинки и скидки в наших соцсетях",
+      "zh": "全球小众地方、新品和折扣，关注我们社交账号",
+      "context": "footer",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Индивидуальную экскурсию",
+      "zh": "包团行程",
+      "context": "about",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "групповой экскурсии",
+      "zh": "拼团行程",
+      "context": "about",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мини-группы",
+      "zh": "小团",
+      "context": "about",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оформите заказ на сайте:",
+      "zh": "在网站上下单：",
+      "context": "about",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Предоплата на сайте",
+      "zh": "在网站预付",
+      "context": "about",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оплата гиду",
+      "zh": "付给向导",
+      "context": "about",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "картой российского банка",
+      "zh": "俄罗斯银行卡",
+      "context": "about",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "картой зарубежного банка",
+      "zh": "外国银行卡",
+      "context": "about",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "политике возврата.",
+      "zh": "退款政策。",
+      "context": "about",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "понедельник",
+      "zh": "周一",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "вторник",
+      "zh": "周二",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "среда",
+      "zh": "周三",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "среду",
+      "zh": "周三",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "четверг",
+      "zh": "周四",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "пятница",
+      "zh": "周五",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "пятницу",
+      "zh": "周五",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "суббота",
+      "zh": "周六",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "субботу",
+      "zh": "周六",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "воскресенье",
+      "zh": "周日",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Понедельник",
+      "zh": "周一",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вторник",
+      "zh": "周二",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Среда",
+      "zh": "周三",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Четверг",
+      "zh": "周四",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Пятница",
+      "zh": "周五",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Суббота",
+      "zh": "周六",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Воскресенье",
+      "zh": "周日",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "пн",
+      "zh": "一",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "вт",
+      "zh": "二",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "ср",
+      "zh": "三",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "чт",
+      "zh": "四",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "пт",
+      "zh": "五",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "сб",
+      "zh": "六",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "вс",
+      "zh": "日",
+      "context": "time.weekday",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "января",
+      "zh": "1月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "февраля",
+      "zh": "2月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "марта",
+      "zh": "3月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "апреля",
+      "zh": "4月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "мая",
+      "zh": "5月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "июня",
+      "zh": "6月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "июля",
+      "zh": "7月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "августа",
+      "zh": "8月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "сентября",
+      "zh": "9月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "октября",
+      "zh": "10月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "ноября",
+      "zh": "11月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "декабря",
+      "zh": "12月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "январь",
+      "zh": "1月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "февраль",
+      "zh": "2月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "март",
+      "zh": "3月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "апрель",
+      "zh": "4月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "май",
+      "zh": "5月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "июнь",
+      "zh": "6月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "июль",
+      "zh": "7月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "август",
+      "zh": "8月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "сентябрь",
+      "zh": "9月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "октябрь",
+      "zh": "10月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "ноябрь",
+      "zh": "11月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "декабрь",
+      "zh": "12月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Январь",
+      "zh": "1月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Февраль",
+      "zh": "2月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Март",
+      "zh": "3月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Апрель",
+      "zh": "4月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Май",
+      "zh": "5月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Июнь",
+      "zh": "6月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Июль",
+      "zh": "7月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Август",
+      "zh": "8月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сентябрь",
+      "zh": "9月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Октябрь",
+      "zh": "10月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ноябрь",
+      "zh": "11月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Декабрь",
+      "zh": "12月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Января",
+      "zh": "1月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Февраля",
+      "zh": "2月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Марта",
+      "zh": "3月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Апреля",
+      "zh": "4月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мая",
+      "zh": "5月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Июня",
+      "zh": "6月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Июля",
+      "zh": "7月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Августа",
+      "zh": "8月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сентября",
+      "zh": "9月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Октября",
+      "zh": "10月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ноября",
+      "zh": "11月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Декабря",
+      "zh": "12月",
+      "context": "time.month",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Недавно",
+      "zh": "最近",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "месяц",
+      "zh": "个月",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "месяца",
+      "zh": "个月",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "месяцев",
+      "zh": "个月",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "год",
+      "zh": "年",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "года",
+      "zh": "年",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "лет",
+      "zh": "年",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "день",
+      "zh": "天",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "дня",
+      "zh": "天",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "дней",
+      "zh": "天",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "час",
+      "zh": "小时",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "часа",
+      "zh": "小时",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "часов",
+      "zh": "小时",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "минута",
+      "zh": "分钟",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "минуты",
+      "zh": "分钟",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "минут",
+      "zh": "分钟",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "место",
+      "zh": "个名额",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "места",
+      "zh": "个名额",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "мест",
+      "zh": "个名额",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "предложение",
+      "zh": "个产品",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "предложения",
+      "zh": "个产品",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "предложений",
+      "zh": "个产品",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "тур",
+      "zh": "条多日游",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "тура",
+      "zh": "条多日游",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "туров",
+      "zh": "条多日游",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "экскурсия",
+      "zh": "条行程",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "экскурсии",
+      "zh": "条行程",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "экскурсий",
+      "zh": "条行程",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "город",
+      "zh": "个城市",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "города",
+      "zh": "个城市",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "городах",
+      "zh": "个城市",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "г.",
+      "zh": "年",
+      "context": "time.relative",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Россия",
+      "zh": "俄罗斯",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Москва",
+      "zh": "莫斯科",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Санкт-Петербург",
+      "zh": "圣彼得堡",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Казань",
+      "zh": "喀山",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сочи",
+      "zh": "索契",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Калининград",
+      "zh": "加里宁格勒",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Владивосток",
+      "zh": "符拉迪沃斯托克",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Нижний Новгород",
+      "zh": "下诺夫哥罗德",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Минск",
+      "zh": "明斯克",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Кисловодск",
+      "zh": "基斯洛沃茨克",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Махачкала",
+      "zh": "马哈奇卡拉",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мурманск",
+      "zh": "摩尔曼斯克",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Иркутск",
+      "zh": "伊尔库茨克",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ялта",
+      "zh": "雅尔塔",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Псков",
+      "zh": "普斯科夫",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Великий Новгород",
+      "zh": "大诺夫哥罗德",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сергиев Посад",
+      "zh": "谢尔吉耶夫镇",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Суздаль",
+      "zh": "苏兹达尔",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Владимир",
+      "zh": "弗拉基米尔",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ярославль",
+      "zh": "雅罗斯拉夫尔",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Коломна",
+      "zh": "科洛姆纳",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Тверь",
+      "zh": "特维尔",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Рязань",
+      "zh": "梁赞",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Муром",
+      "zh": "穆罗姆",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Выборг",
+      "zh": "维堡",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Екатеринбург",
+      "zh": "叶卡捷琳堡",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Новосибирск",
+      "zh": "新西伯利亚",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Краснодар",
+      "zh": "克拉斯诺达尔",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ростов-на-Дону",
+      "zh": "顿河畔罗斯托夫",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Владикавказ",
+      "zh": "弗拉季高加索",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Нячанг",
+      "zh": "芽庄",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Пхукет",
+      "zh": "普吉",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Паттайя",
+      "zh": "芭提雅",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бали",
+      "zh": "巴厘岛",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Дубай",
+      "zh": "迪拜",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Стамбул",
+      "zh": "伊斯坦布尔",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Анталья",
+      "zh": "安塔利亚",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Тбилиси",
+      "zh": "第比利斯",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Батуми",
+      "zh": "巴统",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ереван",
+      "zh": "埃里温",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Баку",
+      "zh": "巴库",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Астана",
+      "zh": "阿斯塔纳",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Алматы",
+      "zh": "阿拉木图",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Прага",
+      "zh": "布拉格",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Париж",
+      "zh": "巴黎",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Рим",
+      "zh": "罗马",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Милан",
+      "zh": "米兰",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Венеция",
+      "zh": "威尼斯",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Флоренция",
+      "zh": "佛罗伦萨",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Барселона",
+      "zh": "巴塞罗那",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вена",
+      "zh": "维也纳",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Будапешт",
+      "zh": "布达佩斯",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Амстердам",
+      "zh": "阿姆斯特丹",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Берлин",
+      "zh": "柏林",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мюнхен",
+      "zh": "慕尼黑",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Лондон",
+      "zh": "伦敦",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Нью-Йорк",
+      "zh": "纽约",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бангкок",
+      "zh": "曼谷",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Хургада",
+      "zh": "赫尔格达",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Шарм-эль-Шейх",
+      "zh": "沙姆沙伊赫",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Пекин",
+      "zh": "北京",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Шанхай",
+      "zh": "上海",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гонконг",
+      "zh": "香港",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Вьетнам",
+      "zh": "越南",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Шри-Ланка",
+      "zh": "斯里兰卡",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Индонезия",
+      "zh": "印度尼西亚",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Египет",
+      "zh": "埃及",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Карелия",
+      "zh": "卡累利阿",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Таиланд",
+      "zh": "泰国",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Турция",
+      "zh": "土耳其",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Китай",
+      "zh": "中国",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Япония",
+      "zh": "日本",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Грузия",
+      "zh": "格鲁吉亚",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Греция",
+      "zh": "希腊",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Марокко",
+      "zh": "摩洛哥",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Болгария",
+      "zh": "保加利亚",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Португалия",
+      "zh": "葡萄牙",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Казбеги",
+      "zh": "卡兹别吉",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Абхазия",
+      "zh": "阿布哈兹",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Домбай",
+      "zh": "栋巴伊",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Люцерн",
+      "zh": "卢塞恩",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ассизи",
+      "zh": "阿西西",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Пиза",
+      "zh": "比萨",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Босфор",
+      "zh": "博斯普鲁斯",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гегард",
+      "zh": "格加尔德",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гарни",
+      "zh": "加尔尼",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Татев",
+      "zh": "塔特夫",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Джилы-Су",
+      "zh": "吉雷苏",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Даргавс",
+      "zh": "达尔加夫斯",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Форты",
+      "zh": "堡垒",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Винные",
+      "zh": "葡萄酒",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Рыбалка",
+      "zh": "钓鱼",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ущелья",
+      "zh": "峡谷",
+      "context": "geo.city",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Израиль",
+      "zh": "以色列",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Австрия",
+      "zh": "奥地利",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Албания",
+      "zh": "阿尔巴尼亚",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Алжир",
+      "zh": "阿尔及利亚",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Андорра",
+      "zh": "安道尔",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Армения",
+      "zh": "亚美尼亚",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Бельгия",
+      "zh": "比利时",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Босния",
+      "zh": "波黑",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Венгрия",
+      "zh": "匈牙利",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Гана",
+      "zh": "加纳",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Дания",
+      "zh": "丹麦",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Индия",
+      "zh": "印度",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ирак",
+      "zh": "伊拉克",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Иран",
+      "zh": "伊朗",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Испания",
+      "zh": "西班牙",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Италия",
+      "zh": "意大利",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Камерун",
+      "zh": "喀麦隆",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Канада",
+      "zh": "加拿大",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Катар",
+      "zh": "卡塔尔",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Кения",
+      "zh": "肯尼亚",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Кипр",
+      "zh": "塞浦路斯",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Куба",
+      "zh": "古巴",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Кувейт",
+      "zh": "科威特",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Лаос",
+      "zh": "老挝",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Латвия",
+      "zh": "拉脱维亚",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ливан",
+      "zh": "黎巴嫩",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Ливия",
+      "zh": "利比亚",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Литва",
+      "zh": "立陶宛",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мальта",
+      "zh": "马耳他",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мексика",
+      "zh": "墨西哥",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Молдова",
+      "zh": "摩尔多瓦",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Монако",
+      "zh": "摩纳哥",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Мьянма",
+      "zh": "缅甸",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Непал",
+      "zh": "尼泊尔",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Нигерия",
+      "zh": "尼日利亚",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Оман",
+      "zh": "阿曼",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Панама",
+      "zh": "巴拿马",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Перу",
+      "zh": "秘鲁",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Польша",
+      "zh": "波兰",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Румыния",
+      "zh": "罗马尼亚",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Сербия",
+      "zh": "塞尔维亚",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Тайвань",
+      "zh": "台湾",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Тунис",
+      "zh": "突尼斯",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Украина",
+      "zh": "乌克兰",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "Россия",
+      "zh": "俄罗斯",
+      "context": "geo.country",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "экскурсия",
+      "zh": "行程",
+      "context": "generic.product",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "экскурсии",
+      "zh": "行程",
+      "context": "generic.product",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "экскурсию",
+      "zh": "行程",
+      "context": "generic.product",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "экскурсий",
+      "zh": "条行程",
+      "context": "generic.count",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "отзыв",
+      "zh": "评价",
+      "context": "review.noun",
+      "match": "exact",
+      "note": "本站几乎都是评价，不是退款"
+    },
+    {
+      "src": "отзыва",
+      "zh": "条评价",
+      "context": "review.count",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "отзывов",
+      "zh": "条评价",
+      "context": "review.count",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "гид",
+      "zh": "向导",
+      "context": "role",
+      "match": "exact",
+      "note": ""
+    },
+    {
+      "src": "организатор",
+      "zh": "组织方",
+      "context": "role",
+      "match": "exact",
+      "note": ""
+    }
+  ]
+}

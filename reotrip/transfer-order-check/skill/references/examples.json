@@ -1,0 +1,81 @@
+[
+  {
+    "order": {
+      "id": "ex-wrong-airport",
+      "product_name": "成田机场接机",
+      "travel_date": "2026-08-20",
+      "time_slot": "11:00",
+      "start_poi_name": "成田国际机场",
+      "end_poi_name": "东京站",
+      "customer_note": "航班 NH812"
+    },
+    "hub": {
+      "kind": "airport",
+      "id": "NH812",
+      "direction": "arrival",
+      "hub_name": "羽田机场",
+      "hub_code": "HND",
+      "scheduled_time": "2026-08-20T10:10:00+09:00",
+      "other_end_code": "TPE"
+    }
+  },
+  {
+    "order": {
+      "id": "ex-reversed",
+      "product_name": "羽田送机 东京市区到机场",
+      "travel_date": "2026-08-20",
+      "time_slot": "18:00",
+      "start_poi_name": "新宿",
+      "end_poi_name": "羽田机场",
+      "customer_note": "JL001"
+    },
+    "hub": {
+      "kind": "airport",
+      "id": "JL001",
+      "direction": "arrival",
+      "hub_name": "羽田机场",
+      "hub_code": "HND",
+      "scheduled_time": "2026-08-20T17:40:00+09:00",
+      "other_end_code": "JFK"
+    }
+  },
+  {
+    "order": {
+      "id": "ex-too-late",
+      "product_name": "成田送机",
+      "travel_date": "2026-08-21",
+      "time_slot": "08:30",
+      "start_poi_name": "浅草",
+      "end_poi_name": "成田机场",
+      "customer_note": "CX501"
+    },
+    "hub": {
+      "kind": "airport",
+      "id": "CX501",
+      "direction": "departure",
+      "hub_name": "成田国际机场",
+      "hub_code": "NRT",
+      "scheduled_time": "2026-08-21T10:00:00+09:00",
+      "other_end_code": "HKG"
+    }
+  },
+  {
+    "order": {
+      "id": "ex-port-ok",
+      "product_name": "横滨港接港",
+      "travel_date": "2026-08-16",
+      "time_slot": "10:00",
+      "start_poi_name": "横滨大栈桥",
+      "end_poi_name": "横滨市区酒店",
+      "customer_note": "船名 飛鳥Ⅲ"
+    },
+    "hub": {
+      "kind": "port",
+      "id": "飛鳥Ⅲ",
+      "direction": "arrival",
+      "hub_name": "大さん橋",
+      "hub_code": "YOK-OSANBASHI",
+      "scheduled_time": "2026-08-16T09:00:00+09:00"
+    }
+  }
+]
