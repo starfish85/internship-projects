@@ -1,0 +1,90 @@
+{
+  "yellow": [],
+  "all_need": [
+    {
+      "name": "东京市区酒店-东京站",
+      "emb": [
+        "4个套餐option内时间设置要修正"
+      ],
+      "opts": [
+        {
+          "opt": "7座去程",
+          "target": 784,
+          "yellow": false
+        },
+        {
+          "opt": "10座去程",
+          "target": 1176,
+          "yellow": false
+        },
+        {
+          "opt": "7座去程",
+          "target": 784,
+          "yellow": false
+        },
+        {
+          "opt": "10座去程",
+          "target": 1176,
+          "yellow": false
+        }
+      ]
+    },
+    {
+      "name": "东京市区酒店-东京港",
+      "emb": [
+        "预订所需信息未设置"
+      ],
+      "opts": [
+        {
+          "opt": "7座去程",
+          "target": 784,
+          "yellow": false
+        },
+        {
+          "opt": "10座去程",
+          "target": 1176,
+          "yellow": false
+        },
+        {
+          "opt": "7座去程",
+          "target": 784,
+          "yellow": false
+        },
+        {
+          "opt": "10座去程",
+          "target": 1176,
+          "yellow": false
+        }
+      ]
+    },
+    {
+      "name": "大阪市区酒店-大阪站",
+      "emb": [
+        "套餐未设置时间",
+        "大阪站和新大阪站不是同一个站点，文案调整成仅面向大阪站。"
+      ],
+      "opts": [
+        {
+          "opt": "7座去程",
+          "target": 784,
+          "yellow": false
+        },
+        {
+          "opt": "10座去程",
+          "target": 1176,
+          "yellow": false
+        },
+        {
+          "opt": "7座去程",
+          "target": 784,
+          "yellow": false
+        },
+        {
+          "opt": "10座去程",
+          "target": 1176,
+          "yellow": false
+        }
+      ]
+    }
+  ]
+}

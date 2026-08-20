@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://reotrip.local/schemas/supplier-cost-daily.schema.json",
+  "title": "supplier_cost_daily",
+  "description": "Shared date-keyed supplier cost cache. One row represents one supplier product or variant on one customer travel date.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "source",
+    "sourceProductId",
+    "variantKey",
+    "productType",
+    "siteScope",
+    "travelDate",
+    "costCurrency",
+    "availabilityStatus",
+    "costAsOf"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "source": {
+      "enum": ["KLOOK", "HBX"]
+    },
+    "sourceProductId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "variantKey": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Klook package/sku/time key or HBX terminal/direction/tier key. Use default when there is only one cost."
+    },
+    "productId": {
+      "type": "string"
+    },
+    "productType": {
+      "enum": ["klook_charter", "hbx_port_transfer"]
+    },
+    "siteScope": {
+      "enum": ["shared", "reotaxis", "reotransfer"]
+    },
+    "serviceType": {
+      "enum": ["private", "shared", "unknown"],
+      "description": "HBX masterServiceType normalized from supplier availability (PRVT/SHRD/unknown). Non-private or missing semantics are fail-closed for port transfers."
+    },
+    "travelDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "costAmount": {
+      "type": ["number", "null"],
+      "exclusiveMinimum": 0
+    },
+    "costCurrency": {
+      "enum": ["HKD", "CNY", "USD"]
+    },
+    "availabilityStatus": {
+      "enum": ["available", "sellable", "unavailable", "fetch_failed", "on_request"]
+    },
+    "inventory": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "fetchedAt": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "costAsOf": {
+      "type": "string",
+      "format": "date"
+    },
+    "sourceWindowStart": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "sourceWindowEnd": {
+      "type": ["string", "null"],
+      "format": "date"
+    },
+    "rateKeyRef": {
+      "type": ["string", "null"],
+      "description": "Private storage reference only. Do not expose raw HBX rateKey."
+    },
+    "rateKeyHash": {
+      "type": ["string", "null"],
+      "pattern": "^(sha256:)?[A-Fa-f0-9]{32,64}$"
+    },
+    "packageName": {
+      "type": ["string", "null"],
+      "description": "Supplier package label selected for this travel-date cost."
+    },
+    "skuName": {
+      "type": ["string", "null"],
+      "description": "Supplier SKU/rate label selected for this travel-date cost."
+    },
+    "pricingUnitSemantic": {
+      "enum": ["per_vehicle", "per_person", "add_on", "unknown"],
+      "description": "Conservative unit classification of the selected supplier package/SKU. Legacy or ambiguous rows remain unknown."
+    },
+    "pricingUnitEvidence": {
+      "type": ["string", "null"],
+      "description": "Supplier unit fields and selected labels used for the semantic classification."
+    },
+    "semanticChange": {
+      "enum": ["changed", "unchanged", "unknown"],
+      "description": "Comparison with the previous semantic-bearing row for the same source product and travel date."
+    },
+    "previousPricingUnitSemantic": {
+      "enum": ["per_vehicle", "per_person", "add_on", "unknown"],
+      "description": "Prior semantic classification; unknown when the preceding row was legacy or ambiguous."
+    },
+    "rawFingerprint": {
+      "type": ["string", "null"],
+      "description": "Stable hash of the supplier response used for drift detection."
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "availabilityStatus": {
+            "enum": ["available", "sellable"]
+          }
+        }
+      },
+      "then": {
+        "required": ["costAmount"]
+      }
+    }
+  ]
+}

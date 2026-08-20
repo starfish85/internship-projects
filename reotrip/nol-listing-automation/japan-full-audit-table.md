@@ -1,0 +1,62 @@
+# 日本接送全检 N=56
+
+PASS=49 FAIL=7 未检查=0
+
+| # | 状态 | 产品 | 读回摘要 | draft |
+|---|------|------|----------|-------|
+| 01 | PASS | 东京市区酒店-东京迪士尼 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 462b9cef |
+| 02 | PASS | 大阪市区酒店-大阪环球影城 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 4b49b221 |
+| 03 | PASS | 东京市区酒店-东京站 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 09714a30 |
+| 04 | FAIL | 东京市区酒店-东京港 | FAIL:ptEN/faq=true/cancel=true/P=true/T=true/opts=4/resv=true | 0de15895 |
+| 05 | PASS | 大阪市区酒店-大阪站 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | c36c1517 |
+| 06 | PASS | 大阪市区酒店-大阪港 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | c9bedab3 |
+| 07 | PASS | 东京市区-横滨港 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 9f7d6122 |
+| 08 | PASS | 东京市区-羽田机场（HND） | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | b6e560d4 |
+| 09 | PASS | 东京市区-成田机场(NRT) | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 60557c54 |
+| 10 | PASS | 大阪市区-关西机场(KIX) | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 7c220325 |
+| 11 | PASS | 大阪市区-大阪国际机场（伊丹机场）(ITM) | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 88b3861b |
+| 12 | PASS | 东京市区酒店-哈利波特 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 9dcef924 |
+| 13 | PASS | 东京市区酒店-晴空塔 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | c765fa88 |
+| 14 | PASS | 京都市区酒店-京都站 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 1653d003 |
+| 15 | PASS | 京都市区酒店-铃鹿市区 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 4cef60c6 |
+| 16 | PASS | 大阪市区酒店-京都市区酒店 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 9cef6c16 |
+| 17 | PASS | 京都市区酒店-大阪港 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 37f88cba |
+| 18 | FAIL | 大阪市区酒店-铃鹿市区 | FAIL:copy/faq=true/cancel=true/P=true/T=true/opts=4/resv=true | 677cd988 |
+| 19 | PASS | 羽田机场-横滨港 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 18bceb6c |
+| 20 | PASS | 成田机场-横滨港 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 05505404 |
+| 21 | PASS | 横滨市区酒店-横滨港 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 885023cc |
+| 22 | PASS | 箱根市区酒店-羽田机场 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | ac4d3d20 |
+| 23 | PASS | 箱根市区酒店-成田机场 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | d4d8e295 |
+| 24 | PASS | 东京站-羽田机场 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 72d8f629 |
+| 25 | PASS | 东京站-成田机场 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | f14da9cb |
+| 26 | PASS | 京都市区酒店-关西国际机场 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | d1fc3cef |
+| 27 | PASS | 奈良市区酒店-关西国际机场 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 346a18c1 |
+| 28 | PASS | 神户市区酒店-关西国际机场 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 731d947c |
+| 29 | FAIL | 新千岁机场(CTS)-登别 | FAIL:faq/faq=false/cancel=true/P=true/T=true/opts=4/resv=true | 0b27766d |
+| 30 | PASS | 名古屋市区-高山 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 5fdd2c69 |
+| 31 | PASS | 名古屋市区-吉卜力公园 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 6c4cc498 |
+| 32 | FAIL | 中部国际机场(NGO)-吉卜力公园 | FAIL:faq,cancel/faq=false/cancel=false/P=true/T=true/opts=4/resv=true | 49b0490f |
+| 33 | PASS | 中部国际机场(NGO)-名古屋市区酒店 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 2e97dd5e |
+| 34 | PASS | 札幌市区-二世谷 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | adaa42d7 |
+| 35 | FAIL | 新千岁机场(CTS)-洞爷湖 | FAIL:faq/faq=false/cancel=true/P=true/T=true/opts=4/resv=true | 1bead8e3 |
+| 36 | FAIL | 新千岁机场(CTS)-二世谷/留寿都 | 草稿页404 | adaa42d7 |
+| 37 | PASS | 新千岁机场(CTS)-札幌酒店 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 03e00112 |
+| 38 | PASS | 东京站-东京港 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | e9ec9392 |
+| 39 | PASS | 横滨邮轮港-东京站 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 25b95664 |
+| 40 | PASS | 横滨港-新横滨站 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | ef40fdfb |
+| 41 | PASS | 羽田机场(HND)-东京迪士尼 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 379afe4b |
+| 42 | PASS | 成田机场(NRT)-羽田机场(HND) | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 05b45a8b |
+| 43 | PASS | 大阪港-关西机场(KIX) | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | ed8ff28b |
+| 44 | PASS | 名古屋-铃鹿赛道/乐高乐园 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 8efa307e |
+| 45 | PASS | 东京-长野 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 2649bc67 |
+| 46 | PASS | 成田机场(NRT)-东京迪士尼 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | e8905e3c |
+| 47 | PASS | 伊丹机场(ITM)-京都市区 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 60ab1ff5 |
+| 48 | PASS | 伊丹机场(ITM)-奈良市区 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 0ba3e1eb |
+| 49 | PASS | 伊丹机场(ITM)-神户市区 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 6a87eb91 |
+| 50 | PASS | 新千岁机场(CTS)-富良野 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | c59fa273 |
+| 51 | PASS | 新千岁机场(CTS)-小樽 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 202f97f8 |
+| 52 | PASS | 新千岁机场(CTS)-支笏湖 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 25115e30 |
+| 53 | FAIL | 新千岁机场(CTS)-星野度假村 | FAIL:faq/faq=false/cancel=true/P=true/T=true/opts=4/resv=true | 834c3f3f |
+| 54 | PASS | 新千岁机场(CTS)-羊蹄山 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | d6769ab3 |
+| 55 | PASS | 札幌市区-留寿都 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | 7b52009f |
+| 56 | PASS | 神户港-京都市区 | PASS/opts=4/P✓T✓/faq✓/cancel✓/resv✓ | bfc7e5b9 |

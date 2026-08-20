@@ -1,0 +1,19 @@
+{
+  "updated": "2026-08-12",
+  "excelProducts": 56,
+  "priceTimesPass": {
+    "main8": ["HND", "NRT", "KIX", "ITM", "东京站", "东京港", "大阪站", "东京-横滨港"],
+    "batch33_minus_mismatch": 32,
+    "added": ["迪士尼", "USJ", "大阪港酒店", "新横滨站", "长野", "CTS登别", "CTS富良野", "NGO名古屋", "NGO吉卜力"],
+    "note": "唯一伪FAIL是CTS登别误挂富良野草稿，分开后两者均PASS"
+  },
+  "faqCancelOpts": {
+    "knownDrafts": 43,
+    "status": "all pass FAQ+cancel+opts4"
+  },
+  "remainingGaps": [
+    "部分北海道/支线若列表还有未采id产品未全覆盖",
+    "文案线路类型未对全部产品再扫一遍",
+    "重复草稿（同路线多id）未做合并清理"
+  ]
+}

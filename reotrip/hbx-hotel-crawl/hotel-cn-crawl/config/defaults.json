@@ -1,0 +1,43 @@
+{
+  "site": {
+    "baseUrl": "https://app-bedsonline.gta-travel.cn",
+    "loginUrl": "https://app-bedsonline.gta-travel.cn/auth/login?redirectTo=%2Fmain%3Fmkt%3DCN",
+    "mainUrl": "https://app-bedsonline.gta-travel.cn/main?mkt=CN",
+    "market": "CN",
+    "locales": ["zh-CN", "en"]
+  },
+  "chrome": {
+    "channel": "chrome",
+    "remoteDebuggingPort": 9222,
+    "userDataDir": "browser-profile/chrome-debug",
+    "cdpUrl": "http://127.0.0.1:9222"
+  },
+  "storage": {
+    "externalRoot": "/Volumes/CodexArchive/hbx-hotel-crawl",
+    "externalBatches": "/Volumes/CodexArchive/hbx-hotel-crawl/batches",
+    "externalMonitor": "/Volumes/CodexArchive/hbx-hotel-crawl/monitor",
+    "externalState": "/Volumes/CodexArchive/hbx-hotel-crawl/state",
+    "localData": "data",
+    "localReports": "reports",
+    "localLogs": "artifacts/logs"
+  },
+  "crawl": {
+    "countryName": "中国",
+    "countryCode": "CN",
+    "targetScaleHint": 410000,
+    "batchSizeHotels": 200,
+    "batchSizeCities": 5,
+    "requestDelayMs": 800,
+    "pageLoadTimeoutMs": 120000,
+    "calendarDaysAhead": 90,
+    "calendarWindowDays": 7
+  },
+  "diskMonitor": {
+    "volumeName": "CodexArchive",
+    "tempWarnC": 60,
+    "tempCriticalC": 70,
+    "spaceWarnPct": 80,
+    "spaceCriticalPct": 90,
+    "cronIntervalMinutes": 30
+  }
+}

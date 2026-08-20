@@ -1,0 +1,62 @@
+{
+  "dataRoot": "/Volumes/CodexArchive/hbx-hotel-crawl/hotel-pipeline",
+  "localMirror": "hotel-data",
+  "disk": {
+    "volumeName": "CodexArchive",
+    "tempWarnC": 55,
+    "tempPauseC": 62,
+    "tempCriticalC": 68,
+    "checkEveryNWrites": 20,
+    "pauseSecondsOnWarn": 120,
+    "pauseSecondsOnHot": 300
+  },
+  "login": {
+    "preferChromeSavedPassword": true,
+    "waitUserMs": 90000,
+    "tokenNote": "darwinToken JWT TTL≈8h (iat→exp); SPA legacySession expirationHours=4; always re-read localStorage; refresh before exp",
+    "tokenRefreshMinRemainingMin": 20
+  },
+  "priorityDestinations": [
+    { "code": "PEK", "nameZh": "北京", "nameEn": "Beijing", "tier": 1, "ftsQueriesZh": ["北京", "北京市", "朝阳", "海淀", "东城", "西城", "丰台", "通州", "大兴", "昌平", "顺义", "石景山", "房山", "怀柔", "密云", "延庆", "平谷"], "ftsQueriesEn": ["Beijing", "Chaoyang Beijing", "Haidian Beijing"] },
+    { "code": "PVG", "nameZh": "上海", "nameEn": "Shanghai", "tier": 1, "ftsQueriesZh": ["上海", "上海市", "浦东", "浦西", "静安", "黄浦", "徐汇", "长宁", "虹口", "杨浦", "闵行", "宝山", "嘉定", "松江", "青浦", "奉贤", "金山", "崇明"], "ftsQueriesEn": ["Shanghai", "Pudong Shanghai", "Puxi Shanghai"] },
+    { "code": "CN1", "nameZh": "广州市 - 广东", "nameEn": "Guangzhou - Guangdong", "tier": 1, "ftsQueriesZh": ["广州", "广州市", "天河", "越秀", "海珠", "荔湾", "白云", "番禺", "黄埔", "花都", "南沙", "从化", "增城"], "ftsQueriesEn": ["Guangzhou", "Tianhe Guangzhou"] },
+    { "code": "SZX", "nameZh": "深圳市 - 广东", "nameEn": "Shenzhen - Guangdong", "tier": 1, "ftsQueriesZh": ["深圳", "深圳市", "福田", "罗湖", "南山", "宝安", "龙岗", "龙华", "盐田", "坪山", "光明"], "ftsQueriesEn": ["Shenzhen", "Futian Shenzhen", "Nanshan Shenzhen"] }
+  ],
+  "phases": {
+    "list": {
+      "enabled": true,
+      "ftsSize": 2000,
+      "requestDelayMs": 1200,
+      "destPauseMs": 2500,
+      "mergeExisting": true,
+      "brandQueriesZh": ["如家", "汉庭", "全季", "亚朵", "锦江", "希尔顿", "万豪", "假日"],
+      "mode": "gentle-xhr"
+    },
+    "product": {
+      "enabled": true,
+      "requestDelayMs": 600,
+      "batchSize": 20,
+      "destPauseMs": 800,
+      "sessionRefreshEveryBatches": 5,
+      "downloadImages": true,
+      "maxImagesPerHotel": 30,
+      "mode": "optimal-xhr"
+    },
+    "calendar": {
+      "enabled": true,
+      "probeFirst": true,
+      "mode": "fullRoom",
+      "daysAhead": 90,
+      "dayStep": 1,
+      "hotelBatch": 8,
+      "windowDays": 1,
+      "occupancy": { "rooms": 1, "adults": 2, "children": 0 },
+      "requestDelayMs": 1000,
+      "note": "fullRoom = every date × room × board via 3.0/hotels; not min-price calendar"
+    }
+  },
+  "excel": {
+    "productSheetName": "酒店产品信息",
+    "calendarSheetPrefix": "日历价_"
+  }
+}

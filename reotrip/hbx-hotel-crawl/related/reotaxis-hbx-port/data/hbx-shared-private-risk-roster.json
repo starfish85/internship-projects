@@ -1,0 +1,21 @@
+{
+  "schemaVersion": "hbx-shared-private-risk-roster/v1",
+  "source": "HBX-A1-A8-ACCEPTANCE-HARNESS-0716",
+  "sha256": "e3ef911371527d24e594b6248548f6226a98b69807a4d4775eeeaae1925709c2",
+  "ids": [
+    "10447",
+    "10473",
+    "10512",
+    "10518",
+    "10638",
+    "10798",
+    "10810",
+    "10867",
+    "277",
+    "650",
+    "857",
+    "905",
+    "950"
+  ],
+  "notes": "Canonical 13 HBX shared/private risk terminal ids from Card 182/200. Includes 950 and deliberately excludes stale id 10429."
+}

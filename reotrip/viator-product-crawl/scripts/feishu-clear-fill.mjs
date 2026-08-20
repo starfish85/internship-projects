@@ -1,0 +1,21 @@
+import { chromium } from 'playwright';
+const CDP = 'http://127.0.0.1:9222';
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+const browser = await chromium.connectOverCDP(CDP);
+const page = browser.contexts().flatMap((c) => c.pages()).find((p) => (p.url() || '').includes('feishu.cn'));
+await page.bringToFront();
+await page.locator('.sheet-tabs').getByText('门票产品', { exact: true }).first().click();
+await sleep(600);
+await page.keyboard.press('Escape');
+const g = await page.evaluate(() => {
+  const c = document.querySelector('canvas.faster-single-canvas');
+  const b = c.getBoundingClientRect();
+  return { x: b.x, y: b.y };
+});
+await page.mouse.click(g.x + 18, g.y + 10);
+await sleep(250);
+await page.getByText('清除格式', { exact: true }).first().click();
+await sleep(800);
+await page.screenshot({ path: 'artifacts/screenshots/feishu-tickets-nofill.png' });
+console.log('cleared fill');
+process.exit(0);

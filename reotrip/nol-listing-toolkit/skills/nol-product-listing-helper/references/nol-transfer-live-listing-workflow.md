@@ -4,6 +4,8 @@ Use this reference when the user asks to continue or complete a live NOL partner
 
 ## Safety Rules
 
+- **Verify-Before-Next (user 2026-08-06 JinMao):** never advance to the next major step or tell the user a step is done until the **DOM acceptance check** for that step passes. Especially: times only count via **时间段 compact line** (`28/08:00/21:30` China); **`times {count:0}` + done = forbidden**. After setting times, **re-open each option** and re-read. See `SKILL.md` § MANDATORY Verify-Before-Next.
+- **No cross-step URL skip:** advance registration only via **`保存然后`** / enabled stepper (user: 不能跳转 url). Same-option-list `goto` for listClean is OK; jumping properties→option via raw URL is not.
 - Do not click `批准請求`, `승인 요청`, or submit-for-review controls unless the user explicitly asks for submission in the current turn.
 - If the user states a standing ban such as “坚决不允许点击批准请求”, obey for the entire session.
 - Treat `批准請求` as a hard-stop danger button. When `臨時存儲` and `批准請求` are adjacent in the bottom bar, select the `臨時存儲` button by exact text or verified DOM candidate only; do not use broad bottom-coordinate clicks.
@@ -37,7 +39,8 @@ Collect or infer these before starting:
   - Spring Festival price for `2.1-2.15`
 - Sales period. Current flow uses `2026-08-01 ~ 2027-07-31` unless the user or task gives another range.
 - Time slots. Current flow uses `08:00 ~ 21:30`, every `30` minutes.
-- If the source table or screenshot specifies a different pickup window, override the default exactly. The Tokyo Disney Resort hotel-transfer run used `07:00 ~ 21:30`, every `30` minutes.
+- If the source table or screenshot specifies a different pickup window, override the default exactly. The Tokyo Disney Resort hotel-transfer run used `07:00 ~ 21:30`, every `30` minutes. China scenic default remains **`08:00 ~ 21:30` → 28 slots**.
+- **Excel 售价列:** when the sheet already shows sell prices (including formula results), use those numbers — **do not recompute** `成本/0.8`. **Never harmonize** 去程=返程 or 5座=7座 (e.g. spring 7 去 **510** / 7 返 **500**).
 - Japanese station/port screenshots can show repeated `7座去程` / `10座去程` rows. When the product name and four-row layout clearly imply two directions, infer the second repeated pair as return. For Osaka city hotels ↔ **Osaka Station (`오사카역` only)**, the live prices were `784` HKD for 7-seat and `1176` HKD for 10-seat in both directions. Do not market 新大阪/`신오사카역` on the Osaka Station product (user Excel 红字 2026-08).
 
 ## Direct Execution Recipe
@@ -58,21 +61,21 @@ When the user says to continue/list the product and provides a table screenshot 
    - Upload the three copied files and set the first/clearest destination image as representative.
 3. Create or resume the correct NOL draft:
    - If the page is an existing product and the product name/internal name matches the active route, resume it.
-   - Otherwise start `新產品註冊`, enter the Korean product name, select transportation, and begin product creation.
+   - Otherwise start `新產品註冊`/`新产品注册`, enter the Korean product name, select transportation, and begin product creation. Confirm button may be 简繁混写 **`开始創建产品`**.
 4. Fill product attributes, introduction, product rules, and reservation information using the templates below.
-5. Create four options in order. Save each option card before creating the next.
-6. In every option form, set the full normal sales period and normal price before saving the option.
-7. After all four option cards are visible, set holiday calendar overrides from the saved cards only. Save each holiday segment separately.
-8. Click exact `臨時存儲` and stop. Do not click `批准請求`.
+5. Create four options in order. Save each option card before creating the next (**临时保存→下一个** when editing).
+6. In every option form, set the full normal sales period and normal price before saving the option; times: China **08:00–21:30×28** — **分钟 30 读回** + **结束 21:30 读回** + **生成/一代** + **弹窗「保存」**（用户杜莎：*这里要点保存*）then form compact gate. Multi-edit: **goto list between options**. See `SKILL.md` §40.
+7. After all four option cards are visible, set holiday calendar overrides from the saved cards only. **listClean + reopen calendar for every segment** (Oct/Feb/May × 4 options). Verify cell container text `日\n价`.
+8. Click exact `臨時存儲`/`临时保存` and stop. Do not click `批准請求`/`提交审核`.
 
 For the Beijing price table style shown in recent tasks, map prices by row:
 
-| Row | Option | Normal | Labor/National Day | Spring Festival |
+| Row | Price-type name (Korean) | Normal | Labor/National Day | Spring Festival |
 | --- | --- | ---: | ---: | ---: |
-| `5座去程` | `5seat go` | source row col 1 | source row col 2 | source row col 3 |
-| `7座去程` | `7seat go` | source row col 1 | source row col 2 | source row col 3 |
-| `5座返程` | `5seat return` | source row col 1 | source row col 2 | source row col 3 |
-| `7座返程` | `7seat return` | source row col 1 | source row col 2 | source row col 3 |
+| `5座去程` | `5인승 가는` | source row col 1 | source row col 2 | source row col 3 |
+| `7座去程` | `7인승 가는` | source row col 1 | source row col 2 | source row col 3 |
+| `5座返程` | `5인승 오는` | source row col 1 | source row col 2 | source row col 3 |
+| `7座返程` | `7인승 오는` | source row col 1 | source row col 2 | source row col 3 |
 
 If the screenshot is the common Beijing template values, use:
 
@@ -201,12 +204,14 @@ Descriptions:
 7인승 차량: 최대 3개까지 적재 가능
 ```
 
-Price types:
+Price types (**名称必须韩文**；英文 `5seat go` 等已废弃):
 
-- Option 1: `5seat go` / display description `5인승 차량`
-- Option 2: `7seat go` / display description `7인승 차량`
-- Option 3: `5seat return` / display description `5인승 차량`
-- Option 4: `7seat return` / display description `7인승 차량`
+| Option | 价格类型名称 | 说明 |
+| --- | --- | --- |
+| 1 去程 5 | `5인승 가는` | `5인승 차량` |
+| 2 去程 7 | `7인승 가는` | `7인승 차량` |
+| 3 返程 5 | `5인승 오는` | `5인승 차량` |
+| 4 返程 7 | `7인승 오는` | `7인승 차량` |
 
 For every price type:
 
@@ -215,7 +220,7 @@ For every price type:
 - Click the actual square checkboxes, not only the adjacent text. Verify both boxes show selected/blue check state before clicking the popup `완료`.
 - Min/max purchase quantity in the price type: `1 ~ 10`.
 - Confirm the option row visibly shows the representative and required-purchase labels. If the labels are absent, reopen the price type popup and check them again.
-- The live UI may show a length warning such as `(12/10)` for `5seat return` or `7seat return`; it accepted and saved these names in the Tian Tan run. If a future UI blocks saving, shorten consistently to `5seat rtn` or `7seat rtn`.
+- **Do not** fall back to English short codes if the UI warns about length — Korean `N인승 가는/오는` is the required form (audit 2026-08).
 - Option min/max purchase quantity: `1 ~ 10`.
 - Option sale switch: on.
 
@@ -229,25 +234,27 @@ For every price type:
 
 ## Time Slots
 
-For each option, open `設定時間`:
+Full China SOP: **`SKILL.md` §40**. For each option:
 
-1. Choose `반복 시간 추가`.
-2. Set first start time to `08:00`.
-3. Set last start time to `21:30`.
-4. Set interval to `30 分鐘`.
-5. Click `生成`.
-6. Expected valid slots: 28.
-7. If there are 29 delete buttons, delete the extra blank `选择` row, then verify 28 valid times remain.
-8. Click the popup-level `節省`/save button.
+1. Clean list → 修改选项 → wait `#name`.
+2. `设置时间` or ⋯→编辑; delete old rows.
+3. Exact button `重复 小时 添加` / `반복 시간 추가`.
+4. Start `08:00` (or Japan `07:00`) — **read back** (hour left / minute right).
+5. End **`21:30`** — **read back**; reject `00:30` / `21:00` (杜莎).
+6. Interval **分钟 30** — **read back** (用户：*分钟都没选到*).
+7. Click `生成`/`一代` only when enabled. Expected: 28 (China) or 30 (Japan).
+8. If 29 delete rows, remove blank; verify unique times.
+9. **★ Popup bottom `保存`/`節省`** (用户：*这里要点保存* — not form temp-save alone).
+10. Form **时间段** compact = 28/08:00/21:30 (or Japan 30/07:00/21:30).
+11. **临时保存 → 下一个**; then **re-open all four cards** and re-read compact.
 
 Hard rule:
 
-- The time setting does not take effect merely by setting start/end/interval. Click `生成` first, verify the list has exactly 28 generated times, and only then click `節省`. If you click save before generate, the option may keep an empty or stale time list.
-- After selecting interval `30`, the dropdown may close automatically. If it closes, do not click the old dropdown-confirm position because that can hit the modal save button too early. Go directly to `生成`. If the dropdown remains open, click its `確定`, then click `生成`.
-- If the UI is stubborn, set start time by opening the first time field, pressing ArrowDown eight times to reach `08:00`, pressing Enter, and confirming the dropdown; set last time to hour `21`, minute `30`, confirm, then generate.
-- If the source uses `07:00`, set the first time to `07:00` and verify 30 generated slots through `21:30`.
-- If selecting `21:30` or interval `30` closes the dropdown automatically, do not click the old dropdown `確定` position. In live use this can hit the modal save/form area and close the popup before generation.
-- If the time modal closes before the generated list is visible, treat time slots as not verified. Reopen the option edit/time modal and repair before final temporary save when possible. If you preserve the draft anyway, explicitly report that time slots remain unverified/incomplete.
+- Setting start/end/interval alone does nothing. Generate is required; **modal save after generate is also required** (杜莎: modal list 28 then close without save → compact 0).
+- **JinMao/杜莎 accident:** `times { count: 0 }` + `done` is forbidden. Only form compact after modal save counts.
+- Interval/end dropdown may auto-close; never click stale `確定` into modal save before generate.
+- If modal closes before the generated list is visible, times are unverified — repair before claiming done.
+- If the source uses `07:00`, set first time to `07:00` and verify 30 slots through `21:30`.
 
 The valid slot list is:
 
@@ -287,7 +294,9 @@ Set and save one holiday segment at a time:
 
 Do not set October, February, and May in one unsaved popup. In live use, selecting February after October caused October dates to inherit the February price. If this happens, immediately reselect only the wrong dates in single-date mode, enter the correct price, verify visible cells, and save before continuing.
 
-If the user reminds `先保存再设置2月的`, the correct action is: finish the current October popup with `완료`, wait until the option list/calendar closes or save state settles, then reopen `판매 캘린더 관리` for February.
+If the user reminds `先保存再设置2月的`, the correct action is: finish the current October popup with `완료`/`完成`, wait until the option list/calendar closes or save state settles, then reopen `판매 캘린더 관리`/`销售日历管理` for February.
+
+**Top Shanghai / JinMao / 简体 live (2026-08-06):** before **every** segment (every option × Oct/Feb/May), return to a clean option list (`goto` list URL), then open calendar again. Skipping listClean mid-batch caused `caption=null` and failed later segments. **JinMao:** the 4th `销售日历管理` often sits at the bottom of the viewport — `scrollIntoView` + **mouse.click** or caption stays null. Verify prices via cell container text (`1\n510`), not the day button alone.
 
 Holiday windows for the current one-year period:
 
@@ -313,6 +322,10 @@ Always use the user's current screenshot or source table when it differs from th
 - For Tokyo city hotel ↔ Tokyo Disney Resort, Tokyo Station, Tokyo Port, or similar 7-seat/10-seat transfer listings, load `tokyo-disney-transfer-live-notes.md` before filling copy/options. It includes the no-voucher/WhatsApp wording, booking-field sentence, 7-seat and 10-seat luggage capacities, `07:00 ~ 21:30` time-slot rule, prices/patterns for station/port examples, and browser recovery notes from the live runs.
 - For Osaka city hotel ↔ Osaka Port, load `osaka-port-live-notes.md` before filling copy/options. It contains the exact Osaka Port field values, user-supplied image list, ship-name/boarding wording, `784`/`1176` HKD prices, return-row inference, 30-slot time-popup verification, and final temporary-save checklist.
 - For Tokyo city hotel ↔ Haneda Airport (HND) or other Japanese airport transfers, load `haneda-airport-live-notes.md`. It contains `70`/`105` HKD pricing for Haneda, flight reservation ids, Korean airport copy, Japan no-holiday-markup rule, option price-type checkbox selectors, `7070` double-fill trap, regulations-stepper bypass via option URL, CDP/Playwright fallback when Codex browser is unavailable, and absolute no-approval stop.
+- For **Shanghai city hotel ↔ Oriental Pearl**, load `shanghai-oriental-pearl-transfer.md` (Excel **510/500**, include `onSave(values)`, China times 28).
+- For **Shanghai city hotel ↔ Top of Shanghai Observatory**, load **`shanghai-top-of-shanghai-transfer.md`** (draft `7805362f-…`, create button 混写, times list-per-option, holiday listClean-per-segment, cell container price read).
+- For **Shanghai city hotel ↔ JinMao Tower 88F**, load **`shanghai-jinmao-tower-transfer.md`** (draft `6be1a050-…`, same 510/500, **double-check times after save**, 4th calendar **scroll+mouse**, resv **`label[for]`**, never claim done on `count:0`).
+- For **Shanghai city hotel ↔ Madame Tussauds**, load **`shanghai-tussauds-transfer.md`** (draft `4f20f9a8-…`; **no search-box name**; **3 thumbs only**; resv summary gate; times **分钟30 + 弹窗保存**; holiday **510/500**).
 
 ## Save And Final Stop
 

@@ -1,0 +1,820 @@
+{
+  "meta": {
+    "source": "HBX",
+    "productType": "hbx_port_transfer",
+    "sourceEndpoint": "/client-btb-avail-api/2.0/transfer/availability",
+    "snapshotPath": "data/hbx-port-cost-snapshot.jsonl",
+    "snapshotSchema": "supplier_cost_daily_jsonl_v1",
+    "terminalCount": 24,
+    "matchedTerminalCount": 24,
+    "eligibleTerminalCount": 24,
+    "totalTerminalCount": 147,
+    "selectedTerminalCodes": [
+      "9980",
+      "879",
+      "884",
+      "897",
+      "753",
+      "278",
+      "10512",
+      "10609",
+      "752",
+      "10591",
+      "10872",
+      "880",
+      "10446",
+      "935",
+      "395",
+      "459",
+      "871",
+      "751",
+      "9975",
+      "10427",
+      "1015",
+      "10681",
+      "10447",
+      "10829"
+    ],
+    "selectedRefreshReasons": {
+      "force_full": 24
+    },
+    "shardStart": 0,
+    "shardSize": "all",
+    "nextShardStart": null,
+    "hasNextShard": false,
+    "incrementalMaxAgeHours": 48,
+    "forceFullRefresh": true,
+    "expectedRowsPerTerminal": 360,
+    "rollingWindowDays": 90,
+    "windowStart": "2026-07-22",
+    "windowEnd": "2026-10-19",
+    "directions": [
+      "arrival_port_to_hotel",
+      "departure_hotel_to_port"
+    ],
+    "expectedProbes": 4320,
+    "probesCompleted": 4320,
+    "expectedRows": 8640,
+    "rowsWritten": 8640,
+    "snapshotRows": 8640,
+    "availableRows": 8560,
+    "missingRows": 80,
+    "fetchFailedProbes": 0,
+    "rowCoveragePct": 100,
+    "availableCoveragePct": 99.0741,
+    "guardHeldRows": 80,
+    "concurrency": 2,
+    "rateMs": 1000,
+    "timeoutMs": 20000,
+    "durationMs": 5053657
+  },
+  "probeStatusCounts": {
+    "unavailable": 40,
+    "available": 4280
+  },
+  "missingByTerminal": [
+    {
+      "terminalCode": "10681",
+      "missingCount": 24,
+      "fetchFailed": 0,
+      "unavailable": 24,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-23",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-23",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-23",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-23",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "9980",
+      "missingCount": 8,
+      "fetchFailed": 0,
+      "unavailable": 8,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-23",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-23",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-23",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-23",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "1015",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "10427",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "10609",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "10829",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "10872",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "751",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "879",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "880",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "884",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "897",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "9975",
+      "missingCount": 4,
+      "fetchFailed": 0,
+      "unavailable": 4,
+      "examples": [
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-07-22",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "459",
+      "missingCount": 2,
+      "fetchFailed": 0,
+      "unavailable": 2,
+      "examples": [
+        {
+          "travelDate": "2026-10-10",
+          "variantKey": "departure_hotel_to_port:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-10-10",
+          "variantKey": "departure_hotel_to_port:value",
+          "status": "unavailable"
+        }
+      ]
+    },
+    {
+      "terminalCode": "871",
+      "missingCount": 2,
+      "fetchFailed": 0,
+      "unavailable": 2,
+      "examples": [
+        {
+          "travelDate": "2026-08-18",
+          "variantKey": "arrival_port_to_hotel:premium",
+          "status": "unavailable"
+        },
+        {
+          "travelDate": "2026-08-18",
+          "variantKey": "arrival_port_to_hotel:value",
+          "status": "unavailable"
+        }
+      ]
+    }
+  ],
+  "failureSamples": [],
+  "guardHeldExamples": [
+    {
+      "sourceProductId": "1015",
+      "travelDate": "2026-07-22",
+      "variantKey": "arrival_port_to_hotel:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "1015",
+      "travelDate": "2026-07-22",
+      "variantKey": "arrival_port_to_hotel:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "1015",
+      "travelDate": "2026-07-22",
+      "variantKey": "departure_hotel_to_port:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "1015",
+      "travelDate": "2026-07-22",
+      "variantKey": "departure_hotel_to_port:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10427",
+      "travelDate": "2026-07-22",
+      "variantKey": "arrival_port_to_hotel:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10427",
+      "travelDate": "2026-07-22",
+      "variantKey": "arrival_port_to_hotel:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10427",
+      "travelDate": "2026-07-22",
+      "variantKey": "departure_hotel_to_port:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10427",
+      "travelDate": "2026-07-22",
+      "variantKey": "departure_hotel_to_port:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10609",
+      "travelDate": "2026-07-22",
+      "variantKey": "arrival_port_to_hotel:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10609",
+      "travelDate": "2026-07-22",
+      "variantKey": "arrival_port_to_hotel:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10609",
+      "travelDate": "2026-07-22",
+      "variantKey": "departure_hotel_to_port:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10609",
+      "travelDate": "2026-07-22",
+      "variantKey": "departure_hotel_to_port:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-22",
+      "variantKey": "arrival_port_to_hotel:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-22",
+      "variantKey": "arrival_port_to_hotel:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-22",
+      "variantKey": "departure_hotel_to_port:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-22",
+      "variantKey": "departure_hotel_to_port:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-23",
+      "variantKey": "arrival_port_to_hotel:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-23",
+      "variantKey": "arrival_port_to_hotel:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-23",
+      "variantKey": "departure_hotel_to_port:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-23",
+      "variantKey": "departure_hotel_to_port:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-26",
+      "variantKey": "arrival_port_to_hotel:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-26",
+      "variantKey": "arrival_port_to_hotel:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-26",
+      "variantKey": "departure_hotel_to_port:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-26",
+      "variantKey": "departure_hotel_to_port:value",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    },
+    {
+      "sourceProductId": "10681",
+      "travelDate": "2026-07-27",
+      "variantKey": "arrival_port_to_hotel:premium",
+      "reasons": [
+        "missing_sell_price",
+        "missing_cost",
+        "supplier_unavailable",
+        "semantic_unknown"
+      ],
+      "availabilityStatus": "unavailable"
+    }
+  ]
+}

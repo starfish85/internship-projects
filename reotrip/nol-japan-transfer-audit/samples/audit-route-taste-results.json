@@ -1,0 +1,514 @@
+{
+  "N": 56,
+  "pass": 56,
+  "fail": 0,
+  "skip": 0,
+  "failList": [],
+  "results": [
+    {
+      "n": 1,
+      "name": "东京市区酒店-东京迪士尼",
+      "id": "462b9cef-c378-45d7-afd5-9b44f364b378",
+      "type": "hotel_attraction",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 2,
+      "name": "大阪市区酒店-大阪环球影城",
+      "id": "4b49b221-a013-4420-9def-ffddfc09a310",
+      "type": "hotel_attraction",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 3,
+      "name": "东京市区酒店-东京站",
+      "id": "09714a30-dc94-4378-a238-ed8a37a5d234",
+      "type": "hotel_station",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 4,
+      "name": "东京市区酒店-东京港",
+      "id": "0de15895-41de-48f8-8653-5c47a947c301",
+      "type": "hotel_port",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 5,
+      "name": "大阪市区酒店-大阪站",
+      "id": "c36c1517-89cc-4524-bfdb-fce8df1c2e5c",
+      "type": "hotel_station",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 6,
+      "name": "大阪市区酒店-大阪港",
+      "id": "c9bedab3-78bc-4cca-9c0c-aaff0bda84fd",
+      "type": "hotel_port",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 7,
+      "name": "东京市区-横滨港",
+      "id": "9f7d6122-c413-42be-89a8-d08ec789d32c",
+      "type": "hotel_port",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 8,
+      "name": "东京市区-羽田机场（HND）",
+      "id": "b6e560d4-d4d3-4726-b08c-f5623499895a",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 9,
+      "name": "东京市区-成田机场(NRT)",
+      "id": "60557c54-6c11-4b0e-9e04-df85c0d3e78b",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 10,
+      "name": "大阪市区-关西机场(KIX)",
+      "id": "7c220325-8783-4f58-a1dc-5fbfc4137a5e",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 11,
+      "name": "大阪市区-大阪国际机场（伊丹机场）(ITM)",
+      "id": "88b3861b-e907-487b-bacb-5abcfc1a7988",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 12,
+      "name": "东京市区酒店-哈利波特",
+      "id": "9dcef924-c7d9-41ea-8fe0-27a31dfe1064",
+      "type": "hotel_attraction",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 13,
+      "name": "东京市区酒店-晴空塔",
+      "id": "c765fa88-d2ff-48f1-a26f-37398bf1d6ec",
+      "type": "hotel_attraction",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 14,
+      "name": "京都市区酒店-京都站",
+      "id": "1653d003-b7ab-4056-9ec0-88870d305673",
+      "type": "hotel_station",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 15,
+      "name": "京都市区酒店-铃鹿市区",
+      "id": "4cef60c6-3d5a-4e65-9caa-134513e698e0",
+      "type": "hotel_hotel",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 16,
+      "name": "大阪市区酒店-京都市区酒店",
+      "id": "9cef6c16-064d-4cff-be6d-9a6cc81e14eb",
+      "type": "hotel_hotel",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 17,
+      "name": "京都市区酒店-大阪港",
+      "id": "37f88cba-d087-4d48-9aa3-63f59ed734e1",
+      "type": "hotel_port",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 18,
+      "name": "大阪市区酒店-铃鹿市区",
+      "id": "677cd988-2727-4128-a0ab-57e73048d598",
+      "type": "hotel_hotel",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 19,
+      "name": "羽田机场-横滨港",
+      "id": "18bceb6c-bb0c-49fb-b686-b06d3b575981",
+      "type": "airport_port",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 20,
+      "name": "成田机场-横滨港",
+      "id": "05505404-28cf-4de9-b108-e178d5a68a97",
+      "type": "airport_port",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 21,
+      "name": "横滨市区酒店-横滨港",
+      "id": "885023cc-f518-433f-916c-ca2a056df00f",
+      "type": "hotel_port",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 22,
+      "name": "箱根市区酒店-羽田机场",
+      "id": "ac4d3d20-7484-459a-a157-cfd80ee2c459",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 23,
+      "name": "箱根市区酒店-成田机场",
+      "id": "d4d8e295-0e96-4428-9dd3-b213b258050c",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 24,
+      "name": "东京站-羽田机场",
+      "id": "72d8f629-815d-4d9c-a02f-e3cc1afe5fa7",
+      "type": "station_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 25,
+      "name": "东京站-成田机场",
+      "id": "f14da9cb-2c98-42c3-b238-86aeef6d9bcb",
+      "type": "station_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 26,
+      "name": "京都市区酒店-关西国际机场",
+      "id": "d1fc3cef-bcab-4f1e-a838-cdeeda3ec906",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 27,
+      "name": "奈良市区酒店-关西国际机场",
+      "id": "346a18c1-f6bd-4238-923e-64310bdbc507",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 28,
+      "name": "神户市区酒店-关西国际机场",
+      "id": "731d947c-670a-441c-8b37-eeaa06832786",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 29,
+      "name": "新千岁机场(CTS)-登别",
+      "id": "0b27766d-3dd0-4231-b373-ae43b36764b3",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 30,
+      "name": "名古屋市区-高山",
+      "id": "5fdd2c69-48c4-4ad2-ab04-4cfc7a483dc5",
+      "type": "hotel_hotel",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 31,
+      "name": "名古屋市区-吉卜力公园",
+      "id": "6c4cc498-0f0c-4f84-a728-5465838bbdd1",
+      "type": "hotel_attraction",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 32,
+      "name": "中部国际机场(NGO)-吉卜力公园",
+      "id": "49b0490f-f778-44b9-9a29-eff3d094899a",
+      "type": "airport_attraction",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 33,
+      "name": "中部国际机场(NGO)-名古屋市区酒店",
+      "id": "2e97dd5e-d7a7-480f-8f31-87cde2cd79a4",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 34,
+      "name": "札幌市区-二世谷",
+      "id": "adaa42d7-30df-49a5-82ce-5d1586f5dc76",
+      "type": "hotel_hotel",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 35,
+      "name": "新千岁机场(CTS)-洞爷湖",
+      "id": "1bead8e3-b9a2-4ab0-935c-3ec1d3edfd2f",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 36,
+      "name": "新千岁机场(CTS)-二世谷/留寿都",
+      "id": "c5a6feaf-7ded-4318-967e-c70062b5cb6e",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 37,
+      "name": "新千岁机场(CTS)-札幌酒店",
+      "id": "03e00112-c021-43b3-841b-474475941681",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 38,
+      "name": "东京站-东京港",
+      "id": "e9ec9392-1362-427f-baeb-c39fbf48cf30",
+      "type": "port_station",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 39,
+      "name": "横滨邮轮港-东京站",
+      "id": "25b95664-cc7b-4bd1-b5fd-68779d80086b",
+      "type": "port_station",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 40,
+      "name": "横滨港-新横滨站",
+      "id": "ef40fdfb-63bd-4b71-a711-c564df5cc49f",
+      "type": "port_station",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 41,
+      "name": "羽田机场(HND)-东京迪士尼",
+      "id": "379afe4b-59e6-450e-beb7-17a5f238990b",
+      "type": "airport_attraction",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 42,
+      "name": "成田机场(NRT)-羽田机场(HND)",
+      "id": "05b45a8b-954d-43b6-92dd-20046f4616d1",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 43,
+      "name": "大阪港-关西机场(KIX)",
+      "id": "ed8ff28b-4a7d-4cba-b904-995d7177cf70",
+      "type": "airport_port",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 44,
+      "name": "名古屋-铃鹿赛道/乐高乐园",
+      "id": "8efa307e-1768-48cf-9da7-1f9b7b576e7c",
+      "type": "hotel_attraction",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 45,
+      "name": "东京-长野",
+      "id": "2649bc67-21d8-47e6-b359-274b9ed2daff",
+      "type": "hotel_hotel",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 46,
+      "name": "成田机场(NRT)-东京迪士尼",
+      "id": "e8905e3c-69ae-4ef8-81fc-d5d369260e1d",
+      "type": "airport_attraction",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 47,
+      "name": "伊丹机场(ITM)-京都市区",
+      "id": "60ab1ff5-f98c-42cd-9c2b-2de59255c462",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 48,
+      "name": "伊丹机场(ITM)-奈良市区",
+      "id": "0ba3e1eb-b17e-4815-94ba-32acd12e7bfe",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 49,
+      "name": "伊丹机场(ITM)-神户市区",
+      "id": "6a87eb91-569a-4d49-abce-aa29bb6f1a0a",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 50,
+      "name": "新千岁机场(CTS)-富良野",
+      "id": "c59fa273-049c-4983-88c1-2ccbaf3d507b",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 51,
+      "name": "新千岁机场(CTS)-小樽",
+      "id": "202f97f8-4709-4bc1-a5b0-6c98939ce564",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 52,
+      "name": "新千岁机场(CTS)-支笏湖",
+      "id": "25115e30-238e-495c-ba3f-abee96dbeb7e",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 53,
+      "name": "新千岁机场(CTS)-星野度假村",
+      "id": "834c3f3f-0d42-4a77-8172-5f6b0e00171d",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 54,
+      "name": "新千岁机场(CTS)-羊蹄山",
+      "id": "d6769ab3-6f4e-46de-a04f-6d9cb32250ab",
+      "type": "hotel_airport",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 55,
+      "name": "札幌市区-留寿都",
+      "id": "7b52009f-8d90-4ec5-a087-34ae960dda77",
+      "type": "hotel_hotel",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    },
+    {
+      "n": 56,
+      "name": "神户港-京都市区",
+      "id": "bfc7e5b9-ccd3-430d-878f-f7e56c02c89f",
+      "type": "hotel_port",
+      "status": "PASS",
+      "fails": [],
+      "hits": []
+    }
+  ],
+  "note": "reverify after tokyo-station fix"
+}

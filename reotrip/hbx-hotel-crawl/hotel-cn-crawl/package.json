@@ -1,0 +1,29 @@
+{
+  "name": "hotel-cn-crawl",
+  "version": "0.1.0",
+  "description": "HBX / Bedsonline 中国大陆酒店产品信息爬取（中英文 + 日历价）",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "chrome:launch": "bash scripts/launch-chrome-debug.sh",
+    "probe:session": "node scripts/probe-session.mjs",
+    "probe:hotel-ui": "node scripts/probe-hotel-ui.mjs",
+    "probe:cn-coverage": "node scripts/probe-cn-coverage.mjs",
+    "crawl:batch": "node scripts/crawl-hotels-batch.mjs",
+    "harvest:fts": "node scripts/harvest-fts-batch.mjs",
+    "crawl:beijing": "node scripts/crawl-beijing-destination.mjs",
+    "pipeline:list": "node scripts/pipeline/phase1-hotel-lists.mjs",
+    "pipeline:products": "node scripts/pipeline/phase2-hotel-products.mjs",
+    "pipeline:enrich": "node scripts/pipeline/phase2-enrich-content.mjs",
+    "pipeline:probe-calendar": "node scripts/pipeline/probe-calendar.mjs",
+    "pipeline:calendar": "node scripts/pipeline/phase3-calendar-prices.mjs",
+    "disk:monitor": "bash scripts/monitor-external-disk.sh",
+    "disk:install-cron": "bash scripts/install-disk-monitor-cron.sh"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.0"
+  }
+}

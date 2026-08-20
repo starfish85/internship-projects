@@ -149,20 +149,20 @@ Options:
 7인승 차량: 최대 3개까지 적재 가능
 ```
 
-Price type names and descriptions:
-- `5seat go` / `5인승 차량`
-- `7seat go` / `7인승 차량`
-- `5seat return` / `5인승 차량`
-- `7seat return` / `7인승 차량`
+Price type names and descriptions (**Korean names required**, English codes deprecated 2026-08):
+- `5인승 가는` / `5인승 차량`
+- `7인승 가는` / `7인승 차량`
+- `5인승 오는` / `5인승 차량`
+- `7인승 오는` / `7인승 차량`
 
-Normal sale range:
-- `2026-08-01 ~ 2027-07-31`
+Normal sale range (verify on **this product’s Excel row** every time):
+- `2026-08-01 ~ 2027-07-31` (or platform ONE_YEAR)
 - 5-seat price: `213` HKD
 - 7-seat price: `250` HKD
 
-Holiday or special price overrides:
+Holiday or special price overrides (**row-by-row Excel only — do not copy onto 东方明珠 without re-reading the 明珠 row**):
 - `2026-10-01 ~ 2026-10-10`: 5-seat `304` HKD, 7-seat `357` HKD
-- `2027-02-01 ~ 2027-02-15`: 5-seat `425` HKD, 7-seat `500` HKD
+- `2027-02-01 ~ 2027-02-15`: 5-seat `425` HKD, 7-seat `500` HKD (豫园对称示例；**明珠 7 去程春节表内是 510**，见 `shanghai-oriental-pearl-transfer.md`)
 - `2027-05-01 ~ 2027-05-10`: 5-seat `304` HKD, 7-seat `357` HKD
 
 Time slots:

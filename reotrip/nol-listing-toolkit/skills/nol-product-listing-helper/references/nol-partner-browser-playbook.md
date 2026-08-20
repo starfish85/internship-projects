@@ -4,19 +4,24 @@ Use this playbook together with `nol-transfer-live-listing-workflow.md` when ope
 
 ## Non-Negotiable Stops
 
+- **Verify-Before-Next (JinMao 2026-08-06):** do not advance phase or tell the user “done” until the **DOM gate** passes. Times: only **时间段 compact** with China `28/08:00/21:30` (or Japan `30/07:00/21:30`). **`times {count:0}` then `done` is forbidden.** After temp-save→next, **re-open each option** and re-read. See `SKILL.md` § MANDATORY Verify-Before-Next.
 - Never click `批准請求`, `승인 요청`, `提交審核`, `提交审核`, or any approval-submission button unless the user explicitly requests approval submission in the same turn.
 - If the user says a standing ban such as “坚决不允许点击批准请求”, treat it as session-wide. Temporary save only.
 - Treat approval as a danger-zone control. If it is visible next to temp-save (`临时保存` / `臨時存儲`), do not click by coordinates. Resolve the intended button by exact text and DOM index.
 - **Editing existing options (user 2026-08):** after any change, save with **`临时保存` → `下一个`** (not next alone). Full rules: `nol-draft-edit-save-playbook.md`.
 - **Leave dialog** (`有变化…更改将丢失…`) means **not saved**. Click **消除** to stay; never **确定** to discard. Then run temp-save → next.
 - UI may be **Simplified Chinese** (`临时保存`/`下一个`/`修改选项`/`已选`/`提交审核`/`重复 小时 添加`). Match 简+繁+韩; do not hardcode only 繁体.
-- **Time slots (简体, post-Osaka-Station fix):** open editor with time-field **⋯ (`더 보기`) → 编辑**; generate with **重复 小时 添加** + **生成** (extension may label **一代**); modal **保存**; then **临时保存→下一个**. **Never modal-save without generate** (leaves a single `21:00`). Verify only the **时间段** compact line (`07:00 · … · 21:30`, 30 slots).
+- **Time slots (简体, post-Osaka-Station + 杜莎 2026-08-06):** open editor with time-field **⋯ (`더 보기`) → 编辑**; **重复 小时 添加** → set start/end/interval with **read-back** → **生成/一代** → **modal bottom 保存**（用户：*这里要点保存*）→ form **临时保存→下一个**.  
+  **Never generate without modal 保存** (modal list shows 28 then closes → compact still 0).  
+  **Never modal-save without generate** (leaves a single `21:00`).  
+  China: end **21:30** not `00:30`; interval **30 必须选上**（用户：*分钟都没选到*）. Verify only **时间段** compact (`08:00…21:30` ×28 / Japan `07:00…21:30` ×30).
 - Do not change product settings that are outside the active listing flow. Avoid unrelated switches, supplier settings, settlement settings, category changes after creation, or existing product drafts not named by the user.
 - Use `臨時存儲` only when the workflow calls for preservation or the user requests final temporary save.
 - For transfer workflows, preferred end state after options exist is the **option list page**. Optional `臨時存儲`. Do not infer that `批准請求` is needed. User standing rule (2026-08-05): **「以后就停在这里」** = stop on option list when four cards are done.
 - Before typing a major section, state the exact values in Chinese. Keep a visible trail: field name, value, and save result.
 - If a save would overwrite an already completed holiday segment, stop, verify visible calendar values, and repair only the wrong dates.
-- **Strict Excel/CSV:** never invent prices or holiday tiers. Source only the user workbook (e.g. `NOL 待上架产品.xlsx` / `日本接送产品`).
+- **Strict Excel/CSV:** never invent prices or holiday tiers. Source only the user workbook (e.g. `NOL 待上架产品.xlsx` / `日本接送产品` / `国内接送`).  
+  **Never assume go=return or 5-seat=7-seat holiday symmetry.** Live Pearl / Top of Shanghai table: 7座去程春节 **510** vs 7座返程 **500** (user 2026-08-06). Verify on **calendar cell containers** (`日\n价`), not day-button text alone. When Excel has 售价列: **do not recompute**.
 
 ## Page Gate Rules (User Corrections 2026-08-04~05)
 
@@ -25,9 +30,10 @@ These override older “skip ahead with URL” habits.
 1. **No routine URL jump** across `properties` → `introduction` → `regulations` → `option`. Do not open a later step via `goto(.../option?id=...)` while earlier pages still have grey `保存然後` or red required errors. Advance with enabled **`保存然後`** or enabled **stepper** only.
 2. **`保存然後` is the completeness gate.** A section is incomplete until that button is **enabled** and clicked. Grey = missing required fields.
 3. **Attributes — 私人的:** under `團體/私人`, select `私人的` (`input[name=tourTypes][value="0"]`). Missing → red `請選擇旅遊類型。` and disabled save buttons. Prefer **visible label mouse click** (checkbox often off-screen at x≈-9999).
-4. **Regulations — 代表預約信息:** must open the modal, set required checkboxes (airport includes flight ids), confirm with **`已選`**, verify summary text (電話/航班/飯店…). Red `您必須輸入代表預訂信息…` blocks `保存然後`. User screenshot callout: **「这些都还没选」**. Synthetic `checked=true` alone is unreliable — re-verify **summary after `已選`**.
-5. **Option form — `下個`:** after price/times, click the wide blue **`下個`** to save the card. User: **「点这个不就好了」**.
-6. **One automation process only.** Parallel Playwright CDP scripts freeze NOL and look “stuck”. Kill previous jobs before starting a new one; log per option.
+4. **Regulations — 代表預約信息:** must open the modal, set required checkboxes (airport includes flight ids), confirm with **`已選`**, verify summary text (電話/航班/飯店…). Red `您必須輸入代表預訂信息…` blocks `保存然後`. User screenshot callout: **「这些都还没选」**. Synthetic `checked=true` alone is unreliable — re-verify **summary after `已選`**.  
+   **JinMao / 杜莎:** many required inputs sit at `y≈-9999` → scroll action-sheet body first → **`label[for="${id}"]` mouse.click** → read `aria-checked` (already true → do not click again) → **`已选`** → **page summary non-empty** (用户：*选了但没选上 / 每次选择要验收*).
+5. **Option form — `下個`:** after price/times, click the wide blue **`下個`** to save the card. User: **「点这个不就好了」**. Edit path: **临时保存→下一个**.
+6. **One automation process only.** Parallel Playwright CDP scripts freeze NOL and look “stuck”. Kill previous jobs before starting a new one; log per option. **Delayed exit-0 from a script that logged `times {count:0}` is not success** — re-verify DOM.
 7. Direct option URL is **last resort** only after regulations truly complete and stepper still broken — not a shortcut past red reservation/private fields.
 8. **Introduction images — 썸네일 only (ITM 2026-08-05):** upload to `썸네일 이미지` / `상품 이미지 등록(3개 이상)`, **not** `프로그램 이미지`. User: *上传错地方了* / *这里三张图要删掉*.
 
@@ -102,23 +108,27 @@ When the user gives a new route, start from `新產品註冊`. When the URL has 
 
 New product creation modal:
 
-1. Click `新產品註冊`.
-2. In the modal, fill the product-name input, not the background search input. If there are two visible text inputs, the modal product-name input is usually `input.nth(1)`.
+1. Click `新產品註冊` / `新产品注册`.
+2. **Hard rule (杜莎 用户「别放搜索框」):** fill the **modal** product-name input only. **Never** put the product name in the background list **search** box. If there are two visible text inputs, the modal product-name input is usually `input.nth(1)`.
 3. Select `TRANSPORTATION` / transportation product type.
-4. Click `開始創建產品`.
-5. Verify the redirected URL contains `/registration/properties?id=...` and the page shows the Korean product name.
+4. Click create confirm. **Live text may be 简繁混写 `开始創建产品`** (not pure `开始创建产品` / pure `開始創建產品`). Match loosely or enumerate buttons.
+5. Verify the redirected URL contains `/registration/properties?id=...` and the page shows the Korean product name. **Record `id=` immediately.**
 
 Safe creation snippet:
 
 ```js
 async function createTransportationProduct(productName) {
-  await tab.playwright.getByText('新產品註冊').click();
+  await tab.playwright.getByText(/新产品注册|新產品註冊/).click();
   await tab.playwright.waitForTimeout(800);
   const inputs = tab.playwright.locator('input');
   const count = await inputs.count();
   await inputs.nth(count > 1 ? 1 : 0).fill(productName);
   await tab.playwright.getByText('TRANSPORTATION').click();
-  await tab.playwright.getByText('開始創建產品').click();
+  // 简繁混写: 开始創建产品
+  const createBtn = tab.playwright.locator('button').filter({
+    hasText: /开始.*产品|開始.*產品|創建产品|创建產品/,
+  });
+  await createBtn.last().click();
   await tab.playwright.waitForURL(/registration\/properties/, { timeout: 30000 });
   await tab.playwright.waitForTimeout(1500);
 }
@@ -209,6 +219,7 @@ Upload rules:
 - For ITM: `upload-ready-images/itami-airport/itami-1.jpg` … `itami-3.jpg`.
 - Upload all three, then wait until thumbnails are visible **under 상품 이미지**. If a representative image must be chosen, choose a clear destination image, usually the first uploaded image unless the user indicates otherwise.
 - If the user supplies exact image files in the prompt, use those files and upload all relevant supplied images. For the Osaka Station run this meant all 11 files `/Users/mac/Downloads/大阪站1.jpg` through `/Users/mac/Downloads/大阪站11.jpg`, copied into `upload-ready-images/osaka-station/`.
+- **杜莎 2026-08-06:** user gave **3** images → 썸네일 must show **exactly 3**. Double-upload produced **6** → user rejected; delete bottom duplicates, **keep thumbs with 代表**.
 - If photos landed in 프로그램 이미지: scroll there, click each red ×, re-upload to 썸네일.
 - In this browser runtime, `locator.setInputFiles()` may be unavailable. Use the upload button plus a file chooser **scoped to the 썸네일 button**:
 
@@ -355,28 +366,31 @@ const expectedSlots0700 = [
 If the generated popup has 29 rows, delete the empty duplicate `选择` row, then verify the 28 values remain.
 If the generated popup has 31 delete buttons for a `07:00 ~ 21:30` run, delete the final blank `选择` row, then verify 30 unique time values remain.
 
-Hard operation sequence:
+Hard operation sequence (China scenic default; Japan hub uses `07:00` / 30 slots — same save rules):
 
-1. Open `設定時間`.
-2. Choose `반복 시간 추가`.
-3. Set first start time `08:00`.
-4. Set last start time `21:30`.
-5. Set interval `30 分鐘`.
-6. Click `生成`.
-7. Verify the generated list is exactly `expectedSlots`.
-8. Click modal-level `節省`.
+1. Open `设置时间` / `設定時間` (or ⋯ → **编辑** if slots already exist).
+2. Delete old rows if any.
+3. Choose exact button `重复 小时 添加` / `반복 시간 추가` (not parent).
+4. Set first start `08:00` (China) or `07:00` (Japan). **Read back** the displayed value.
+5. Set last start **`21:30`**. **Read back** — reject UI showing `00:30` / `21:00` / `00:00` (杜莎：结束分钟列点错).
+6. Set interval **`分钟` → `30`**. **Read back** interval is 30 — user 杜莎: *「分钟都没选到」*. Do not generate while interval is default/empty.
+7. Wait until `生成` / `一代` / `생성` is **enabled**, then click.
+8. Verify generated list is exactly `expectedSlots` (28 China / 30 Japan).
+9. **★ Click modal-level `保存` / `節省`.** User 杜莎: *「这里要点保存」* = **this button**, not form `临时保存` alone. Skip → form compact stays 0 after close.
+10. On option form, read **时间段** compact only (`08:00 · … · 21:30`, count 28). Fail if count≠28.
+11. Form footer: **临时保存 → 下一个**. Never 提交审核.
 
-Do not skip step 6. In live use, saving after only setting the fields did not make the time settings effective.
+Do **not** skip step 7 or 9. Fields-only without generate fails; **generate without modal save also fails** (杜莎 live).
 
 Dropdown quirks:
 
-- When choosing a two-column time picker, scope clicks to the hour and minute listboxes. A global `option "00"` click can select hour `00` instead of minute `00`, resetting the first start time to `00:00`. Verify the displayed first start time is still the intended value such as `07:00` before clicking `生成`.
-- Selecting minute interval `30` may close the dropdown automatically. If it closes, do not click the old dropdown confirm location because that can hit modal save too early; go straight to `生成`.
-- If the dropdown remains open, click dropdown `確定`, then click `生成`.
-- After selecting an end time such as `21:30`, the dropdown may already close and commit the value. Check the screenshot/DOM before clicking `確定`; clicking the stale confirm coordinates can hit the modal save area and close the time popup before generated slots are created.
-- If selecting `21:30` closes the whole time modal or returns to the option form before the generated list is visible, the time setup failed verification. Reopen the option edit/time modal and retry. If the product must be preserved first, save the draft but report the time slots as unverified; do not describe them as completed.
-- Fallback for the start time: click the first field, press ArrowDown eight times to reach `08:00`, press Enter, then confirm the dropdown.
-- Fallback for the end time: click the last field, select hour `21` and minute `30`, then confirm.
+- Two-column picker: hour = **left** list, minute = **right** list. A global `option "00"` can set hour `00` instead of minute — start becomes `00:00`. Read back before generate.
+- **End `21:30`:** left `21` + right `30`. Wrong order produced end **`00:30`** (杜莎).
+- Interval `30` may auto-close the dropdown; do not click stale confirm (hits modal save early). Go to generate only after interval read-back is 30.
+- If dropdown stays open, click `確定`, then generate.
+- After selecting `21:30`, dropdown may already close; check DOM before extra `確定`.
+- If selecting end time closes the whole modal before the generated list appears, time setup failed — reopen and retry; report unverified if you only temp-saved.
+- Fallback start: ArrowDown to `08:00` + Enter. Fallback end: hour `21` + minute `30`.
 
 Coordinate fallback only when DOM/text selectors fail:
 
@@ -720,9 +734,53 @@ Cancel windows blank row:
 
 - Clicking `添加` can create empty `windows.1.deadline` / `windows.1.penalty` → `aria-invalid` and disabled save. Delete the blank row, or fill only `windows.0` with `2` / `0` without extra `添加`.
 
-Include modal:
+Include modal (简体 live, Oriental Pearl 2026-08-06):
 
-- After checking `TRANSPORTATION` / `PICK_UP`, fill `#inclusions_TRANSPORTATION_description` and `#inclusions_PICK_UP_description` with Korean (route + parking / pickup wording).
+- After checking `TRANSPORTATION` / `PICK_UP`, fill `#inclusions_TRANSPORTATION_description` and `#inclusions_PICK_UP_description` (often **`input type=text`**, not textarea) + `#exclusions` with Korean.
+- Footer confirm may be **`保存`** (not `节省`).
+- **If `保存` does not close the modal or does not write back:** call React `AttributeFormPopup` **`onSave(values)`** with full `{ inclusions, exclusions, appliedToAllOptions }` so parent Formik field **`optionAttributeBase`** updates. Empty-arg `onSave()` can persist **empty** inclusions. Confirm page shows「包括 運輸…」before leaving.
+- Checkbox/theme/language: **click once only** if unchecked (`x≈-9999` inputs — use visible label).
+
+Sales calendar (简体) — Top of Shanghai / Pearl 2026-08-06:
+
+- Tab **`选择单个日期（可多选）`**. Month caption like `8 月 2026`. Next/prev: `button[class*="custom-caption__NextButton"]` / `PreviousButton`.
+- Days: `button[class*="custom-day__PlainDayButton"]` + **mouse click**. Price input **`请输入价格` stays disabled until ≥1 day selected**.
+- One holiday range → fill → **`完成`**. Reopen for next range. Never batch Oct/Feb/May unsaved.
+- **Reliability:** before **every** segment (not only every option), **listClean** = Escape/消除 + `goto` option list + assert 4×`销售日历管理`. Continuous segments without listClean → `caption=null` / month nav fail (Top Shanghai mid-run failure on 7go spring / entire 7rtn).
+- **JinMao 4th card:** `销售日历管理` nth(3) often near viewport bottom → `force` click without scroll → `caption=null`. Fix: `scrollIntoView({block:'center'})` + **mouse.click** center; wait caption + PlainDayButtons before `gotoMonth`.
+- **Verify price on cell container, not day button:**
+  - `PlainDayButton.innerText` → only `"1"` (no price).
+  - Parent container / `td.rdp-cell` → `"1\n510"`.
+  - Price node class often includes `sale-period-day-content`.
+  ```js
+  function readDayPrice(day) {
+    const cell = [...document.querySelectorAll('td.rdp-cell, [class*="custom-day___StyledContainer"]')]
+      .find(el => (el.innerText || '').trim().split('\n')[0] === String(day));
+    const lines = (cell?.innerText || '').trim().split('\n').map(s => s.trim()).filter(Boolean);
+    return lines[1] || null; // e.g. "510"
+  }
+  ```
+- Critical asymmetric check: 7 去 spring **510** ≠ 7 返 spring **500**.
+
+China scenic times — Top of Shanghai / Pearl / **JinMao** / **杜莎 (Tussauds)**:
+
+- Default **`08:00`–`21:30` / 30 min / 28 slots** (not Japan `07:00`/30). Generate control may label **`一代`**. Verify **时间段** compact line only.
+- **Full SOP:** `SKILL.md` § **40** (杜莎用户连否：分钟未选 / 弹窗未保存 / 假验收).
+- **Per option:** `goto` clean list first (if `修改选项` count is 0, form is stuck). Open `nth(i)` → set times → **临时保存→下一个**.
+- Empty: button **`设置时间`**. Existing: ⋯ `더 보기` → **编辑**.
+- Delete old rows (`删除`/`刪除`). Click button whose **exact** text is **`重复 小时 添加`** (not a parent that also contains「新增各别时间」).
+- Time pickers: hour = **leftmost** matching option; minute = **rightmost**.  
+  - Start **08:00**, end **21:30** — read back; **end `00:30` = fail**.  
+  - **分钟→30 读回** — user: *分钟都没选到*.  
+  - **生成/一代** only when enabled → modal list 28 rows → **弹窗「保存」**（*这里要点保存*）→ form compact.
+- Do **not** claim success from page-wide `HH:MM` regex (clocks, other UI).
+- **JinMao/杜莎 hard fail:** script logged `times { count: 0 }` + `done`, or modal list only without form compact → user rejected. Gate: after modal save, form line must be 28/08:00/21:30; then **re-open card** and read again. Wait `#name` before reading (load race). If count≠28 → retry or fail exit, never green-light.
+
+Create / images / resv (杜莎 2026-08-06):
+
+- **Search box ≠ product name** — modal only + TRANSPORTATION.
+- **Thumbnail count = 3** when user gave 3; delete bottom duplicates if 6 appear; keep 代表.
+- **Resv:** scroll action-sheet → `label[for]` → verify checked → `已选` → **page summary non-empty**.
 
 Option price-type popup:
 
@@ -807,15 +865,20 @@ Before final response, read the page and verify:
 
 ```js
 const finalText = await tab.playwright.locator('body').innerText({ timeout: 12000 });
+// Price-type names must be Korean — do NOT look for English 5seat go
 for (const needle of [
-  '베이징 시내 호텔',
-  '5seat go',
-  '7seat go',
-  '5seat return',
-  '7seat return',
-  '판매 캘린더 관리'
+  '베이징 시내 호텔', // or 상하이 for Shanghai routes
+  '5인승',
+  '7인승',
+  '판매 캘린더 관리',
+  '销售日历管理',
+  '可销售',
 ]) {
   nodeRepl.write(`${needle}: ${finalText.includes(needle)}\n`);
+}
+// Fail if deprecated English price-type codes appear in option cards
+for (const bad of ['5seat go', '7seat go', '5seat return', '7seat rtn']) {
+  if (finalText.includes(bad)) nodeRepl.write(`FAIL deprecated price-type: ${bad}\n`);
 }
 ```
 

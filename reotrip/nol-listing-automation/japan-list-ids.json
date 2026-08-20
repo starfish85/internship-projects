@@ -1,0 +1,380 @@
+[
+  {
+    "id": "c59fa273-049c-4983-88c1-2ccbaf3d507b",
+    "name": "신치토세 공항(CTS) ↔ 후라노 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:cfu",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "ac4d3d20-7484-459a-a157-cfd80ee2c459",
+    "name": "하코네 시내 호텔 ↔ 하네다 공항(HND) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:hh",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "d4d8e295-0e96-4428-9dd3-b213b258050c",
+    "name": "하코네 시내 호텔 ↔ 나리타 공항(NRT) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:hn",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "9dcef924-c7d9-41ea-8fe0-27a31dfe1064",
+    "name": "도쿄 시내 호텔 ↔ 워너브라더스 스튜디오 투어 도쿄(해리포터) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:hp",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "379afe4b-59e6-450e-beb7-17a5f238990b",
+    "name": "하네다 공항(HND) ↔ 도쿄 디즈니 리조트 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:htd",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "18bceb6c-bb0c-49fb-b686-b06d3b575981",
+    "name": "하네다 공항(HND) ↔ 요코하마항 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:hyp",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "6a87eb91-569a-4d49-abce-aa29bb6f1a0a",
+    "name": "이타미 공항(ITM) ↔ 고베 시내 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:ikb",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "60ab1ff5-f98c-42cd-9c2b-2de59255c462",
+    "name": "이타미 공항(ITM) ↔ 교토 시내 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:iky",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "0ba3e1eb-b17e-4815-94ba-32acd12e7bfe",
+    "name": "이타미 공항(ITM) ↔ 나라 시내 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:ina",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "731d947c-670a-441c-8b37-eeaa06832786",
+    "name": "고베 시내 호텔 ↔ 간사이 국제공항(KIX) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:kb",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "d1fc3cef-bcab-4f1e-a838-cdeeda3ec906",
+    "name": "교토 시내 호텔 ↔ 간사이 국제공항(KIX) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:kk",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "37f88cba-d087-4d48-9aa3-63f59ed734e1",
+    "name": "교토 시내 호텔 ↔ 오사카항 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:kp",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "bfc7e5b9-ccd3-430d-878f-f7e56c02c89f",
+    "name": "고베항 ↔ 교토 시내 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:kpk",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "1653d003-b7ab-4056-9ec0-88870d305673",
+    "name": "교토 시내 호텔 ↔ 교토역 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:ky",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "6c4cc498-0f0c-4f84-a728-5465838bbdd1",
+    "name": "나고야 시내 ↔ 지브리 파크 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:ngg",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "5fdd2c69-48c4-4ad2-ab04-4cfc7a483dc5",
+    "name": "나고야 시내 ↔ 다카야마 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:ngt",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "05b45a8b-954d-43b6-92dd-20046f4616d1",
+    "name": "나리타 공항(NRT) ↔ 하네다 공항(HND) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:nhh",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "346a18c1-f6bd-4238-923e-64310bdbc507",
+    "name": "나라 시내 호텔 ↔ 간사이 국제공항(KIX) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:nk",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "8efa307e-1768-48cf-9da7-1f9b7b576e7c",
+    "name": "나고야 ↔ 스즈카 서킷/레고랜드 재팬 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:nsl",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "e8905e3c-69ae-4ef8-81fc-d5d369260e1d",
+    "name": "나리타 공항(NRT) ↔ 도쿄 디즈니 리조트 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:ntd",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "05505404-28cf-4de9-b108-e178d5a68a97",
+    "name": "나리타 공항(NRT) ↔ 요코하마항 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:nyp",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "9cef6c16-064d-4cff-be6d-9a6cc81e14eb",
+    "name": "오사카 시내 호텔 ↔ 교토 시내 호텔 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:ok",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "ed8ff28b-4a7d-4cba-b904-995d7177cf70",
+    "name": "오사카항 ↔ 간사이 국제공항(KIX) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:opk",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "c36c1517-89cc-4524-bfdb-fce8df1c2e5c",
+    "name": "오사카 시내 호텔 ↔ 오사카역 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "677cd988-2727-4128-a0ab-57e73048d598",
+    "name": "오사카 시내 호텔 ↔ 스즈카 시내 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:osu",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "adaa42d7-30df-49a5-82ce-5d1586f5dc76",
+    "name": "삿포로 시내 ↔ 니세코 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:snk",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "7b52009f-8d90-4ec5-a087-34ae960dda77",
+    "name": "삿포로 시내 ↔ 루스쓰 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:sru",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "c765fa88-d2ff-48f1-a26f-37398bf1d6ec",
+    "name": "도쿄 시내 호텔 ↔ 도쿄 스카이트리 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:st",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "4cef60c6-3d5a-4e65-9caa-134513e698e0",
+    "name": "교토 시내 호텔 ↔ 스즈카 시내 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:sz",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "2649bc67-21d8-47e6-b359-274b9ed2daff",
+    "name": "도쿄 ↔ 나가노 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:tkn",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "0de15895-41de-48f8-8653-5c47a947c301",
+    "name": "도쿄 시내 호텔 ↔ 도쿄항 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "09714a30-dc94-4378-a238-ed8a37a5d234",
+    "name": "도쿄 시내 호텔 ↔ 도쿄역 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "72d8f629-815d-4d9c-a02f-e3cc1afe5fa7",
+    "name": "도쿄역 ↔ 하네다 공항(HND) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:tsh",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "f14da9cb-2c98-42c3-b238-86aeef6d9bcb",
+    "name": "도쿄역 ↔ 나리타 공항(NRT) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:tsn",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "e9ec9392-1362-427f-baeb-c39fbf48cf30",
+    "name": "도쿄역 ↔ 도쿄항 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:tsp",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "885023cc-f518-433f-916c-ca2a056df00f",
+    "name": "요코하마 시내 호텔 ↔ 요코하마항 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:yhp",
+      "batch-scan",
+      "excel8"
+    ]
+  },
+  {
+    "id": "ef40fdfb-63bd-4b71-a711-c564df5cc49f",
+    "name": "요코하마항 ↔ 신요코하마역 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "25b95664-cc7b-4bd1-b5fd-68779d80086b",
+    "name": "요코하마 크루즈항 ↔ 도쿄역 단독 차량 편도 이동 서비스",
+    "sources": [
+      "draft-id:yts",
+      "batch-scan"
+    ]
+  },
+  {
+    "id": "b6e560d4-d4d3-4726-b08c-f5623499895a",
+    "name": "도쿄 시내 호텔 ↔ 하네다공항(HND) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "60557c54-6c11-4b0e-9e04-df85c0d3e78b",
+    "name": "도쿄 시내 호텔 ↔ 나리타공항(NRT) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "7c220325-8783-4f58-a1dc-5fbfc4137a5e",
+    "name": "오사카 시내 호텔 ↔ 간사이공항(KIX) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "88b3861b-e907-487b-bacb-5abcfc1a7988",
+    "name": "오사카 시내 호텔 ↔ 이타미공항(ITM) 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "9f7d6122-c413-42be-89a8-d08ec789d32c",
+    "name": "도쿄 시내 호텔 ↔ 요코하마항 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "c9bedab3-78bc-4cca-9c0c-aaff0bda84fd",
+    "name": "오사카 시내 호텔 ↔ 오사카항 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "0b27766d-3dd0-4231-b373-ae43b36764b3",
+    "name": "신치토세 공항(CTS) ↔ 노보리베츠 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "49b0490f-f778-44b9-9a29-eff3d094899a",
+    "name": "중부 국제공항(NGO) ↔ 지브리 파크 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "462b9cef-c378-45d7-afd5-9b44f364b378",
+    "name": "도쿄 시내 호텔 ↔ 도쿄 디즈니리조트 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "4b49b221-a013-4420-9def-ffddfc09a310",
+    "name": "오사카 시내 호텔 ↔ 유니버설 스튜디오 재팬 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  },
+  {
+    "id": "2e97dd5e-d7a7-480f-8f31-87cde2cd79a4",
+    "name": "중부 국제공항(NGO) ↔ 나고야 시내 호텔 단독 차량 편도 이동 서비스",
+    "sources": [
+      "manual"
+    ]
+  }
+]
