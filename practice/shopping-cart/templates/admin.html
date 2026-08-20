@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>商品管理后台</title>
+    <style>
+        .container{max-width:1000px;margin:0 auto;padding:20px;}
+        table{width:100%;border-collapse:collapse;margin:20px 0;}
+        td,th{border:1px solid #ccc;padding:10px;}
+        .tip-success{color:green;}
+        .tip-error{color:red;}
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>后台商品管理</h1>
+    <a href="/">返回橱窗首页</a>
+    <br>
+    <a href="/admin/add">➕ 添加新商品</a>
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, msg in messages %}
+                <p class="{{ 'tip-success' if category=='success' else 'tip-error' }}">{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>商品名称</th>
+            <th>价格</th>
+            <th>库存</th>
+            <th>操作</th>
+        </tr>
+        {% for p in products %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.name }}</td>
+            <td>{{ p.price }}</td>
+            <td>{{ p.stock }}</td>
+            <td>
+                <form action="/admin/delete/{{ p.id }}" method="post" style="display:inline">
+                    <button onclick="return confirm('确定删除？')">删除</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+</body>
+</html>

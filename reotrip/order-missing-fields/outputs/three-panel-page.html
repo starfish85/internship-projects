@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReoTrip 订单缺失字段处理</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      color: #303133;
+      background: #f5f7fa;
+    }
+
+    .page {
+      min-width: 1280px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 420px 420px 420px;
+      gap: 12px;
+      padding: 12px;
+    }
+
+    .panel {
+      min-height: calc(100vh - 24px);
+      max-height: calc(100vh - 24px);
+      overflow: auto;
+      overscroll-behavior: contain;
+      -webkit-overflow-scrolling: touch;
+      border: 1px solid #ebeef5;
+      border-radius: 4px;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    .panel-header {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 48px;
+      padding: 0 14px;
+      border-bottom: 1px solid #ebeef5;
+      background: #fff;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .panel-body {
+      padding: 12px;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .order-list-scroll {
+      padding-right: 4px;
+    }
+
+    .metric {
+      padding: 10px;
+      border: 1px solid #ebeef5;
+      border-radius: 4px;
+      background: #fafafa;
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+
+    .metric:hover,
+    .metric.active {
+      border-color: #409eff;
+      background: #ecf5ff;
+    }
+
+    .metric-value {
+      font-size: 20px;
+      font-weight: 700;
+      color: #409eff;
+    }
+
+    .metric-label {
+      margin-top: 4px;
+      font-size: 12px;
+      color: #909399;
+    }
+
+    .order-card,
+    .missing-card {
+      margin-bottom: 10px;
+      padding: 12px;
+      border: 1px solid #ebeef5;
+      border-radius: 4px;
+      background: #fff;
+    }
+
+    .order-card.active,
+    .missing-card.active {
+      border-color: #409eff;
+      background: #ecf5ff;
+    }
+
+    .order-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .order-no {
+      font-weight: 700;
+      color: #303133;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      height: 22px;
+      padding: 0 8px;
+      border-radius: 3px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .tag.success {
+      color: #67c23a;
+      background: #f0f9eb;
+      border: 1px solid #e1f3d8;
+    }
+
+    .tag.warning {
+      color: #e6a23c;
+      background: #fdf6ec;
+      border: 1px solid #faecd8;
+    }
+
+    .tag.info {
+      color: #409eff;
+      background: #ecf5ff;
+      border: 1px solid #d9ecff;
+    }
+
+    .field {
+      display: grid;
+      grid-template-columns: 82px 1fr;
+      gap: 8px;
+      margin: 5px 0;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .label {
+      color: #909399;
+    }
+
+    .value {
+      color: #303133;
+      word-break: break-word;
+    }
+
+    .missing-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .right-panel {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .action-area {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      min-height: 160px;
+      padding: 16px;
+      border-bottom: 1px solid #ebeef5;
+    }
+
+    .button-stack {
+      width: 100%;
+      max-width: 220px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: stretch;
+    }
+
+    .mail-button {
+      width: 100%;
+      height: 40px;
+      border: 1px solid #409eff;
+      border-radius: 4px;
+      background: #409eff;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .copy-button {
+      width: 100%;
+      height: 36px;
+      border: 1px solid #409eff;
+      border-radius: 4px;
+      background: #ecf5ff;
+      color: #409eff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .mail-button:hover {
+      background: #337ecc;
+    }
+
+    .copy-button:hover {
+      color: #409eff;
+      border-color: #409eff;
+      background: #ecf5ff;
+    }
+
+    .mail-output {
+      flex: 1;
+      margin: 12px;
+      padding: 12px;
+      border: 1px solid #ebeef5;
+      border-radius: 4px;
+      background: #fafafa;
+      color: #303133;
+      font-size: 13px;
+      line-height: 1.65;
+      white-space: pre-wrap;
+    }
+
+    .hint {
+      color: #909399;
+      font-size: 13px;
+    }
+
+    .date-select {
+      height: 30px;
+      padding: 0 28px 0 10px;
+      border: 1px solid #d9ecff;
+      border-radius: 4px;
+      background: #ecf5ff;
+      color: #409eff;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .copy-status {
+      margin-top: 8px;
+      color: #67c23a;
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(48, 49, 51, 0.42);
+    }
+
+    .modal {
+      width: min(760px, calc(100vw - 48px));
+      max-height: calc(100vh - 48px);
+      overflow: hidden;
+      border-radius: 4px;
+      border: 1px solid #ebeef5;
+      background: #fff;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      height: 52px;
+      padding: 0 16px;
+      border-bottom: 1px solid #ebeef5;
+    }
+
+    .modal-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+      color: #303133;
+    }
+
+    .modal-close {
+      height: 32px;
+      padding: 0 12px;
+      border: 1px solid #dcdfe6;
+      border-radius: 4px;
+      background: #fff;
+      color: #606266;
+      cursor: pointer;
+    }
+
+    .modal-close:hover {
+      color: #409eff;
+      border-color: #409eff;
+    }
+
+    .modal-body {
+      max-height: calc(100vh - 120px);
+      overflow: auto;
+      padding: 16px;
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 14px;
+    }
+
+    .detail-row {
+      min-height: 40px;
+      padding: 10px;
+      border: 1px solid #ebeef5;
+      border-radius: 4px;
+      background: #fafafa;
+    }
+
+    .detail-row.wide {
+      grid-column: 1 / -1;
+    }
+
+    .detail-label {
+      margin-bottom: 4px;
+      color: #909399;
+      font-size: 12px;
+    }
+
+    .detail-value {
+      color: #303133;
+      font-size: 13px;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+
+    .empty-value {
+      color: #c0c4cc;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="panel orders-panel">
+      <div class="panel-header">
+        <span>订单信息</span>
+        <select class="date-select" id="dateSelect" aria-label="切换订单日期"></select>
+      </div>
+      <div class="panel-body">
+        <div class="summary">
+          <div class="metric active" data-filter="all">
+            <div class="metric-value" id="totalCount">0</div>
+            <div class="metric-label">订单数</div>
+          </div>
+          <div class="metric" data-filter="confirmed">
+            <div class="metric-value" id="confirmedCount">0</div>
+            <div class="metric-label">已确认</div>
+          </div>
+          <div class="metric" data-filter="missing">
+            <div class="metric-value" id="missingCount">0</div>
+            <div class="metric-label">待补充</div>
+          </div>
+        </div>
+
+        <div class="order-list-scroll" id="orderList"></div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <span>缺失字段</span>
+        <span class="tag warning">按当前订单</span>
+      </div>
+      <div class="panel-body">
+        <div id="missingList"></div>
+      </div>
+    </section>
+
+    <section class="panel right-panel">
+      <div class="panel-header">
+        <span>邮件处理</span>
+        <span class="tag info">英文邮件</span>
+      </div>
+      <div class="action-area">
+        <div class="button-stack">
+          <button class="mail-button" type="button" id="mailButton">邮件生成</button>
+          <button class="copy-button" type="button" id="copyButton">复制邮件内容</button>
+        </div>
+      </div>
+      <div class="copy-status" id="copyStatus"></div>
+      <div class="mail-output" id="mailOutput">请选择左侧订单，然后点击“邮件生成”。邮件只会询问当前订单缺失的信息。</div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="orderModal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">订单详情</h3>
+        <button class="modal-close" type="button" id="modalClose">关闭</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    const orders = [
+      {
+        no: "BR-1417501241",
+        guest: "Moises ayala",
+        status: "已确认",
+        type: "接送",
+        product: "Haneda Airport Private Transfer To or From Tokyo Disney Resort",
+        package: "7 Seat from DisneySea to HND",
+        date: "2026-07-04",
+        time: "16:00",
+        pax: "Adult: 5",
+        price: "685.2 HKD",
+        supplier: "信达株式会社",
+        pickup: "Haneda Airport, Hanedakuko, Ota City, Tokyo 144-0041, Japan",
+        dropoff: "Tokyo DisneySea Fantasy Springs Hotel, 1-2 Maihama, Urayasu, Chiba 279-8526",
+        hotelNameEn: "Tokyo DisneySea Fantasy Springs Hotel",
+        hotelAddress: "1-2 Maihama, Urayasu, Chiba 279-8526",
+        luggageQuantity: "",
+        luggageSize: "",
+        luggageType: "",
+        routeClear: true,
+        hubRelated: true,
+        flight: "Air Canada Flight #1",
+      },
+      {
+        no: "BR-1414531763",
+        guest: "Shana Lewis",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo TeamLab Planets Admission",
+        package: "16:30 Entry",
+        date: "2026-07-04",
+        time: "16:30",
+        pax: "Adult: 1",
+        price: "299.52 HKD",
+        supplier: "CtripGDS",
+        pickup: "",
+        dropoff: "",
+        flight: "",
+      },
+      {
+        no: "BR-1417274479",
+        guest: "Maria Patorniti",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo Tower Top Deck Admission Ticket",
+        package: "Top Deck Tour",
+        date: "2026-07-04",
+        time: "17:30",
+        pax: "Adult: 2, Children: 3",
+        price: "1,325.79 HKD",
+        supplier: "Klook",
+        pickup: "",
+        dropoff: "",
+        flight: "",
+      },
+      {
+        no: "BR-1417816619",
+        guest: "Marina Marcal do Nascimento",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo TeamLab Planets Ticket and Tokyo Tower Main Deck Ticket",
+        package: "teamLab(6:00 PM) + Tokyo Tower",
+        date: "2026-07-04",
+        time: "18:00",
+        pax: "Adult: 1",
+        price: "439.39 HKD",
+        supplier: "Teamlab + CtripGDS",
+        pickup: "",
+        dropoff: "",
+        flight: "",
+      },
+      {
+        no: "BR-1411895735",
+        guest: "Cameron Nystrom",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo TeamLab Planets Admission",
+        package: "18:30 Entry",
+        date: "2026-07-04",
+        time: "18:30",
+        pax: "Adult: 2",
+        price: "599.04 HKD",
+        supplier: "CtripGDS",
+        pickup: "",
+        dropoff: "",
+        flight: "",
+        emailVerified: false
+      },
+      {
+        no: "BR-1373992129",
+        guest: "TEJASWINI GANTI",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo: TeamLab Planets Admission & 24-Hour Subway Ticket",
+        package: "[20:30-21:00] Entry & Metro Pass",
+        date: "2026-07-04",
+        time: "20:30",
+        pax: "Adult: 2",
+        price: "797.5 HKD",
+        supplier: "CtripGDS",
+        pickup: "",
+        dropoff: "",
+        flight: "",
+        noteNeedsConfirm: true
+      },
+      {
+        no: "284-6285177",
+        guest: "Mr. Shehan Croner",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo DisneyLand Park Tickets + Private Transfer Service",
+        package: "Ticket Only Service",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 1, Youth: 1, Children: 1",
+        price: "181 USD",
+        supplier: "CtripGDS",
+        emailVerified: true
+      },
+      {
+        no: "284-6563745",
+        guest: "SARA FILIPA BORDELO DIAS GRAZINA",
+        status: "已确认",
+        type: "门票",
+        product: "Universal Studio Japan Studio Pass",
+        package: "1-Day Pass Ticket Only",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 5, Children: 1",
+        price: "412.9 USD",
+        supplier: "JTR",
+        emailVerified: true
+      },
+      {
+        no: "284-6571375",
+        guest: "MIKA GARDENIA CENTENO PALOMINO",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo DisneySea Park 1-Day Pass",
+        package: "Ticket",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 1, Youth: 1",
+        price: "136 USD",
+        supplier: "Didago",
+        emailVerified: true
+      },
+      {
+        no: "284-6650337",
+        guest: "Madeleine Louise Bell",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo DisneyLand Park Tickets",
+        package: "Ticket Only Service",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 1, Children: 1",
+        price: "122.13 USD",
+        supplier: "Didago",
+        emailVerified: true
+      },
+      {
+        no: "284-6846982",
+        guest: "ANDRES LOPEZ LOPEZ",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo DisneyLand Park Tickets",
+        package: "Ticket Only",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 2",
+        price: "152.66 USD",
+        supplier: "Didago",
+        emailVerified: true
+      },
+      {
+        no: "284-6872193",
+        guest: "Janice Matthews",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo DisneyLand Park Tickets",
+        package: "Ticket Only Service",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 2, Children: 1",
+        price: "198.46 USD",
+        supplier: "Didago",
+        emailVerified: true
+      },
+      {
+        no: "284-6917321",
+        guest: "Kubra Calik",
+        status: "已确认",
+        type: "门票",
+        product: "Universal Studio Japan Studio Pass",
+        package: "1-Day Pass Ticket Only Service",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 3, Children: 1",
+        price: "266.1 USD",
+        supplier: "CtripGDS授信",
+        emailVerified: true
+      },
+      {
+        no: "284-6918363",
+        guest: "Phuong Doan",
+        status: "已确认",
+        type: "门票",
+        product: "Universal Studio Japan Studio Pass",
+        package: "1-Day Pass Ticket Only",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 3, Children: 1",
+        price: "266.1 USD",
+        supplier: "CtripGDS授信",
+        emailVerified: true
+      },
+      {
+        no: "284-6929646",
+        guest: "Penita Teague",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo DisneyLand Park Tickets",
+        package: "Ticket Only Service",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 2, Children: 2",
+        price: "244.26 USD",
+        supplier: "Didago",
+        emailVerified: true
+      },
+      {
+        no: "284-6939474",
+        guest: "GONZALO ARMENTA VALENZUELA",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo DisneyLand Park Tickets",
+        package: "Ticket Only Service",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 2, Youth: 1, Children: 1",
+        price: "267.16 USD",
+        supplier: "CtripGDS授信",
+        emailVerified: true
+      },
+      {
+        no: "284-6986595",
+        guest: "Cynthia Narvaez",
+        status: "已确认",
+        type: "门票",
+        product: "Tokyo DisneyLand Park Tickets",
+        package: "Ticket Only",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 5",
+        price: "381.65 USD",
+        supplier: "CtripGDS授信",
+        emailVerified: true
+      },
+      {
+        no: "284-5785652",
+        guest: "BRANDON DEVILLE DANIELS",
+        status: "已取消",
+        type: "接送",
+        product: "Tokyo DisneySea Park Tickets + Private Transfer Service",
+        package: "1-Day Ticket + Round Trip Private Transfer Service",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 3, Children: 2",
+        price: "729.2 USD",
+        supplier: "Klook + 信达株式会社",
+        pickup: "Hotel Gracery Ginza",
+        dropoff: "Tokyo DisneySea",
+        hotelNameEn: "Hotel Gracery Ginza",
+        hotelAddress: "",
+        luggageQuantity: "",
+        luggageSize: "",
+        luggageType: "",
+        routeClear: true,
+        hubRelated: false,
+        flight: ""
+      },
+      {
+        no: "284-6466527",
+        guest: "ELIZABETH DEARS",
+        status: "已取消",
+        type: "门票",
+        product: "Universal Studio Japan Studio Pass",
+        package: "1-Day Pass Ticket Only Service",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 3",
+        price: "220.2 USD",
+        supplier: "KlookUSD",
+        emailVerified: true
+      },
+      {
+        no: "318-4359104",
+        guest: "CARLOS MANTUANO",
+        status: "已取消",
+        type: "接送",
+        product: "Hong Kong Disneyland Ticket + Round Trip Private Transfer Service",
+        package: "1-Day Ticket + Round Trip Private Transfer Service",
+        date: "2026-07-05",
+        time: "",
+        pax: "Adult: 4",
+        price: "652 USD",
+        supplier: "CtripGDS授信 + Didago",
+        pickup: "",
+        dropoff: "Hong Kong Disneyland",
+        hotelNameEn: "",
+        hotelAddress: "",
+        luggageQuantity: "",
+        luggageSize: "",
+        luggageType: "",
+        routeClear: false,
+        hubRelated: false,
+        flight: ""
+      }
+    ];
+
+    let selectedIndex = 0;
+    let selectedDate = "";
+    let selectedFilter = "all";
+
+    const transferRuleText = "接送订单需检查：出行日期 / Travel date、接送时间 / Pickup time、返程时间 / Return pickup time、接送线路 / Transfer route、出发地 / Pickup location、目的地 / Drop-off location、酒店英文全名和具体地址 / Hotel full English name and full address、人数 / Passenger count、按分类要求检查行李配置 / Luggage details、航班 / 列车 / 船名编号 / Flight, train, or ferry number/name。码头订单需检查接送时间、酒店英文名和地址、接送线路、船名、行李配置；若 pickup 已经是完整酒店地址，不再要求酒店地址；若 flight 或备注中已有船名，不再要求船名。接送订单需先动态分类为景区接送、跨区酒店接送、机场相关、车站相关、码头相关、交通枢纽之间接送；无法判断时标记为“需人工确认 / Manual review required”，不要直接向客户询问订单类型。若订单已有日期但缺少时间，只询问具体接送时间；往返订单若返程时间为空、待获取或未填写，应询问 Return pickup time；酒店信息可来自酒店字段、上车点或下车点，需同时包含英文酒店名特征和具体地址特征；酒店只有中文名、简称或模糊地址时，仍视为不完整；接送线路需明确上车点和下车点，若路线方向不清楚，应询问 Pickup location 和 Drop-off location；机场、车站、码头、跨区酒店和交通枢纽之间接送必须检查行李配置；景区接送不默认强制检查行李，除非产品或套餐明确要求车辆容量或行李信息。行李配置至少包含数量、尺寸和类型，例如 24-inch suitcase、26-inch suitcase、backpack；交通枢纽相关订单必须收集对应编号或名称。";
+    const ticketRuleText = "门票订单需检查：使用日期 / Visit date、使用时间 / Time slot、人数 / Passenger count、邮箱 / Email、特殊备注 / Special notes。";
+
+    function hasValue(value) {
+      return value !== undefined && value !== null && String(value).trim() !== "";
+    }
+
+    function hasReturnTimeValue(value) {
+      if (!hasValue(value)) return false;
+      return !["待获取", "未填写"].includes(String(value).trim());
+    }
+
+    function needsReturnPickupTime(order) {
+      return order.tripType === "往返" && !hasReturnTimeValue(order.returnTime);
+    }
+
+    function addReturnPickupTimeMissing(missing, order) {
+      if (needsReturnPickupTime(order)) {
+        missing.push({ zh: "返程时间", en: "Return pickup time", question: "Could you please confirm the return pickup time?" });
+      }
+    }
+
+    function hasHotelNameAndAddress(text) {
+      if (!hasValue(text)) return false;
+      const value = String(text);
+      const hasHotelKeyword = /\b(hotel|inn|resort|ryokan|hostel|residence|villa|suites?|marriott|hilton|hyatt|sheraton|intercontinental|mercure|novotel|fresa|gracery|new otani)\b/i.test(value);
+      const hasNumber = /\d/.test(value);
+      const hasSeparator = /[,，]/.test(value);
+      const hasAddressWord = /\b(street|st\.?|road|rd\.?|avenue|ave\.?|drive|dr\.?|lane|ln\.?|cho|chome|ku|city|ward|district|naka|namba|maihama|tokyo|osaka|kyoto|chiba|japan|hong kong|kowloon|macau)\b/i.test(value);
+      const hasPostalLike = /\b\d{3}[-\s]?\d{4}\b/.test(value);
+      return hasHotelKeyword && ((hasNumber && (hasSeparator || hasAddressWord)) || hasPostalLike);
+    }
+
+    function pickupHasCompleteHotelAddress(order) {
+      return hasHotelNameAndAddress(order.pickup);
+    }
+
+    function looksLikeHotel(text) {
+      if (!hasValue(text)) return false;
+      return hasHotelNameAndAddress(text) || /\b(hotel|inn|resort|ryokan|hostel|residence|villa|suites?|marriott|hilton|hyatt|sheraton|intercontinental|mercure|novotel|fresa|gracery|new otani)\b/i.test(String(text));
+    }
+
+    function getTransferSearchText(order) {
+      return [order.product, order.package, order.pickup, order.dropoff].filter(hasValue).join(" ");
+    }
+
+    function getRemarkText(order) {
+      return [
+        order.remark,
+        order.remarks,
+        order.note,
+        order.notes,
+        order.bookingNote,
+        order.customerNote,
+        order.customerRemark,
+        order.specialNote,
+        order.specialNotes
+      ].filter(hasValue).join(" ");
+    }
+
+    function hasShipName(order) {
+      if (hasValue(order.flight)) return true;
+      const remarkText = getRemarkText(order);
+      if (!hasValue(remarkText)) return false;
+      return /\b(ship|cruise ship|ferry|vessel|boat|yacht)\s*(name|no\.?|number)?\s*[:：#-]\s*\S+|船名|船号|邮轮名|游轮名|渡轮名|客轮名|轮船名/i.test(remarkText);
+    }
+
+    function getTransferCategory(order) {
+      if (order.type !== "接送") return "";
+      if (hasValue(order.transferCategory)) return order.transferCategory;
+
+      const text = getTransferSearchText(order);
+      const pickup = String(order.pickup || "");
+      const dropoff = String(order.dropoff || "");
+      const pickupIsHub = /\b(airport|station|cruise|port|terminal)\b|机场|駅|站|码头|港/i.test(pickup);
+      const dropoffIsHub = /\b(airport|station|cruise|port|terminal)\b|机场|駅|站|码头|港/i.test(dropoff);
+
+      if (pickupIsHub && dropoffIsHub) return "hub_to_hub";
+      if (/\bairport\b|机场/i.test(text)) return "airport";
+      if (/\bstation\b|駅|站/i.test(text)) return "station";
+      if (/\b(cruise|port|terminal)\b|码头|港/i.test(text)) return "cruise_port";
+      if (looksLikeHotel(pickup) && looksLikeHotel(dropoff)) return "hotel_to_hotel";
+      if (/\b(disney|disneyland|disneysea|universal studios|universal studio|usj|theme park)\b|景区|乐园|迪士尼|环球影城/i.test(text)) return "scenic_transfer";
+      return "manual_review";
+    }
+
+    function getTransferCategoryLabel(order) {
+      const labels = {
+        scenic_transfer: "景区接送 / Scenic transfer",
+        hotel_to_hotel: "跨区酒店接送 / Hotel-to-hotel transfer",
+        airport: "机场相关接送 / Airport transfer",
+        station: "车站相关接送 / Station transfer",
+        cruise_port: "码头相关接送 / Cruise port transfer",
+        hub_to_hub: "交通枢纽之间接送 / Hub-to-hub transfer",
+        manual_review: "需人工确认 / Manual review required"
+      };
+      return labels[getTransferCategory(order)] || "";
+    }
+
+    function hasVehicleCapacityOrLuggageRequirement(order) {
+      const text = [order.product, order.package].filter(hasValue).join(" ");
+      return /\b(luggage|baggage|suitcases?|bags?|backpacks?|capacity|seats?|seaters?|passenger capacity|vehicle capacity|sedan|van|mpv|minivan)\b|行李|行李箱|旅行箱|手提箱|背包|车辆容量|车容量|车型容量|载客|座位|人座|座车/i.test(text);
+    }
+
+    function requiresLuggageCheck(order) {
+      const requiredCategories = ["airport", "station", "cruise_port", "hotel_to_hotel", "hub_to_hub"];
+      const transferCategory = getTransferCategory(order);
+      if (requiredCategories.includes(transferCategory)) return true;
+      if (transferCategory === "scenic_transfer") return hasVehicleCapacityOrLuggageRequirement(order);
+      return false;
+    }
+
+    function isVagueHotel(order) {
+      if (order.type !== "接送") return false;
+      if (hasValue(order.hotelNameEn) && hasValue(order.hotelAddress)) return false;
+      return !pickupHasCompleteHotelAddress(order) && !hasHotelNameAndAddress(order.dropoff);
+    }
+
+    function getExistingFields(order) {
+      const fields = [];
+      if (hasValue(order.date)) fields.push(order.type === "接送" ? "出行日期 / Travel date" : "使用日期 / Visit date");
+      if (hasValue(order.time)) fields.push(order.type === "接送" ? "接送时间 / Pickup time" : "使用时间 / Time slot");
+      if (hasReturnTimeValue(order.returnTime)) fields.push("返程时间 / Return pickup time");
+      if (hasValue(order.pax)) fields.push("人数 / Passenger count");
+      if (hasValue(order.product)) fields.push("产品 / Product");
+      if (hasValue(order.supplier)) fields.push("供应商 / Supplier");
+      if (hasValue(order.status)) fields.push("订单状态 / Booking status");
+      if (hasValue(order.pickup)) fields.push("出发地 / Pickup location");
+      if (hasValue(order.dropoff)) fields.push("目的地 / Drop-off location");
+      if (order.routeClear) fields.push("接送线路 / Transfer route");
+      if (order.type === "接送") fields.push(`接送分类 / Transfer category：${getTransferCategoryLabel(order)}`);
+      if (order.type === "接送" && !isVagueHotel(order)) fields.push("酒店英文全名和具体地址 / Hotel full English name and full address");
+      if (requiresLuggageCheck(order) && hasValue(order.luggageQuantity) && hasValue(order.luggageSize) && hasValue(order.luggageType)) fields.push("行李配置 / Luggage details");
+      if (order.type === "接送" && getTransferCategory(order) === "cruise_port" && hasShipName(order)) fields.push("船名 / Ship name");
+      else if (hasValue(order.flight)) fields.push("航班 / 列车 / 船名编号 / Flight, train, or ferry number/name");
+      return fields;
+    }
+
+    function isCanceledOrder(order) {
+      return order.status === "已取消";
+    }
+
+    function getMissingFields(order) {
+      if (isCanceledOrder(order)) return [];
+
+      const missing = [];
+      if (!hasValue(order.type)) {
+        missing.push({ zh: "需人工确认", en: "Manual review required", internalOnly: true });
+        return missing;
+      }
+
+      if (order.type === "接送") {
+        const transferCategory = getTransferCategory(order);
+        if (transferCategory === "manual_review") {
+          missing.push({ zh: "需人工确认", en: "Manual review required", internalOnly: true });
+          return missing;
+        }
+
+        const isCruisePortOrder = transferCategory === "cruise_port";
+        if (!isCruisePortOrder && !hasValue(order.date)) missing.push({ zh: "出行日期", en: "Travel date", question: "Could you please confirm the travel date?" });
+        if (!hasValue(order.time)) missing.push({ zh: "接送时间", en: "Pickup time", question: "Could you please confirm the exact pickup time?" });
+        if (!hasValue(order.pickup) || !hasValue(order.dropoff) || !order.routeClear) {
+          missing.push({ zh: "接送线路：上车点和下车点", en: "Transfer route: pickup location and drop-off location", question: "Could you please confirm the pickup location and drop-off location?" });
+        }
+        if (isVagueHotel(order)) {
+          missing.push({ zh: "酒店英文全名和具体地址", en: "Hotel full English name and full address", question: "Could you please confirm the hotel's full English name and complete address?" });
+        }
+        if (requiresLuggageCheck(order) && (!hasValue(order.luggageQuantity) || !hasValue(order.luggageSize) || !hasValue(order.luggageType))) {
+          missing.push({ zh: "行李配置", en: "Luggage details: quantity, size, and type", question: "Could you please confirm the luggage details, including quantity, size (for example 24-inch, 26-inch, or 28-inch), and type (for example suitcase or backpack)?" });
+        }
+        if (isCruisePortOrder && !hasShipName(order)) {
+          missing.push({ zh: "船名", en: "Ship name", question: "Could you please confirm the ship name?" });
+        } else if (order.hubRelated && !hasValue(order.flight)) {
+          missing.push({ zh: "航班 / 列车 / 船名编号", en: "Flight, train, or ferry number/name", question: "Could you please confirm the flight, train, or ferry number/name?" });
+        }
+      } else {
+        if (!hasValue(order.date)) missing.push({ zh: "使用日期", en: "Visit date", question: "Could you please confirm the visit date?" });
+        if (!hasValue(order.time)) missing.push({ zh: "使用时间", en: "Time slot", question: "Could you please confirm the time slot?" });
+        if (!hasValue(order.pax)) missing.push({ zh: "人数", en: "Passenger count", question: "Could you please confirm the number of passengers?" });
+        if (order.emailVerified === false) missing.push({ zh: "真实邮箱确认", en: "Best contact email", question: "Could you please confirm the best email address for receiving your booking documents?" });
+        if (order.noteNeedsConfirm) missing.push({ zh: "订单备注需确认", en: "Booking note confirmation", question: "Could you please confirm whether the booking note is still accurate?" });
+      }
+      addReturnPickupTimeMissing(missing, order);
+      return missing;
+    }
+
+    function getEmailFieldLines(missing) {
+      return missing.flatMap(item => {
+        if (item.en === "Luggage details: quantity, size, and type") {
+          return [
+            "- Luggage details",
+            "- Number of pieces",
+            "- Approximate sizes (e.g., 24/26/28-inch; carry-on)",
+            "- Types (suitcases, backpacks, strollers/soft bags; any oversized/fragile items)"
+          ];
+        }
+        const naturalNames = {
+          "Travel date": "Travel date",
+          "Pickup time": "Pickup time",
+          "Return pickup time": "Return pickup time",
+          "Transfer route: pickup location and drop-off location": "Pickup location and drop-off location",
+          "Hotel full English name and full address": "Full English hotel name and address",
+          "Flight, train, or ferry number/name": "Flight/train/ferry number or name",
+          "Ship name": "Ship name",
+          "Manual review required": "Booking type",
+          "Visit date": "Visit date",
+          "Time slot": "Time slot",
+          "Passenger count": "Number of passengers",
+          "Best contact email": "Best contact email",
+          "Booking note confirmation": "Booking note confirmation"
+        };
+        return [`- ${naturalNames[item.en] || item.en}`];
+      });
+    }
+
+    function renderOrders() {
+      const list = document.getElementById("orderList");
+      const filteredOrders = getFilteredOrders();
+      renderSummary(filteredOrders);
+      if (!filteredOrders.length) {
+        selectedIndex = -1;
+        list.innerHTML = '<div class="hint">当前日期没有订单。</div>';
+        renderMissing();
+        return;
+      }
+      if (!filteredOrders.some(order => orders.indexOf(order) === selectedIndex)) {
+        selectedIndex = orders.indexOf(filteredOrders[0]);
+      }
+      list.innerHTML = filteredOrders.map((order) => {
+        const index = orders.indexOf(order);
+        const isTransferOrder = order.type === "接送";
+        const orderFields = isTransferOrder
+          ? `
+          <div class="field"><span class="label">接送时间</span><span class="value">${order.date} ${order.time || "未填写"}</span></div>
+          <div class="field"><span class="label">上车地址</span><span class="value">${order.pickup || "未填写"}</span></div>
+          <div class="field"><span class="label">下车地址</span><span class="value">${order.dropoff || "未填写"}</span></div>
+          <div class="field"><span class="label">人数</span><span class="value">${order.pax}</span></div>
+        `
+          : `
+          <div class="field"><span class="label">出行时间</span><span class="value">${order.date} ${order.time || "未填写"}</span></div>
+          <div class="field"><span class="label">人数</span><span class="value">${order.pax}</span></div>
+        `;
+        return `
+        <article class="order-card ${index === selectedIndex ? "active" : ""}" data-index="${index}">
+          <div class="order-top">
+            <span class="order-no">${order.no}</span>
+            <span class="tag success">${order.status}</span>
+          </div>
+          <div class="field"><span class="label">客人</span><span class="value">${order.guest}</span></div>
+          <div class="field"><span class="label">类型</span><span class="value">${order.type}</span></div>
+          <div class="field"><span class="label">产品</span><span class="value">${order.product}</span></div>
+          <div class="field"><span class="label">套餐</span><span class="value">${order.package}</span></div>
+          ${orderFields}
+        </article>
+      `}).join("");
+
+      document.querySelectorAll(".order-card").forEach(card => {
+        card.addEventListener("click", () => {
+          selectedIndex = Number(card.dataset.index);
+          renderOrders();
+          renderMissing();
+          document.getElementById("copyStatus").textContent = "";
+          document.getElementById("mailOutput").textContent = "已切换订单。点击“邮件生成”可生成只询问缺失字段的英文邮件。";
+          openOrderModal(selectedIndex);
+        });
+      });
+    }
+
+    function displayValue(value) {
+      return hasValue(value) ? String(value) : "";
+    }
+
+    function detailRow(label, value, wide = false) {
+      const text = displayValue(value);
+      return `
+        <div class="detail-row ${wide ? "wide" : ""}">
+          <div class="detail-label">${label}</div>
+          <div class="detail-value ${text ? "" : "empty-value"}">${text || "未填写"}</div>
+        </div>
+      `;
+    }
+
+    function yesNo(value) {
+      if (value === true) return "是";
+      if (value === false) return "否";
+      return "";
+    }
+
+    function getModalRows(order) {
+      const missing = getMissingFields(order);
+      const missingText = isCanceledOrder(order)
+        ? "已取消订单，无需补充"
+        : missing.length ? missing.map(item => `${item.zh} / ${item.en}`).join("、") : "无缺失字段";
+      const rows = [
+        detailRow("订单号", order.no),
+        detailRow("订单状态", order.status),
+        detailRow("客人", order.guest),
+        detailRow("订单类型", order.type || "需人工确认 / Manual review required"),
+        detailRow("接送分类", order.type === "接送" ? getTransferCategoryLabel(order) : ""),
+        detailRow("产品", order.product, true),
+        detailRow("套餐", order.package, true),
+        detailRow("出行日期", order.date),
+        detailRow("出行/接送时间", order.time),
+        detailRow("人数", order.pax),
+        detailRow("金额", order.price),
+        detailRow("供应商", order.supplier),
+        detailRow("缺失字段", missingText, true)
+      ];
+
+      if (order.type === "接送" || order.pickup || order.dropoff || order.hotelNameEn || order.hotelAddress || order.hubRelated) {
+        rows.push(
+          detailRow("上车点 / Pickup location", order.pickup, true),
+          detailRow("下车点 / Drop-off location", order.dropoff, true),
+          detailRow("酒店英文全名", order.hotelNameEn),
+          detailRow("酒店具体地址", order.hotelAddress),
+          detailRow("行李数量", order.luggageQuantity),
+          detailRow("行李尺寸", order.luggageSize),
+          detailRow("行李类型", order.luggageType),
+          detailRow("航班/列车/船名", order.flight),
+          detailRow("路线方向清楚", yesNo(order.routeClear)),
+          detailRow("交通枢纽相关", yesNo(order.hubRelated))
+        );
+      }
+
+      if (Object.prototype.hasOwnProperty.call(order, "emailVerified") || order.noteNeedsConfirm) {
+        rows.push(
+          detailRow("邮箱已确认", yesNo(order.emailVerified)),
+          detailRow("备注需确认", yesNo(order.noteNeedsConfirm))
+        );
+      }
+
+      return rows.join("");
+    }
+
+    function openOrderModal(index) {
+      const order = orders[index];
+      if (!order) return;
+      document.getElementById("modalTitle").textContent = `订单详情 ${order.no}`;
+      document.getElementById("modalBody").innerHTML = `<div class="detail-grid">${getModalRows(order)}</div>`;
+      document.getElementById("orderModal").hidden = false;
+    }
+
+    function closeOrderModal() {
+      document.getElementById("orderModal").hidden = true;
+    }
+
+    function scrollOrderListTop() {
+      const list = document.getElementById("orderList");
+      if (list) list.scrollTop = 0;
+    }
+
+    function renderMissing() {
+      if (selectedIndex < 0) {
+        document.getElementById("missingList").innerHTML = '<div class="hint">请选择日期和订单。</div>';
+        return;
+      }
+      const order = orders[selectedIndex];
+      const list = document.getElementById("missingList");
+      if (isCanceledOrder(order)) {
+        list.innerHTML = `
+        <article class="missing-card active">
+          <div class="order-top">
+            <span class="order-no">${order.no}</span>
+            <span class="tag success">已取消</span>
+          </div>
+          <div class="field"><span class="label">客人</span><span class="value">${order.guest}</span></div>
+          <div class="missing-list">
+            <span class="tag success">已取消订单，无需补充</span>
+          </div>
+        </article>
+      `;
+        return;
+      }
+      const calculatedMissing = getMissingFields(order);
+      const missing = calculatedMissing.length ? calculatedMissing : [{ zh: "无缺失字段", en: "No missing fields" }];
+      const typeRule = order.type === "接送" ? transferRuleText : ticketRuleText;
+      const existing = getExistingFields(order).join("、") || "暂无完整字段";
+      list.innerHTML = `
+        <article class="missing-card active">
+          <div class="order-top">
+            <span class="order-no">${order.no}</span>
+            <span class="tag ${calculatedMissing.length ? "warning" : "success"}">${calculatedMissing.length ? "需补充" : "完整"}</span>
+          </div>
+          <div class="field"><span class="label">客人</span><span class="value">${order.guest}</span></div>
+          ${order.type === "接送" ? `<div class="field"><span class="label">分类</span><span class="value">${getTransferCategoryLabel(order)}</span></div>` : ""}
+          <div class="missing-list">
+            ${missing.map(item => `<span class="tag ${calculatedMissing.length ? "warning" : "success"}">${item.zh} / ${item.en}</span>`).join("")}
+          </div>
+        </article>
+      `;
+    }
+
+    function generateEmail() {
+      if (selectedIndex < 0) return;
+      const order = orders[selectedIndex];
+      const output = document.getElementById("mailOutput");
+      const missing = getMissingFields(order);
+      const customerMissing = missing.filter(item => !item.internalOnly);
+      document.getElementById("copyStatus").textContent = "";
+
+      if (isCanceledOrder(order)) {
+        output.textContent = "该订单已取消，不建议生成补信息邮件";
+        return;
+      }
+
+      if (!missing.length) {
+        output.textContent = `Subject: Booking ${order.no} - No Additional Information Required
+
+Dear ${order.guest},
+
+Thank you. We have all the required information for your booking ${order.no}.
+
+Best regards,
+ReoTrip Team`;
+        return;
+      }
+
+      if (!customerMissing.length) {
+        output.textContent = "该订单需人工确认订单类型或接送分类，不建议直接向客户生成补信息邮件。";
+        return;
+      }
+
+      const questions = getEmailFieldLines(customerMissing).join("\n");
+
+      output.textContent = `Subject: Missing Information for Booking ${order.no}
+
+Dear Customer,
+
+Thank you for your booking ${order.no}. Could you please provide the following missing information?
+
+${questions}
+
+Thank you for your help.
+
+Best regards,
+ReoTrip Team`;
+    }
+
+    function getFilteredOrders() {
+      return orders.filter(order => {
+        if (order.date !== selectedDate) return false;
+        if (selectedFilter === "confirmed") return order.status === "已确认";
+        if (selectedFilter === "missing") return getMissingFields(order).length > 0;
+        return true;
+      });
+    }
+
+    function renderSummary(filteredOrders) {
+      const dateOrders = orders.filter(order => order.date === selectedDate);
+      document.getElementById("totalCount").textContent = dateOrders.length;
+      document.getElementById("confirmedCount").textContent = dateOrders.filter(order => order.status === "已确认").length;
+      document.getElementById("missingCount").textContent = dateOrders.filter(order => getMissingFields(order).length > 0).length;
+      document.querySelectorAll(".metric").forEach(metric => {
+        metric.classList.toggle("active", metric.dataset.filter === selectedFilter);
+      });
+    }
+
+    function renderDateSelect() {
+      const select = document.getElementById("dateSelect");
+      const dates = Array.from(new Set(orders.map(order => order.date))).sort();
+      selectedDate = selectedDate || dates[0] || "";
+      select.innerHTML = dates.map(date => `<option value="${date}" ${date === selectedDate ? "selected" : ""}>${date}</option>`).join("");
+      select.addEventListener("change", () => {
+        selectedDate = select.value;
+        selectedIndex = -1;
+        selectedFilter = "all";
+        document.getElementById("copyStatus").textContent = "";
+        document.getElementById("mailOutput").textContent = "已切换日期。请选择左侧订单，然后点击“邮件生成”。";
+        renderOrders();
+        scrollOrderListTop();
+        renderMissing();
+      });
+    }
+
+    function bindMetricFilters() {
+      document.querySelectorAll(".metric").forEach(metric => {
+        metric.addEventListener("click", () => {
+          selectedFilter = metric.dataset.filter;
+          selectedIndex = -1;
+          document.getElementById("copyStatus").textContent = "";
+          document.getElementById("mailOutput").textContent = "已切换筛选。请选择左侧订单，然后点击“邮件生成”。";
+          renderOrders();
+          scrollOrderListTop();
+          renderMissing();
+        });
+      });
+    }
+
+    async function copyEmail() {
+      const text = document.getElementById("mailOutput").textContent.trim();
+      const status = document.getElementById("copyStatus");
+      if (!text || text.startsWith("请选择") || text.startsWith("已切换订单")) {
+        status.style.color = "#e6a23c";
+        status.textContent = "请先生成邮件内容";
+        return;
+      }
+
+      try {
+        await navigator.clipboard.writeText(text);
+        status.style.color = "#67c23a";
+        status.textContent = "邮件内容已复制";
+      } catch (error) {
+        status.style.color = "#f56c6c";
+        status.textContent = "复制失败，请手动选中邮件内容复制";
+      }
+    }
+
+    document.getElementById("mailButton").addEventListener("click", generateEmail);
+    document.getElementById("copyButton").addEventListener("click", copyEmail);
+    document.getElementById("modalClose").addEventListener("click", closeOrderModal);
+    document.getElementById("orderModal").addEventListener("click", (event) => {
+      if (event.target.id === "orderModal") closeOrderModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeOrderModal();
+    });
+    renderDateSelect();
+    bindMetricFilters();
+    renderOrders();
+    renderMissing();
+  </script>
+</body>
+</html>

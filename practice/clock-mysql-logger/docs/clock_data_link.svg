@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="1280" viewBox="0 0 1480 1280" role="img" aria-labelledby="title desc">
+  <title id="title">实时钟显示刷新到 MySQL 落盘数据链路图</title>
+  <desc id="desc">标注 Python 主循环同步路径、MySQL 提交确认路径和 InnoDB 后台异步刷脏页路径。</desc>
+  <defs>
+    <marker id="arrow-sync" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/>
+    </marker>
+    <marker id="arrow-async" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#d97706"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .title { font: 700 30px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #0f172a; }
+      .subtitle { font: 16px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #475569; }
+      .node { fill: #ffffff; stroke: #2563eb; stroke-width: 2; rx: 10; }
+      .node-db { fill: #fff7ed; stroke: #d97706; stroke-width: 2; rx: 10; }
+      .decision { fill: #ecfeff; stroke: #0891b2; stroke-width: 2; }
+      .text { font: 16px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #0f172a; text-anchor: middle; dominant-baseline: middle; }
+      .small { font: 14px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #334155; text-anchor: middle; dominant-baseline: middle; }
+      .edge { fill: none; stroke: #2563eb; stroke-width: 2.4; marker-end: url(#arrow-sync); }
+      .edge-async { fill: none; stroke: #d97706; stroke-width: 2.8; stroke-dasharray: 9 7; marker-end: url(#arrow-async); }
+      .label-bg { fill: #f8fafc; stroke: #e2e8f0; stroke-width: 1; rx: 6; }
+      .label { font: 13px "Microsoft YaHei", "Noto Sans SC", Arial, sans-serif; fill: #1e293b; text-anchor: middle; dominant-baseline: middle; }
+      .legend { fill: #ffffff; stroke: #cbd5e1; stroke-width: 1.5; rx: 8; }
+    </style>
+  </defs>
+
+  <rect class="bg" x="0" y="0" width="1480" height="1280"/>
+  <text class="title" x="80" y="48">实时钟显示刷新到 MySQL 落盘数据链路图</text>
+  <text class="subtitle" x="80" y="82">项目路径：显示器刷新 -> Python 主循环 -> MySQL 提交 -> InnoDB 后台落盘</text>
+
+  <rect class="legend" x="1100" y="32" width="320" height="92"/>
+  <line class="edge" x1="1125" y1="62" x2="1195" y2="62"/>
+  <text class="small" x="1290" y="62">同步调用 / 同步等待</text>
+  <line class="edge-async" x1="1125" y1="96" x2="1195" y2="96"/>
+  <text class="small" x="1304" y="96">异步后台处理</text>
+
+  <rect class="node" x="540" y="140" width="400" height="70"/>
+  <text class="text" x="740" y="166">while True 主循环</text>
+  <text class="small" x="740" y="190">每轮约 0.02 秒</text>
+
+  <rect class="node" x="540" y="255" width="400" height="70"/>
+  <text class="text" x="740" y="281">datetime.now()</text>
+  <text class="small" x="740" y="305">获取当前时间</text>
+
+  <rect class="node" x="540" y="370" width="400" height="76"/>
+  <text class="text" x="740" y="397">格式化时间字符串</text>
+  <text class="small" x="740" y="421">YYYY-MM-DD HH:MM:SS.mmm</text>
+
+  <rect class="node" x="540" y="492" width="400" height="70"/>
+  <text class="text" x="740" y="518">拼接星期信息</text>
+  <text class="small" x="740" y="542">组成完整显示文本</text>
+
+  <rect class="node" x="540" y="607" width="400" height="70"/>
+  <text class="text" x="740" y="633">get_centered_text()</text>
+  <text class="small" x="740" y="657">按终端宽度居中</text>
+
+  <rect class="node" x="540" y="722" width="400" height="76"/>
+  <text class="text" x="740" y="749">print(..., flush=True)</text>
+  <text class="small" x="740" y="773">刷新终端 / 显示器显示</text>
+
+  <polygon class="decision" points="740,845 945,915 740,985 535,915"/>
+  <text class="text" x="740" y="900">insert_count % 25 == 0?</text>
+  <text class="small" x="740" y="925">约每 0.5 秒一次</text>
+
+  <rect class="node" x="80" y="880" width="330" height="70"/>
+  <text class="text" x="245" y="906">insert_count += 1</text>
+  <text class="small" x="245" y="930">同步计数累加</text>
+
+  <rect class="node" x="80" y="1020" width="330" height="70"/>
+  <text class="text" x="245" y="1046">time.sleep(0.02)</text>
+  <text class="small" x="245" y="1070">等待下一次刷新</text>
+
+  <rect class="node-db" x="1070" y="170" width="350" height="70"/>
+  <text class="text" x="1245" y="196">insert_time_record()</text>
+  <text class="small" x="1245" y="220">同步调用写库函数</text>
+
+  <rect class="node-db" x="1070" y="290" width="350" height="82"/>
+  <text class="text" x="1245" y="317">mysql.connector.connect()</text>
+  <text class="small" x="1245" y="342">localhost:3307 / clock_db</text>
+
+  <rect class="node-db" x="1070" y="422" width="350" height="82"/>
+  <text class="text" x="1245" y="449">cursor.execute INSERT</text>
+  <text class="small" x="1245" y="474">写入 clock_log.time_now_datetime</text>
+
+  <rect class="node-db" x="1070" y="554" width="350" height="76"/>
+  <text class="text" x="1245" y="581">conn.commit()</text>
+  <text class="small" x="1245" y="605">提交事务</text>
+
+  <rect class="node-db" x="1070" y="680" width="350" height="82"/>
+  <text class="text" x="1245" y="707">MySQL 接收事务</text>
+  <text class="small" x="1245" y="732">确认提交并返回</text>
+
+  <rect class="node-db" x="1070" y="812" width="350" height="90"/>
+  <text class="text" x="1245" y="840">Redo Log / Binlog 刷盘</text>
+  <text class="small" x="1245" y="865">提交确认路径</text>
+  <text class="small" x="1245" y="887">受 MySQL 配置影响</text>
+
+  <rect class="node-db" x="1030" y="1030" width="430" height="96"/>
+  <text class="text" x="1245" y="1057">Buffer Pool 脏页写入表空间文件</text>
+  <text class="small" x="1245" y="1083">MySQL/InnoDB 后台线程</text>
+  <text class="small" x="1245" y="1105">最终数据页落盘</text>
+
+  <rect class="node-db" x="540" y="1050" width="400" height="76"/>
+  <text class="text" x="740" y="1077">cursor.close() / conn.close()</text>
+  <text class="small" x="740" y="1101">同步释放连接资源</text>
+
+  <line class="edge" x1="740" y1="210" x2="740" y2="255"/>
+  <rect class="label-bg" x="702" y="226" width="76" height="24"/>
+  <text class="label" x="740" y="238">同步</text>
+
+  <line class="edge" x1="740" y1="325" x2="740" y2="370"/>
+  <rect class="label-bg" x="702" y="341" width="76" height="24"/>
+  <text class="label" x="740" y="353">同步</text>
+
+  <line class="edge" x1="740" y1="446" x2="740" y2="492"/>
+  <rect class="label-bg" x="702" y="463" width="76" height="24"/>
+  <text class="label" x="740" y="475">同步</text>
+
+  <line class="edge" x1="740" y1="562" x2="740" y2="607"/>
+  <rect class="label-bg" x="702" y="578" width="76" height="24"/>
+  <text class="label" x="740" y="590">同步</text>
+
+  <line class="edge" x1="740" y1="677" x2="740" y2="722"/>
+  <rect class="label-bg" x="702" y="693" width="76" height="24"/>
+  <text class="label" x="740" y="705">同步</text>
+
+  <line class="edge" x1="740" y1="798" x2="740" y2="845"/>
+  <rect class="label-bg" x="702" y="815" width="76" height="24"/>
+  <text class="label" x="740" y="827">同步</text>
+
+  <path class="edge" d="M 535 915 L 410 915"/>
+  <rect class="label-bg" x="424" y="893" width="98" height="24"/>
+  <text class="label" x="473" y="905">否 同步跳过</text>
+
+  <line class="edge" x1="245" y1="950" x2="245" y2="1020"/>
+  <rect class="label-bg" x="207" y="978" width="76" height="24"/>
+  <text class="label" x="245" y="990">同步</text>
+
+  <path class="edge" d="M 245 1020 L 245 132 L 540 132 L 540 175"/>
+  <rect class="label-bg" x="284" y="126" width="142" height="24"/>
+  <text class="label" x="355" y="138">返回下一轮循环</text>
+
+  <path class="edge" d="M 945 915 L 1000 915 L 1000 205 L 1070 205"/>
+  <rect class="label-bg" x="960" y="886" width="98" height="24"/>
+  <text class="label" x="1009" y="898">是 同步调用</text>
+
+  <line class="edge" x1="1245" y1="240" x2="1245" y2="290"/>
+  <rect class="label-bg" x="1207" y="258" width="76" height="24"/>
+  <text class="label" x="1245" y="270">同步</text>
+
+  <line class="edge" x1="1245" y1="372" x2="1245" y2="422"/>
+  <rect class="label-bg" x="1207" y="390" width="76" height="24"/>
+  <text class="label" x="1245" y="402">同步</text>
+
+  <line class="edge" x1="1245" y1="504" x2="1245" y2="554"/>
+  <rect class="label-bg" x="1207" y="522" width="76" height="24"/>
+  <text class="label" x="1245" y="534">同步</text>
+
+  <line class="edge" x1="1245" y1="630" x2="1245" y2="680"/>
+  <rect class="label-bg" x="1168" y="648" width="154" height="24"/>
+  <text class="label" x="1245" y="660">同步等待 MySQL</text>
+
+  <line class="edge" x1="1245" y1="762" x2="1245" y2="812"/>
+  <rect class="label-bg" x="1132" y="780" width="226" height="24"/>
+  <text class="label" x="1245" y="792">同步提交确认路径</text>
+
+  <line class="edge-async" x1="1245" y1="902" x2="1245" y2="1030"/>
+  <rect class="label-bg" x="1122" y="954" width="246" height="24"/>
+  <text class="label" x="1245" y="966">异步 InnoDB 后台线程</text>
+
+  <path class="edge" d="M 1070 592 L 980 592 L 980 1088 L 940 1088"/>
+  <rect class="label-bg" x="947" y="650" width="76" height="24"/>
+  <text class="label" x="985" y="662">同步</text>
+
+  <path class="edge" d="M 540 1088 L 410 1088"/>
+  <rect class="label-bg" x="429" y="1066" width="94" height="24"/>
+  <text class="label" x="476" y="1078">同步返回</text>
+</svg>

@@ -1,0 +1,256 @@
+{
+  "request": {
+    "sourceText": "客人 1 位成人，计划 2026 年 8 月 3 日中午 12 点左右从东京去金泽，需要查可买车次和坐席价格。",
+    "date": {
+      "year": 2026,
+      "month": 8,
+      "day": 3,
+      "iso": "2026-08-03"
+    },
+    "origin": {
+      "key": "tokyo",
+      "canonical": "Tokyo Station",
+      "tripQuery": "Tokyo",
+      "tripPattern": {},
+      "aliases": [
+        "东京",
+        "東京",
+        "东京站",
+        "東京站",
+        "tokyo",
+        "tokyo station"
+      ]
+    },
+    "destination": {
+      "key": "kanazawa",
+      "canonical": "Kanazawa",
+      "tripQuery": "Kanazawa",
+      "tripPattern": {},
+      "aliases": [
+        "金泽",
+        "金泽站",
+        "金澤",
+        "金澤站",
+        "金沢",
+        "金沢站",
+        "kanazawa"
+      ]
+    },
+    "time": {
+      "raw": "中午 12 点",
+      "hour": 12,
+      "minute": 0,
+      "resolved": "12:00"
+    },
+    "passengers": {
+      "adults": 1,
+      "children": null,
+      "raw": "1 成人"
+    },
+    "missingFields": []
+  },
+  "steps": [
+    {
+      "action": "open_start_url",
+      "ok": true,
+      "url": "https://hk.trip.com/trains/asia/list?locale=zh-HK&curr=USD&redirectedbyasiamiddleware=1&triptab=train&departurecountrycode=JP&arrivalcountrycode=JP&tripTab=train&biztype=JP&departdate=2026-07-13&departurecitycode=JP03271&arrivalcitycode=JP03869&departurecity=%E6%9D%B1%E4%BA%AC&arrivalcity=%E5%A4%A7%E9%98%AA"
+    },
+    {
+      "action": "ensure_currency_usd",
+      "ok": true,
+      "value": "USD",
+      "visibleText": "USD",
+      "method": "already_visible"
+    },
+    {
+      "action": "select_destination",
+      "ok": true,
+      "skipped": false,
+      "value": "金澤"
+    },
+    {
+      "action": "select_origin",
+      "ok": true,
+      "skipped": true,
+      "value": "東京"
+    },
+    {
+      "action": "select_date",
+      "ok": true,
+      "value": "2026-08-03"
+    },
+    {
+      "action": "select_time",
+      "ok": true,
+      "value": "12:00"
+    },
+    {
+      "action": "click_search",
+      "ok": true
+    },
+    {
+      "action": "extract_and_filter_trains",
+      "ok": true,
+      "filter": "12:00",
+      "matchingTrainCount": 9,
+      "laterClicks": 0
+    }
+  ],
+  "selected": {
+    "url": "https://hk.trip.com/trains/asia/list?locale=zh-HK&curr=USD&redirectedbyasiamiddleware=1&triptab=train&departurecountrycode=JP&arrivalcountrycode=JP&tripTab=train&biztype=JP&departdate=2026-08-03&departurecitycode=JP03271&arrivalcitycode=JP01564&arrivalcityid=3663&departurecity=%E6%9D%B1%E4%BA%AC&arrivalcity=%E9%87%91%E6%BE%A4",
+    "origin": "東京",
+    "destination": "金澤",
+    "currency": null,
+    "pageTextSample": "You can find your e-tickets in the App and in your booking confirmation email.\nYou can find your e-tickets in the App and in your booking confirmation email.\nYou can find your e-tickets in the App and in your booking confirmation email.\n\n住宿\n機票\n高鐵／火車票\n租車／機場接送\n門票／體驗\n機票＋酒店\nApp\nUSD\n聯絡我們\n搜尋訂單\n登入／註冊\n由\n\n\n前往\n出發時間\n8月3日 週一\n12:00\n回程時間\n新增回程\n\n搜尋\n󱤑\n火車\n󱤐\n巴士\n\n週一\n7月20日\n週二\n7月21日\n週三\n7月22日\n週四\n7月23日\n週五\n7月24日\n週六\n7月25日\n週日\n7月26日\n週一\n7月27日\n週二\n7月28日\n週三\n7月29日\n週四\n7月30日\n週五\n7月31日\n週六\n8月1日\n週日\n8月2日\n週一\n8月3日\n週二\n8月4日\n週三\n8月5日\n週四\n8月6日\n週五\n8月7日\n週六\n8月8日\n週日\n8月9日\n週一\n8月10日\n週二\n8月11日\n週三\n8月12日\n週四\n8月13日\n週五\n8月14日\n週六\n8月15日\n週日\n8月16日\n週一\n8月17日\n週二\n8月18日\n週三\n8月19日\n\n週四\n8月20日\n\n週五\n8月21日\n\n週六\n8月22日\n\n週日\n8月23日\n\n週一\n8月24日\n\n週二\n8月25日\n\n週三\n8月26日\n\n週四\n8月27日\n\n週五\n8月28日\n\n週六\n8月29日\n\n週日\n8月30日\n\n週一\n8月31日\n\n週二\n9月1日\n\n週三\n9月2日\n\n週四\n9月3日\n\n週五\n9月4日\n\n週六\n9月5日\n\n週日\n9月6日\n\n週一\n9月7日\n\n週二\n9月8日\n\n週三\n9月9日\n\n週四\n9月10日\n\n週五\n9月11日\n\n週六\n9月12日\n\n週日\n9月13日\n\n週一\n9月14日\n\n週二\n9月15日\n\n週三\n9月16日\n\n週四\n9月17日\n\n週五\n9月18日\n\n週六\n9月19日\n\n週日\n9月20日\n\n週一\n9月21日\n\n週二\n9月22日\n\n週三\n9月23日\n\n週四\n9月24日\n\n週五\n9月25日\n\n週六\n9月26日\n\n週日\n9月27日\n\n週一\n9月28日\n\n週二\n9月29日\n\n週三\n9月30日\n\n週四\n10月1日\n\n週五\n10月2日\n\n週六\n10月3日\n\n週日\n10月4日\n\n週一\n10月5日\n\n週二\n10月6日\n\n週三\n10月7日\n\n週四\n10月8日\n\n週五\n10月9日\n\n週六\n10月10日\n\n週日\n10月11日\n\n週一\n10月12日\n\n週二\n10月13日\n\n週三\n10月14日\n\n週四\n10月15日\n\n週五\n10月16日\n\n週六\n10月17日\n\n無預訂費用\n官方合作夥伴\n󱪄\n僅限新幹線\n出發時間 (最早)\n\n\n篩選條件\n\n󱪄\n新幹線\nKagayaki No.501\n06:16\n東京\n08:43\n金澤\n2小時27分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.551\n06:28\n東京\n09:32\n金澤\n3小時4分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nKagayaki No.503\n最快\n07:20\n東京\n09:44\n金澤\n2小時24分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.553\n07:52\n東京\n11:01\n金澤\n3小時9分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nKagayaki No.505\n08:11\n東京\n10:45\n金澤\n2小時34分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nKagayaki No.525\n08:33\n東京\n11:07\n金澤\n2小時34分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.555\n08:41\n東京\n11:43\n金澤\n3小時2分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nKagayaki No.507\n09:20\n東京\n11:52\n金澤\n2小時32分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.557\n09:32\n東京\n12:27\n金澤\n2小時55分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nKagayaki No.527\n09:56\n東京\n12:30\n金澤\n2小時34分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nKagayaki No.509\n10:22\n東京\n12:49\n金澤\n2小時27分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.559\n10:33\n東京\n13:36\n金澤\n3小時3分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.561\n11:24\n東京\n14:17\n金澤\n2小時53分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.563\n12:24\n東京\n15:17\n金澤\n2小時53分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nKagayaki No.533\n12:48\n東京\n15:22\n金澤\n2小時34分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.565\n13:24\n東京\n16:17\n金澤\n2小時53分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.567\n14:24\n東京\n17:18\n金澤\n2小時54分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nKagayaki No.539\n14:52\n東京\n17:23\n金澤\n2小時31分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nHakutaka No.569\n15:24\n東京\n18:20\n金澤\n2小時56分, 直航\nUSD90.15\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線\nKagayaki No.511\n16:24\n東京\n18:52\n金澤\n2小時28分, 直航\nUSD94.83\n\n󰃰\n可更改\n󱵘\n可退款\n支援座位偏好\n󱪄\n新幹線"
+  },
+  "searched": true,
+  "currency": {
+    "value": "USD",
+    "visibleText": "USD",
+    "method": "already_visible"
+  },
+  "trains": {
+    "filter": "12:00",
+    "laterClicks": 0,
+    "visibleTrainCount": 22,
+    "matchingTrainCount": 9,
+    "trains": [
+      {
+        "trainType": "新幹線",
+        "trainName": "Hakutaka No.563",
+        "departureTime": "12:24",
+        "departureMinutes": 744,
+        "departureStation": "東京",
+        "arrivalTime": "15:17",
+        "arrivalStation": "金澤",
+        "duration": "2小時53分, 直航",
+        "price": "USD90.15",
+        "tags": [
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "Kagayaki No.533",
+        "departureTime": "12:48",
+        "departureMinutes": 768,
+        "departureStation": "東京",
+        "arrivalTime": "15:22",
+        "arrivalStation": "金澤",
+        "duration": "2小時34分, 直航",
+        "price": "USD94.83",
+        "tags": [
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "Hakutaka No.565",
+        "departureTime": "13:24",
+        "departureMinutes": 804,
+        "departureStation": "東京",
+        "arrivalTime": "16:17",
+        "arrivalStation": "金澤",
+        "duration": "2小時53分, 直航",
+        "price": "USD90.15",
+        "tags": [
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "Hakutaka No.567",
+        "departureTime": "14:24",
+        "departureMinutes": 864,
+        "departureStation": "東京",
+        "arrivalTime": "17:18",
+        "arrivalStation": "金澤",
+        "duration": "2小時54分, 直航",
+        "price": "USD90.15",
+        "tags": [
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "Kagayaki No.539",
+        "departureTime": "14:52",
+        "departureMinutes": 892,
+        "departureStation": "東京",
+        "arrivalTime": "17:23",
+        "arrivalStation": "金澤",
+        "duration": "2小時31分, 直航",
+        "price": "USD94.83",
+        "tags": [
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "Hakutaka No.569",
+        "departureTime": "15:24",
+        "departureMinutes": 924,
+        "departureStation": "東京",
+        "arrivalTime": "18:20",
+        "arrivalStation": "金澤",
+        "duration": "2小時56分, 直航",
+        "price": "USD90.15",
+        "tags": [
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "Kagayaki No.511",
+        "departureTime": "16:24",
+        "departureMinutes": 984,
+        "departureStation": "東京",
+        "arrivalTime": "18:52",
+        "arrivalStation": "金澤",
+        "duration": "2小時28分, 直航",
+        "price": "USD94.83",
+        "tags": [
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "Hakutaka No.571",
+        "departureTime": "16:32",
+        "departureMinutes": 992,
+        "departureStation": "東京",
+        "arrivalTime": "19:35",
+        "arrivalStation": "金澤",
+        "duration": "3小時3分, 直航",
+        "price": "USD90.15",
+        "tags": [
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "Kagayaki No.543",
+        "departureTime": "17:04",
+        "departureMinutes": 1024,
+        "departureStation": "東京",
+        "arrivalTime": "19:38",
+        "arrivalStation": "金澤",
+        "duration": "2小時34分, 直航",
+        "price": "USD94.83",
+        "tags": [
+          "可更改",
+          "可退款"
+        ]
+      }
+    ]
+  },
+  "htmlOutput": "D:\\常用文件\\reotrip\\arrange schedule skill\\03_实习生提交\\shinkansen-price-skill\\examples\\trip-kanazawa-result.html"
+}

@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Shinkansen Price Helper",
+  "version": "0.1.0",
+  "description": "Collect text or image requirements for shinkansen price checks.",
+  "action": {
+    "default_title": "Shinkansen Price Helper",
+    "default_popup": "popup.html"
+  },
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": [
+    "https://www.klook.com/*",
+    "https://www.klook.cn/*",
+    "https://www.trip.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.klook.com/*",
+        "https://www.klook.cn/*",
+        "https://www.trip.com/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "vendor/worker.min.js",
+        "vendor/tesseract.min.js",
+        "vendor/tesseract/core/*",
+        "vendor/tesseract/lang/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}

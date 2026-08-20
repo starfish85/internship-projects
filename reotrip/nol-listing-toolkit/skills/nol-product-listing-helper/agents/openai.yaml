@@ -1,0 +1,8 @@
+interface:
+  display_name: "NOL产品上架助手"
+  short_description: "按NOL后台模板辅助填写产品上架表单"
+  brand_color: "#3B82F6"
+  default_prompt: "Use $nol-product-listing-helper to help list a NOL transfer product from a task brief, price table, and product-admin screenshots."
+
+policy:
+  allow_implicit_invocation: true

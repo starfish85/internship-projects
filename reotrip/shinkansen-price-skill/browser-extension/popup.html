@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Shinkansen Price Helper</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="header">
+        <h1>Requirement Input</h1>
+        <p>Enter text or upload an image.</p>
+      </header>
+
+      <section class="panel">
+        <label class="field">
+          <span>Text requirement</span>
+          <textarea
+            id="requirementText"
+            placeholder="Example: 2026-11-12, Tokyo Station to Osaka, 2 passengers, afternoon"
+            rows="5"
+          ></textarea>
+        </label>
+
+        <div class="field">
+          <span>Image requirement</span>
+          <div class="uploadRow">
+            <label class="uploadButton" for="requirementImage">Choose image</label>
+            <input id="requirementImage" type="file" accept="image/*" />
+            <button id="clearImage" class="ghostButton" type="button">Clear</button>
+          </div>
+          <div id="imagePreview" class="imagePreview empty">No image selected</div>
+        </div>
+
+        <div class="actions">
+          <button id="extractFields" class="primaryButton" type="button">Extract fields</button>
+          <button id="saveRequirement" class="ghostButton" type="button">Save requirement</button>
+          <button id="exportDetails" class="ghostButton" type="button">Export train HTML</button>
+          <button id="reloadExtension" class="ghostButton reloadButton" type="button">Reload extension</button>
+          <span id="status" class="status">Waiting for input</span>
+        </div>
+
+        <div class="results">
+          <div class="resultsHeader">
+            <span>Parsed fields</span>
+          </div>
+
+          <div class="resultGrid">
+            <label class="resultField">
+              <span>Origin</span>
+              <input id="originField" type="text" readonly />
+            </label>
+            <label class="resultField">
+              <span>Destination</span>
+              <input id="destinationField" type="text" readonly />
+            </label>
+            <label class="resultField">
+              <span>Departure date</span>
+              <input id="departureDateField" type="text" readonly />
+            </label>
+            <label class="resultField">
+              <span>Date note</span>
+              <input id="departureDateNoteField" type="text" readonly />
+            </label>
+            <label class="resultField">
+              <span>Departure time</span>
+              <input id="departureTimeField" type="text" readonly />
+            </label>
+            <label class="resultField">
+              <span>Time note</span>
+              <input id="departureTimeNoteField" type="text" readonly />
+            </label>
+            <label class="resultField">
+              <span>Adults</span>
+              <input id="adultCountField" type="text" readonly />
+            </label>
+            <label class="resultField">
+              <span>Children</span>
+              <input id="childCountField" type="text" readonly />
+            </label>
+            <label class="resultField resultFieldWide">
+              <span>Passenger note</span>
+              <input id="passengerNoteField" type="text" readonly />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Recognized text</span>
+            <textarea id="recognizedText" rows="7" readonly placeholder="OCR or pasted text appears here"></textarea>
+          </label>
+        </div>
+      </section>
+    </main>
+
+    <script src="vendor/tesseract.min.js"></script>
+    <script src="popup.js"></script>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}📝 添加商品{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📝 添加商品</h1>
+    <a href="{{ url_for('admin') }}" class="btn btn-primary">← 返回列表</a>
+</div>
+
+<div class="form-container">
+    <form method="POST" action="{{ url_for('admin_add') }}" enctype="multipart/form-data">
+        <!-- ===== 商品名称 ===== -->
+        <div class="form-group">
+            <label>商品名称 <span class="required">*</span></label>
+            <input type="text" name="name" placeholder="请输入商品名称" required>
+        </div>
+        
+        <!-- ===== 价格 ===== -->
+        <div class="form-group">
+            <label>价格 <span class="required">*</span></label>
+            <input type="number" name="price" placeholder="0.00" step="0.01" min="0" required>
+        </div>
+        
+        <!-- ===== 库存 ===== -->
+        <div class="form-group">
+            <label>库存</label>
+            <input type="number" name="stock" placeholder="0" step="1" min="0" value="0">
+        </div>
+        
+        <!-- ===== ⭐ 本地图片上传 ===== -->
+        <div class="form-group" style="border: 2px dashed #ddd; border-radius: 8px; padding: 20px; background: #fafafa;">
+            <label style="font-size: 16px; color: #333;">🖼️ 上传商品图片</label>
+            <input type="file" name="image_file" accept="image/*" style="padding: 10px 0; width: 100%;">
+            <small style="color: #888; font-size: 13px; display: block; margin-top: 5px;">
+                支持格式: PNG, JPG, JPEG, GIF, WebP, BMP | 最大 16MB
+            </small>
+            <small style="color: #999; font-size: 13px; display: block; margin-top: 3px;">
+                💡 选择图片后自动保存到项目 static/images/ 目录
+            </small>
+        </div>
+        
+        <!-- ===== 图片 URL（备用） ===== -->
+        <div class="form-group" style="border-top: 1px solid #eee; padding-top: 15px; margin-top: 5px;">
+            <label>或输入图片 URL（网络图片）</label>
+            <input type="text" name="image_url" placeholder="https://example.com/image.jpg">
+            <small style="color: #999; font-size: 13px; display: block; margin-top: 3px;">
+                💡 如果上传了本地图片，此字段将被忽略
+            </small>
+        </div>
+        
+        <!-- ===== 商品描述 ===== -->
+        <div class="form-group">
+            <label>商品描述</label>
+            <textarea name="description" placeholder="请输入商品描述"></textarea>
+        </div>
+        
+        <!-- ===== 提交按钮 ===== -->
+        <div class="form-actions">
+            <button type="submit" class="btn btn-submit">✅ 添加商品</button>
+            <a href="{{ url_for('admin') }}" class="btn btn-cancel">取消</a>
+        </div>
+    </form>
+</div>
+{% endblock %}

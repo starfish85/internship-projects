@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <style>
+        body { font-family: "Microsoft YaHei", sans-serif; background: #f3f6fb; margin: 0; }
+        .wrap { max-width: 420px; margin: 80px auto; background: #fff; border-radius: 8px; padding: 28px; box-shadow: 0 8px 24px rgba(15, 23, 42, .08); }
+        h1 { margin-bottom: 18px; }
+        label { display: block; margin: 12px 0 6px; }
+        input { width: 100%; padding: 10px 12px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; margin-top: 18px; padding: 11px; border: 0; border-radius: 6px; background: #2563eb; color: #fff; cursor: pointer; }
+        .links { margin-top: 14px; display: flex; justify-content: space-between; font-size: 14px; }
+        .msg { padding: 10px 12px; border-radius: 6px; margin-bottom: 12px; }
+        .error { background: #fee2e2; color: #991b1b; }
+        .success { background: #dcfce7; color: #166534; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+    <h1>登录</h1>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, msg in messages %}
+        <div class="msg {{ category }}">{{ msg }}</div>
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <form method="post">
+        <label>用户名</label>
+        <input type="text" name="username" required>
+        <label>密码</label>
+        <input type="password" name="password" required>
+        <button type="submit">登录</button>
+    </form>
+    <div class="links">
+        <a href="{{ url_for('register') }}">注册账号</a>
+        <a href="{{ url_for('index') }}">返回首页</a>
+    </div>
+</div>
+<script>
+    document.addEventListener('click', function (event) {
+        const target = event.target.closest('button, a, input[type="submit"]');
+        if (!target) {
+            return;
+        }
+        navigator.sendBeacon(
+            '/track/click',
+            new Blob([JSON.stringify({
+                text: (target.innerText || target.value || '').trim(),
+                href: target.getAttribute('href') || '',
+                page: window.location.pathname
+            })], {type: 'application/json'})
+        );
+    }, true);
+    document.addEventListener('submit', function (event) {
+        const form = event.target;
+        navigator.sendBeacon(
+            '/track/click',
+            new Blob([JSON.stringify({
+                text: (form.getAttribute('action') || '提交表单'),
+                href: form.getAttribute('action') || '',
+                page: window.location.pathname
+            })], {type: 'application/json'})
+        );
+    }, true);
+</script>
+</body>
+</html>

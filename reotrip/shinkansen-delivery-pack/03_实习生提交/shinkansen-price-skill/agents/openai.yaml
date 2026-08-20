@@ -1,0 +1,7 @@
+interface:
+  display_name: "新干线车票查价"
+  short_description: "从文本或截图识别需求并查询新干线可售车次价格"
+  default_prompt: "Use $shinkansen-price-skill to extract a Japan Shinkansen ticket request and return purchasable train options with displayed USD or HKD prices."
+
+policy:
+  allow_implicit_invocation: true

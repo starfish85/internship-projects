@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}{{ product.name }} - 商品详情{% endblock %}
+
+{% block content %}
+<div class="detail-container">
+    <div class="detail-back">
+        <a href="{{ url_for('index') }}" class="btn-back">← 返回商品列表</a>
+    </div>
+
+    <div class="detail-card">
+        <div class="detail-image">
+            {% if product.image_url %}
+                {% if product.image_url.startswith('http') %}
+                    <img src="{{ product.image_url }}" alt="{{ product.name }}">
+                {% else %}
+                    <img src="{{ url_for('static', filename=product.image_url.replace('static/', '')) }}" alt="{{ product.name }}">
+                {% endif %}
+            {% else %}
+                <div class="no-image">📦</div>
+            {% endif %}
+        </div>
+        
+        <div class="detail-info">
+            <h1 class="detail-name">{{ product.name }}</h1>
+            <div class="detail-price">¥{{ "%.2f"|format(product.price) }}</div>
+            <div class="detail-stock">
+                库存：
+                {% if product.stock > 0 %}
+                    <span class="in-stock">{{ product.stock }} 件</span>
+                {% else %}
+                    <span class="out-of-stock">已售罄</span>
+                {% endif %}
+            </div>
+            <div class="detail-id"><span>商品编号：{{ product.id }}</span></div>
+            <div class="detail-time"><span>创建时间：{{ product.created_at }}</span></div>
+            
+            {% if product.description %}
+                <div class="detail-description">
+                    <h3>商品描述</h3>
+                    <p>{{ product.description }}</p>
+                </div>
+            {% endif %}
+            
+            <div class="detail-actions">
+                {% if product.stock > 0 %}
+                    <form method="POST" action="{{ url_for('cart_add', product_id=product.id) }}" 
+                          style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;"
+                          onsubmit="return validateStock(this)">
+                        <input type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" 
+                               class="quantity-input" id="qty-input">
+                        <span style="font-size:14px;color:#888;">(最多 {{ product.stock }} 件)</span>
+                        <button type="submit" class="btn btn-success">➕ 加入购物车</button>
+                    </form>
+                {% else %}
+                    <span style="color:#e53e3e;font-weight:bold;font-size:18px;">已售罄</span>
+                {% endif %}
+                <a href="{{ url_for('admin') }}" class="btn btn-primary">⚙️ 后台管理</a>
+                <a href="{{ url_for('index') }}" class="btn btn-secondary">🏠 继续购物</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // 前端库存校验
+    function validateStock(form) {
+        const input = document.getElementById('qty-input');
+        const qty = parseInt(input.value);
+        const max = parseInt(input.getAttribute('max'));
+        
+        if (qty > max) {
+            alert(`库存不足！当前库存 ${max} 件`);
+            input.value = max;
+            input.focus();
+            return false;
+        }
+        if (qty < 1) {
+            alert('数量不能小于1');
+            input.value = 1;
+            input.focus();
+            return false;
+        }
+        return true;
+    }
+</script>
+{% endblock %}

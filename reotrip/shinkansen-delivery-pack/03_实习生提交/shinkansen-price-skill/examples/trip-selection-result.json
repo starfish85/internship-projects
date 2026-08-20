@@ -1,0 +1,241 @@
+{
+  "request": {
+    "sourceText": "客人一家 2 大 1 小，想在 2026 年 7 月 25 日下午从东京去京都，优先看可预订的新干线车次。",
+    "date": {
+      "year": 2026,
+      "month": 7,
+      "day": 25,
+      "iso": "2026-07-25"
+    },
+    "origin": {
+      "key": "tokyo",
+      "canonical": "Tokyo Station",
+      "tripQuery": "Tokyo",
+      "tripPattern": {},
+      "aliases": [
+        "东京",
+        "東京",
+        "东京站",
+        "東京站",
+        "tokyo",
+        "tokyo station"
+      ]
+    },
+    "destination": {
+      "key": "kyoto",
+      "canonical": "Kyoto",
+      "tripQuery": "Kyoto",
+      "tripPattern": {},
+      "aliases": [
+        "京都",
+        "京都站",
+        "kyoto"
+      ]
+    },
+    "time": {
+      "raw": "下午",
+      "hour": 15,
+      "minute": 0,
+      "resolved": "15:00"
+    },
+    "passengers": {
+      "adults": 2,
+      "children": 1,
+      "raw": "2 成人，1 儿童"
+    },
+    "missingFields": []
+  },
+  "steps": [
+    {
+      "action": "open_start_url",
+      "ok": true,
+      "url": "https://hk.trip.com/trains/asia/list?locale=zh-HK&curr=HKD&redirectedbyasiamiddleware=1&triptab=train&departurecountrycode=JP&arrivalcountrycode=JP&tripTab=train&biztype=JP&departdate=2026-07-13&departurecitycode=JP03271&arrivalcitycode=JP03869&departurecity=%E6%9D%B1%E4%BA%AC&arrivalcity=%E5%A4%A7%E9%98%AA"
+    },
+    {
+      "action": "select_destination",
+      "ok": true,
+      "skipped": false,
+      "value": "京都"
+    },
+    {
+      "action": "select_origin",
+      "ok": true,
+      "skipped": true,
+      "value": "東京"
+    },
+    {
+      "action": "select_date",
+      "ok": true,
+      "value": "2026-07-25"
+    },
+    {
+      "action": "select_time",
+      "ok": true,
+      "value": "15:00"
+    },
+    {
+      "action": "click_search",
+      "ok": true
+    },
+    {
+      "action": "extract_and_filter_trains",
+      "ok": true,
+      "filter": "15:00",
+      "matchingTrainCount": 8,
+      "laterClicks": 0
+    }
+  ],
+  "selected": {
+    "url": "https://hk.trip.com/trains/asia/list?locale=zh-HK&curr=HKD&redirectedbyasiamiddleware=1&triptab=train&departurecountrycode=JP&arrivalcountrycode=JP&tripTab=train&biztype=JP&departdate=2026-07-25&departurecitycode=JP03271&arrivalcitycode=JP04465&arrivalcityid=734&departurecity=%E6%9D%B1%E4%BA%AC&arrivalcity=%E4%BA%AC%E9%83%BD",
+    "origin": "東京",
+    "destination": "京都",
+    "pageTextSample": "You can find your e-tickets in the App and in your booking confirmation email.\nYou can find your e-tickets in the App and in your booking confirmation email.\nYou can find your e-tickets in the App and in your booking confirmation email.\n\n住宿\n機票\n高鐵／火車票\n租車／機場接送\n門票／體驗\n機票＋酒店\nApp\nHKD\n聯絡我們\n搜尋訂單\n登入／註冊\n由\n\n\n前往\n出發時間\n7月25日 週六\n15:00\n回程時間\n新增回程\n\n搜尋\n󱤑\n火車\n󱤐\n巴士\n\n週一\n7月20日\n週二\n7月21日\n週三\n7月22日\n週四\n7月23日\n週五\n7月24日\n週六\n7月25日\n週日\n7月26日\n週一\n7月27日\n週二\n7月28日\n週三\n7月29日\n週四\n7月30日\n週五\n7月31日\n週六\n8月1日\n週日\n8月2日\n週一\n8月3日\n週二\n8月4日\n週三\n8月5日\n週四\n8月6日\n週五\n8月7日\n週六\n8月8日\n週日\n8月9日\n週一\n8月10日\n週二\n8月11日\n週三\n8月12日\n週四\n8月13日\n週五\n8月14日\n週六\n8月15日\n週日\n8月16日\n週一\n8月17日\n週二\n8月18日\n週三\n8月19日\n\n週四\n8月20日\n\n週五\n8月21日\n\n週六\n8月22日\n\n週日\n8月23日\n\n週一\n8月24日\n\n週二\n8月25日\n\n週三\n8月26日\n\n週四\n8月27日\n\n週五\n8月28日\n\n週六\n8月29日\n\n週日\n8月30日\n\n週一\n8月31日\n\n週二\n9月1日\n\n週三\n9月2日\n\n週四\n9月3日\n\n週五\n9月4日\n\n週六\n9月5日\n\n週日\n9月6日\n\n週一\n9月7日\n\n週二\n9月8日\n\n週三\n9月9日\n\n週四\n9月10日\n\n週五\n9月11日\n\n週六\n9月12日\n\n週日\n9月13日\n\n週一\n9月14日\n\n週二\n9月15日\n\n週三\n9月16日\n\n週四\n9月17日\n\n週五\n9月18日\n\n週六\n9月19日\n\n週日\n9月20日\n\n週一\n9月21日\n\n週二\n9月22日\n\n週三\n9月23日\n\n週四\n9月24日\n\n週五\n9月25日\n\n週六\n9月26日\n\n週日\n9月27日\n\n週一\n9月28日\n\n週二\n9月29日\n\n週三\n9月30日\n\n週四\n10月1日\n\n週五\n10月2日\n\n週六\n10月3日\n\n週日\n10月4日\n\n週一\n10月5日\n\n週二\n10月6日\n\n週三\n10月7日\n\n週四\n10月8日\n\n週五\n10月9日\n\n週六\n10月10日\n\n週日\n10月11日\n\n週一\n10月12日\n\n週二\n10月13日\n\n週三\n10月14日\n\n週四\n10月15日\n\n週五\n10月16日\n\n週六\n10月17日\n\n無預訂費用\n官方合作夥伴\n󱪄\n僅限新幹線\n出發時間 (最早)\n\n\n篩選條件\n\n較\n早\n的\n列\n車\n\n󱪄\n新幹線\n希望 No.263\n15:00\n東京\n17:15\n京都\n2小時15分, 直航\nHK$669.08\n\n󰭮\nQR code 乘車\n󰃰\n可更改\n󱵘\n可退款\n󱪄\n新幹線\n光 No.717\n剩餘票數有限\n15:03\n東京\n17:37\n京都\n2小時34分, 直航\nHK$669.08\n\n󰭮\nQR code 乘車\n󰃰\n可更改\n󱵘\n可退款\n󱪄\n新幹線\n希望 No.43\n最快\n15:12\n東京\n17:23\n京都\n2小時11分, 直航\nHK$669.08\n\n󰭮\nQR code 乘車\n󰃰\n可更改\n󱵘\n可退款\n󱪄\n新幹線\n希望 No.439\n最快\n15:21\n東京\n17:32\n京都\n2小時11分, 直航\nHK$669.08\n\n󰭮\nQR code 乘車\n󰃰\n可更改\n󱵘\n可退款\n󱪄\n新幹線\n希望 No.45\n15:30\n東京\n17:44\n京都\n2小時14分, 直航\nHK$669.08\n\n󰭮\nQR code 乘車\n󰃰\n可更改\n󱵘\n可退款\n󱪄\n新幹線\n光 No.649\n剩餘票數有限\n15:33\n東京\n18:12\n京都\n2小時39分, 直航\nHK$669.08\n\n󰭮\nQR code 乘車\n󰃰\n可更改\n󱵘\n可退款\n󱪄\n新幹線\n光 No.719\n剩餘票數有限\n16:03\n東京\n18:37\n京都\n2小時34分, 直航\nHK$669.08\n\n󰭮\nQR code 乘車\n󰃰\n可更改\n󱵘\n可退款\n󱪄\n新幹線\n光 No.651\n剩餘票數有限\n16:33\n東京\n19:12\n京都\n2小時39分, 直航\nHK$669.08\n\n󰭮\nQR code 乘車\n󰃰\n可更改\n󱵘\n可退款\n較\n晚\n的\n列\n車\n\n轉乘指南資訊 © 2026 Jorudan Co., Ltd.\n\nKOSHO No.196 in 2023\nJR 時刻表資訊的內容乃根據 KOTSU SHIMBUNSHA CO., LTD. 發行的2026年7月號《JR 時刻表》而定。未經授權，一律禁止重製或複製此時刻表資訊，或將其轉換至紙本、電子或其他媒體。\n\n總額\n--\n繼續\n未選擇去程\n車票指南\n\n為甚麼要使用 Trip.com 預訂？\n官方合作夥伴\n官方火車票銷售商，提供五星級客戶服務支援\n可靠的客戶服務支援\n整合所有火車營運商的資訊，讓您輕鬆乘搭火車出行\n綠色旅遊\n在您的手機存取電子車票，享受非接觸式旅遊\n下載 Trip.com App，用更抵價格買火車票\n訂閱最新優惠和機票供應情況更新\n使用價格預測功能\n聯絡我們\n客戶服務支援\n服務保障\n更多服務資訊\n關於\n關於 Trip.com\n傳媒中心\n加入我們\n條款及細則\n私隱條款\n關於 Trip.com Group\n其他服務\n投資者關係\nTrip.com 會員計劃\n聯盟計劃\n刊登我的住宿\n全部酒店\n成為合作夥伴\n安全性\n付款方式\n我們的合作夥伴\nCopyright © 2026 Trip.com Travel Singapore Pte. Ltd. 版權所有。\n網站營運者：Trip.com Travel Singapore Pte. Ltd.\n由Ctrip.com (Hong Kong) Limited持有香港旅行代理商牌照編號 352367"
+  },
+  "searched": true,
+  "trains": {
+    "filter": "15:00",
+    "laterClicks": 0,
+    "visibleTrainCount": 8,
+    "matchingTrainCount": 8,
+    "trains": [
+      {
+        "trainType": "新幹線",
+        "trainName": "希望 No.263",
+        "departureTime": "15:00",
+        "departureMinutes": 900,
+        "departureStation": "東京",
+        "arrivalTime": "17:15",
+        "arrivalStation": "京都",
+        "duration": "2小時15分, 直航",
+        "price": "HK$669.08",
+        "tags": [
+          "QR code 乘車",
+          "可更改",
+          "可退款",
+          "剩餘票數有限"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "光 No.717",
+        "departureTime": "15:03",
+        "departureMinutes": 903,
+        "departureStation": "東京",
+        "arrivalTime": "17:37",
+        "arrivalStation": "京都",
+        "duration": "2小時34分, 直航",
+        "price": "HK$669.08",
+        "tags": [
+          "剩餘票數有限",
+          "QR code 乘車",
+          "可更改",
+          "可退款",
+          "最快"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "希望 No.43",
+        "departureTime": "15:12",
+        "departureMinutes": 912,
+        "departureStation": "東京",
+        "arrivalTime": "17:23",
+        "arrivalStation": "京都",
+        "duration": "2小時11分, 直航",
+        "price": "HK$669.08",
+        "tags": [
+          "最快",
+          "QR code 乘車",
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "希望 No.439",
+        "departureTime": "15:21",
+        "departureMinutes": 921,
+        "departureStation": "東京",
+        "arrivalTime": "17:32",
+        "arrivalStation": "京都",
+        "duration": "2小時11分, 直航",
+        "price": "HK$669.08",
+        "tags": [
+          "最快",
+          "QR code 乘車",
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "希望 No.45",
+        "departureTime": "15:30",
+        "departureMinutes": 930,
+        "departureStation": "東京",
+        "arrivalTime": "17:44",
+        "arrivalStation": "京都",
+        "duration": "2小時14分, 直航",
+        "price": "HK$669.08",
+        "tags": [
+          "QR code 乘車",
+          "可更改",
+          "可退款",
+          "剩餘票數有限"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "光 No.649",
+        "departureTime": "15:33",
+        "departureMinutes": 933,
+        "departureStation": "東京",
+        "arrivalTime": "18:12",
+        "arrivalStation": "京都",
+        "duration": "2小時39分, 直航",
+        "price": "HK$669.08",
+        "tags": [
+          "剩餘票數有限",
+          "QR code 乘車",
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "光 No.719",
+        "departureTime": "16:03",
+        "departureMinutes": 963,
+        "departureStation": "東京",
+        "arrivalTime": "18:37",
+        "arrivalStation": "京都",
+        "duration": "2小時34分, 直航",
+        "price": "HK$669.08",
+        "tags": [
+          "剩餘票數有限",
+          "QR code 乘車",
+          "可更改",
+          "可退款"
+        ]
+      },
+      {
+        "trainType": "新幹線",
+        "trainName": "光 No.651",
+        "departureTime": "16:33",
+        "departureMinutes": 993,
+        "departureStation": "東京",
+        "arrivalTime": "19:12",
+        "arrivalStation": "京都",
+        "duration": "2小時39分, 直航",
+        "price": "HK$669.08",
+        "tags": [
+          "剩餘票數有限",
+          "QR code 乘車",
+          "可更改",
+          "可退款"
+        ]
+      }
+    ]
+  },
+  "htmlOutput": "D:\\常用文件\\reotrip\\arrange schedule skill\\03_实习生提交\\shinkansen-price-skill\\examples\\trip-selection-result.html"
+}

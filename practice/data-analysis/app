@@ -1,0 +1,445 @@
+import mysql.connector
+from mysql.connector import Error
+from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
+from matplotlib.widgets import Button
+import matplotlib
+matplotlib.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'SimHei', 'Arial Unicode MS']
+matplotlib.rcParams['axes.unicode_minus'] = False
+
+# ==================== 数据库配置 ====================
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': '123456',
+    'port': 3307,
+    'database': 'shop_db'
+}
+
+# ==================== 数据库连接 ====================
+
+def get_db_connection():
+    try:
+        conn = mysql.connector.connect(**DB_CONFIG)
+        return conn
+    except Error as e:
+        print(f"❌ 数据库连接失败: {e}")
+        return None
+
+# ==================== 数据查询函数 ====================
+
+def get_today_orders():
+    """查询今日订单量"""
+    conn = get_db_connection()
+    if not conn:
+        return 0
+    
+    try:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT COUNT(*) FROM orders 
+            WHERE DATE(created_at) = CURDATE()
+        """)
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return result[0] if result else 0
+    except Error as e:
+        print(f"❌ 查询今日订单失败: {e}")
+        return 0
+
+
+def get_monthly_sales():
+    """查询本月销售额"""
+    conn = get_db_connection()
+    if not conn:
+        return 0.0
+    
+    try:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT SUM(total_amount) FROM orders 
+            WHERE MONTH(created_at) = MONTH(CURDATE()) 
+            AND YEAR(created_at) = YEAR(CURDATE())
+            AND status = 1
+        """)
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return float(result[0]) if result[0] is not None else 0.0
+    except Error as e:
+        print(f"❌ 查询本月销售额失败: {e}")
+        return 0.0
+
+
+def get_total_users():
+    """查询总用户数（订单表去重）"""
+    conn = get_db_connection()
+    if not conn:
+        return 0
+    
+    try:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT COUNT(DISTINCT user_id) FROM orders
+        """)
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return result[0] if result else 0
+    except Error as e:
+        print(f"❌ 查询总用户数失败: {e}")
+        return 0
+
+
+def get_last_7_days_orders():
+    """查询近7天每日订单量"""
+    conn = get_db_connection()
+    if not conn:
+        return [], []
+    
+    try:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT 
+                DATE(created_at) AS order_date,
+                COUNT(*) AS order_count
+            FROM orders
+            WHERE created_at >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+            GROUP BY DATE(created_at)
+            ORDER BY order_date ASC
+        """)
+        results = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        
+        dates = [row[0].strftime('%Y-%m-%d') for row in results]
+        counts = [row[1] for row in results]
+        
+        # 补全缺失的日期（确保展示7天）
+        all_dates = []
+        all_counts = []
+        start_date = datetime.now().date() - timedelta(days=6)
+        for i in range(7):
+            current_date = start_date + timedelta(days=i)
+            date_str = current_date.strftime('%Y-%m-%d')
+            all_dates.append(date_str)
+            if date_str in dates:
+                idx = dates.index(date_str)
+                all_counts.append(counts[idx])
+            else:
+                all_counts.append(0)
+        
+        return all_dates, all_counts
+    except Error as e:
+        print(f"❌ 查询近7天订单失败: {e}")
+        return [], []
+
+
+def get_last_7_days_sales():
+    """查询近7天每日销售额（已支付订单）"""
+    conn = get_db_connection()
+    if not conn:
+        return [], []
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT
+                DATE(created_at) AS order_date,
+                SUM(total_amount) AS sales_amount
+            FROM orders
+            WHERE status = 1
+            AND created_at >= DATE_SUB(CURDATE(), INTERVAL 7 DAY)
+            GROUP BY DATE(created_at)
+            ORDER BY order_date ASC
+        """)
+        results = cursor.fetchall()
+        cursor.close()
+        conn.close()
+
+        dates = [row[0].strftime('%Y-%m-%d') for row in results]
+        sales = [float(row[1] or 0) for row in results]
+
+        all_dates = []
+        all_sales = []
+        start_date = datetime.now().date() - timedelta(days=6)
+        for i in range(7):
+            current_date = start_date + timedelta(days=i)
+            date_str = current_date.strftime('%Y-%m-%d')
+            all_dates.append(date_str)
+            if date_str in dates:
+                idx = dates.index(date_str)
+                all_sales.append(sales[idx])
+            else:
+                all_sales.append(0.0)
+
+        return all_dates, all_sales
+    except Error as e:
+        print(f"❌ 查询近7天销售额失败: {e}")
+        return [], []
+
+
+def get_product_sales_share(limit=8):
+    """查询各商品销售额占比（已支付订单）"""
+    conn = get_db_connection()
+    if not conn:
+        return [], []
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("""
+            SELECT
+                order_items.product_name,
+                SUM(order_items.subtotal) AS sales_amount
+            FROM order_items
+            INNER JOIN orders ON order_items.order_id = orders.id
+            WHERE orders.status = 1
+            GROUP BY order_items.product_name
+            ORDER BY sales_amount DESC
+        """)
+        results = cursor.fetchall()
+        cursor.close()
+        conn.close()
+
+        labels = [row[0] for row in results]
+        values = [float(row[1] or 0) for row in results]
+
+        if len(values) > limit:
+            labels = labels[:limit] + ['其他']
+            values = values[:limit] + [sum(values[limit:])]
+
+        return labels, values
+    except Error as e:
+        print(f"❌ 查询商品销售占比失败: {e}")
+        return [], []
+
+
+# ==================== 图表绘制 ====================
+
+def get_dashboard_data():
+    """重新从数据库读取看板所需数据"""
+    dates, counts = get_last_7_days_orders()
+    sales_dates, sales_amounts = get_last_7_days_sales()
+    product_labels, product_sales = get_product_sales_share()
+
+    return {
+        'today_orders': get_today_orders(),
+        'monthly_sales': get_monthly_sales(),
+        'total_users': get_total_users(),
+        'dates': dates,
+        'counts': counts,
+        'sales_dates': sales_dates,
+        'sales_amounts': sales_amounts,
+        'product_labels': product_labels,
+        'product_sales': product_sales,
+        'refreshed_at': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
+    }
+
+
+def print_dashboard_data(data):
+    """在控制台打印本次刷新到的数据，方便核对"""
+    print(f"\n刷新时间: {data['refreshed_at']}")
+    print(f"今日订单: {data['today_orders']} 单")
+    print("近7天订单:", dict(zip(data['dates'], data['counts'])))
+    print("近7天销售额:", dict(zip(data['sales_dates'], data['sales_amounts'])))
+    print("商品销售占比:", dict(zip(data['product_labels'], data['product_sales'])))
+
+
+def style_chart_axis(ax):
+    """统一图表边框样式"""
+    for spine in ax.spines.values():
+        spine.set_visible(False)
+    ax.spines['left'].set_visible(True)
+    ax.spines['bottom'].set_visible(True)
+
+
+def draw_cards(ax_cards, data):
+    ax_cards.clear()
+    ax_cards.axis('off')
+    ax_cards.set_facecolor('#f0f2f5')
+
+    cards = [
+        ('今日订单', f"{data['today_orders']} 单", '#4CAF50'),
+        ('本月销售额', f"¥{data['monthly_sales']:,.2f}", '#2196F3'),
+        ('总用户数', f"{data['total_users']} 人", '#FF9800'),
+    ]
+
+    card_width = 0.28
+    card_height = 0.72
+    start_x = 0.05
+    gap = 0.03
+
+    for i, (label, value, color) in enumerate(cards):
+        x = start_x + i * (card_width + gap)
+        rect = plt.Rectangle((x, 0.14), card_width, card_height,
+                             facecolor='white', edgecolor='#ddd',
+                             linewidth=1, transform=ax_cards.transAxes,
+                             clip_on=False)
+        ax_cards.add_patch(rect)
+        ax_cards.text(x + card_width / 2, 0.6, value,
+                      fontsize=26, fontweight='bold', color=color,
+                      ha='center', va='center', transform=ax_cards.transAxes)
+        ax_cards.text(x + card_width / 2, 0.3, label,
+                      fontsize=14, color='#666',
+                      ha='center', va='center', transform=ax_cards.transAxes)
+
+    ax_cards.text(0.95, -0.1, f"更新时间：{data['refreshed_at']}",
+                  ha='right', va='center', fontsize=10, color='#666',
+                  transform=ax_cards.transAxes)
+
+
+def draw_orders_chart(ax_orders, dates, counts):
+    ax_orders.clear()
+    ax_orders.set_facecolor('white')
+    bars = ax_orders.bar(dates, counts, color='#667eea', edgecolor='white', linewidth=1.5)
+
+    for bar, count in zip(bars, counts):
+        if count > 0:
+            ax_orders.text(bar.get_x() + bar.get_width() / 2, bar.get_height() + 0.1,
+                           str(count), ha='center', va='bottom',
+                           fontsize=11, fontweight='bold')
+
+    ax_orders.set_title('近7天每日订单量', fontsize=15, fontweight='bold', pad=14)
+    ax_orders.set_xlabel('日期', fontsize=11)
+    ax_orders.set_ylabel('订单数（单）', fontsize=11)
+    ax_orders.grid(axis='y', linestyle='--', alpha=0.3)
+    ax_orders.set_ylim(bottom=0)
+    if counts:
+        ax_orders.set_ylim(top=max(counts) + 1)
+    plt.setp(ax_orders.xaxis.get_majorticklabels(), rotation=30, ha='right')
+    style_chart_axis(ax_orders)
+
+
+def draw_sales_chart(ax_sales, sales_dates, sales_amounts):
+    ax_sales.clear()
+    ax_sales.set_facecolor('white')
+    ax_sales.plot(sales_dates, sales_amounts, color='#2196F3', marker='o',
+                  linewidth=2.5, markersize=7)
+
+    for date_str, amount in zip(sales_dates, sales_amounts):
+        if amount > 0:
+            ax_sales.text(date_str, amount, f'¥{amount:,.0f}',
+                          ha='center', va='bottom', fontsize=10, fontweight='bold')
+
+    ax_sales.set_title('近7天销售额趋势', fontsize=15, fontweight='bold', pad=14)
+    ax_sales.set_xlabel('日期', fontsize=11)
+    ax_sales.set_ylabel('销售额（元）', fontsize=11)
+    ax_sales.grid(axis='y', linestyle='--', alpha=0.3)
+    ax_sales.set_ylim(bottom=0)
+    if sales_amounts:
+        ax_sales.set_ylim(top=max(sales_amounts) * 1.2 + 1)
+    plt.setp(ax_sales.xaxis.get_majorticklabels(), rotation=30, ha='right')
+    style_chart_axis(ax_sales)
+
+
+def draw_product_pie(ax_pie, product_labels, product_sales):
+    ax_pie.clear()
+    ax_pie.set_facecolor('white')
+    ax_pie.set_title('各商品销售占比', fontsize=15, fontweight='bold', pad=14)
+
+    if product_sales and sum(product_sales) > 0:
+        colors = ['#4CAF50', '#2196F3', '#FF9800', '#E91E63', '#9C27B0',
+                  '#00BCD4', '#8BC34A', '#FFC107', '#607D8B']
+        _, texts, autotexts = ax_pie.pie(
+            product_sales,
+            labels=product_labels,
+            autopct='%1.1f%%',
+            startangle=90,
+            counterclock=False,
+            colors=colors[:len(product_sales)],
+            pctdistance=0.75,
+            labeldistance=1.08
+        )
+        for text in texts:
+            text.set_fontsize(11)
+        for autotext in autotexts:
+            autotext.set_color('white')
+            autotext.set_fontsize(10)
+            autotext.set_fontweight('bold')
+        ax_pie.axis('equal')
+    else:
+        ax_pie.text(0.5, 0.5, '暂无已支付商品销售数据',
+                    ha='center', va='center', fontsize=14, color='#666',
+                    transform=ax_pie.transAxes)
+        ax_pie.set_xticks([])
+        ax_pie.set_yticks([])
+
+
+def render_dashboard(fig, axes, data):
+    """按最新数据重画三张图和顶部指标"""
+    print_dashboard_data(data)
+    draw_cards(axes['cards'], data)
+    draw_orders_chart(axes['orders'], data['dates'], data['counts'])
+    draw_sales_chart(axes['sales'], data['sales_dates'], data['sales_amounts'])
+    draw_product_pie(axes['pie'], data['product_labels'], data['product_sales'])
+    fig.canvas.draw_idle()
+
+
+def setup_window(fig):
+    """设置窗口标题、初始位置和快捷键。"""
+    try:
+        fig.canvas.manager.set_window_title('订单数据看板')
+    except Exception:
+        pass
+
+    try:
+        window = fig.canvas.manager.window
+        if hasattr(window, 'geometry'):
+            window.geometry('1380x940+80+40')
+        if hasattr(window, 'resizable'):
+            window.resizable(True, True)
+    except Exception:
+        pass
+
+
+def draw_dashboard():
+    """绘制数据看板"""
+    fig = plt.figure(figsize=(14, 10))
+    fig.patch.set_facecolor('#f0f2f5')
+    setup_window(fig)
+
+    axes = {
+        'cards': fig.add_axes([0.06, 0.86, 0.88, 0.11]),
+        'orders': fig.add_axes([0.07, 0.53, 0.42, 0.26]),
+        'sales': fig.add_axes([0.55, 0.53, 0.40, 0.26]),
+        'pie': fig.add_axes([0.22, 0.05, 0.56, 0.36]),
+    }
+
+    ax_button = fig.add_axes([0.80, 0.955, 0.09, 0.03])
+    refresh_button = Button(ax_button, '刷新数据', color='#ffffff', hovercolor='#e8f2ff')
+    ax_close = fig.add_axes([0.90, 0.955, 0.06, 0.03])
+    close_button = Button(ax_close, '关闭', color='#ffffff', hovercolor='#ffe6e6')
+
+    def refresh(_event=None):
+        data = get_dashboard_data()
+        if not data['dates']:
+            print("⚠️ 无数据可展示")
+        render_dashboard(fig, axes, data)
+
+    def close_window(_event=None):
+        plt.close(fig)
+
+    def on_key(event):
+        if event.key in ('escape', 'q'):
+            close_window()
+        elif event.key == 'r':
+            refresh()
+
+    refresh_button.on_clicked(refresh)
+    close_button.on_clicked(close_window)
+    fig._refresh_button = refresh_button
+    fig._close_button = close_button
+    fig.canvas.mpl_connect('key_press_event', on_key)
+
+    refresh()
+    plt.show()
+
+
+# ==================== 主程序 ====================
+
+if __name__ == "__main__":
+    print("=" * 50)
+    print("   订单数据看板")
+    print("=" * 50)
+    draw_dashboard()

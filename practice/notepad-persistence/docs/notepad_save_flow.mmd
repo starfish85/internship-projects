@@ -1,0 +1,36 @@
+flowchart TD
+    A["用户点击保存按钮 / 菜单保存 / Ctrl+S"] --> B["Tkinter command 回调: Notepad.save_file()<br/>当前: 同步阻塞主界面"]
+    B --> C{"self.current_file 是否存在?"}
+
+    C -- "是" --> D["_save_to_file(self.current_file)<br/>当前: 同步阻塞"]
+    C -- "否" --> E["save_as_file()<br/>弹出保存路径选择框<br/>当前: 同步阻塞，等待用户选择"]
+    E --> F{"用户是否选择文件路径?"}
+    F -- "否" --> Z["取消保存，流程结束"]
+    F -- "是" --> D
+
+    D --> G["读取编辑区内容: text_widget.get('1.0', tk.END)<br/>当前: 同步阻塞，通常耗时短"]
+    G --> H["打开或创建目标文件: open(file_path, 'w', encoding='utf-8')<br/>当前: 同步阻塞"]
+    H --> I["写入文件内容: f.write(content)<br/>当前: 同步阻塞，保证文件先落盘"]
+    I --> J["更新内存状态<br/>current_file / last_saved_content / 窗口标题 / 状态栏<br/>当前: 同步阻塞，必须在 UI 主线程"]
+
+    J --> K{"self.db_available 是否为 True?"}
+    K -- "否" --> O["跳过数据库历史记录<br/>当前: 同步阻塞，耗时短"]
+    K -- "是" --> L["准备历史记录参数<br/>file_name / file_path / content_summary / content_length<br/>当前: 同步阻塞，耗时短<br/>可异步: 可以放入后台任务的输入数据"]
+
+    L --> M["save_note_history(file_name, file_path, content)<br/>当前: 同步阻塞主界面<br/>可异步: 推荐后台线程或任务队列"]
+    M --> N["MySQL 连接 / INSERT / commit / close<br/>当前: 同步阻塞，受网络和数据库性能影响<br/>可异步: 最适合后台执行"]
+    N --> P["根据数据库结果更新状态栏<br/>当前: 同步阻塞<br/>异步后: 回到 Tkinter 主线程更新 UI"]
+
+    O --> Q["显示保存结果提示 messagebox.showinfo()<br/>当前: 同步阻塞，等待用户关闭<br/>可异步/可延后: 可改为非弹窗状态提示"]
+    P --> Q
+    Q --> R["保存流程结束"]
+
+    classDef sync fill:#ffe7e7,stroke:#c62828,color:#111;
+    classDef async fill:#e7f2ff,stroke:#1565c0,color:#111;
+    classDef decision fill:#fff7d6,stroke:#8a6d00,color:#111;
+    classDef done fill:#e8f5e9,stroke:#2e7d32,color:#111;
+
+    class A,B,D,E,G,H,I,J,O,Q sync;
+    class L,M,N,P async;
+    class C,F,K decision;
+    class R,Z done;

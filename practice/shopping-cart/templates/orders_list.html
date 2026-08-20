@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}我的订单 - 商品橱窗{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📋 我的订单</h1>
+    <div>
+        <a href="{{ url_for('cart') }}" class="btn btn-secondary">🛒 返回购物车</a>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">🏠 继续购物</a>
+    </div>
+</div>
+
+{% if orders %}
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>订单号</th>
+                <th>状态</th>
+                <th>金额</th>
+                <th>创建时间</th>
+                <th class="text-center">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order.order_no }}</td>
+                <td>
+                    {% if order.status == 0 %}
+                        <span style="color:#d69e2e;font-weight:600;">{{ order.status_text }}</span>
+                    {% elif order.status == 1 %}
+                        <span style="color:#38a169;font-weight:600;">{{ order.status_text }}</span>
+                    {% elif order.status == 2 %}
+                        <span style="color:#888;font-weight:600;">{{ order.status_text }}</span>
+                    {% else %}
+                        <span style="color:#667eea;font-weight:600;">{{ order.status_text }}</span>
+                    {% endif %}
+                </td>
+                <td>¥{{ "%.2f"|format(order.total_amount) }}</td>
+                <td>{{ order.created_at }}</td>
+                <td class="text-center">
+                    <a href="{{ url_for('order_detail', order_id=order.id) }}" class="btn btn-primary btn-sm">查看</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% else %}
+<div class="empty-state">
+    <div class="icon">📭</div>
+    <p>还没有订单</p>
+    <p style="font-size: 14px; margin-top: 10px;">先去挑选商品并结算一次吧</p>
+    <a href="{{ url_for('index') }}" class="btn btn-primary" style="margin-top: 20px;">🏠 去逛逛</a>
+</div>
+{% endif %}
+{% endblock %}

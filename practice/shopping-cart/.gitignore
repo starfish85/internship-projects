@@ -1,0 +1,39 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local runtime files
+*.log
+*.tmp
+*.temp
+.env
+.env.*
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Uploaded/generated product images
+static/images/*
+!static/images/.gitkeep
+
+# Local data exports or archives
+*.csv
+*.xlsx
+*.xls
+*.zip
+*.rar
+
+# Generated diagrams and local helper scripts
+outputs/
+work/

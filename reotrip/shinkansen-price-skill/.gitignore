@@ -1,0 +1,29 @@
+# Generated delivery archives
+*.zip
+
+# Local workspace metadata
+.agents/
+.codex/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Runtime and build output
+node_modules/
+dist/
+coverage/
+*.log
+logs/
+
+# Local secrets
+.env
+.env.*
+*.local

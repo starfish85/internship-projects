@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>WB Tokyo Ticket Availability</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --panel: #ffffff;
+      --line: #d9e0ea;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --accent: #23395d;
+      --accent-soft: #e8eef7;
+      --good: #1f7a4d;
+      --warn: #9a6700;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .wrap {
+      max-width: 1600px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    .summary-item, .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    .summary-item {
+      padding: 12px 14px;
+    }
+    .summary-label {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 6px;
+    }
+    .summary-value {
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .panel {
+      padding: 12px;
+      margin-bottom: 16px;
+    }
+    .filters {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .field label {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    select, input {
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 8px 10px;
+      font: inherit;
+      background: white;
+    }
+    .table-wrap {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 1250px;
+      font-size: 13px;
+    }
+    thead th {
+      position: sticky;
+      top: 0;
+      background: #eef3f9;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 10px 12px;
+      white-space: nowrap;
+      z-index: 1;
+    }
+    tbody td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #edf1f6;
+      vertical-align: top;
+    }
+    tbody tr:nth-child(even) {
+      background: #fafcff;
+    }
+    .url {
+      max-width: 340px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .status {
+      display: inline-flex;
+      align-items: center;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+    .status-available { background: #e5f7ee; color: var(--good); }
+    .status-sold-out { background: #fce7e7; color: #b42318; }
+    .status-date-available { background: var(--accent-soft); color: var(--accent); }
+    .status-unknown { background: #f3f4f6; color: #4b5563; }
+    .footer {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 1200px) {
+      .summary, .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .header { align-items: center; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="header">
+      <h1>WB Tokyo Ticket Availability</h1>
+      <div class="meta">只读采集结果展示</div>
+      <div class="meta">
+        共 24 行&nbsp;&nbsp;|&nbsp;&nbsp;生成时间 2026-07-14T15:37:41+08:00
+      </div>
+    </div>
+
+    <div class="summary">
+      <div class="summary-item"><div class="summary-label">日期数</div><div class="summary-value">3</div></div>
+      <div class="summary-item"><div class="summary-label">时段数</div><div class="summary-value">6</div></div>
+      <div class="summary-item"><div class="summary-label">年龄段数</div><div class="summary-value">4</div></div>
+      <div class="summary-item"><div class="summary-label">状态数</div><div class="summary-value">1</div></div>
+    </div>
+
+    <div class="panel">
+      <div class="filters">
+        <div class="field">
+          <label for="dateFilter">日期</label>
+          <select id="dateFilter"><option value="">全部</option><option value="2026-07-04">2026-07-04</option>
+<option value="2026-07-12">2026-07-12</option>
+<option value="2026-07-18">2026-07-18</option></select>
+        </div>
+        <div class="field">
+          <label for="timeFilter">时段</label>
+          <select id="timeFilter"><option value="">全部</option><option value="14:16">14:16</option>
+<option value="14:19">14:19</option>
+<option value="14:30">14:30</option>
+<option value="14:32">14:32</option>
+<option value="14:45">14:45</option>
+<option value="14:47">14:47</option></select>
+        </div>
+        <div class="field">
+          <label for="ageFilter">年龄段</label>
+          <select id="ageFilter"><option value="">全部</option><option value="Adult">Adult</option>
+<option value="Child">Child</option>
+<option value="Junior">Junior</option>
+<option value="Under 4">Under 4</option></select>
+        </div>
+        <div class="field">
+          <label for="statusFilter">状态</label>
+          <select id="statusFilter"><option value="">全部</option><option value="Available">Available</option></select>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>date</th>
+            <th>time_slot</th>
+            <th>age_group</th>
+            <th>price</th>
+            <th>remaining_inventory</th>
+            <th>sale_status</th>
+            <th>source_url</th>
+            <th>collected_at</th>
+          </tr>
+        </thead>
+        <tbody id="rows">
+          <tr data-date="2026-07-04" data-time-slot="14:47" data-age-group="Adult" data-status="Available" ><td>2026-07-04</td><td>14:47</td><td>Adult</td><td>¥6600</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:24+08:00</td></tr><tr data-date="2026-07-04" data-time-slot="14:47" data-age-group="Junior" data-status="Available" ><td>2026-07-04</td><td>14:47</td><td>Junior</td><td>¥5500</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:24+08:00</td></tr><tr data-date="2026-07-04" data-time-slot="14:47" data-age-group="Child" data-status="Available" ><td>2026-07-04</td><td>14:47</td><td>Child</td><td>¥4000</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:24+08:00</td></tr><tr data-date="2026-07-04" data-time-slot="14:47" data-age-group="Under 4" data-status="Available" ><td>2026-07-04</td><td>14:47</td><td>Under 4</td><td>Free</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:24+08:00</td></tr><tr data-date="2026-07-04" data-time-slot="14:45" data-age-group="Adult" data-status="Available" ><td>2026-07-04</td><td>14:45</td><td>Adult</td><td>¥6600</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:24+08:00</td></tr><tr data-date="2026-07-04" data-time-slot="14:45" data-age-group="Junior" data-status="Available" ><td>2026-07-04</td><td>14:45</td><td>Junior</td><td>¥5500</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:24+08:00</td></tr><tr data-date="2026-07-04" data-time-slot="14:45" data-age-group="Child" data-status="Available" ><td>2026-07-04</td><td>14:45</td><td>Child</td><td>¥4000</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:24+08:00</td></tr><tr data-date="2026-07-04" data-time-slot="14:45" data-age-group="Under 4" data-status="Available" ><td>2026-07-04</td><td>14:45</td><td>Under 4</td><td>Free</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:24+08:00</td></tr><tr data-date="2026-07-12" data-time-slot="14:32" data-age-group="Adult" data-status="Available" ><td>2026-07-12</td><td>14:32</td><td>Adult</td><td>¥6600</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:38+08:00</td></tr><tr data-date="2026-07-12" data-time-slot="14:32" data-age-group="Junior" data-status="Available" ><td>2026-07-12</td><td>14:32</td><td>Junior</td><td>¥5500</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:38+08:00</td></tr><tr data-date="2026-07-12" data-time-slot="14:32" data-age-group="Child" data-status="Available" ><td>2026-07-12</td><td>14:32</td><td>Child</td><td>¥4000</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:38+08:00</td></tr><tr data-date="2026-07-12" data-time-slot="14:32" data-age-group="Under 4" data-status="Available" ><td>2026-07-12</td><td>14:32</td><td>Under 4</td><td>Free</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:38+08:00</td></tr><tr data-date="2026-07-12" data-time-slot="14:30" data-age-group="Adult" data-status="Available" ><td>2026-07-12</td><td>14:30</td><td>Adult</td><td>¥6600</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:38+08:00</td></tr><tr data-date="2026-07-12" data-time-slot="14:30" data-age-group="Junior" data-status="Available" ><td>2026-07-12</td><td>14:30</td><td>Junior</td><td>¥5500</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:38+08:00</td></tr><tr data-date="2026-07-12" data-time-slot="14:30" data-age-group="Child" data-status="Available" ><td>2026-07-12</td><td>14:30</td><td>Child</td><td>¥4000</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:38+08:00</td></tr><tr data-date="2026-07-12" data-time-slot="14:30" data-age-group="Under 4" data-status="Available" ><td>2026-07-12</td><td>14:30</td><td>Under 4</td><td>Free</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:38+08:00</td></tr><tr data-date="2026-07-18" data-time-slot="14:19" data-age-group="Adult" data-status="Available" ><td>2026-07-18</td><td>14:19</td><td>Adult</td><td>¥6600</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:52+08:00</td></tr><tr data-date="2026-07-18" data-time-slot="14:19" data-age-group="Junior" data-status="Available" ><td>2026-07-18</td><td>14:19</td><td>Junior</td><td>¥5500</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:52+08:00</td></tr><tr data-date="2026-07-18" data-time-slot="14:19" data-age-group="Child" data-status="Available" ><td>2026-07-18</td><td>14:19</td><td>Child</td><td>¥4000</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:52+08:00</td></tr><tr data-date="2026-07-18" data-time-slot="14:19" data-age-group="Under 4" data-status="Available" ><td>2026-07-18</td><td>14:19</td><td>Under 4</td><td>Free</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:52+08:00</td></tr><tr data-date="2026-07-18" data-time-slot="14:16" data-age-group="Adult" data-status="Available" ><td>2026-07-18</td><td>14:16</td><td>Adult</td><td>¥6600</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:52+08:00</td></tr><tr data-date="2026-07-18" data-time-slot="14:16" data-age-group="Junior" data-status="Available" ><td>2026-07-18</td><td>14:16</td><td>Junior</td><td>¥5500</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:52+08:00</td></tr><tr data-date="2026-07-18" data-time-slot="14:16" data-age-group="Child" data-status="Available" ><td>2026-07-18</td><td>14:16</td><td>Child</td><td>¥4000</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:52+08:00</td></tr><tr data-date="2026-07-18" data-time-slot="14:16" data-age-group="Under 4" data-status="Available" ><td>2026-07-18</td><td>14:16</td><td>Under 4</td><td>Free</td><td>0</td><td><span class="status status-available">Available</span></td><td class="url">https://book.wbstudiotour.com/tickets?language_id=1</td><td>2026-07-14T11:58:52+08:00</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="footer" id="footer"></div>
+  </div>
+
+  <script>
+    const controls = ['dateFilter', 'timeFilter', 'ageFilter', 'statusFilter'].map(id => document.getElementById(id));
+    const rows = Array.from(document.querySelectorAll('#rows tr'));
+    const footer = document.getElementById('footer');
+
+    function update() {
+      const filters = {
+        date: document.getElementById('dateFilter').value,
+        timeSlot: document.getElementById('timeFilter').value,
+        ageGroup: document.getElementById('ageFilter').value,
+        status: document.getElementById('statusFilter').value,
+      };
+      let visible = 0;
+      rows.forEach(row => {
+        const ok =
+          (!filters.date || row.dataset.date === filters.date) &&
+          (!filters.timeSlot || row.dataset.timeSlot === filters.timeSlot) &&
+          (!filters.ageGroup || row.dataset.ageGroup === filters.ageGroup) &&
+          (!filters.status || row.dataset.status === filters.status);
+        row.style.display = ok ? '' : 'none';
+        if (ok) visible += 1;
+      });
+      footer.textContent = `显示 ${visible} / 24 行`;
+    }
+    controls.forEach(el => el.addEventListener('change', update));
+    update();
+  </script>
+</body>
+</html>

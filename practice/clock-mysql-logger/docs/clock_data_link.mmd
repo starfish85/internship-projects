@@ -1,0 +1,23 @@
+flowchart TD
+    A["while True 主循环<br/>每轮约 0.02 秒"] -->|同步| B["datetime.now()<br/>获取当前时间"]
+    B -->|同步| C["格式化时间字符串<br/>YYYY-MM-DD HH:MM:SS.mmm"]
+    C -->|同步| D["拼接星期信息"]
+    D -->|同步| E["get_centered_text()<br/>按终端宽度居中"]
+    E -->|同步| F["print(..., flush=True)<br/>刷新终端/显示器显示"]
+
+    F -->|同步| G{"insert_count % 25 == 0?<br/>约每 0.5 秒一次"}
+    G -->|否：同步跳过| H["insert_count += 1"]
+    H -->|同步| I["time.sleep(0.02)<br/>等待下一次刷新"]
+    I --> A
+
+    G -->|是：同步调用| J["insert_time_record(db_time_str)"]
+    J -->|同步| K["mysql.connector.connect(**DB_CONFIG)<br/>连接 localhost:3307 / clock_db"]
+    K -->|同步| L["cursor.execute INSERT<br/>写入 clock_log.time_now_datetime"]
+    L -->|同步| M["conn.commit()<br/>提交事务"]
+    M -->|同步等待 MySQL 返回| N["MySQL 接收事务并确认提交"]
+
+    N -->|同步：提交确认路径<br/>受 innodb_flush_log_at_trx_commit 等配置影响| O["Redo Log / Binlog 刷盘<br/>保证提交后可恢复"]
+    O -.->|异步：MySQL/InnoDB 后台线程| P["Buffer Pool 脏页写入表空间文件<br/>最终数据页落盘"]
+
+    M -->|同步| Q["cursor.close() / conn.close()"]
+    Q -->|同步返回主循环| H

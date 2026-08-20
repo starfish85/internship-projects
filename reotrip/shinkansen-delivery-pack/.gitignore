@@ -1,0 +1,37 @@
+# Local Codex/app metadata
+.agents/
+.codex/
+
+# Node dependencies and caches
+node_modules/
+**/node_modules/
+.pnpm-store/
+**/.cache/
+
+# Python cache
+__pycache__/
+**/__pycache__/
+*.py[cod]
+
+# Generated run outputs
+**/examples/workbench-runs/
+**/examples/test-run-*/
+**/examples/**/uploads/
+
+# Archives and duplicated release packages
+*.zip
+*.rar
+*.7z
+03_实习生提交/shinkansen-price-skill-v*/
+
+# Logs and temp files
+*.log
+*.tmp
+*.temp
+
+# OS/editor files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

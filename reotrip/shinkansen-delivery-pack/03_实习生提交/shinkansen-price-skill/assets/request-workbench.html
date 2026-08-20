@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>新干线查价工作台</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f6f8;
+      --panel: #ffffff;
+      --line: #d7dee8;
+      --text: #172033;
+      --muted: #667085;
+      --accent: #0f766e;
+      --accent-dark: #0b5f59;
+      --warn-bg: #fff7ed;
+      --warn-line: #fed7aa;
+      --warn-text: #9a3412;
+      --error-bg: #fef2f2;
+      --error-line: #fecaca;
+      --error-text: #991b1b;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft YaHei", "Microsoft JhengHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    main {
+      width: min(1180px, calc(100vw - 32px));
+      margin: 0 auto;
+      padding: 24px 0 40px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3, p { margin: 0; }
+    h1 { font-size: 26px; line-height: 1.25; }
+    h2 { font-size: 18px; margin-bottom: 12px; }
+    h3 { font-size: 17px; line-height: 1.3; }
+    .sub { color: var(--muted); font-size: 13px; margin-top: 6px; line-height: 1.5; }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 390px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .panel, .train, .field, .notice {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    .panel { padding: 16px; }
+    label { display: block; font-size: 13px; color: #344054; margin-bottom: 8px; }
+    textarea {
+      width: 100%;
+      min-height: 190px;
+      resize: vertical;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 11px 12px;
+      font: inherit;
+      line-height: 1.55;
+      background: #fff;
+      color: var(--text);
+    }
+
+    input[type="file"] {
+      width: 100%;
+      border: 1px dashed #aeb8c6;
+      border-radius: 6px;
+      padding: 10px;
+      background: #fafbfc;
+      font: inherit;
+      font-size: 13px;
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    button, a.button {
+      appearance: none;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      min-height: 40px;
+      padding: 9px 12px;
+      font: inherit;
+      font-weight: 700;
+      text-align: center;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+    }
+
+    button.primary { background: var(--accent); color: #fff; }
+    button.primary:hover { background: var(--accent-dark); }
+    button.secondary, a.button { background: #fff; border-color: #cbd5e1; color: #1f2937; }
+    button:disabled { opacity: .55; cursor: wait; }
+
+    .status {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      background: #fff;
+      font-size: 13px;
+      line-height: 1.45;
+      min-height: 39px;
+    }
+
+    .status.error { background: var(--error-bg); border-color: var(--error-line); color: var(--error-text); }
+    .status.warn { background: var(--warn-bg); border-color: var(--warn-line); color: var(--warn-text); }
+    .preview {
+      display: none;
+      margin-top: 12px;
+      max-height: 180px;
+      width: 100%;
+      object-fit: contain;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .field { padding: 12px; min-height: 74px; }
+    .label { display: block; color: var(--muted); font-size: 12px; margin-bottom: 5px; }
+    .value { font-weight: 700; overflow-wrap: anywhere; }
+
+    .results { margin-top: 16px; display: grid; gap: 12px; }
+    .train { padding: 14px; }
+    .train-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      flex: 0 0 auto;
+      align-self: flex-start;
+      background: #e7f5f3;
+      color: #0f766e;
+      border: 1px solid #b6e1dc;
+      border-radius: 999px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .journey div {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      padding: 10px;
+    }
+    .journey strong { display: block; font-size: 18px; margin-bottom: 3px; }
+    .journey span:last-child { color: #475467; font-size: 13px; }
+
+    .prices {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+    .prices li {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 10px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+    }
+    .prices strong { white-space: nowrap; }
+
+    .notice {
+      padding: 14px;
+      color: #475467;
+      line-height: 1.6;
+      margin-top: 12px;
+    }
+
+    .report-link { margin-top: 12px; display: none; }
+
+    @media (max-width: 920px) {
+      .layout { grid-template-columns: 1fr; }
+      .summary, .journey { grid-template-columns: 1fr; }
+      header { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>新干线查价工作台</h1>
+        <p class="sub">文本或截图进入同一套需求识别流程；价格只显示公开页面真实抓取结果。</p>
+      </div>
+    </header>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>输入需求</h2>
+        <label for="requestText">需求文本</label>
+        <textarea id="requestText" placeholder="例如：客人 1 位成人，计划 2026 年 8 月 3 日中午 12 点左右从东京去金泽，需要查可买车次和坐席价格。"></textarea>
+
+        <div style="height:12px"></div>
+        <label for="imageInput">需求截图</label>
+        <input id="imageInput" type="file" accept="image/*">
+        <img id="imagePreview" class="preview" alt="上传图片预览">
+
+        <div class="controls">
+          <button class="secondary" id="extractBtn" type="button">识别需求</button>
+          <button class="primary" id="queryBtn" type="button">查询结果</button>
+        </div>
+        <div id="status" class="status">等待输入。</div>
+      </section>
+
+      <section>
+        <section class="panel">
+          <h2>需求识别</h2>
+          <div class="summary" id="summary">
+            <div class="field"><span class="label">日期</span><div class="value">-</div></div>
+            <div class="field"><span class="label">出发地</span><div class="value">-</div></div>
+            <div class="field"><span class="label">目的地</span><div class="value">-</div></div>
+            <div class="field"><span class="label">期望时间</span><div class="value">-</div></div>
+            <div class="field"><span class="label">乘客人数</span><div class="value">-</div></div>
+          </div>
+        </section>
+
+        <section class="results" id="results">
+          <div class="notice">查询完成后，符合条件的车次会显示在这里。</div>
+        </section>
+        <a class="button report-link" id="reportLink" target="_blank" rel="noreferrer">打开生成的 HTML 报告</a>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // The workbench calls a local API, so direct file:// access cannot work.
+    if (window.location.protocol === "file:") {
+      window.location.replace("http://127.0.0.1:8787/");
+    }
+
+    const textEl = document.getElementById("requestText");
+    const imageEl = document.getElementById("imageInput");
+    const previewEl = document.getElementById("imagePreview");
+    const statusEl = document.getElementById("status");
+    const extractBtn = document.getElementById("extractBtn");
+    const queryBtn = document.getElementById("queryBtn");
+    const summaryEl = document.getElementById("summary");
+    const resultsEl = document.getElementById("results");
+    const reportLink = document.getElementById("reportLink");
+
+    let imageData = null;
+    let activeInputSource = "text";
+    let recognizedSignature = null;
+    let recognizedPayload = null;
+    let syncTimer = null;
+    let syncSequence = 0;
+
+    function setBusy(isBusy) {
+      extractBtn.disabled = isBusy;
+      queryBtn.disabled = isBusy;
+    }
+
+    function setStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.className = `status ${type || ""}`.trim();
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"]/g, (ch) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[ch]));
+    }
+
+    function requestValue(request) {
+      return {
+        date: request?.date?.iso || "-",
+        origin: request?.origin?.canonical || "-",
+        destination: request?.destination?.canonical || "-",
+        time: request?.time?.resolved || "无特别要求",
+        passengers: request?.passengers?.raw || "-",
+      };
+    }
+
+    function formatRecognizedRequest(request) {
+      const date = request?.date?.iso;
+      const origin = request?.origin?.canonical;
+      const destination = request?.destination?.canonical;
+      if (!date || !origin || !destination) return "";
+
+      const passengers = request?.passengers?.raw || "未注明人数";
+      const time = request?.time?.raw || "时间没有特别要求";
+      return `客人 ${passengers}，计划 ${date} ${time} 从 ${origin} 去 ${destination}。`;
+    }
+
+    function renderSummary(request) {
+      const data = requestValue(request);
+      summaryEl.innerHTML = `
+        <div class="field"><span class="label">日期</span><div class="value">${escapeHtml(data.date)}</div></div>
+        <div class="field"><span class="label">出发地</span><div class="value">${escapeHtml(data.origin)}</div></div>
+        <div class="field"><span class="label">目的地</span><div class="value">${escapeHtml(data.destination)}</div></div>
+        <div class="field"><span class="label">期望时间</span><div class="value">${escapeHtml(data.time)}</div></div>
+        <div class="field"><span class="label">乘客人数</span><div class="value">${escapeHtml(data.passengers)}</div></div>`;
+    }
+
+    function inputSignature(payload) {
+      return payload.inputSource === "image"
+        ? `image\u0000${payload.image?.dataUrl || ""}`
+        : `text\u0000${payload.text}`;
+    }
+
+    function invalidateSummary() {
+      recognizedSignature = null;
+      recognizedPayload = null;
+      renderSummary(null);
+      reportLink.style.display = "none";
+    }
+
+    function renderResults(payload) {
+      const result = payload.result;
+      renderSummary(result.request);
+      const trains = result.trains?.trains || [];
+      const notice = result.referenceDate?.usedReferenceDate
+        ? `目标日期 ${result.referenceDate.requestedIso || "未指定"} 未直接展示真实票价，本次使用 ${result.referenceDate.selectedIso} 作为参考日期。`
+        : `目标日期 ${result.request?.date?.iso || "-"} 已按公开页面查询。`;
+
+      if (!trains.length) {
+        resultsEl.innerHTML = `<div class="notice">${escapeHtml(notice)} 没有抓取到符合条件的可购买车次或公开价格。</div>`;
+      } else {
+        resultsEl.innerHTML = trains.map((train, index) => {
+          const seats = (train.seatPrices || [{ category: "页面显示价格", price: train.price }]).map((seat) => (
+            `<li><span>${escapeHtml(seat.category)}</span><strong>${escapeHtml(seat.price)}</strong></li>`
+          )).join("");
+          return `
+            <article class="train">
+              <div class="train-head">
+                <div>
+                  <div class="sub">${escapeHtml(train.trainType || "列车")}</div>
+                  <h3>${escapeHtml(train.trainName || `车次 ${index + 1}`)}</h3>
+                </div>
+                <span class="badge">${escapeHtml(train.price || "价格见下方")}</span>
+              </div>
+              <div class="journey">
+                <div><span class="label">出发</span><strong>${escapeHtml(train.departureTime || "-")}</strong><span>${escapeHtml(train.departureStation || "-")}</span></div>
+                <div><span class="label">到达</span><strong>${escapeHtml(train.arrivalTime || "-")}</strong><span>${escapeHtml(train.arrivalStation || "-")}</span></div>
+                <div><span class="label">时长</span><strong>${escapeHtml(train.duration || "-")}</strong><span>以页面展示为准</span></div>
+              </div>
+              <ul class="prices">${seats}</ul>
+            </article>`;
+        }).join("") + `<div class="notice">${escapeHtml(notice)} 本页不显示估价或换算价。</div>`;
+      }
+
+      if (payload.htmlUrl) {
+        reportLink.href = payload.htmlUrl;
+        reportLink.style.display = "inline-flex";
+      }
+    }
+
+    function readImage(file) {
+      return new Promise((resolve, reject) => {
+        if (!file) {
+          resolve(null);
+          return;
+        }
+        const reader = new FileReader();
+        reader.onload = () => resolve({ name: file.name, dataUrl: reader.result });
+        reader.onerror = () => reject(new Error("图片读取失败。"));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    async function postJson(url, body) {
+      const response = await fetch(url, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(body),
+      });
+      const payload = await response.json();
+      if (!response.ok || !payload.ok) throw new Error(payload.error || "请求失败。");
+      return payload;
+    }
+
+    async function currentPayload() {
+      if (!imageData && imageEl.files[0]) imageData = await readImage(imageEl.files[0]);
+      const inputSource = activeInputSource === "image" && imageData ? "image" : "text";
+      return { text: textEl.value.trim(), image: imageData, inputSource, maxTrains: 12 };
+    }
+
+    async function syncSummary() {
+      const payload = await currentPayload();
+      if (!payload.text && !payload.image) {
+        renderSummary(null);
+        return null;
+      }
+
+      const signature = inputSignature(payload);
+      if (signature === recognizedSignature) return recognizedPayload;
+      const sequence = ++syncSequence;
+      const response = await postJson("/api/extract", payload);
+      const current = await currentPayload();
+      if (sequence !== syncSequence || inputSignature(current) !== signature) return null;
+
+      if (response.inputSource === "image" && response.sourceText) {
+        textEl.value = formatRecognizedRequest(response.request) || response.sourceText;
+      } else if (response.sourceText && !textEl.value.trim()) {
+        textEl.value = response.sourceText;
+      }
+      recognizedSignature = inputSignature(await currentPayload());
+      recognizedPayload = response;
+      renderSummary(response.request);
+      return response;
+    }
+
+    function scheduleSummarySync() {
+      window.clearTimeout(syncTimer);
+      invalidateSummary();
+      const hasInput = activeInputSource === "image" ? imageData : textEl.value.trim();
+      if (!hasInput) {
+        setStatus("等待输入。");
+        return;
+      }
+
+      setStatus("需求已更新，正在同步识别...", "warn");
+      syncTimer = window.setTimeout(async () => {
+        try {
+          const response = await syncSummary();
+          if (!response) return;
+          const missing = response.request?.missingFields || [];
+          const sourceNote = response.inputSource === "image" ? "已按最新截图同步识别。" : "已按最新文本同步识别。";
+          setStatus(missing.length ? `已识别，但缺少：${missing.join(", ")}` : sourceNote, missing.length ? "warn" : "");
+        } catch (error) {
+          setStatus(error.message, "error");
+        }
+      }, 600);
+    }
+
+    imageEl.addEventListener("change", async () => {
+      imageData = await readImage(imageEl.files[0]);
+      if (imageData) {
+        activeInputSource = "image";
+        previewEl.src = imageData.dataUrl;
+        previewEl.style.display = "block";
+        scheduleSummarySync();
+      } else {
+        activeInputSource = textEl.value.trim() ? "text" : "text";
+        previewEl.removeAttribute("src");
+        previewEl.style.display = "none";
+        scheduleSummarySync();
+      }
+    });
+
+    textEl.addEventListener("input", () => {
+      activeInputSource = "text";
+      scheduleSummarySync();
+    });
+
+    extractBtn.addEventListener("click", async () => {
+      setBusy(true);
+      setStatus("正在识别需求...");
+      try {
+        window.clearTimeout(syncTimer);
+        const payload = await syncSummary();
+        if (!payload) throw new Error("当前需求已识别，或请输入新的需求。");
+        const missing = payload.request?.missingFields || [];
+        const sourceNote = payload.inputSource === "image" ? "已按最新截图完成识别。" : "已按最新文本完成识别。";
+        setStatus(missing.length ? `已识别，但缺少：${missing.join(", ")}` : sourceNote, missing.length ? "warn" : "");
+      } catch (error) {
+        setStatus(error.message, "error");
+      } finally {
+        setBusy(false);
+      }
+    });
+
+    queryBtn.addEventListener("click", async () => {
+      setBusy(true);
+      reportLink.style.display = "none";
+      resultsEl.innerHTML = `<div class="notice">正在识别当前需求...</div>`;
+      setStatus("正在确认当前需求...");
+      try {
+        window.clearTimeout(syncTimer);
+        await syncSummary();
+        resultsEl.innerHTML = `<div class="notice">正在打开 Trip.com 公开页面并查询真实价格...</div>`;
+        setStatus("查询进行中，通常需要 30-120 秒。");
+        const payload = await postJson("/api/query", await currentPayload());
+        if (payload.inputSource === "image" && payload.sourceText) {
+          textEl.value = formatRecognizedRequest(payload.result?.request || payload.request) || payload.sourceText;
+        } else if (payload.sourceText && !textEl.value.trim()) {
+          textEl.value = payload.sourceText;
+        }
+        renderResults(payload);
+        setStatus("查询完成，结果已写入 JSON 和 HTML。");
+      } catch (error) {
+        resultsEl.innerHTML = `<div class="notice">${escapeHtml(error.message)}</div>`;
+        setStatus(error.message, "error");
+      } finally {
+        setBusy(false);
+      }
+    });
+  </script>
+</body>
+</html>

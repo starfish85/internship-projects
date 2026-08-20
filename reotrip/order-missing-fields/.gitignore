@@ -1,0 +1,42 @@
+# Local Codex workspace metadata
+.agents/
+.codex/
+
+# Raw imported ReoTrip pages or temporary working files
+work/
+tmp/
+temp/
+
+# Generated delivery archives
+*.zip
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.swp
+*.swo
+*.tmp
+*.temp
+
+# Runtime logs
+*.log
+logs/
+
+# Java / Spring Boot build output
+target/
+build/
+out/
+*.class
+
+# Node / frontend dependencies and build output
+node_modules/
+dist/
+coverage/
+
+# Local environment and secrets
+.env
+.env.*
+*.local

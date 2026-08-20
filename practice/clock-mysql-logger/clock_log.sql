@@ -1,0 +1,8 @@
+CREATE DATABASE IF NOT EXISTS clock_db;
+USE clock_db;
+
+CREATE TABLE IF NOT EXISTS clock_log (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    time_now_datetime DATETIME,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block title %}订单详情 - 商品橱窗{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📦 订单详情</h1>
+    <div>
+        <a href="{{ url_for('orders_list') }}" class="btn btn-secondary">📋 我的订单</a>
+        <a href="{{ url_for('index') }}" class="btn btn-primary">🏠 继续购物</a>
+    </div>
+</div>
+
+<div class="table-container" style="margin-bottom: 20px;">
+    <table>
+        <tr>
+            <th style="width: 160px;">订单号</th>
+            <td>{{ order.order_no }}</td>
+        </tr>
+        <tr>
+            <th>订单状态</th>
+            <td>
+                {% if order.status == 0 %}
+                    <span style="color:#d69e2e;font-weight:600;">{{ order.status_text }}</span>
+                {% elif order.status == 1 %}
+                    <span style="color:#38a169;font-weight:600;">{{ order.status_text }}</span>
+                {% elif order.status == 2 %}
+                    <span style="color:#888;font-weight:600;">{{ order.status_text }}</span>
+                {% else %}
+                    <span style="color:#667eea;font-weight:600;">{{ order.status_text }}</span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>订单金额</th>
+            <td style="color:#e53e3e;font-size:20px;font-weight:700;">¥{{ "%.2f"|format(order.total_amount) }}</td>
+        </tr>
+        <tr>
+            <th>创建时间</th>
+            <td>{{ order.created_at }}</td>
+        </tr>
+        {% if order.remark %}
+        <tr>
+            <th>备注</th>
+            <td>{{ order.remark }}</td>
+        </tr>
+        {% endif %}
+    </table>
+</div>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>商品</th>
+                <th class="text-right">单价</th>
+                <th class="text-center">数量</th>
+                <th class="text-right">小计</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in order['items'] %}
+            <tr>
+                <td>{{ item.product_name }}</td>
+                <td class="text-right">¥{{ "%.2f"|format(item.product_price) }}</td>
+                <td class="text-center">{{ item.quantity }}</td>
+                <td class="text-right">¥{{ "%.2f"|format(item.subtotal) }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<div class="cart-summary" style="background:white;box-shadow:0 2px 10px rgba(0,0,0,0.08);border-top:none;margin-top:20px;">
+    <div class="total">
+        应付金额：<span>¥{{ "%.2f"|format(order.total_amount) }}</span>
+    </div>
+    <div class="actions">
+        {% if order.status == 0 %}
+            <form method="POST" action="{{ url_for('order_pay', order_id=order.id) }}" style="display:inline;"
+                  onsubmit="return confirm('确认模拟支付该订单吗？')">
+                <button type="submit" class="btn btn-success">💳 立即支付</button>
+            </form>
+            <form method="POST" action="{{ url_for('order_cancel', order_id=order.id) }}" style="display:inline;"
+                  onsubmit="return confirm('确定取消该订单吗？')">
+                <button type="submit" class="btn btn-danger">取消订单</button>
+            </form>
+        {% else %}
+            <a href="{{ url_for('orders_list') }}" class="btn btn-secondary">📋 返回订单列表</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+.agents/
+.codex/
+*.zip
+*.log
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+**/__pycache__/
+**/.playwright-profile/
+**/generated/
+**/output_*/
+delivery_named_staging/
+outputs/
+current_visit*
+**/ticket_availability.csv
+**/ticket_availability.json

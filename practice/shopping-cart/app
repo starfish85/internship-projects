@@ -1,0 +1,1777 @@
+from flask import Flask, render_template, request, redirect, url_for, flash, jsonify, session, g
+from flask import send_from_directory
+from functools import wraps
+import mysql.connector
+from mysql.connector import Error
+import os
+import re
+from datetime import datetime
+from decimal import Decimal
+import random
+import string
+import bcrypt
+
+# ==================== Flask 应用配置 ====================
+app = Flask(__name__)
+app.secret_key = 'your-secret-key-here'
+
+# ==================== 图片上传配置 ====================
+UPLOAD_FOLDER = 'static/images'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'webp', 'bmp'}
+
+os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
+
+def allowed_file(filename):
+    return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def sanitize_filename(filename):
+    filename = re.sub(r'[<>:"/\\|?*]', '', filename)
+    filename = filename.strip()
+    if not filename:
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        filename = f'image_{timestamp}'
+    return filename
+
+
+def generate_unique_filename(original_filename):
+    timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+    clean_name = sanitize_filename(original_filename)
+    if not clean_name:
+        clean_name = 'image'
+    return f"{timestamp}_{clean_name}"
+
+
+def save_uploaded_file(file):
+    if not file or file.filename == '':
+        return False, None, "未选择文件"
+
+    if not allowed_file(file.filename):
+        return False, None, f"不支持的文件格式，请上传: {', '.join(ALLOWED_EXTENSIONS)}"
+
+    filename = generate_unique_filename(file.filename)
+    filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+
+    try:
+        file.save(filepath)
+        return True, filename, None
+    except Exception as e:
+        return False, None, f"保存文件失败: {e}"
+
+
+# ==================== 数据库配置 ====================
+DB_CONFIG = {
+    'host': 'localhost',
+    'user': 'root',
+    'password': '123456',
+    'port': 3307,
+    'database': 'shop_db'
+}
+
+# ==================== 权限配置 ====================
+ROLE_MENUS = {
+    'admin': {
+        'name': '管理员',
+        'menus': [
+            {'name': '首页', 'url': '/', 'icon': '🏠'},
+            {'name': '商品管理', 'url': '/admin', 'icon': '📦'},
+            {'name': '订单管理', 'url': '/orders', 'icon': '📋'},
+            {'name': '用户管理', 'url': '/users', 'icon': '👤'},
+            {'name': '权限管理', 'url': '/permissions', 'icon': '🔐'},
+        ]
+    },
+    'shop_manager': {
+        'name': '店长',
+        'menus': [
+            {'name': '首页', 'url': '/', 'icon': '🏠'},
+            {'name': '商品管理', 'url': '/admin', 'icon': '📦'},
+            {'name': '订单管理', 'url': '/orders', 'icon': '📋'},
+        ]
+    },
+    'user': {
+        'name': '普通用户',
+        'menus': [
+            {'name': '首页', 'url': '/', 'icon': '🏠'},
+            {'name': '购物车', 'url': '/cart', 'icon': '🛒'},
+            {'name': '我的订单', 'url': '/orders', 'icon': '📋'},
+        ]
+    }
+}
+
+ROLE_DISPLAY_NAMES = {
+    'admin': '管理员',
+    'shop_manager': '店长',
+    'user': '普通用户',
+}
+
+DEFAULT_PERMISSIONS = [
+    {'code': 'cart:manage', 'name': '购物车管理', 'module': '购物车', 'description': '加入、修改、删除和清空购物车'},
+    {'code': 'order:create', 'name': '创建订单', 'module': '订单', 'description': '从购物车创建新订单'},
+    {'code': 'order:view', 'name': '订单查看', 'module': '订单', 'description': '查看订单列表和详情'},
+    {'code': 'product:manage', 'name': '商品管理', 'module': '商品', 'description': '新增、编辑和删除商品'},
+    {'code': 'user:manage', 'name': '用户管理', 'module': '用户', 'description': '查看用户并修改用户角色'},
+    {'code': 'permission:manage', 'name': '权限管理', 'module': '权限', 'description': '维护权限和角色授权'},
+]
+
+DEFAULT_ROLE_PERMISSIONS = {
+    'user': {'cart:manage', 'order:create', 'order:view'},
+    'shop_manager': {'product:manage', 'order:view'},
+}
+
+
+# ==================== 权限装饰器 ====================
+
+def login_required(f):
+    """登录验证装饰器"""
+    from functools import wraps
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            flash('⚠️ 请先登录', 'error')
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+
+def permission_required(permission_code):
+    """权限验证装饰器"""
+    from functools import wraps
+    @wraps
+    def decorator(f):
+        def decorated_function(*args, **kwargs):
+            if 'user_id' not in session:
+                flash('⚠️ 请先登录', 'error')
+                return redirect(url_for('login'))
+
+            if not has_permission(session['user_id'], permission_code):
+                flash('❌ 您没有权限执行此操作', 'error')
+                return redirect(url_for('index'))
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
+
+
+# ==================== 权限检查函数 ====================
+
+def has_permission(user_id, permission_code):
+    """检查用户是否有指定权限"""
+    conn = get_db_connection()
+    if not conn:
+        return False
+
+    try:
+        cursor = conn.cursor()
+        # 检查用户角色
+        cursor.execute("SELECT role FROM users WHERE id = %s", (user_id,))
+        result = cursor.fetchone()
+        if not result:
+            return False
+        role = result[0]
+
+        # 管理员拥有所有权限
+        if role == 'admin':
+            return True
+
+        # 检查角色权限表
+        cursor.execute("""
+            SELECT 1 FROM role_permissions
+            WHERE role = %s AND permission_code = %s
+        """, (role, permission_code))
+        result = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+        return result is not None
+    except Error as e:
+        print(f"⚠️ 权限检查失败: {e}")
+        return False
+
+
+def get_user_role(user_id):
+    """获取用户角色"""
+    conn = get_db_connection()
+    if not conn:
+        return 'user'
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT role FROM users WHERE id = %s", (user_id,))
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return result[0] if result else 'user'
+    except Error as e:
+        print(f"⚠️ 获取角色失败: {e}")
+        return 'user'
+
+
+def get_user_menus(user_id):
+    """获取用户可见菜单"""
+    role = get_user_role(user_id)
+    return ROLE_MENUS.get(role, ROLE_MENUS['user'])['menus']
+
+
+# ==================== 数据库操作函数 ====================
+
+def ensure_permission_system():
+    conn = get_db_connection()
+    if not conn:
+        return
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS permissions (
+                code VARCHAR(64) PRIMARY KEY,
+                name VARCHAR(100) NOT NULL,
+                module VARCHAR(50) NOT NULL DEFAULT '',
+                description VARCHAR(255) DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        """)
+        for column_name, ddl in [
+            ('module', "ADD COLUMN module VARCHAR(50) NOT NULL DEFAULT ''"),
+            ('description', "ADD COLUMN description VARCHAR(255) DEFAULT NULL"),
+        ]:
+            cursor.execute("SHOW COLUMNS FROM permissions LIKE %s", (column_name,))
+            if cursor.fetchone() is None:
+                cursor.execute(f"ALTER TABLE permissions {ddl}")
+
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS role_permissions (
+                role VARCHAR(50) NOT NULL,
+                permission_code VARCHAR(64) NOT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                PRIMARY KEY (role, permission_code)
+            )
+        """)
+
+        for permission in DEFAULT_PERMISSIONS:
+            cursor.execute("""
+                INSERT IGNORE INTO permissions (code, name, module, description)
+                VALUES (%s, %s, %s, %s)
+            """, (permission['code'], permission['name'], permission['module'], permission['description']))
+
+        for role, codes in DEFAULT_ROLE_PERMISSIONS.items():
+            for code in codes:
+                cursor.execute("""
+                    INSERT IGNORE INTO role_permissions (role, permission_code)
+                    VALUES (%s, %s)
+                """, (role, code))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+    except Error as e:
+        try:
+            conn.close()
+        except Exception:
+            pass
+        print(f"Permission system initialization failed: {e}")
+        return
+        print(f"鈿狅笍 鏉冮檺绯荤粺鍒濆鍖栧け璐? {e}")
+        try:
+            conn.close()
+        except Exception:
+            pass
+
+
+def ensure_user_table():
+    conn = get_db_connection()
+    if not conn:
+        return
+
+    try:
+        cursor = conn.cursor()
+
+        cursor.execute("SHOW TABLES LIKE 'users'")
+        if cursor.fetchone() is None:
+            cursor.execute("""
+                CREATE TABLE users (
+                    id INT PRIMARY KEY AUTO_INCREMENT,
+                    username VARCHAR(100) NOT NULL UNIQUE,
+                    password VARCHAR(255) NOT NULL,
+                    email VARCHAR(255) NOT NULL UNIQUE,
+                    role VARCHAR(50) NOT NULL DEFAULT 'user',
+                    balance DECIMAL(10, 2) NOT NULL DEFAULT 0,
+                    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+                )
+            """)
+            conn.commit()
+            cursor.close()
+            conn.close()
+            return
+
+        cursor.execute("SHOW COLUMNS FROM users LIKE 'id'")
+        row = cursor.fetchone()
+        if row is None:
+            cursor.execute("ALTER TABLE users ADD COLUMN id INT NOT NULL PRIMARY KEY AUTO_INCREMENT FIRST")
+        else:
+            extra = row[5] if len(row) > 5 else ''
+            if 'auto_increment' not in str(extra).lower():
+                try:
+                    cursor.execute("ALTER TABLE users MODIFY COLUMN id INT NOT NULL AUTO_INCREMENT")
+                except Error:
+                    cursor.execute("ALTER TABLE users MODIFY COLUMN id INT NOT NULL")
+                    cursor.execute("ALTER TABLE users MODIFY COLUMN id INT NOT NULL AUTO_INCREMENT")
+
+        for column_name, ddl in [
+            ('username', "ADD COLUMN username VARCHAR(100) NOT NULL"),
+            ('password', "ADD COLUMN password VARCHAR(255) DEFAULT NULL"),
+            ('email', "ADD COLUMN email VARCHAR(255) DEFAULT NULL"),
+            ('role', "ADD COLUMN role VARCHAR(50) NOT NULL DEFAULT 'user'"),
+            ('balance', "ADD COLUMN balance DECIMAL(10, 2) NOT NULL DEFAULT 0"),
+            ('created_at', "ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP"),
+        ]:
+            cursor.execute("SHOW COLUMNS FROM users LIKE %s", (column_name,))
+            if cursor.fetchone() is None:
+                cursor.execute(f"ALTER TABLE users {ddl}")
+
+        for index_sql in [
+            "ALTER TABLE users ADD UNIQUE KEY uq_users_username (username)",
+            "ALTER TABLE users ADD UNIQUE KEY uq_users_email (email)",
+        ]:
+            try:
+                cursor.execute(index_sql)
+            except Error:
+                pass
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+    except Error as e:
+        try:
+            conn.close()
+        except Exception:
+            pass
+        print(f"User table initialization failed: {e}")
+
+
+def get_permissions():
+    conn = get_db_connection()
+    if not conn:
+        return []
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT code, name, module, description FROM permissions ORDER BY module, code")
+        permissions = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return permissions
+    except Error as e:
+        print(f"鈿狅笍 鑾峰彇鏉冮檺鍒楄〃澶辫触: {e}")
+        return []
+
+
+def get_role_permissions():
+    conn = get_db_connection()
+    if not conn:
+        return {}
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT role, permission_code FROM role_permissions")
+        rows = cursor.fetchall()
+        mapping = {role: set() for role in ROLE_MENUS.keys()}
+        for role, permission_code in rows:
+            mapping.setdefault(role, set()).add(permission_code)
+        cursor.close()
+        conn.close()
+        return mapping
+    except Error as e:
+        print(f"鈿狅笍 鑾峰彇瑙掕壊鏉冮檺澶辫触: {e}")
+        return {}
+
+
+def upsert_permission(code, name, module, description):
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO permissions (code, name, module, description)
+            VALUES (%s, %s, %s, %s)
+            ON DUPLICATE KEY UPDATE
+                name = VALUES(name),
+                module = VALUES(module),
+                description = VALUES(description)
+        """, (code, name, module, description))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return True, "权限已保存"
+    except Error as e:
+        return False, f"保存失败: {e}"
+
+
+def set_role_permissions(role, permission_codes):
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM role_permissions WHERE role = %s", (role,))
+        for code in permission_codes:
+            cursor.execute("""
+                INSERT IGNORE INTO role_permissions (role, permission_code)
+                VALUES (%s, %s)
+            """, (role, code))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return True, "角色权限已更新"
+    except Error as e:
+        return False, f"更新失败: {e}"
+
+
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user_id' not in session:
+            flash('请先登录', 'error')
+            return redirect(url_for('login'))
+        return f(*args, **kwargs)
+    return decorated_function
+
+
+def permission_required(permission_code):
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if 'user_id' not in session:
+                flash('请先登录', 'error')
+                return redirect(url_for('login'))
+            if not has_permission(session['user_id'], permission_code):
+                flash('您没有权限执行此操作', 'error')
+                return redirect(url_for('index'))
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
+
+
+def has_permission(user_id, permission_code):
+    ensure_permission_system()
+    conn = get_db_connection()
+    if not conn:
+        return False
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT role FROM users WHERE id = %s", (user_id,))
+        result = cursor.fetchone()
+        if not result:
+            cursor.close()
+            conn.close()
+            return False
+
+        role = result[0]
+        if role == 'admin':
+            cursor.close()
+            conn.close()
+            return True
+
+        cursor.execute("""
+            SELECT 1 FROM role_permissions
+            WHERE role = %s AND permission_code = %s
+        """, (role, permission_code))
+        result = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+        return result is not None
+    except Error as e:
+        print(f"鈿狅笍 鏉冮檺妫€鏌ュけ璐? {e}")
+        return False
+
+
+def get_user_role(user_id):
+    conn = get_db_connection()
+    if not conn:
+        return 'user'
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT role FROM users WHERE id = %s", (user_id,))
+        result = cursor.fetchone()
+        cursor.close()
+        conn.close()
+        return result[0] if result else 'user'
+    except Error as e:
+        print(f"鈿狅笍 鑾峰彇瑙掕壊澶辫触: {e}")
+        return 'user'
+
+
+def get_db_connection():
+    try:
+        conn = mysql.connector.connect(**DB_CONFIG)
+        return conn
+    except Error as e:
+        print(f"⚠️ 数据库连接失败: {e}")
+        return None
+
+
+def ensure_user_logs_table():
+    conn = get_db_connection()
+    if not conn:
+        return False
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS user_logs (
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                user_id INT NULL,
+                username VARCHAR(100) DEFAULT NULL,
+                action_type VARCHAR(50) NOT NULL,
+                action_name VARCHAR(100) NOT NULL,
+                page_url VARCHAR(500) DEFAULT NULL,
+                target_text VARCHAR(255) DEFAULT NULL,
+                target_url VARCHAR(500) DEFAULT NULL,
+                method VARCHAR(10) DEFAULT NULL,
+                ip_address VARCHAR(64) DEFAULT NULL,
+                user_agent VARCHAR(500) DEFAULT NULL,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+                INDEX idx_user_logs_user_id (user_id),
+                INDEX idx_user_logs_action_type (action_type),
+                INDEX idx_user_logs_created_at (created_at)
+            )
+        """)
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return True
+    except Error as e:
+        print(f"User logs table initialization failed: {e}")
+        try:
+            conn.close()
+        except Exception:
+            pass
+        return False
+
+
+def record_user_log(action_type, action_name, target_text='', target_url='', page_url=None, user_id=None, username=None):
+    try:
+        conn = get_db_connection()
+        if not conn:
+            return False
+
+        current_user_id = user_id if user_id is not None else session.get('user_id')
+        current_username = username if username is not None else session.get('username')
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO user_logs (
+                user_id, username, action_type, action_name, page_url,
+                target_text, target_url, method, ip_address, user_agent
+            )
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (
+            current_user_id,
+            current_username,
+            action_type,
+            action_name,
+            page_url or request.path,
+            target_text[:255] if target_text else '',
+            target_url[:500] if target_url else '',
+            request.method,
+            request.headers.get('X-Forwarded-For', request.remote_addr),
+            request.headers.get('User-Agent', '')[:500],
+        ))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return True
+    except Exception as e:
+        print(f"Record user log failed: {e}")
+        return False
+
+
+def get_user_logs(limit=200):
+    conn = get_db_connection()
+    if not conn:
+        return []
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("""
+            SELECT id, user_id, username, action_type, action_name, page_url,
+                   target_text, target_url, method, ip_address, created_at
+            FROM user_logs
+            ORDER BY created_at DESC
+            LIMIT %s
+        """, (limit,))
+        logs = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return logs
+    except Error as e:
+        print(f"Get user logs failed: {e}")
+        try:
+            conn.close()
+        except Exception:
+            pass
+        return []
+
+
+@app.before_request
+def remember_request_start():
+    g.log_started_at = datetime.now()
+
+
+@app.after_request
+def auto_record_user_operation(response):
+    if request.endpoint == 'static' or request.path.startswith('/static/'):
+        return response
+    if request.path == '/track/click':
+        return response
+    if request.path.startswith('/user_logs') and request.method == 'GET':
+        return response
+    if response.status_code >= 400:
+        return response
+
+    if request.method == 'GET' and 'text/html' in response.content_type:
+        record_user_log('page_view', '浏览页面', page_url=request.path)
+    elif request.method == 'POST':
+        record_user_log('form_submit', '提交表单', page_url=request.path)
+    return response
+
+
+def get_all_products():
+    conn = get_db_connection()
+    if not conn:
+        return []
+
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM products ORDER BY created_at DESC")
+    products = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+    return products
+
+
+def get_product_by_id(product_id):
+    conn = get_db_connection()
+    if not conn:
+        return None
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM products WHERE id = %s", (product_id,))
+        product = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+        return product
+    except Error as e:
+        print(f"⚠️ 查询商品失败: {e}")
+        return None
+
+
+def get_product_stock(product_id):
+    conn = get_db_connection()
+    if not conn:
+        return 0
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT stock FROM products WHERE id = %s", (product_id,))
+        result = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+        return result[0] if result else 0
+    except Error as e:
+        print(f"⚠️ 查询库存失败: {e}")
+        return 0
+
+
+def add_product(name, price, stock, image_path, description):
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor()
+        sql = """
+        INSERT INTO products (name, price, stock, image_url, description)
+        VALUES (%s, %s, %s, %s, %s)
+        """
+        cursor.execute(sql, (name, price, stock, image_path, description))
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+        return True, "商品添加成功"
+    except Error as e:
+        return False, f"添加失败: {e}"
+
+
+def delete_product(product_id):
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM products WHERE id = %s", (product_id,))
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+        return True, "删除成功"
+    except Error as e:
+        return False, f"删除失败: {e}"
+
+
+# ==================== 用户认证函数 ====================
+
+def register_user(username, password, email):
+    """注册用户（默认角色为普通用户）"""
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT id FROM users WHERE username = %s", (username,))
+        if cursor.fetchone():
+            cursor.close()
+            conn.close()
+            return False, "用户名已存在"
+
+        cursor.execute("SELECT id FROM users WHERE email = %s", (email,))
+        if cursor.fetchone():
+            cursor.close()
+            conn.close()
+            return False, "邮箱已被注册"
+
+        salt = bcrypt.gensalt(rounds=12)
+        hashed_password = bcrypt.hashpw(password.encode('utf-8'), salt)
+
+        sql = "INSERT INTO users (username, password, email, role) VALUES (%s, %s, %s, 'user')"
+        cursor.execute(sql, (username, hashed_password.decode('utf-8'), email))
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return True, "注册成功！"
+    except Error as e:
+        return False, f"注册失败: {e}"
+
+
+def login_user(username, password):
+    """登录验证"""
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败", None
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        sql = "SELECT id, username, password, role FROM users WHERE username = %s"
+        cursor.execute(sql, (username,))
+        user = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+
+        if not user:
+            return False, "用户名或密码错误", None
+
+        if bcrypt.checkpw(password.encode('utf-8'), user['password'].encode('utf-8')):
+            return True, "登录成功", user
+        else:
+            return False, "用户名或密码错误", None
+    except Error as e:
+        return False, f"登录失败: {e}", None
+
+
+def get_users():
+    """获取所有用户"""
+    conn = get_db_connection()
+    if not conn:
+        return []
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT id, username, email, role, balance, created_at FROM users")
+        users = cursor.fetchall()
+        cursor.close()
+        conn.close()
+        return users
+    except Error as e:
+        print(f"⚠️ 获取用户列表失败: {e}")
+        return []
+
+
+def update_user_role(user_id, role):
+    if role not in ROLE_MENUS:
+        return False, "角色不存在"
+
+    """更新用户角色"""
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("UPDATE users SET role = %s WHERE id = %s", (role, user_id))
+        conn.commit()
+        cursor.close()
+        conn.close()
+        return True, "更新成功"
+    except Error as e:
+        return False, f"更新失败: {e}"
+
+
+# ==================== 购物车函数 ====================
+
+def get_cart_items():
+    conn = get_db_connection()
+    if not conn:
+        return []
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        sql = """
+        SELECT
+            cart.id AS cart_id,
+            cart.product_id,
+            cart.quantity,
+            products.name,
+            products.price,
+            products.stock,
+            products.image_url,
+            (products.price * cart.quantity) AS subtotal
+        FROM cart
+        INNER JOIN products ON cart.product_id = products.id
+        ORDER BY cart.created_at DESC
+        """
+        cursor.execute(sql)
+        items = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+        return items
+    except Error as e:
+        print(f"⚠️ 获取购物车失败: {e}")
+        return []
+
+
+def get_cart_count():
+    conn = get_db_connection()
+    if not conn:
+        return 0
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("SELECT SUM(quantity) FROM cart")
+        result = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+        return result[0] if result[0] is not None else 0
+    except Error as e:
+        print(f"⚠️ 获取购物车数量失败: {e}")
+        return 0
+
+
+def get_cart_total():
+    conn = get_db_connection()
+    if not conn:
+        return 0.0
+
+    try:
+        cursor = conn.cursor()
+        sql = """
+        SELECT SUM(products.price * cart.quantity)
+        FROM cart
+        INNER JOIN products ON cart.product_id = products.id
+        """
+        cursor.execute(sql)
+        result = cursor.fetchone()
+
+        cursor.close()
+        conn.close()
+        return float(result[0]) if result[0] is not None else 0.0
+    except Error as e:
+        print(f"⚠️ 获取购物车总价失败: {e}")
+        return 0.0
+
+
+def add_to_cart(product_id, quantity=1):
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败", 0
+
+    try:
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT stock FROM products WHERE id = %s", (product_id,))
+        stock_result = cursor.fetchone()
+        if not stock_result:
+            return False, "商品不存在", 0
+        stock = stock_result[0]
+
+        cursor.execute("SELECT id, quantity FROM cart WHERE product_id = %s", (product_id,))
+        cart_item = cursor.fetchone()
+        current_cart_qty = cart_item[1] if cart_item else 0
+
+        new_total_qty = current_cart_qty + quantity
+
+        if new_total_qty > stock:
+            return False, f"库存不足！当前库存 {stock} 件，购物车已有 {current_cart_qty} 件，最多可再添加 {stock - current_cart_qty} 件", 0
+
+        if cart_item:
+            cursor.execute(
+                "UPDATE cart SET quantity = %s WHERE id = %s",
+                (new_total_qty, cart_item[0])
+            )
+        else:
+            cursor.execute(
+                "INSERT INTO cart (product_id, quantity) VALUES (%s, %s)",
+                (product_id, quantity)
+            )
+
+        conn.commit()
+
+        cursor.execute("SELECT SUM(quantity) FROM cart")
+        count_result = cursor.fetchone()
+        cart_count = count_result[0] if count_result[0] is not None else 0
+
+        cursor.close()
+        conn.close()
+        return True, "已加入购物车", cart_count
+    except Error as e:
+        return False, f"操作失败: {e}", 0
+
+
+def update_cart_quantity(cart_id, quantity):
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败", None
+
+    try:
+        cursor = conn.cursor()
+
+        cursor.execute("SELECT product_id FROM cart WHERE id = %s", (cart_id,))
+        result = cursor.fetchone()
+        if not result:
+            return False, "购物车记录不存在", None
+        product_id = result[0]
+
+        cursor.execute("SELECT stock FROM products WHERE id = %s", (product_id,))
+        stock_result = cursor.fetchone()
+        stock = stock_result[0] if stock_result else 0
+
+        if quantity > stock:
+            return False, f"库存不足！当前库存 {stock} 件", None
+
+        if quantity <= 0:
+            cursor.execute("DELETE FROM cart WHERE id = %s", (cart_id,))
+        else:
+            cursor.execute(
+                "UPDATE cart SET quantity = %s WHERE id = %s",
+                (quantity, cart_id)
+            )
+
+        conn.commit()
+
+        cursor.execute("SELECT SUM(quantity) FROM cart")
+        count_result = cursor.fetchone()
+        cart_count = count_result[0] if count_result[0] is not None else 0
+
+        cursor.execute("""
+            SELECT SUM(products.price * cart.quantity)
+            FROM cart
+            INNER JOIN products ON cart.product_id = products.id
+        """)
+        total_result = cursor.fetchone()
+        total = float(total_result[0]) if total_result[0] is not None else 0.0
+
+        cursor.execute("""
+            SELECT products.price * cart.quantity
+            FROM cart
+            INNER JOIN products ON cart.product_id = products.id
+            WHERE cart.id = %s
+        """, (cart_id,))
+        subtotal_result = cursor.fetchone()
+        subtotal = float(subtotal_result[0]) if subtotal_result else 0.0
+
+        cursor.close()
+        conn.close()
+
+        return True, "更新成功", {
+            'cart_count': cart_count,
+            'total': total,
+            'subtotal': subtotal
+        }
+    except Error as e:
+        return False, f"更新失败: {e}", None
+
+
+def remove_from_cart(cart_id):
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM cart WHERE id = %s", (cart_id,))
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+        return True, "删除成功"
+    except Error as e:
+        return False, f"删除失败: {e}"
+
+
+def clear_cart():
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM cart")
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+        return True, "已清空购物车"
+    except Error as e:
+        return False, f"清空失败: {e}"
+
+
+# ==================== 订单函数 ====================
+
+def generate_order_no():
+    timestamp = datetime.now().strftime('%Y%m%d%H%M%S')
+    random_suffix = ''.join(random.choices(string.digits, k=6))
+    return f"ORD{timestamp}{random_suffix}"
+
+
+def create_order(user_id=1, remark=''):
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        cart_items = get_cart_items()
+        if not cart_items:
+            return False, "购物车为空"
+
+        total_amount = Decimal('0.00')
+        for item in cart_items:
+            stock = get_product_stock(item['product_id'])
+            if item['quantity'] > stock:
+                return False, f"商品「{item['name']}」库存不足（需要 {item['quantity']}，剩余 {stock}）"
+            total_amount += Decimal(str(item['subtotal']))
+
+        order_no = generate_order_no()
+
+        sql_order = """
+        INSERT INTO orders (order_no, user_id, total_amount, status, remark)
+        VALUES (%s, %s, %s, %s, %s)
+        """
+        cursor.execute(sql_order, (order_no, user_id, total_amount, 0, remark))
+        order_id = cursor.lastrowid
+
+        sql_item = """
+        INSERT INTO order_items (order_id, product_id, product_name, product_price, quantity, subtotal)
+        VALUES (%s, %s, %s, %s, %s, %s)
+        """
+        for item in cart_items:
+            cursor.execute(
+                sql_item,
+                (order_id, item['product_id'], item['name'], item['price'], item['quantity'], item['subtotal'])
+            )
+
+        cursor.execute("DELETE FROM cart")
+
+        conn.commit()
+        cursor.close()
+        conn.close()
+
+        return True, {
+            'order_id': order_id,
+            'order_no': order_no,
+            'total_amount': total_amount,
+            'item_count': len(cart_items)
+        }
+    except Error as e:
+        conn.rollback()
+        cursor.close()
+        conn.close()
+        return False, f"创建订单失败: {e}"
+
+
+def get_order_by_id(order_id):
+    conn = get_db_connection()
+    if not conn:
+        return None
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+
+        cursor.execute("SELECT * FROM orders WHERE id = %s", (order_id,))
+        order = cursor.fetchone()
+
+        if not order:
+            cursor.close()
+            conn.close()
+            return None
+
+        cursor.execute("SELECT * FROM order_items WHERE order_id = %s", (order_id,))
+        items = cursor.fetchall()
+        order['items'] = items
+
+        cursor.close()
+        conn.close()
+        return order
+    except Error as e:
+        print(f"⚠️ 获取订单失败: {e}")
+        return None
+
+
+def get_orders_by_user(user_id, limit=20):
+    conn = get_db_connection()
+    if not conn:
+        return []
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute(
+            "SELECT * FROM orders WHERE user_id = %s ORDER BY created_at DESC LIMIT %s",
+            (user_id, limit)
+        )
+        orders = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+        return orders
+    except Error as e:
+        print(f"⚠️ 获取订单列表失败: {e}")
+        return []
+
+
+def get_all_orders(limit=50):
+    """获取所有订单（管理员用）"""
+    conn = get_db_connection()
+    if not conn:
+        return []
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute(
+            "SELECT * FROM orders ORDER BY created_at DESC LIMIT %s",
+            (limit,)
+        )
+        orders = cursor.fetchall()
+
+        cursor.close()
+        conn.close()
+        return orders
+    except Error as e:
+        print(f"⚠️ 获取所有订单失败: {e}")
+        return []
+
+
+def update_order_status(order_id, status):
+    conn = get_db_connection()
+    if not conn:
+        return False, "数据库连接失败"
+
+    try:
+        cursor = conn.cursor()
+        cursor.execute(
+            "UPDATE orders SET status = %s WHERE id = %s",
+            (status, order_id)
+        )
+        conn.commit()
+
+        cursor.close()
+        conn.close()
+        return True, "更新成功"
+    except Error as e:
+        return False, f"更新失败: {e}"
+
+
+def get_order_status_text(status):
+    status_map = {
+        0: '待支付',
+        1: '已支付',
+        2: '已取消',
+        3: '已完成'
+    }
+    return status_map.get(status, '未知')
+
+
+# ==================== 路由 ====================
+
+@app.route('/')
+def index():
+    products = get_all_products()
+    cart_count = get_cart_count() if 'user_id' in session else 0
+    menus = get_user_menus(session['user_id']) if 'user_id' in session else []
+    user_role = get_user_role(session['user_id']) if 'user_id' in session else 'guest'
+    return render_template('index.html',
+                          products=products,
+                          cart_count=cart_count,
+                          menus=menus,
+                          user_role=user_role)
+
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        username = request.form.get('username', '').strip()
+        password = request.form.get('password', '')
+        record_user_log('login', '登录提交', target_text=username)
+
+        if not username or not password:
+            flash('⚠️ 请输入用户名和密码', 'error')
+            return render_template('login.html')
+
+        success, msg, user = login_user(username, password)
+        if success:
+            session['user_id'] = user['id']
+            session['username'] = user['username']
+            session['role'] = user['role']
+            record_user_log('login', '登录成功', user_id=user['id'], username=user['username'])
+            flash(f'✅ 欢迎回来，{user["username"]}！', 'success')
+            return redirect(url_for('index'))
+        else:
+            flash(f'❌ {msg}', 'error')
+            return render_template('login.html')
+
+    return render_template('login.html')
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if request.method == 'POST':
+        username = request.form.get('username', '').strip()
+        password = request.form.get('password', '')
+        confirm = request.form.get('confirm', '')
+        email = request.form.get('email', '').strip()
+
+        if not username or len(username) < 3:
+            flash('⚠️ 用户名至少3个字符', 'error')
+            return render_template('register.html')
+
+        if not password or len(password) < 6:
+            flash('⚠️ 密码至少6个字符', 'error')
+            return render_template('register.html')
+
+        if password != confirm:
+            flash('⚠️ 两次密码输入不一致', 'error')
+            return render_template('register.html')
+
+        if not email:
+            flash('⚠️ 请输入邮箱', 'error')
+            return render_template('register.html')
+
+        success, msg = register_user(username, password, email)
+        if success:
+            flash(f'✅ {msg}，请登录', 'success')
+            return redirect(url_for('login'))
+        else:
+            flash(f'❌ {msg}', 'error')
+            return render_template('register.html')
+
+    return render_template('register.html')
+
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash('✅ 已退出登录', 'success')
+    return redirect(url_for('index'))
+
+
+@app.route('/product/<int:product_id>')
+@login_required
+def product_detail(product_id):
+    product = get_product_by_id(product_id)
+    if not product:
+        flash('⚠️ 商品不存在', 'error')
+        return redirect(url_for('index'))
+    cart_count = get_cart_count()
+    menus = get_user_menus(session['user_id'])
+    return render_template('product_detail.html',
+                          product=product,
+                          cart_count=cart_count,
+                          menus=menus)
+
+
+@app.route('/cart')
+@login_required
+def cart():
+    # 检查权限
+    if not has_permission(session['user_id'], 'cart:manage'):
+        flash('❌ 您没有权限访问购物车', 'error')
+        return redirect(url_for('index'))
+
+    items = get_cart_items()
+    total = get_cart_total()
+    count = get_cart_count()
+    menus = get_user_menus(session['user_id'])
+    return render_template('cart.html',
+                          items=items,
+                          total=total,
+                          count=count,
+                          menus=menus)
+
+
+@app.route('/cart/add/<int:product_id>', methods=['POST'])
+@login_required
+def cart_add(product_id):
+    if not has_permission(session['user_id'], 'cart:manage'):
+        return jsonify({'success': False, 'message': '无权限'})
+
+    quantity = int(request.form.get('quantity', 1))
+    success, msg, cart_count = add_to_cart(product_id, quantity)
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        return jsonify({
+            'success': success,
+            'message': msg,
+            'cart_count': cart_count
+        })
+
+    flash(msg, 'success' if success else 'error')
+    return redirect(request.referrer or url_for('index'))
+
+
+@app.route('/cart/update', methods=['POST'])
+@login_required
+def cart_update():
+    if not has_permission(session['user_id'], 'cart:manage'):
+        return jsonify({'success': False, 'message': '无权限'})
+
+    cart_id = int(request.form.get('cart_id', 0))
+    quantity = int(request.form.get('quantity', 0))
+
+    success, msg, data = update_cart_quantity(cart_id, quantity)
+
+    if success and data:
+        return jsonify({
+            'success': True,
+            'message': msg,
+            'cart_count': data['cart_count'],
+            'total': data['total'],
+            'subtotal': data['subtotal']
+        })
+    else:
+        return jsonify({
+            'success': False,
+            'message': msg
+        })
+
+
+@app.route('/cart/remove/<int:cart_id>', methods=['POST'])
+@login_required
+def cart_remove(cart_id):
+    if not has_permission(session['user_id'], 'cart:manage'):
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return jsonify({'success': False, 'message': '无权限'})
+        flash('❌ 无权限', 'error')
+        return redirect(url_for('cart'))
+
+    success, msg = remove_from_cart(cart_id)
+
+    if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        items = get_cart_items()
+        total = get_cart_total()
+        count = get_cart_count()
+        return jsonify({
+            'success': success,
+            'message': msg,
+            'cart_count': count,
+            'total': total
+        })
+
+    flash(msg, 'success' if success else 'error')
+    return redirect(url_for('cart'))
+
+
+@app.route('/cart/clear', methods=['POST'])
+@login_required
+def cart_clear():
+    if not has_permission(session['user_id'], 'cart:manage'):
+        flash('❌ 无权限', 'error')
+        return redirect(url_for('cart'))
+
+    success, msg = clear_cart()
+    flash(msg, 'success' if success else 'error')
+    return redirect(url_for('cart'))
+
+
+@app.route('/orders')
+@login_required
+def orders_list():
+    user_role = get_user_role(session['user_id'])
+    menus = get_user_menus(session['user_id'])
+
+    if user_role in ['admin', 'shop_manager']:
+        # 管理员和店长看所有订单
+        orders = get_all_orders(limit=50)
+    else:
+        # 普通用户只看自己的订单
+        orders = get_orders_by_user(session['user_id'], limit=20)
+
+    for order in orders:
+        order['status_text'] = get_order_status_text(order['status'])
+
+    cart_count = get_cart_count()
+    return render_template('orders_list.html',
+                          orders=orders,
+                          cart_count=cart_count,
+                          menus=menus,
+                          user_role=user_role)
+
+
+@app.route('/order/<int:order_id>')
+@login_required
+def order_detail(order_id):
+    order = get_order_by_id(order_id)
+    if not order:
+        flash('⚠️ 订单不存在', 'error')
+        return redirect(url_for('index'))
+
+    # 检查权限：只能看自己的订单，除非是管理员或店长
+    user_role = get_user_role(session['user_id'])
+    if user_role not in ['admin', 'shop_manager'] and order['user_id'] != session['user_id']:
+        flash('❌ 您没有权限查看此订单', 'error')
+        return redirect(url_for('index'))
+
+    order['status_text'] = get_order_status_text(order['status'])
+    cart_count = get_cart_count()
+    menus = get_user_menus(session['user_id'])
+    return render_template('order_detail.html',
+                          order=order,
+                          cart_count=cart_count,
+                          menus=menus)
+
+
+@app.route('/order/create', methods=['POST'])
+@login_required
+@permission_required('order:create')
+def order_create():
+    if not has_permission(session['user_id'], 'order:create'):
+        flash('❌ 您没有权限创建订单', 'error')
+        return redirect(url_for('cart'))
+
+    user_id = session['user_id']
+    remark = request.form.get('remark', '').strip()
+
+    success, result = create_order(user_id, remark)
+
+    if success:
+        flash('✅ 订单创建成功！', 'success')
+        return redirect(url_for('order_detail', order_id=result['order_id']))
+    else:
+        flash(f'❌ {result}', 'error')
+        return redirect(url_for('cart'))
+
+
+@app.route('/order/pay/<int:order_id>', methods=['POST'])
+@login_required
+def order_pay(order_id):
+    order = get_order_by_id(order_id)
+    if not order:
+        flash('⚠️ 订单不存在', 'error')
+        return redirect(url_for('orders_list'))
+
+    # 只能支付自己的订单
+    if order['user_id'] != session['user_id']:
+        flash('❌ 您不能支付此订单', 'error')
+        return redirect(url_for('orders_list'))
+
+    if order['status'] != 0:
+        flash('⚠️ 只有待支付的订单才能支付', 'error')
+        return redirect(url_for('order_detail', order_id=order_id))
+
+    success, msg = update_order_status(order_id, 1)
+    flash(msg, 'success' if success else 'error')
+    return redirect(url_for('order_detail', order_id=order_id))
+
+
+@app.route('/order/cancel/<int:order_id>', methods=['POST'])
+@login_required
+def order_cancel(order_id):
+    order = get_order_by_id(order_id)
+    if not order:
+        flash('⚠️ 订单不存在', 'error')
+        return redirect(url_for('orders_list'))
+
+    # 只能取消自己的订单
+    if order['user_id'] != session['user_id']:
+        flash('❌ 您不能取消此订单', 'error')
+        return redirect(url_for('orders_list'))
+
+    if order['status'] != 0:
+        flash('⚠️ 只有待支付的订单才能取消', 'error')
+        return redirect(url_for('order_detail', order_id=order_id))
+
+    success, msg = update_order_status(order_id, 2)
+    flash(msg, 'success' if success else 'error')
+    return redirect(url_for('order_detail', order_id=order_id))
+
+
+# ==================== 管理员路由 ====================
+
+@app.route('/admin')
+@login_required
+@permission_required('product:manage')
+def admin():
+    if not has_permission(session['user_id'], 'product:manage'):
+        flash('❌ 您没有权限访问商品管理', 'error')
+        return redirect(url_for('index'))
+
+    products = get_all_products()
+    menus = get_user_menus(session['user_id'])
+    return render_template('admin.html', products=products, menus=menus)
+
+
+@app.route('/admin/add', methods=['GET', 'POST'])
+@login_required
+@permission_required('product:manage')
+def admin_add():
+    if not has_permission(session['user_id'], 'product:manage'):
+        flash('❌ 您没有权限添加商品', 'error')
+        return redirect(url_for('index'))
+
+    if request.method == 'POST':
+        name = request.form.get('name', '').strip()
+        price = request.form.get('price', '').strip()
+        stock = request.form.get('stock', '').strip()
+        description = request.form.get('description', '').strip()
+
+        if not name:
+            flash('⚠️ 商品名称不能为空', 'error')
+            return redirect(url_for('admin_add'))
+
+        if not price:
+            flash('⚠️ 商品价格不能为空', 'error')
+            return redirect(url_for('admin_add'))
+
+        try:
+            price = float(price)
+            if price < 0:
+                flash('⚠️ 价格不能为负数', 'error')
+                return redirect(url_for('admin_add'))
+        except ValueError:
+            flash('⚠️ 价格格式不正确，请输入数字', 'error')
+            return redirect(url_for('admin_add'))
+
+        if not stock:
+            stock = 0
+        else:
+            try:
+                stock = int(stock)
+                if stock < 0:
+                    flash('⚠️ 库存不能为负数', 'error')
+                    return redirect(url_for('admin_add'))
+            except ValueError:
+                flash('⚠️ 库存格式不正确，请输入整数', 'error')
+                return redirect(url_for('admin_add'))
+
+        image_path = ''
+        uploaded_file = request.files.get('image_file')
+
+        if uploaded_file and uploaded_file.filename != '':
+            success, filename, error = save_uploaded_file(uploaded_file)
+            if success:
+                image_path = f'static/images/{filename}'
+                flash(f'✅ 图片上传成功: {filename}', 'info')
+            else:
+                flash(f'❌ {error}', 'error')
+                return redirect(url_for('admin_add'))
+        else:
+            image_url = request.form.get('image_url', '').strip()
+            if image_url:
+                image_path = image_url
+
+        success, msg = add_product(name, price, stock, image_path, description)
+        if success:
+            flash(f'✅ {msg}', 'success')
+            return redirect(url_for('admin'))
+        else:
+            flash(f'❌ {msg}', 'error')
+            return redirect(url_for('admin_add'))
+
+    menus = get_user_menus(session['user_id'])
+    return render_template('admin_add.html', menus=menus)
+
+
+@app.route('/admin/delete/<int:product_id>', methods=['POST'])
+@login_required
+@permission_required('product:manage')
+def admin_delete(product_id):
+    if not has_permission(session['user_id'], 'product:manage'):
+        flash('❌ 您没有权限删除商品', 'error')
+        return redirect(url_for('admin'))
+
+    success, msg = delete_product(product_id)
+    if success:
+        flash(f'✅ {msg}', 'success')
+    else:
+        flash(f'❌ {msg}', 'error')
+    return redirect(url_for('admin'))
+
+
+# ==================== 用户管理路由（仅管理员） ====================
+
+@app.route('/users')
+@login_required
+@permission_required('user:manage')
+def users_list():
+    if not has_permission(session['user_id'], 'user:manage'):
+        flash('❌ 您没有权限访问用户管理', 'error')
+        return redirect(url_for('index'))
+
+    users = get_users()
+    menus = get_user_menus(session['user_id'])
+    return render_template('users.html', users=users, menus=menus)
+
+
+@app.route('/users/update_role/<int:user_id>', methods=['POST'])
+@login_required
+@permission_required('user:manage')
+def users_update_role(user_id):
+    if not has_permission(session['user_id'], 'user:manage'):
+        flash('❌ 您没有权限修改用户角色', 'error')
+        return redirect(url_for('users_list'))
+
+    role = request.form.get('role', 'user')
+    success, msg = update_user_role(user_id, role)
+    flash(msg, 'success' if success else 'error')
+    return redirect(url_for('users_list'))
+
+
+# ==================== 权限管理路由（仅管理员） ====================
+
+@app.route('/permissions')
+@login_required
+@permission_required('permission:manage')
+def permissions_list():
+    if not has_permission(session['user_id'], 'permission:manage'):
+        flash('❌ 您没有权限访问权限管理', 'error')
+        return redirect(url_for('index'))
+
+    conn = get_db_connection()
+    menus = get_user_menus(session['user_id'])
+
+    try:
+        cursor = conn.cursor(dictionary=True)
+        cursor.execute("SELECT * FROM permissions ORDER BY code")
+        permissions = cursor.fetchall()
+        cursor.close()
+        conn.close()
+    except Error as e:
+        permissions = []
+        print(f"⚠️ 获取权限列表失败: {e}")
+
+    roles = [
+        {'code': 'admin', 'name': ROLE_DISPLAY_NAMES.get('admin', 'admin')},
+        {'code': 'shop_manager', 'name': ROLE_DISPLAY_NAMES.get('shop_manager', 'shop_manager')},
+        {'code': 'user', 'name': ROLE_DISPLAY_NAMES.get('user', 'user')},
+    ]
+    role_permissions = get_role_permissions()
+    return render_template(
+        'permissions.html',
+        permissions=permissions,
+        menus=menus,
+        roles=roles,
+        role_permissions=role_permissions,
+        role_names=ROLE_DISPLAY_NAMES,
+    )
+
+
+@app.route('/permissions/add', methods=['POST'])
+@login_required
+@permission_required('permission:manage')
+def permissions_add():
+    code = request.form.get('code', '').strip()
+    name = request.form.get('name', '').strip()
+    module = request.form.get('module', '').strip() or '自定义'
+    description = request.form.get('description', '').strip()
+
+    if not code or not name:
+        flash('权限编码和名称不能为空', 'error')
+        return redirect(url_for('permissions_list'))
+
+    if not re.match(r'^[a-zA-Z0-9:_-]+$', code):
+        flash('权限编码只能包含字母、数字、冒号、下划线和短横线', 'error')
+        return redirect(url_for('permissions_list'))
+
+    success, msg = upsert_permission(code, name, module, description)
+    flash(msg, 'success' if success else 'error')
+    return redirect(url_for('permissions_list'))
+
+
+@app.route('/permissions/role/<role>', methods=['POST'])
+@login_required
+@permission_required('permission:manage')
+def permissions_update_role(role):
+    if role not in ROLE_MENUS:
+        flash('角色不存在', 'error')
+        return redirect(url_for('permissions_list'))
+
+    permission_codes = request.form.getlist('permission_codes')
+    success, msg = set_role_permissions(role, permission_codes)
+    flash(msg, 'success' if success else 'error')
+    return redirect(url_for('permissions_list'))
+
+
+@app.route('/track/click', methods=['POST'])
+def track_click():
+    data = request.get_json(silent=True) or {}
+    record_user_log(
+        'click',
+        '点击按钮',
+        target_text=str(data.get('text', '')).strip(),
+        target_url=str(data.get('href', '')).strip(),
+        page_url=str(data.get('page', request.path)).strip() or request.path,
+    )
+    return jsonify({'success': True})
+
+
+@app.route('/user_logs')
+@login_required
+@permission_required('user:manage')
+def user_logs():
+    if not has_permission(session['user_id'], 'user:manage'):
+        flash('没有权限查看行为日志', 'error')
+        return redirect(url_for('index'))
+
+    logs = get_user_logs(limit=300)
+    menus = get_user_menus(session['user_id'])
+    return render_template('user_logs.html', logs=logs, menus=menus)
+
+
+@app.route('/static/images/<filename>')
+def serve_image(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'], filename)
+
+
+# ==================== 启动应用 ====================
+
+if __name__ == '__main__':
+    ensure_permission_system()
+    ensure_user_table()
+    ensure_user_logs_table()
+    app.run(debug=True, host='0.0.0.0', port=5000)
