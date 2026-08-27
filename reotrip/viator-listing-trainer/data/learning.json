@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "0.1.0",
+  "usage": "阶段A起就要展示。运营学员常驻可见，不要藏进问号里才出现。",
+  "bannerZh": "东京迪士尼只是入门样例。真实上架时，每个字段都要回到该产品的供应链信息判断，不要照抄这一页。",
+  "bannerEn": "Tokyo Disneyland is a training example only. For a real listing, decide each field from that product's supply-chain facts — do not copy this page.",
+  "principlesZh": [
+    "后台字段是空壳，供应链才是内容来源。",
+    "样例教你该问什么，不教你下一份产品也填同样的英文。",
+    "填之前能讲清：主票是什么、能用多久、谁能买、怎么用、能不能退、哪些只在对应套餐才有。"
+  ],
+  "beforeListingQuestions": [
+    {
+      "id": "mainTicket",
+      "zh": "主票到底是哪一张？哪个景点、哪个票种？"
+    },
+    {
+      "id": "duration",
+      "zh": "主票允许用多久？一日票可以填 1 day，两日票、兑换后有效的票不要套成 1 day。"
+    },
+    {
+      "id": "options",
+      "zh": "有几个套餐？哪些是可选加项，哪些是强制打包？"
+    },
+    {
+      "id": "inclusions",
+      "zh": "两档都有的包含项写在前面；只某套餐才有的，用括号写明选择对应套餐才有。"
+    },
+    {
+      "id": "eligibility",
+      "zh": "谁不能买？国籍/居住地限制是整产品限制还是某套餐限制？本样例是整产品不向日本护照持有人出售。"
+    },
+    {
+      "id": "ageGroups",
+      "zh": "年龄档是否对齐该景点或供应商官方票种？本样例必须对齐东京迪士尼官方年龄。"
+    },
+    {
+      "id": "redemption",
+      "zh": "每一种票怎么用？电子票、换票、凭证能不能入园，分别写清楚。"
+    },
+    {
+      "id": "cancellation",
+      "zh": "采购侧能不能退？公司门票类默认 All sales final，仍要先核对这一单。"
+    },
+    {
+      "id": "pickup",
+      "zh": "有没有接送？没有就不要写成 Transfer。"
+    },
+    {
+      "id": "price",
+      "zh": "供应商后台真实填价是多少？可以对照展示；不要把客人前台零售价当成后台填入值。"
+    }
+  ]
+}

@@ -1,0 +1,392 @@
+{
+  "schemaVersion": "0.1.0",
+  "activeProductId": "5514894P11",
+  "productTypesReserved": [
+    "ticket",
+    "transfer",
+    "charter"
+  ],
+  "products": [
+    {
+      "id": "5514894P11",
+      "productType": "ticket",
+      "status": "ACTIVE",
+      "codes": {
+        "live": "5514894P11",
+        "draft": "5514894P513"
+      },
+      "sources": {
+        "supplierLive": "https://supplier.viator.com/product/5514894P11",
+        "supplierDraft": "https://supplier.viator.com/product/build/5514894P513/basicsWithCreationType/title",
+        "cSideViator": "https://www.viator.com/tours/Tokyo/Tokyo-Disneyland-Entry-Ticket-with-Tokyo-Subway-Ticket/d334-5514894P11"
+      },
+      "title": "Tokyo Disneyland Ticket & Optional Tokyo Subway Pass",
+      "values": {
+        "creationType": {
+          "value": "Manual Creation",
+          "valueStatus": "inferred",
+          "noteZh": "已有完整产品，训练页按手工创建后的结果展示。"
+        },
+        "smartCreatorSkipped": {
+          "value": "Skipped / not used for this training replica",
+          "valueStatus": "placeholder"
+        },
+        "inputLanguage": {
+          "value": "English",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Product Setup: Input Language English。"
+        },
+        "translationMode": {
+          "value": "Use automated translation (recommended)",
+          "valueStatus": "inferred"
+        },
+        "title": {
+          "value": "Tokyo Disneyland Ticket & Optional Tokyo Subway Pass",
+          "valueStatus": "confirmed_c_side"
+        },
+        "referenceCode": {
+          "value": null,
+          "valueStatus": "todo_from_supplier_backend"
+        },
+        "productType": {
+          "value": "Ticket/pass",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Categories: Product types Ticket/pass。"
+        },
+        "itineraryType": {
+          "value": "Ticket/pass",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage: Product itinerary types Ticket/pass。"
+        },
+        "ticketPassType": {
+          "value": ["Theme Park", "Cultural"],
+          "valueStatus": "confirmed_live",
+          "noteZh": "P513 草稿 Categorization 已选 Theme Park、Cultural。Manage 现网展示 Ticket/passes Theme Park。"
+        },
+        "themes": {
+          "value": [
+            "Day",
+            "Sunset",
+            "Night"
+          ],
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Categories & themes。"
+        },
+        "coverPhoto": {
+          "value": "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0a/c0/04.jpg",
+          "valueStatus": "confirmed_c_side",
+          "noteZh": "前台公开图，仅训练展示。是否为后台封面需核对。"
+        },
+        "gallery": {
+          "value": [
+            "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0a/c0/04.jpg",
+            "https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/25/cf/29.jpg"
+          ],
+          "valueStatus": "confirmed_c_side"
+        },
+        "hasPickup": {
+          "value": false,
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Meeting & pickup: No, travelers go directly to the location。"
+        },
+        "meetingPoint": {
+          "value": "Tokyo Disneyland, 1-1 Maihama, Maihama, Urayasu 279-0031 Chiba Prefecture",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Ticket details 地址。"
+        },
+        "dropoff": {
+          "value": "This activity ends back at the meeting point.",
+          "valueStatus": "confirmed_c_side"
+        },
+        "additionalPickupDetails": {
+          "value": "No hotel pick-up or private transfer included. Public transportation options are available nearby.",
+          "valueStatus": "inferred"
+        },
+        "multipleAttractions": {
+          "value": false,
+          "valueStatus": "inferred",
+          "noteZh": "主景点是东京迪士尼乐园；地铁通票是交通加项，不是第二个景点。"
+        },
+        "attraction": {
+          "value": "Tokyo Disneyland",
+          "valueStatus": "confirmed_c_side"
+        },
+        "duration": {
+          "value": "10 hours",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Ticket details: Total Duration 10 hours。这是 typically spend，不是票面有效期。"
+        },
+        "attractionDescription": {
+          "value": "Tokyo Disneyland is a world-renowned theme park that offers a plethora of thrilling rides and immersive experiences, making it a dream destination for Disney enthusiasts.",
+          "valueStatus": "confirmed_c_side",
+          "noteZh": "来自分销页 itinerary 文案，后台原文可能更长或不同。"
+        },
+        "liveGuide": {
+          "value": false,
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage: No language guides have been defined。"
+        },
+        "audioGuide": {
+          "value": false,
+          "valueStatus": "inferred"
+        },
+        "writtenGuide": {
+          "value": false,
+          "valueStatus": "inferred"
+        },
+        "guideLanguages": {
+          "value": [],
+          "valueStatus": "inferred"
+        },
+        "inclusions": {
+          "value": [
+            "1-day Tokyo Disneyland pass",
+            "24-hour unlimited Tokyo Metro & Toei Subway Pass (only if the Ticket and Tokyo Subway Pass option is selected)"
+          ],
+          "valueStatus": "owner_confirmed",
+          "noteZh": "现网产品级未写括号；训练页仍用括号示范，避免按 combo 写满。"
+        },
+        "exclusions": {
+          "value": [
+            "JR Lines (including Yamanote line) ticket",
+            "Other private railways",
+            "Other personal expenses"
+          ],
+          "valueStatus": "confirmed_c_side"
+        },
+        "extraCostConfirm": {
+          "value": null,
+          "valueStatus": "todo_from_supplier_backend"
+        },
+        "briefDescription": {
+          "value": "IMPORTANT ENTRY POLICY - PLEASE READ:\n1. VOUCHER IS NOT A TICKET: The booking confirmation/voucher from this platform will NOT be accepted at the gates.\n2. OFFICIAL TICKETS REQUIRED: You must present the Official E-Tickets for entry. We will send them to your email and platform inbox within 7 days before your visit (please check your spam folder).\n\nEnjoy a 1-Day Tokyo Disneyland admission ticket and a 24-hour Tokyo Metro & Toei Subway Pass. Travel easily across Tokyo before or after your park visit with unlimited subway rides. Perfect for budget travellers seeking flexibility and convenience. No hotel pick-up included.\n\n1. 1-Day Tokyo Disneyland admission ticket (QR code entry)\n2. 24-hour unlimited rides on Tokyo Metro & Toei subway lines\n3. Save time and money with a convenient combo package\n4. Ideal for budget and independent travellers\n5. No hotel pick-up or private transfer included",
+          "valueStatus": "confirmed_c_side"
+        },
+        "skipTheLine": {
+          "value": false,
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage: Skip the line access No。"
+        },
+        "resellerStatus": {
+          "value": "Independent reseller",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Information travelers need。"
+        },
+        "accessibility": {
+          "value": "Public transportation options are available nearby",
+          "valueStatus": "inferred"
+        },
+        "healthRestrictions": {
+          "value": null,
+          "valueStatus": "todo_from_supplier_backend"
+        },
+        "difficultyLevel": {
+          "value": "Easy — Most travelers can participate",
+          "valueStatus": "confirmed_c_side"
+        },
+        "phoneNumber": {
+          "value": "HK +852 3428 8182",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Your phone number。"
+        },
+        "additionalInfo": {
+          "value": [
+            "Public transportation options are available nearby",
+            "Infants are required to sit on an adult’s lap",
+            "Suitable for all physical fitness levels",
+            "Need to exchange a physical subway ticket at major stations of the Tokyo Metro and Toei Subway.",
+            "This offer is not available for Japanese passport holders (whole product, all options)"
+          ],
+          "valueStatus": "owner_confirmed",
+          "noteZh": "日籍限制是整产品。换产品时不要默认所有日本门票都有这条。"
+        },
+        "priceType": {
+          "value": "Per person",
+          "valueStatus": "confirmed_live",
+          "noteZh": "P513 Traveler details: How do you price your product? Per person。"
+        },
+        "ageGroups": {
+          "value": [
+            "Adults: 18–99",
+            "Youth: 12–17",
+            "Children: 4–11"
+          ],
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Booking details → Pricing Type。Infant 未单独挂价。"
+        },
+        "childAccompaniment": {
+          "value": "Infants are required to sit on an adult’s lap",
+          "valueStatus": "inferred"
+        },
+        "maxTravelers": {
+          "value": 15,
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage: Max travelers per booking 15。"
+        },
+        "currency": {
+          "value": "HKD",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Schedules: prices set in HKD。"
+        },
+        "priceMatrixNote": {
+          "value": "Copy real supplier-backend prices into the training replica (allowed). Guest-facing C-side starting-from USD 59.60 / 64.94 is only a retail observation, not the supplier input.",
+          "valueStatus": "owner_confirmed"
+        },
+        "supplierPrices": {
+          "value": {
+            "note": "SUGGESTED RETAIL PRICE + 26% commission; Connectivity synced; this login cannot edit price.",
+            "Ticket and Tokyo Subway Pass (TG7)": {
+              "schedule": "Jan 12, 2026 - Dec 31, 2027; Sun–Sat 9:00am",
+              "Adult": "HK$967.06",
+              "Youth": "HK$772.30",
+              "Child": "HK$496.96"
+            },
+            "Ticket Only (No Subway Pass) (TG6)": {
+              "schedule": "Thu 9:00am priced; other days No prices added",
+              "Adult": "HK$885.14",
+              "Youth": "HK$731.42",
+              "Child": "HK$456.08"
+            }
+          },
+          "valueStatus": "confirmed_live",
+          "noteZh": "不要把客人页 starting-from 价当后台填入值。"
+        },
+        "cutoffType": {
+          "value": "Relative to start time",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Booking process Cut-off time。"
+        },
+        "cutoffHours": {
+          "value": 48,
+          "valueStatus": "confirmed_live",
+          "noteZh": "48 hours = 现网 Stop selling 2 days before start time。"
+        },
+        "confirmationMethod": {
+          "value": "Instant confirmation (Recommended)",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Booking process。"
+        },
+        "notificationEmail": {
+          "value": true,
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage: Notification emails for each booking Yes。"
+        },
+        "cancellationPolicy": {
+          "value": "All sales final. Travelers will not receive any refund regardless of cancellation status.",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Cancellation policy。"
+        },
+        "badWeather": {
+          "value": false,
+          "valueStatus": "confirmed_live",
+          "noteZh": "现网 Other post-booking policies: None。无需勾选。"
+        },
+        "notEnoughTravelers": {
+          "value": false,
+          "valueStatus": "confirmed_live",
+          "noteZh": "现网 Other post-booking policies: None。无需勾选。"
+        },
+        "requiredTravelerFields": {
+          "value": [
+            "Full Names"
+          ],
+          "valueStatus": "confirmed_live",
+          "noteZh": "自动收集 Lead Traveler's Name、Phone Number；另外要 Full Names。"
+        },
+        "passportTiming": {
+          "value": null,
+          "valueStatus": "todo_from_supplier_backend"
+        },
+        "ticketType": {
+          "value": "Mobile or paper ticket accepted",
+          "valueStatus": "confirmed_live"
+        },
+        "ticketsPer": {
+          "value": "One per booking",
+          "valueStatus": "confirmed_live",
+          "noteZh": "前台写法，后台枚举名需核对。"
+        },
+        "separateEntryTicket": {
+          "value": true,
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Tickets: Separate direct entry ticket will be delivered to traveler。"
+        },
+        "redemptionInstructions": {
+          "value": "STOP: THIS VOUCHER IS NOT YOUR ENTRY TICKET!\nDo NOT scan this page at the attraction.\nOfficial E-Tickets (QR Codes) are sent to email and platform messages within 7 days before the visit.\nTokyo Disneyland: scan the official QR at the main entrance.\nTokyo Subway Pass: scan the official QR at Tokyo Metro / Toei gates; 24-hour starts at first entry; not valid on JR.",
+          "valueStatus": "confirmed_live",
+          "noteZh": "来自 Manage Tickets 核销原文。须知里另有「换实体地铁票」一句，两处口径不完全一致。"
+        },
+        "ticketPreview": {
+          "value": "Simplified preview only in training UI.",
+          "valueStatus": "placeholder"
+        },
+        "companyLogo": {
+          "value": null,
+          "valueStatus": "todo_from_supplier_backend"
+        },
+        "tripadvisorListing": {
+          "value": "Reotrip Tokyo / Shinjuku, Tokyo",
+          "valueStatus": "confirmed_live",
+          "noteZh": "Manage Tripadvisor Listing。"
+        },
+        "submitForReview": {
+          "value": "Disabled in training replica. Do not submit.",
+          "valueStatus": "placeholder"
+        }
+      },
+      "options": [
+        {
+          "id": "ticket-only",
+          "name": "Ticket Only (No Subway Pass)",
+          "valueStatus": "confirmed_c_side",
+          "values": {
+            "duration": {
+              "value": "1 day",
+              "valueStatus": "confirmed_c_side"
+            },
+            "description": {
+              "value": "1-Day Tokyo Disneyland Ticket: Admission ticket only; no hotel pick-up or transfer.",
+              "valueStatus": "confirmed_c_side"
+            },
+            "inclusions": {
+              "value": [
+                "1-day Tokyo Disneyland pass"
+              ],
+              "valueStatus": "inferred"
+            },
+            "cSidePriceFrom": {
+              "value": "USD 59.60 starting from (guest-facing, not supplier input)",
+              "valueStatus": "confirmed_c_side"
+            }
+          }
+        },
+        {
+          "id": "ticket-and-subway",
+          "name": "Ticket and Tokyo Subway Pass",
+          "valueStatus": "confirmed_c_side",
+          "values": {
+            "duration": {
+              "value": "1 day: Valid for one full day at Disneyland and 24-hour subway use.",
+              "valueStatus": "confirmed_c_side"
+            },
+            "description": {
+              "value": "Ticket + Tokyo Subway Pass: Includes 1-Day Tokyo Disneyland admission ticket and 24-hour Tokyo Metro & Toei Subway Pass.",
+              "valueStatus": "confirmed_c_side"
+            },
+            "inclusions": {
+              "value": [
+                "1-day Tokyo Disneyland pass",
+                "24-hour unlimited Tokyo Metro & Toei Subway Pass"
+              ],
+              "valueStatus": "inferred"
+            },
+            "cSidePriceFrom": {
+              "value": "USD 64.94 starting from (guest-facing, not supplier input)",
+              "valueStatus": "confirmed_c_side"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

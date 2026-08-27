@@ -22,6 +22,10 @@ Python 练手项目已迁到个人项目仓库：https://github.com/starfish85/p
 | [reotrip/ru-zh-translation-ext](reotrip/ru-zh-translation-ext) | 俄语站翻译插件 | Sputnik8 / Tripster 俄译中浏览器扩展，方便运营看俄语产品页 |
 | [reotrip/viator-enterprise-locations](reotrip/viator-enterprise-locations) | Viator 企业位置核对 | 核对 ReoTrip 在 Viator 已上线产品及 Tripadvisor 企业位置展示 |
 | [reotrip/viator-product-crawl](reotrip/viator-product-crawl) | Viator 已启用产品采集 | 拉已启用产品、匹配门票供应链、整理 Excel/飞书 |
+| [reotrip/viator-listing-trainer](reotrip/viator-listing-trainer) | Viator 上架训练页 | 只读草稿向导，用来练门票上架字段和文案 |
+| [reotrip/viator-auto-listing](reotrip/viator-auto-listing) | Viator 自动上架流程 | 门票 / 接送 / 枢纽 / 包车 / 组合的上架 workflow |
+| [reotrip/nol-vietnam-scrape](reotrip/nol-vietnam-scrape) | 越南单门票与接送采集 | NOL / Viator 公开页采集脚本（不含结果表） |
+| [reotrip/feishu-task-bot](reotrip/feishu-task-bot) | 飞书任务机器人 | 把飞书任务落到本地目录；密钥不进仓库 |
 | [reotrip/hbx-hotel-crawl](reotrip/hbx-hotel-crawl) | HBX 酒店产品爬取 | Bedsonline 中国区酒店信息提取脚本（不含爬取数据） |
 | [reotrip/ticket-check-notes](reotrip/ticket-check-notes) | 门票核对资料 | 德国门票核实记录、Tripster 接送票表 |
 

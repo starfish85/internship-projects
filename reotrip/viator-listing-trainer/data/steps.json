@@ -1,0 +1,379 @@
+{
+  "schemaVersion": "0.1.0",
+  "productTypesReserved": ["ticket", "transfer", "charter"],
+  "ui": {
+    "primarySurface": "draft_wizard",
+    "language": {
+      "chrome": "en",
+      "guidance": "zh"
+    },
+    "note": "阶段A只做草稿向导只读仿真。已上线Tab对照见字段与步骤对照.md。"
+  },
+  "sections": [
+    {
+      "id": "basics",
+      "labelEn": "Basics",
+      "labelZh": "基础信息"
+    },
+    {
+      "id": "productContent",
+      "labelEn": "Product content",
+      "labelZh": "产品内容"
+    },
+    {
+      "id": "schedulesPricing",
+      "labelEn": "Schedules & pricing",
+      "labelZh": "场次与价格"
+    },
+    {
+      "id": "bookingTickets",
+      "labelEn": "Booking & tickets",
+      "labelZh": "预订与出票"
+    },
+    {
+      "id": "finish",
+      "labelEn": "Finish",
+      "labelZh": "完成"
+    }
+  ],
+  "steps": [
+    {
+      "id": "basics.creationType",
+      "sectionId": "basics",
+      "order": 1,
+      "labelEn": "Creation type",
+      "labelZh": "创建方式",
+      "draftUrlHint": "/basicsWithCreationType/...",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "workflow_only",
+      "summaryZh": "只决定怎么开始建草稿，不是客人看到的内容。",
+      "fields": [
+        {
+          "id": "creationType",
+          "labelEn": "Smart Creator vs Manual Creation",
+          "required": true,
+          "control": "radio"
+        }
+      ]
+    },
+    {
+      "id": "basics.smartCreator",
+      "sectionId": "basics",
+      "order": 2,
+      "labelEn": "Smart Creator",
+      "labelZh": "智能生成",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "workflow_only",
+      "summaryZh": "可用网址/说明生成初稿。本样例按已有产品展示，不需要做成真的生成器。",
+      "fields": [
+        {
+          "id": "smartCreatorSkipped",
+          "labelEn": "Generate or skip",
+          "required": false,
+          "control": "readonly"
+        }
+      ]
+    },
+    {
+      "id": "basics.title",
+      "sectionId": "basics",
+      "order": 3,
+      "labelEn": "Language and title",
+      "labelZh": "语言与标题",
+      "draftUrlHint": "/basicsWithCreationType/title",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "标题会出现在搜索和产品页。本产品用 Optional 表示地铁通票是加购。",
+      "fields": [
+        { "id": "inputLanguage", "labelEn": "Input language", "required": true, "control": "select" },
+        { "id": "translationMode", "labelEn": "Translation mode", "required": true, "control": "radio" },
+        { "id": "title", "labelEn": "Product title", "required": true, "control": "text" },
+        { "id": "referenceCode", "labelEn": "Product reference code", "required": false, "control": "text" }
+      ]
+    },
+    {
+      "id": "basics.categorization",
+      "sectionId": "basics",
+      "order": 4,
+      "labelEn": "Categorization",
+      "labelZh": "分类",
+      "draftUrlHint": "/basicsWithCreationType/productType",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "产品类型决定后面会出现哪些字段。门票、接送、包车不要选错。",
+      "fields": [
+        { "id": "productType", "labelEn": "Product type", "required": true, "control": "radio" },
+        { "id": "itineraryType", "labelEn": "Itinerary type", "required": true, "control": "select" },
+        { "id": "ticketPassType", "labelEn": "Ticket / pass type", "required": false, "control": "multi-select" }
+      ]
+    },
+    {
+      "id": "basics.theme",
+      "sectionId": "basics",
+      "order": 5,
+      "labelEn": "Theme",
+      "labelZh": "主题",
+      "draftUrlHint": "/basicsWithCreationType/theme",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "最多 3 个主题，影响搜索筛选。",
+      "fields": [
+        { "id": "themes", "labelEn": "Themes (up to 3)", "required": true, "control": "multi-select" }
+      ]
+    },
+    {
+      "id": "basics.photos",
+      "sectionId": "basics",
+      "order": 6,
+      "labelEn": "Photos",
+      "labelZh": "照片",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "第一张通常是封面。训练页用公开样例图即可，不必上传文件。",
+      "fields": [
+        { "id": "coverPhoto", "labelEn": "Cover photo", "required": true, "control": "image" },
+        { "id": "gallery", "labelEn": "Photo gallery and order", "required": true, "control": "image-list" }
+      ]
+    },
+    {
+      "id": "content.pickup",
+      "sectionId": "productContent",
+      "order": 7,
+      "labelEn": "Meeting & pickup",
+      "labelZh": "集合与接送",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "本门票样例无酒店接送，集合点是乐园本身。接送/包车后续会主要改这一步。",
+      "fields": [
+        { "id": "hasPickup", "labelEn": "Hotel pickup included?", "required": true, "control": "radio" },
+        { "id": "meetingPoint", "labelEn": "Meeting point / attraction location", "required": true, "control": "text" },
+        { "id": "dropoff", "labelEn": "Drop-off", "required": false, "control": "text" },
+        { "id": "additionalPickupDetails", "labelEn": "Additional pickup details", "required": false, "control": "textarea" }
+      ]
+    },
+    {
+      "id": "content.ticketDetails",
+      "sectionId": "productContent",
+      "order": 8,
+      "labelEn": "Ticket details",
+      "labelZh": "门票 / 行程详情",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "门票类重点是 POI、主票有效期、景点说明。Duration 按主票能用多久，一日票填 1 day。",
+      "fields": [
+        { "id": "multipleAttractions", "labelEn": "Multiple attractions?", "required": true, "control": "radio" },
+        { "id": "attraction", "labelEn": "Attraction / POI", "required": true, "control": "text" },
+        { "id": "duration", "labelEn": "Duration", "required": true, "control": "text" },
+        { "id": "attractionDescription", "labelEn": "Attraction description", "required": true, "control": "textarea" }
+      ]
+    },
+    {
+      "id": "content.languages",
+      "sectionId": "productContent",
+      "order": 9,
+      "labelEn": "Languages offered",
+      "labelZh": "讲解语言",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "纯门票通常没有导游。不要为了好看填一堆语言。",
+      "fields": [
+        { "id": "liveGuide", "labelEn": "Live guide", "required": true, "control": "radio" },
+        { "id": "audioGuide", "labelEn": "Audio guide", "required": true, "control": "radio" },
+        { "id": "writtenGuide", "labelEn": "Written guide", "required": true, "control": "radio" },
+        { "id": "guideLanguages", "labelEn": "Guide languages", "required": false, "control": "multi-select" }
+      ]
+    },
+    {
+      "id": "content.inclusions",
+      "sectionId": "productContent",
+      "order": 10,
+      "labelEn": "Inclusions & exclusions",
+      "labelZh": "包含与不包含",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "先写两档都有的包含项；只某套餐才有的加括号「选择对应套餐才有」。",
+      "fields": [
+        { "id": "inclusions", "labelEn": "What's included", "required": true, "control": "list" },
+        { "id": "exclusions", "labelEn": "What's excluded", "required": true, "control": "list" },
+        { "id": "extraCostConfirm", "labelEn": "Extra-cost confirmation", "required": false, "control": "checkbox" }
+      ]
+    },
+    {
+      "id": "content.unique",
+      "sectionId": "productContent",
+      "order": 11,
+      "labelEn": "What makes your product unique",
+      "labelZh": "产品卖点 / 独特之处",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "本产品最重要的是「凭证不是入园票」和「可选地铁、无接送」。",
+      "fields": [
+        { "id": "briefDescription", "labelEn": "Main sales description", "required": true, "control": "textarea" },
+        { "id": "skipTheLine", "labelEn": "Skip the line", "required": true, "control": "radio" }
+      ]
+    },
+    {
+      "id": "content.travelerInfo",
+      "sectionId": "productContent",
+      "order": 12,
+      "labelEn": "Information travelers need from you",
+      "labelZh": "出行须知",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "限制条件写这里。本样例日籍限制是整产品。换产品时以供应链适用人群为准。",
+      "fields": [
+        { "id": "resellerStatus", "labelEn": "Reseller status", "required": true, "control": "select" },
+        { "id": "accessibility", "labelEn": "Accessibility", "required": false, "control": "textarea" },
+        { "id": "healthRestrictions", "labelEn": "Health restrictions", "required": false, "control": "textarea" },
+        { "id": "difficultyLevel", "labelEn": "Difficulty level", "required": false, "control": "select" },
+        { "id": "phoneNumber", "labelEn": "Phone number", "required": false, "control": "text" },
+        { "id": "additionalInfo", "labelEn": "Additional information", "required": false, "control": "list" }
+      ]
+    },
+    {
+      "id": "pricing.travelerDetails",
+      "sectionId": "schedulesPricing",
+      "order": 13,
+      "labelEn": "Traveler details",
+      "labelZh": "出行人与票种",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "年龄档必须能出票。本样例对齐东京迪士尼官方年龄；换产品对齐该景点官方票种。",
+      "fields": [
+        { "id": "priceType", "labelEn": "Price type", "required": true, "control": "select" },
+        { "id": "ageGroups", "labelEn": "Age groups", "required": true, "control": "list" },
+        { "id": "childAccompaniment", "labelEn": "Child accompaniment rule", "required": false, "control": "text" },
+        { "id": "maxTravelers", "labelEn": "Max travelers per booking", "required": true, "control": "number" }
+      ]
+    },
+    {
+      "id": "pricing.schedules",
+      "sectionId": "schedulesPricing",
+      "order": 14,
+      "labelEn": "Pricing schedules",
+      "labelZh": "价格与 option",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "两个 option 卡片必做。可以展示供应商后台真实填价；完整日历可简化。不要用前台零售价冒充后台价。",
+      "fields": [
+        { "id": "options", "labelEn": "Product options", "required": true, "control": "option-cards" },
+        { "id": "currency", "labelEn": "Product currency", "required": true, "control": "select" },
+        { "id": "supplierPrices", "labelEn": "Supplier prices (from backend)", "required": false, "control": "readonly" },
+        { "id": "priceMatrixNote", "labelEn": "Price matrix (simplified)", "required": false, "control": "readonly" }
+      ]
+    },
+    {
+      "id": "booking.process",
+      "sectionId": "bookingTickets",
+      "order": 15,
+      "labelEn": "Booking process",
+      "labelZh": "预订流程",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "截止收订时间和确认方式。影响能不能卖当天票。",
+      "fields": [
+        { "id": "cutoffType", "labelEn": "Cut-off type", "required": true, "control": "select" },
+        { "id": "cutoffHours", "labelEn": "Cut-off hours", "required": true, "control": "number" },
+        { "id": "confirmationMethod", "labelEn": "Confirmation method", "required": true, "control": "select" },
+        { "id": "notificationEmail", "labelEn": "Notification email", "required": false, "control": "checkbox" }
+      ]
+    },
+    {
+      "id": "booking.cancellation",
+      "sectionId": "bookingTickets",
+      "order": 16,
+      "labelEn": "Cancellation policy",
+      "labelZh": "取消政策",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "门票类默认 All sales final。换产品仍先看采购能不能退。",
+      "fields": [
+        { "id": "cancellationPolicy", "labelEn": "Standard vs all-sales-final", "required": true, "control": "radio" },
+        { "id": "badWeather", "labelEn": "Bad weather", "required": false, "control": "checkbox" },
+        { "id": "notEnoughTravelers", "labelEn": "Not enough travelers", "required": false, "control": "checkbox" }
+      ]
+    },
+    {
+      "id": "booking.requiredInfo",
+      "sectionId": "bookingTickets",
+      "order": 17,
+      "labelEn": "Traveler required information",
+      "labelZh": "需要客人提供的信息",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "订票要收哪些资料。和核销、日籍限制有关。",
+      "fields": [
+        { "id": "requiredTravelerFields", "labelEn": "Required traveler fields", "required": true, "control": "multi-select" },
+        { "id": "passportTiming", "labelEn": "Passport requirement timing", "required": false, "control": "select" }
+      ]
+    },
+    {
+      "id": "tickets.builder",
+      "sectionId": "bookingTickets",
+      "order": 18,
+      "labelEn": "Ticket builder",
+      "labelZh": "票种设置",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "电子票还是纸票、一张订单出几张票。",
+      "fields": [
+        { "id": "ticketType", "labelEn": "Ticket type", "required": true, "control": "select" },
+        { "id": "ticketsPer", "labelEn": "Tickets per booking or traveler", "required": true, "control": "select" }
+      ]
+    },
+    {
+      "id": "tickets.redemption",
+      "sectionId": "bookingTickets",
+      "order": 19,
+      "labelEn": "Ticket redemption",
+      "labelZh": "核销说明",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "core",
+      "summaryZh": "把每一种票的核销写清楚即可，不必按 option 拆两套模板。",
+      "fields": [
+        { "id": "separateEntryTicket", "labelEn": "Separate entry ticket?", "required": true, "control": "radio" },
+        { "id": "redemptionInstructions", "labelEn": "Special ticket redemption instructions", "required": true, "control": "textarea" }
+      ]
+    },
+    {
+      "id": "tickets.preview",
+      "sectionId": "bookingTickets",
+      "order": 20,
+      "labelEn": "Ticket preview",
+      "labelZh": "票面预览",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "optional",
+      "summaryZh": "第一版可简化成示意票面。",
+      "fields": [
+        { "id": "ticketPreview", "labelEn": "Mobile / paper preview", "required": false, "control": "readonly" },
+        { "id": "companyLogo", "labelEn": "Company logo", "required": false, "control": "image" }
+      ]
+    },
+    {
+      "id": "finish.tripadvisor",
+      "sectionId": "finish",
+      "order": 21,
+      "labelEn": "Connect Tripadvisor listing",
+      "labelZh": "关联 Tripadvisor",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "optional",
+      "summaryZh": "只展示状态，不要在训练页里操作真实 listing。",
+      "fields": [
+        { "id": "tripadvisorListing", "labelEn": "Tripadvisor listing", "required": false, "control": "readonly" }
+      ]
+    },
+    {
+      "id": "finish.submit",
+      "sectionId": "finish",
+      "order": 22,
+      "labelEn": "Submit for review",
+      "labelZh": "提交审核",
+      "appliesToProductTypes": ["ticket", "transfer", "charter"],
+      "importance": "workflow_only",
+      "summaryZh": "真实后台才会提交并可能涉及付费。训练页按钮必须禁用。",
+      "fields": [
+        { "id": "submitForReview", "labelEn": "Submit for review", "required": false, "control": "button-disabled" }
+      ]
+    }
+  ]
+}

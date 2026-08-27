@@ -1,0 +1,385 @@
+{
+  "schemaVersion": "0.2.0",
+  "usage": "指引只保留两块：此处填什么信息、建议文案格式。例句来自 2026-08-25 Manage P11 只读采集。东迪例句不是下一份产品的标准答案。",
+  "global": {
+    "exampleDisclaimerZh": "「建议文案格式」里的例句只属于东京迪士尼+地铁 5514894P11。下一份门票按供应链重写。",
+    "sourceNoteZh": "来源：supplier.viator.com/product/5514894P11 的 Product content、Schedules & prices、Booking details、Tickets。"
+  },
+  "fields": {
+    "title": {
+      "status": "confirmed_live",
+      "faqId": "B1",
+      "labelEn": "Product title",
+      "required": true,
+      "draftZh": {
+        "meaning": "填客人在搜索和产品页看到的英文主标题。",
+        "rule": "景点名 + Ticket + Optional 加项。有加购才写 Optional，无车不要写 Transfer。\n现网：\n- Tokyo Disneyland Ticket & Optional Tokyo Subway Pass",
+        "example": "Tokyo Disneyland Ticket & Optional Tokyo Subway Pass",
+        "think": "供应链里主产品叫什么、加项是不是可选？没有地铁就不要写 Optional Subway；有接送才写 Transfer。",
+        "mistakes": "写成中文；把地铁写成 Transfer；漏 Optional；堆砌折扣词；把东迪标题套到别的景点。",
+        "fill": "填客人在搜索和产品页看到的英文主标题。",
+        "format": "景点名 + Ticket + Optional 加项。有加购才写 Optional，无车不要写 Transfer。\n现网：\n- Tokyo Disneyland Ticket & Optional Tokyo Subway Pass"
+      }
+    },
+    "referenceCode": {
+      "status": "needs_owner",
+      "faqId": "B2",
+      "labelEn": "Product reference code",
+      "required": false,
+      "draftZh": {
+        "meaning": "选填内部对照码，客人通常看不到。",
+        "rule": "填采购 SKU / 内部编码。没有就空着。现网 Product Setup 未展示内部码。",
+        "example": "",
+        "think": "这一单内部用什么对照码（Bókun / 采购 SKU）？没有就空着，不要编。",
+        "mistakes": "乱填一串和订单无关的数字。",
+        "fill": "选填内部对照码，客人通常看不到。",
+        "format": "填采购 SKU / 内部编码。没有就空着。现网 Product Setup 未展示内部码。"
+      }
+    },
+    "productType": {
+      "status": "confirmed_live",
+      "faqId": "B3",
+      "labelEn": "Product type",
+      "required": true,
+      "draftZh": {
+        "meaning": "选产品大类，决定后面模块。",
+        "rule": "草稿向导是大卡片：Tour / Activity / Ticket or pass / Rental / Transport。门票选 Ticket or pass。现网 Manage：Ticket/pass。不要因地铁加项改成 Transfer。",
+        "example": "Ticket or pass",
+        "think": "这一单卖的是票券、行程团、接送还是包车？类型选错，后面模块会整套跑偏。",
+        "mistakes": "门票产品选成 Tour；接送选成 Ticket。",
+        "fill": "选产品大类，决定后面模块。",
+        "format": "草稿向导是大卡片：Tour / Activity / Ticket or pass / Rental / Transport。门票选 Ticket or pass。现网 Manage：Ticket/pass。不要因地铁加项改成 Transfer。"
+      }
+    },
+    "themes": {
+      "status": "confirmed_live",
+      "faqId": "B4",
+      "labelEn": "Themes",
+      "required": true,
+      "draftZh": {
+        "meaning": "最多选 3 个主题，选和景点真实属性相关的，不要刷无关项。",
+        "rule": "真后台是：先下拉选类目，再勾该类目下的主题。\n本产品现网类目 Time of Day，勾选：\n- Day\n- Sunset\n- Night",
+        "example": "Day, Sunset, Night",
+        "think": "这个景点在平台上客人会用哪些主题筛？最多 3 个，先问负责人有没有门票主题池。",
+        "mistakes": "选满不相关主题刷曝光。",
+        "fill": "最多选 3 个主题，选和景点真实属性相关的，不要刷无关项。",
+        "format": "真后台是：先下拉选类目，再勾该类目下的主题。\n本产品现网类目 Time of Day，勾选：\n- Day\n- Sunset\n- Night"
+      }
+    },
+    "coverPhoto": {
+      "status": "draft_guess",
+      "faqId": "C1",
+      "labelEn": "Cover photo",
+      "required": true,
+      "draftZh": {
+        "meaning": "列表和产品页第一张图。",
+        "rule": "一眼能认出景点；去水印、去别家品牌和价格字。横图优先。现网 Photos +7。",
+        "example": "公开前台图仅作训练展示。",
+        "think": "供应链/官方有没有可用图？封面要一眼看出是哪个景点，不要带别家品牌或价格字。",
+        "mistakes": "带 Klook/价格字/二维码；用无关图。",
+        "fill": "列表和产品页第一张图。",
+        "format": "一眼能认出景点；去水印、去别家品牌和价格字。横图优先。现网 Photos +7。"
+      }
+    },
+    "hasPickup": {
+      "status": "confirmed_live",
+      "faqId": "D3",
+      "labelEn": "Hotel pickup included?",
+      "required": true,
+      "draftZh": {
+        "meaning": "勾选是否含酒店接送。真后台是下拉 Choose one。",
+        "rule": "无车选：No, travelers go directly to the location。\n有可选接送选：Yes, pickup is optional。\n须和标题、卖点一致。",
+        "example": "No, travelers go directly to the location",
+        "think": "采购含不含车？不含就不要写 Transfer，集合点填景点。",
+        "mistakes": "无接送却填一堆酒店区域；有接送却在卖点写 No pickup；把东迪的无接送抄到含接送的产品。",
+        "fill": "勾选是否含酒店接送。真后台是下拉 Choose one。",
+        "format": "无车选：No, travelers go directly to the location。\n有可选接送选：Yes, pickup is optional。\n须和标题、卖点一致。"
+      }
+    },
+    "meetingPoint": {
+      "status": "confirmed_live",
+      "faqId": "D3",
+      "labelEn": "Meeting point",
+      "required": true,
+      "draftZh": {
+        "meaning": "客人自行前往的入园/集合地址。",
+        "rule": "无接送填景点官方地址，不要填酒店。现网：Tokyo Disneyland, 1-1 Maihama, Maihama, Urayasu 279-0031 Chiba Prefecture。",
+        "example": "Tokyo Disneyland, 1-1 Maihama, Maihama, Urayasu 279-0031 Chiba Prefecture",
+        "think": "客人实际去哪入园或集合？无接送就填景点地址，不要抄酒店名。",
+        "mistakes": "写成酒店名；只写 Tokyo。",
+        "fill": "客人自行前往的入园/集合地址。",
+        "format": "无接送填景点官方地址，不要填酒店。现网：Tokyo Disneyland, 1-1 Maihama, Maihama, Urayasu 279-0031 Chiba Prefecture。"
+      }
+    },
+    "duration": {
+      "status": "confirmed_live",
+      "faqId": "E1",
+      "labelEn": "Duration",
+      "required": true,
+      "draftZh": {
+        "meaning": "填客人在这个景点通常待多久（typically spend / Total Duration）。",
+        "rule": "真后台是数字 + 单位下拉（hours / days）。\n本产品现网填 10 hours。\n这不是票面有效期（一日票），也不要把地铁 24-hour 填进这一格。",
+        "example": "10 hours",
+        "think": "这张主票是一日、两日、下午票，还是兑换后 N 天有效？只看这一单采购/票面。",
+        "mistakes": "把前台 10 hours 填进来；把地铁 24 小时当成乐园票时长；所有门票都抄 1 day。",
+        "fill": "填客人在这个景点通常待多久（typically spend / Total Duration）。",
+        "format": "真后台是数字 + 单位下拉（hours / days）。\n本产品现网填 10 hours。\n这不是票面有效期（一日票），也不要把地铁 24-hour 填进这一格。"
+      }
+    },
+    "attractionDescription": {
+      "status": "draft_guess",
+      "faqId": "E2",
+      "labelEn": "Attraction description",
+      "required": true,
+      "draftZh": {
+        "meaning": "介绍景点/门票是什么。",
+        "rule": "2–4 句英文：乐园是什么 + 含入园。不写核销和交通攻略。",
+        "example": "前台 itinerary 有一段东京迪士尼简介。",
+        "think": "这个 POI 是什么、票含不含入园？交通和换票细节放到须知或核销，不要写成攻略。",
+        "mistakes": "复制整篇 Overview；不写 POI 只写促销。",
+        "fill": "介绍景点/门票是什么。",
+        "format": "2–4 句英文：乐园是什么 + 含入园。不写核销和交通攻略。"
+      }
+    },
+    "liveGuide": {
+      "status": "confirmed_live",
+      "faqId": "F1",
+      "labelEn": "Live guide",
+      "required": true,
+      "draftZh": {
+        "meaning": "是否有真人导游。",
+        "rule": "纯门票选 No。现网无导游语言。有导游再选 Yes 并补语言。",
+        "example": "No language guides",
+        "think": "采购含不含真人/语音/书面导游？纯门票通常全关，有导览再勾对应语言。",
+        "mistakes": "没有导游却勾多种语言。",
+        "fill": "是否有真人导游。",
+        "format": "纯门票选 No。现网无导游语言。有导游再选 Yes 并补语言。"
+      }
+    },
+    "inclusions": {
+      "status": "confirmed_live",
+      "faqId": "G1",
+      "labelEn": "What's included",
+      "required": true,
+      "draftZh": {
+        "meaning": "列出付钱后客人得到什么。一条一项。",
+        "rule": "先写两档都有的；仅某套餐才有的加括号。现网产品级没写括号，训练示范加括号。\n现网例句：\n- 1-day Tokyo Disneyland pass\n- 24-hour unlimited Tokyo Metro & Toei Subway Pass (only if the Ticket and Tokyo Subway Pass option is selected)",
+        "example": "1-day Tokyo Disneyland pass；24-hour subway pass (only if the Ticket and Tokyo Subway Pass option is selected)",
+        "think": "打开套餐清单：哪些人人都有，哪些加购才有。不要按最贵那档写满。",
+        "mistakes": "按完整 combo 写得好像每单都有地铁；括号不写套餐名；照抄东迪两行到没有地铁的产品。",
+        "fill": "列出付钱后客人得到什么。一条一项。",
+        "format": "先写两档都有的；仅某套餐才有的加括号。现网产品级没写括号，训练示范加括号。\n现网例句：\n- 1-day Tokyo Disneyland pass\n- 24-hour unlimited Tokyo Metro & Toei Subway Pass (only if the Ticket and Tokyo Subway Pass option is selected)"
+      }
+    },
+    "exclusions": {
+      "status": "confirmed_live",
+      "faqId": "G1",
+      "labelEn": "What's excluded",
+      "required": true,
+      "draftZh": {
+        "meaning": "列出不含、客人容易误会的项目。一条一项，专有名词保留英文。",
+        "rule": "有地铁通票时写明不含 JR / 山手线和其他私铁。没有地铁加项不要抄这几条。\n现网例句：\n- JR Lines (including Yamanote line) ticket\n- Other private railways\n- Other personal expenses",
+        "example": "JR Lines (including Yamanote line) ticket; Other private railways; Other personal expenses",
+        "think": "加项实际覆盖哪些交通？不含的线路要写出来，避免客人按常识去坐 JR。没有地铁加项就不要抄东迪这几条。",
+        "mistakes": "只写 Personal expenses，客人以为能坐山手线。",
+        "fill": "列出不含、客人容易误会的项目。一条一项，专有名词保留英文。",
+        "format": "有地铁通票时写明不含 JR / 山手线和其他私铁。没有地铁加项不要抄这几条。\n现网例句：\n- JR Lines (including Yamanote line) ticket\n- Other private railways\n- Other personal expenses"
+      }
+    },
+    "briefDescription": {
+      "status": "confirmed_live",
+      "faqId": "G3",
+      "labelEn": "Main sales description",
+      "required": true,
+      "draftZh": {
+        "meaning": "产品页主销售 / 独特之处长文。",
+        "rule": "先写履约，再写套餐，再写不含接送。不要只堆形容词。\n现网开头：\n- IMPORTANT ENTRY POLICY\n- VOUCHER IS NOT A TICKET\n- 出行前 7 天发 Official E-Tickets",
+        "example": "见 products.json 的 briefDescription",
+        "think": "这一单履约最大风险是什么（凭证能不能进、何时出票、有没有加项限制）？先写这个，再写卖点。",
+        "mistakes": "只写梦幻乐园形容词；不写履约方式；把东迪 7 天发电票套到当场可用的票。",
+        "fill": "产品页主销售 / 独特之处长文。",
+        "format": "先写履约，再写套餐，再写不含接送。不要只堆形容词。\n现网开头：\n- IMPORTANT ENTRY POLICY\n- VOUCHER IS NOT A TICKET\n- 出行前 7 天发 Official E-Tickets"
+      }
+    },
+    "skipTheLine": {
+      "status": "confirmed_live",
+      "faqId": "G4",
+      "labelEn": "Skip the line",
+      "required": true,
+      "draftZh": {
+        "meaning": "是否含快速通关。",
+        "rule": "园内另售选 No。现网：Skip the line access: No。勾 Yes 必须在包含项写明。",
+        "example": "No",
+        "think": "采购含不含快速通关/优先入园？园内另售的通道不要写成已包含。",
+        "mistakes": "勾了 skip the line 但包含项没有。",
+        "fill": "是否含快速通关。",
+        "format": "园内另售选 No。现网：Skip the line access: No。勾 Yes 必须在包含项写明。"
+      }
+    },
+    "additionalInfo": {
+      "status": "confirmed_live",
+      "faqId": "H1",
+      "labelEn": "Additional information",
+      "required": false,
+      "draftZh": {
+        "meaning": "预订前必须知道的限制，逐条列出。",
+        "rule": "写清整产品还是某档。现网：换地铁票（须知写实体票）；This offer is not available for Japanese passport holders。没有日籍限制不要抄。",
+        "example": "This offer is not available for Japanese passport holders (whole product, all options)",
+        "think": "供应链写的是国籍、居住地，还是本地人票？是整产品不能卖，还是某一档不能卖？没有限制就不要抄东迪这条。",
+        "mistakes": "所有日本景点都写日籍不可买；限制和可售范围不一致。",
+        "fill": "预订前必须知道的限制，逐条列出。",
+        "format": "写清整产品还是某档。现网：换地铁票（须知写实体票）；This offer is not available for Japanese passport holders。没有日籍限制不要抄。"
+      }
+    },
+    "phoneNumber": {
+      "status": "confirmed_live",
+      "faqId": "H3",
+      "labelEn": "Phone number",
+      "required": false,
+      "draftZh": {
+        "meaning": "出行当天对客电话。",
+        "rule": "公司号码。现网：HK +852 3428 8182。不要填私人手机。",
+        "example": "HK +852 3428 8182",
+        "think": "对客/运营用哪支公司电话？没有统一号码就空着等负责人，不要填私人手机。",
+        "mistakes": "填实习生自己的号。",
+        "fill": "出行当天对客电话。",
+        "format": "公司号码。现网：HK +852 3428 8182。不要填私人手机。"
+      }
+    },
+    "ageGroups": {
+      "status": "confirmed_live",
+      "faqId": "I1",
+      "labelEn": "Age groups",
+      "required": true,
+      "draftZh": {
+        "meaning": "可售年龄档，必须能出票。",
+        "rule": "对齐该景点官方票种。现网：Adults 18–99；Youth 12–17；Children 4–11。不要套别国切分。",
+        "example": "Adults 18–99 / Youth 12–17 / Children 4–11",
+        "think": "打开该景点或供应商的官方票种表，年龄切分以出票为准，不要套东迪或欧美习惯。",
+        "mistakes": "用 13+ Child 去套东迪；所有乐园都抄 18+/12–17/4–11。",
+        "fill": "可售年龄档，必须能出票。",
+        "format": "对齐该景点官方票种。现网：Adults 18–99；Youth 12–17；Children 4–11。不要套别国切分。"
+      }
+    },
+    "options": {
+      "status": "confirmed_live",
+      "faqId": "G2",
+      "labelEn": "Product options",
+      "required": true,
+      "draftZh": {
+        "meaning": "创建客人下单时选的套餐档，每档有名称和说明。",
+        "rule": "名称写出差别，不要 Option 1。\n现网：\n- Ticket and Tokyo Subway Pass (TG7)\n- Ticket Only (No Subway Pass) (TG6)",
+        "example": "Ticket and Tokyo Subway Pass; Ticket Only (No Subway Pass)",
+        "think": "供应链有几个可卖套餐？名称要让人看出差别，不要 Option 1。",
+        "mistakes": "option 名和包含项矛盾；用 Option 1 / Option 2；没有加项却抄 Optional。",
+        "fill": "创建客人下单时选的套餐档，每档有名称和说明。",
+        "format": "名称写出差别，不要 Option 1。\n现网：\n- Ticket and Tokyo Subway Pass (TG7)\n- Ticket Only (No Subway Pass) (TG6)"
+      }
+    },
+    "currency": {
+      "status": "confirmed_live",
+      "faqId": "A3",
+      "labelEn": "Product currency / supplier prices",
+      "required": true,
+      "draftZh": {
+        "meaning": "供应商后台填价的币种和数字。",
+        "rule": "现网币种 HKD，展示 SUGGESTED RETAIL PRICE + 26% commission，由 Connectivity 同步。不要填客人页零售价。",
+        "example": "HKD suggested retail（Connectivity）",
+        "think": "这一单采购币种和净价是什么？和前台美元展示价通常不是同一个数。",
+        "mistakes": "把 $59.60 前台价填进供应商价；不敢抄后台真实价。",
+        "fill": "供应商后台填价的币种和数字。",
+        "format": "现网币种 HKD，展示 SUGGESTED RETAIL PRICE + 26% commission，由 Connectivity 同步。不要填客人页零售价。"
+      }
+    },
+    "cancellationPolicy": {
+      "status": "confirmed_live",
+      "faqId": "J3",
+      "labelEn": "Cancellation policy",
+      "required": true,
+      "draftZh": {
+        "meaning": "能不能退。",
+        "rule": "现网 Policy type: All sales final。Travelers will not receive any refund regardless of cancellation status.",
+        "example": "All sales final",
+        "think": "先看这一单采购能不能退。公司门票默认不可退；采购可退时先问负责人，不要自己改成免费取消。",
+        "mistakes": "所有产品都抄东迪；采购不可退却勾免费取消。",
+        "fill": "能不能退。",
+        "format": "现网 Policy type: All sales final。Travelers will not receive any refund regardless of cancellation status."
+      }
+    },
+    "confirmationMethod": {
+      "status": "confirmed_live",
+      "faqId": "J2",
+      "labelEn": "Confirmation method",
+      "required": true,
+      "draftZh": {
+        "meaning": "下单后即时确认还是人工确认，以及是否接收预订通知邮件。真后台是下拉。",
+        "rule": "库存已对接才选即时确认。\n现网：Instant confirmation (Recommended)；通知邮件 Yes。",
+        "example": "Instant confirmation",
+        "think": "这一单是系统即时出票，还是人工确认？库存未对接就不要选即时确认。",
+        "mistakes": "库存未对接却选即时确认。",
+        "fill": "下单后即时确认还是人工确认，以及是否接收预订通知邮件。真后台是下拉。",
+        "format": "库存已对接才选即时确认。\n现网：Instant confirmation (Recommended)；通知邮件 Yes。"
+      }
+    },
+    "redemptionInstructions": {
+      "status": "confirmed_live",
+      "faqId": "K3",
+      "labelEn": "Ticket redemption",
+      "required": true,
+      "draftZh": {
+        "meaning": "用英文写清每种票怎么用。",
+        "rule": "先写凭证不能扫，再分段写乐园票和地铁票。不要只写 Show this voucher at the gate。\n现网结构：\n- STOP: THIS VOUCHER IS NOT YOUR ENTRY TICKET\n- 乐园票：官方 QR 入园\n- 地铁通票：Metro / Toei 闸机扫官方 QR，首次进站起算 24 小时，不含 JR",
+        "example": "乐园票：凭证不能入园，出行前约 7 天发官方电子票。地铁通票：到 Metro/Toei 主要车站换实体票，不含 JR。",
+        "think": "供应链出票说明里，每种票分别怎么用？扫码、换票、窗口取票、能否用平台凭证？没有的票不要写。",
+        "mistakes": "只写 Show this voucher at the gate；把东迪 7 天发电票套到当场扫码就能进的票。",
+        "fill": "用英文写清每种票怎么用。",
+        "format": "先写凭证不能扫，再分段写乐园票和地铁票。不要只写 Show this voucher at the gate。\n现网结构：\n- STOP: THIS VOUCHER IS NOT YOUR ENTRY TICKET\n- 乐园票：官方 QR 入园\n- 地铁通票：Metro / Toei 闸机扫官方 QR，首次进站起算 24 小时，不含 JR"
+      }
+    },
+    "separateEntryTicket": {
+      "status": "confirmed_live",
+      "faqId": "K3",
+      "labelEn": "Separate entry ticket?",
+      "required": true,
+      "draftZh": {
+        "meaning": "平台凭证是不是入园凭证。",
+        "rule": "现网：Separate direct entry ticket will be delivered to traveler。凭证不能进则必须另发官方票。",
+        "example": "Separate direct entry ticket will be delivered to traveler",
+        "think": "平台凭证能不能直接入园？不能就必须另发官方票，并在卖点和核销里写清。",
+        "mistakes": "勾成凭证可直接入园。",
+        "fill": "平台凭证是不是入园凭证。",
+        "format": "现网：Separate direct entry ticket will be delivered to traveler。凭证不能进则必须另发官方票。"
+      }
+    },
+    "requiredTravelerFields": {
+      "status": "confirmed_live",
+      "faqId": "K1",
+      "labelEn": "Required traveler fields",
+      "required": true,
+      "draftZh": {
+        "meaning": "预订表要客人填什么。",
+        "rule": "只收出票需要的。现网自动收集领队姓名和电话；另外要 Full Names。不要无故要求客人上传或填写护照资料。",
+        "example": "Full Names（另自动收集 Lead Traveler's Name, Phone Number）",
+        "think": "出票和适用人群核验真正要哪些字段？姓名是否够用，护照号何时才要。",
+        "mistakes": "必填项和真正出票所需不一致。",
+        "fill": "预订表要客人填什么。",
+        "format": "只收出票需要的。现网自动收集领队姓名和电话；另外要 Full Names。不要无故要求客人上传或填写护照资料。"
+      }
+    },
+    "submitForReview": {
+      "status": "draft_guess",
+      "faqId": "L2",
+      "labelEn": "Submit for review",
+      "required": false,
+      "draftZh": {
+        "meaning": "把产品交给 Viator 审核。",
+        "rule": "训练页按钮保持 Disabled。不要在真后台点 Submit 测试。",
+        "example": "Disabled",
+        "think": "这是训练页还是真实后台？训练任务里永远不要点真实 Submit / Pay / Publish。",
+        "mistakes": "在真实后台点提交来「测试」。",
+        "fill": "把产品交给 Viator 审核。",
+        "format": "训练页按钮保持 Disabled。不要在真后台点 Submit 测试。"
+      }
+    }
+  }
+}

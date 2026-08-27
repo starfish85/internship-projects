@@ -1,0 +1,777 @@
+{
+  "schemaVersion": "0.3.0",
+  "noSkip": true,
+  "spots": [
+    {
+      "id": "intro-basics",
+      "stepId": "basics.creationType",
+      "target": "section-intro",
+      "sectionId": "basics",
+      "fieldIds": [],
+      "titleZh": "Basics 这一段先看介绍",
+      "what": "Basics 这一段填：撰写语言、标题、产品类型、主题、照片。点 Next 进入字段。",
+      "why": "按向导顺序走。门票先把「卖哪张票」写进标题。本产品现网标题：Tokyo Disneyland Ticket & Optional Tokyo Subway Pass。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "Basics 这一段填：撰写语言、标题、产品类型、主题、照片。点 Next 进入字段。",
+      "format": "按向导顺序走。门票先把「卖哪张票」写进标题。本产品现网标题：Tokyo Disneyland Ticket & Optional Tokyo Subway Pass。"
+    },
+    {
+      "id": "welcome-banner",
+      "stepId": "basics.creationType",
+      "target": "banner",
+      "fieldIds": [],
+      "titleZh": "这是训练页，不是真实后台",
+      "what": "这是训练页提示，不是后台字段。样例产品是已上线的 5514894P11。",
+      "why": "东迪+地铁只是这一份的填法。下一份按该产品供应链重写，不要整页照抄。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "这是训练页提示，不是后台字段。样例产品是已上线的 5514894P11。",
+      "format": "东迪+地铁只是这一份的填法。下一份按该产品供应链重写，不要整页照抄。"
+    },
+    {
+      "id": "welcome-sidebar",
+      "stepId": "basics.creationType",
+      "target": "sidebar",
+      "fieldIds": [],
+      "titleZh": "左侧是整条上架步骤",
+      "what": "左侧是草稿向导的 22 步，按五大段分组。引导结束前不能跳步。",
+      "why": "实习生以后会碰到两种后台：第一种是新产品，左边一列一步一步填；第二种是已经在卖的产品，点 Manage 后上面有几个栏目，想改标题就点标题那块。两种要填的东西一样。这个练习页用的是第一种。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "左侧是草稿向导的 22 步，按五大段分组。引导结束前不能跳步。",
+      "format": "实习生以后会碰到两种后台：第一种是新产品，左边一列一步一步填；第二种是已经在卖的产品，点 Manage 后上面有几个栏目，想改标题就点标题那块。两种要填的东西一样。这个练习页用的是第一种。"
+    },
+    {
+      "id": "creationType",
+      "stepId": "basics.creationType",
+      "target": "fields",
+      "fieldIds": [
+        "creationType"
+      ],
+      "titleZh": "怎么开始建草稿",
+      "what": "选怎么创建草稿：Smart Creator（AI）或 Manual Creation（手填）。",
+      "why": "门票训练选手填 Manual Creation。有现成产品页再用 AI，生成后仍要逐项核对。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "选怎么创建草稿：Smart Creator（AI）或 Manual Creation（手填）。",
+      "format": "门票训练选手填 Manual Creation。有现成产品页再用 AI，生成后仍要逐项核对。"
+    },
+    {
+      "id": "smartCreator",
+      "stepId": "basics.smartCreator",
+      "target": "fields",
+      "fieldIds": [
+        "smartCreatorSkipped"
+      ],
+      "titleZh": "Smart Creator 不是本页重点",
+      "what": "若选了 AI：选语气、贴产品 URL 或粘贴说明。本训练不走生成。",
+      "why": "真页是 Select your tone + Paste URL。本样例按已跳过展示。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "若选了 AI：选语气、贴产品 URL 或粘贴说明。本训练不走生成。",
+      "format": "真页是 Select your tone + Paste URL。本样例按已跳过展示。"
+    },
+    {
+      "id": "title-lang",
+      "stepId": "basics.title",
+      "target": "fields",
+      "fieldIds": [
+        "inputLanguage",
+        "translationMode"
+      ],
+      "titleZh": "输入语言和翻译",
+      "what": "选撰写语言，以及翻译方式（人工 / 自动翻译）。",
+      "why": "对客英文选 English。现网 Product Setup：Input Language English。翻译用 Use automated translation（recommended），或 Add manual translation。不要中英混标题。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "选撰写语言，以及翻译方式（人工 / 自动翻译）。",
+      "format": "对客英文选 English。现网 Product Setup：Input Language English。翻译用 Use automated translation（recommended），或 Add manual translation。不要中英混标题。"
+    },
+    {
+      "id": "title",
+      "stepId": "basics.title",
+      "target": "fields",
+      "fieldIds": [
+        "title"
+      ],
+      "titleZh": "产品标题",
+      "what": "填客人在搜索和产品页看到的英文主标题。",
+      "why": "景点名 + Ticket + Optional 加项。有加购才写 Optional，无车不要写 Transfer。\n现网：\n- Tokyo Disneyland Ticket & Optional Tokyo Subway Pass",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "填客人在搜索和产品页看到的英文主标题。",
+      "format": "景点名 + Ticket + Optional 加项。有加购才写 Optional，无车不要写 Transfer。\n现网：\n- Tokyo Disneyland Ticket & Optional Tokyo Subway Pass"
+    },
+    {
+      "id": "referenceCode",
+      "stepId": "basics.title",
+      "target": "fields",
+      "fieldIds": [
+        "referenceCode"
+      ],
+      "titleZh": "内部参考码",
+      "what": "选填供应商内部对照码，客人通常看不到。",
+      "why": "填采购 SKU / 内部编码。没有就空着，不要编。现网 Product Setup 未展示内部码。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "选填供应商内部对照码，客人通常看不到。",
+      "format": "填采购 SKU / 内部编码。没有就空着，不要编。现网 Product Setup 未展示内部码。"
+    },
+    {
+      "id": "productType",
+      "stepId": "basics.categorization",
+      "target": "fields",
+      "fieldIds": [
+        "productType"
+      ],
+      "titleZh": "产品类型",
+      "what": "选产品大类，决定后面出现哪些模块。",
+      "why": "门票选 Ticket or pass（现网：Ticket/pass）。不要因为有地铁加项改成 Transfer / Tour。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "选产品大类，决定后面出现哪些模块。",
+      "format": "门票选 Ticket or pass（现网：Ticket/pass）。不要因为有地铁加项改成 Transfer / Tour。"
+    },
+    {
+      "id": "itineraryType",
+      "stepId": "basics.categorization",
+      "target": "fields",
+      "fieldIds": [
+        "ticketPassType"
+      ],
+      "titleZh": "行程类型和票种",
+      "what": "门票选 Ticket or pass 后，再勾票种细类。",
+      "why": "草稿向导没有单独的 itinerary type 下拉。现网 Manage：Product itinerary types = Ticket/pass。P513 票种已选 Theme Park、Cultural。地铁是 option 加项，不要选成多日团。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "门票选 Ticket or pass 后，再勾票种细类。",
+      "format": "草稿向导没有单独的 itinerary type 下拉。现网 Manage：Product itinerary types = Ticket/pass。P513 票种已选 Theme Park、Cultural。地铁是 option 加项，不要选成多日团。"
+    },
+    {
+      "id": "themes",
+      "stepId": "basics.theme",
+      "target": "fields",
+      "fieldIds": [
+        "themes"
+      ],
+      "titleZh": "主题（最多 3 个）",
+      "what": "最多选 3 个主题，选和景点真实属性相关的，不要刷无关项。",
+      "why": "真后台是：先下拉选类目，再勾该类目下的主题。\n本产品现网类目 Time of Day，勾选：\n- Day\n- Sunset\n- Night",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "最多选 3 个主题，选和景点真实属性相关的，不要刷无关项。",
+      "format": "真后台是：先下拉选类目，再勾该类目下的主题。\n本产品现网类目 Time of Day，勾选：\n- Day\n- Sunset\n- Night"
+    },
+    {
+      "id": "photos",
+      "stepId": "basics.photos",
+      "target": "fields",
+      "fieldIds": [
+        "coverPhoto",
+        "gallery"
+      ],
+      "titleZh": "封面和相册",
+      "what": "上传封面（第一张）和相册。现网 Photos 旁显示 +7。",
+      "why": "封面一眼能认出哪个乐园；去水印、去别家品牌、无价格字/二维码。横图优于竖图。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "上传封面（第一张）和相册。现网 Photos 旁显示 +7。",
+      "format": "封面一眼能认出哪个乐园；去水印、去别家品牌、无价格字/二维码。横图优于竖图。"
+    },
+    {
+      "id": "intro-content",
+      "stepId": "content.pickup",
+      "target": "section-intro",
+      "sectionId": "productContent",
+      "fieldIds": [],
+      "titleZh": "Product content 介绍",
+      "what": "这一段填集合接送、门票详情、包含项、卖点、须知。",
+      "why": "先问清：有没有车、主票是哪张、加项写在包含还是 option。本产品现网无接送，主票东迪，地铁是加购。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "这一段填集合接送、门票详情、包含项、卖点、须知。",
+      "format": "先问清：有没有车、主票是哪张、加项写在包含还是 option。本产品现网无接送，主票东迪，地铁是加购。"
+    },
+    {
+      "id": "hasPickup",
+      "stepId": "content.pickup",
+      "target": "fields",
+      "fieldIds": [
+        "hasPickup"
+      ],
+      "titleZh": "有没有酒店接送",
+      "what": "勾选是否含酒店接送。真后台是下拉 Choose one。",
+      "why": "无车选：No, travelers go directly to the location。\n有可选接送选：Yes, pickup is optional。\n须和标题、卖点一致。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "勾选是否含酒店接送。真后台是下拉 Choose one。",
+      "format": "无车选：No, travelers go directly to the location。\n有可选接送选：Yes, pickup is optional。\n须和标题、卖点一致。"
+    },
+    {
+      "id": "meetingPoint",
+      "stepId": "content.pickup",
+      "target": "fields",
+      "fieldIds": [
+        "meetingPoint",
+        "dropoff"
+      ],
+      "titleZh": "集合点和落客",
+      "what": "填客人自行前往的入园/集合地址，以及结束后去哪。",
+      "why": "无接送填景点官方地址，不要填酒店。现网 Ticket details 地址：Tokyo Disneyland, 1-1 Maihama, Maihama, Urayasu 279-0031 Chiba Prefecture。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "填客人自行前往的入园/集合地址，以及结束后去哪。",
+      "format": "无接送填景点官方地址，不要填酒店。现网 Ticket details 地址：Tokyo Disneyland, 1-1 Maihama, Maihama, Urayasu 279-0031 Chiba Prefecture。"
+    },
+    {
+      "id": "pickupDetails",
+      "stepId": "content.pickup",
+      "target": "fields",
+      "fieldIds": [
+        "additionalPickupDetails"
+      ],
+      "titleZh": "接送补充说明",
+      "what": "补充怎么到达、有没有接送。",
+      "why": "无车写清 No hotel pick-up or private transfer included。可加附近有公共交通。不要列酒店接送区域。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "补充怎么到达、有没有接送。",
+      "format": "无车写清 No hotel pick-up or private transfer included。可加附近有公共交通。不要列酒店接送区域。"
+    },
+    {
+      "id": "attraction",
+      "stepId": "content.ticketDetails",
+      "target": "fields",
+      "fieldIds": [
+        "multipleAttractions",
+        "attraction"
+      ],
+      "titleZh": "景点 / POI",
+      "what": "是否多个景点，以及主 POI 名称。",
+      "why": "主票对应的官方景点。地铁通票不是第二个景点。本产品：多个景点选 No；POI = Tokyo Disneyland。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "是否多个景点，以及主 POI 名称。",
+      "format": "主票对应的官方景点。地铁通票不是第二个景点。本产品：多个景点选 No；POI = Tokyo Disneyland。"
+    },
+    {
+      "id": "duration",
+      "stepId": "content.ticketDetails",
+      "target": "fields",
+      "fieldIds": [
+        "duration"
+      ],
+      "titleZh": "时长 Duration",
+      "what": "填客人在这个景点通常待多久（typically spend / Total Duration）。",
+      "why": "真后台是数字 + 单位下拉（hours / days）。\n本产品现网填 10 hours。\n这不是票面有效期（一日票），也不要把地铁 24-hour 填进这一格。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "填客人在这个景点通常待多久（typically spend / Total Duration）。",
+      "format": "真后台是数字 + 单位下拉（hours / days）。\n本产品现网填 10 hours。\n这不是票面有效期（一日票），也不要把地铁 24-hour 填进这一格。"
+    },
+    {
+      "id": "attractionDescription",
+      "stepId": "content.ticketDetails",
+      "target": "fields",
+      "fieldIds": [
+        "attractionDescription"
+      ],
+      "titleZh": "景点说明",
+      "what": "用英文介绍这个景点/门票是什么。",
+      "why": "2–4 句：乐园是什么 + 票含入园。不写核销步骤、不写交通攻略。草稿向导现填：Tokyo Disneyland is a world-renowned theme park…。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "用英文介绍这个景点/门票是什么。",
+      "format": "2–4 句：乐园是什么 + 票含入园。不写核销步骤、不写交通攻略。草稿向导现填：Tokyo Disneyland is a world-renowned theme park…。"
+    },
+    {
+      "id": "guides",
+      "stepId": "content.languages",
+      "target": "fields",
+      "fieldIds": [
+        "liveGuide",
+        "audioGuide",
+        "writtenGuide"
+      ],
+      "titleZh": "有没有导游",
+      "what": "分别勾选：真人导游 / 语音导览 / 书面导览 有没有。",
+      "why": "纯门票三项都选 No。现网：No language guides have been defined。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "分别勾选：真人导游 / 语音导览 / 书面导览 有没有。",
+      "format": "纯门票三项都选 No。现网：No language guides have been defined。"
+    },
+    {
+      "id": "guideLanguages",
+      "stepId": "content.languages",
+      "target": "fields",
+      "fieldIds": [
+        "guideLanguages"
+      ],
+      "titleZh": "导游语言",
+      "what": "仅当上面有导游时，勾导游语言。",
+      "why": "无导游留空。不要为了好看勾一堆语言。本产品现网无导游语言。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "仅当上面有导游时，勾导游语言。",
+      "format": "无导游留空。不要为了好看勾一堆语言。本产品现网无导游语言。"
+    },
+    {
+      "id": "inclusions",
+      "stepId": "content.inclusions",
+      "target": "fields",
+      "fieldIds": [
+        "inclusions"
+      ],
+      "titleZh": "包含项",
+      "what": "列出付钱后客人得到什么。一条一项。",
+      "why": "先写两档都有的；仅某套餐才有的加括号。现网产品级没写括号，训练示范加括号。\n现网例句：\n- 1-day Tokyo Disneyland pass\n- 24-hour unlimited Tokyo Metro & Toei Subway Pass (only if the Ticket and Tokyo Subway Pass option is selected)",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "列出付钱后客人得到什么。一条一项。",
+      "format": "先写两档都有的；仅某套餐才有的加括号。现网产品级没写括号，训练示范加括号。\n现网例句：\n- 1-day Tokyo Disneyland pass\n- 24-hour unlimited Tokyo Metro & Toei Subway Pass (only if the Ticket and Tokyo Subway Pass option is selected)"
+    },
+    {
+      "id": "exclusions",
+      "stepId": "content.inclusions",
+      "target": "fields",
+      "fieldIds": [
+        "exclusions"
+      ],
+      "titleZh": "不包含项",
+      "what": "列出不含、客人容易误会的项目。一条一项，专有名词保留英文。",
+      "why": "有地铁通票时写明不含 JR / 山手线和其他私铁。没有地铁加项不要抄这几条。\n现网例句：\n- JR Lines (including Yamanote line) ticket\n- Other private railways\n- Other personal expenses",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "列出不含、客人容易误会的项目。一条一项，专有名词保留英文。",
+      "format": "有地铁通票时写明不含 JR / 山手线和其他私铁。没有地铁加项不要抄这几条。\n现网例句：\n- JR Lines (including Yamanote line) ticket\n- Other private railways\n- Other personal expenses"
+    },
+    {
+      "id": "extraCost",
+      "stepId": "content.inclusions",
+      "target": "fields",
+      "fieldIds": [
+        "extraCostConfirm"
+      ],
+      "titleZh": "额外费用确认",
+      "what": "确认是否还有未写入的现场必付费用。",
+      "why": "有则写进包含/不包含；没有就按后台确认。不要把园内另购（如 Premier Access）写成已含。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "确认是否还有未写入的现场必付费用。",
+      "format": "有则写进包含/不包含；没有就按后台确认。不要把园内另购（如 Premier Access）写成已含。"
+    },
+    {
+      "id": "briefDescription",
+      "stepId": "content.unique",
+      "target": "fields",
+      "fieldIds": [
+        "briefDescription"
+      ],
+      "titleZh": "卖点 / 独特之处",
+      "what": "产品页主销售 / 独特之处长文。",
+      "why": "先写履约，再写套餐，再写不含接送。不要只堆形容词。\n现网开头：\n- IMPORTANT ENTRY POLICY\n- VOUCHER IS NOT A TICKET\n- 出行前 7 天发 Official E-Tickets",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "产品页主销售 / 独特之处长文。",
+      "format": "先写履约，再写套餐，再写不含接送。不要只堆形容词。\n现网开头：\n- IMPORTANT ENTRY POLICY\n- VOUCHER IS NOT A TICKET\n- 出行前 7 天发 Official E-Tickets"
+    },
+    {
+      "id": "skipTheLine",
+      "stepId": "content.unique",
+      "target": "fields",
+      "fieldIds": [
+        "skipTheLine"
+      ],
+      "titleZh": "是否含快速通关",
+      "what": "是否包含快速通关 / 免排队。",
+      "why": "园内另售通道选 No。现网：Skip the line access: No。勾 Yes 必须在包含项写明。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "是否包含快速通关 / 免排队。",
+      "format": "园内另售通道选 No。现网：Skip the line access: No。勾 Yes 必须在包含项写明。"
+    },
+    {
+      "id": "reseller",
+      "stepId": "content.travelerInfo",
+      "target": "fields",
+      "fieldIds": [
+        "resellerStatus"
+      ],
+      "titleZh": "经销身份",
+      "what": "选经销身份：官方转售、独立转售，或非转售运营商。",
+      "why": "按公司口径勾。现网：Independent reseller。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "选经销身份：官方转售、独立转售，或非转售运营商。",
+      "format": "按公司口径勾。现网：Independent reseller。"
+    },
+    {
+      "id": "accessHealth",
+      "stepId": "content.travelerInfo",
+      "target": "fields",
+      "fieldIds": [
+        "accessibility",
+        "healthRestrictions",
+        "difficultyLevel"
+      ],
+      "titleZh": "无障碍、健康、难度",
+      "what": "无障碍说明、健康限制、体能难度。",
+      "why": "现网：Not wheelchair accessible；Near public transportation；Infants must sit on laps；Health restrictions 未选；Level of difficulty = Most travelers can participate。没有的限制不要编。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "无障碍说明、健康限制、体能难度。",
+      "format": "现网：Not wheelchair accessible；Near public transportation；Infants must sit on laps；Health restrictions 未选；Level of difficulty = Most travelers can participate。没有的限制不要编。"
+    },
+    {
+      "id": "phoneNumber",
+      "stepId": "content.travelerInfo",
+      "target": "fields",
+      "fieldIds": [
+        "phoneNumber"
+      ],
+      "titleZh": "对客电话",
+      "what": "出行当天客人能打到的对客电话。",
+      "why": "填公司号码，不要私人手机。现网：HK +852 3428 8182。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "出行当天客人能打到的对客电话。",
+      "format": "填公司号码，不要私人手机。现网：HK +852 3428 8182。"
+    },
+    {
+      "id": "additionalInfo",
+      "stepId": "content.travelerInfo",
+      "target": "fields",
+      "fieldIds": [
+        "additionalInfo"
+      ],
+      "titleZh": "出行须知 / 限制",
+      "what": "预订前必须知道的限制和注意点，一条一条列。",
+      "why": "限制写清整产品还是某 option。现网两条关键：Need to exchange a physical subway ticket at major stations of the Tokyo Metro and Toei Subway.；This offer is not available for Japanese passport holders。没有日籍限制不要抄第二条。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "预订前必须知道的限制和注意点，一条一条列。",
+      "format": "限制写清整产品还是某 option。现网两条关键：Need to exchange a physical subway ticket at major stations of the Tokyo Metro and Toei Subway.；This offer is not available for Japanese passport holders。没有日籍限制不要抄第二条。"
+    },
+    {
+      "id": "intro-pricing",
+      "stepId": "pricing.travelerDetails",
+      "target": "section-intro",
+      "sectionId": "schedulesPricing",
+      "fieldIds": [],
+      "titleZh": "Schedules & pricing 介绍",
+      "what": "这一段填计价方式、年龄档、option 和价格日历。",
+      "why": "门票按人出票；option 名称要能看出差别。本产品现网两档：Ticket and Tokyo Subway Pass；Ticket Only (No Subway Pass)。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "这一段填计价方式、年龄档、option 和价格日历。",
+      "format": "门票按人出票；option 名称要能看出差别。本产品现网两档：Ticket and Tokyo Subway Pass；Ticket Only (No Subway Pass)。"
+    },
+    {
+      "id": "priceType",
+      "stepId": "pricing.travelerDetails",
+      "target": "fields",
+      "fieldIds": [
+        "priceType"
+      ],
+      "titleZh": "计价方式",
+      "what": "选按人、按车或按团计价。",
+      "why": "门票选按人。现网 Booking details → Pricing Type 按 Adult / Youth / Children 分档，即按人出票。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "选按人、按车或按团计价。",
+      "format": "门票选按人。现网 Booking details → Pricing Type 按 Adult / Youth / Children 分档，即按人出票。"
+    },
+    {
+      "id": "ageGroups",
+      "stepId": "pricing.travelerDetails",
+      "target": "fields",
+      "fieldIds": [
+        "ageGroups"
+      ],
+      "titleZh": "年龄档",
+      "what": "勾选并填写可售年龄档，必须能出票。",
+      "why": "对齐该景点官方票种，不要套别国。现网 Pricing Type：Adults 18–99；Youth 12–17；Children 4–11。Infant 在须知里写坐成人腿上，现网未单独挂价。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "勾选并填写可售年龄档，必须能出票。",
+      "format": "对齐该景点官方票种，不要套别国。现网 Pricing Type：Adults 18–99；Youth 12–17；Children 4–11。Infant 在须知里写坐成人腿上，现网未单独挂价。"
+    },
+    {
+      "id": "maxTravelers",
+      "stepId": "pricing.travelerDetails",
+      "target": "fields",
+      "fieldIds": [
+        "childAccompaniment",
+        "maxTravelers"
+      ],
+      "titleZh": "随行规则和人数上限",
+      "what": "儿童是否需成人陪同，以及每单人数上限。",
+      "why": "现网：Infants must sit on laps；Max travelers per booking: 15。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "儿童是否需成人陪同，以及每单人数上限。",
+      "format": "现网：Infants must sit on laps；Max travelers per booking: 15。"
+    },
+    {
+      "id": "options",
+      "stepId": "pricing.schedules",
+      "target": "fields",
+      "fieldIds": [
+        "options"
+      ],
+      "titleZh": "产品 option",
+      "what": "创建客人下单时选的套餐档，每档有名称和说明。",
+      "why": "名称写出差别，不要 Option 1。\n现网：\n- Ticket and Tokyo Subway Pass (TG7)\n- Ticket Only (No Subway Pass) (TG6)",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "创建客人下单时选的套餐档，每档有名称和说明。",
+      "format": "名称写出差别，不要 Option 1。\n现网：\n- Ticket and Tokyo Subway Pass (TG7)\n- Ticket Only (No Subway Pass) (TG6)"
+    },
+    {
+      "id": "prices",
+      "stepId": "pricing.schedules",
+      "target": "fields",
+      "fieldIds": [
+        "currency",
+        "supplierPrices"
+      ],
+      "titleZh": "币种和供应商价",
+      "what": "选产品币种，并填供应商后台价（各 option × 年龄档）。",
+      "why": "现网币种 HKD；展示的是 SUGGESTED RETAIL PRICE + 26% COMMISSION，价格由 Connectivity 同步，本账号不能改价。不要把客人页 starting-from 日元/美元填进来。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "选产品币种，并填供应商后台价（各 option × 年龄档）。",
+      "format": "现网币种 HKD；展示的是 SUGGESTED RETAIL PRICE + 26% COMMISSION，价格由 Connectivity 同步，本账号不能改价。不要把客人页 starting-from 日元/美元填进来。"
+    },
+    {
+      "id": "priceMatrix",
+      "stepId": "pricing.schedules",
+      "target": "fields",
+      "fieldIds": [
+        "priceMatrixNote"
+      ],
+      "titleZh": "价格矩阵（简化）",
+      "what": "真实后台是按日期、星期、开场时间的报价表。训练页只展示口径。",
+      "why": "每个 option × 每个年龄档都要有价。现网 combo 档全年每天 9:00am 有价；Ticket Only 档目前只有周四有价、其余天 No prices added——那是现网状态，新上架不要学漏价。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "真实后台是按日期、星期、开场时间的报价表。训练页只展示口径。",
+      "format": "每个 option × 每个年龄档都要有价。现网 combo 档全年每天 9:00am 有价；Ticket Only 档目前只有周四有价、其余天 No prices added——那是现网状态，新上架不要学漏价。"
+    },
+    {
+      "id": "intro-booking",
+      "stepId": "booking.process",
+      "target": "section-intro",
+      "sectionId": "bookingTickets",
+      "fieldIds": [],
+      "titleZh": "Booking & tickets 介绍",
+      "what": "这一段填截止收订、确认方式、取消、客人资料、出票和核销。",
+      "why": "核销按「每种票怎么用」写。本产品凭证不能入园，要另发官方电子票。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "这一段填截止收订、确认方式、取消、客人资料、出票和核销。",
+      "format": "核销按「每种票怎么用」写。本产品凭证不能入园，要另发官方电子票。"
+    },
+    {
+      "id": "cutoff",
+      "stepId": "booking.process",
+      "target": "fields",
+      "fieldIds": [
+        "cutoffType",
+        "cutoffHours"
+      ],
+      "titleZh": "截止收订",
+      "what": "最晚能卖到出行前多久。真后台先选截止类型下拉，再填小时数。",
+      "why": "本产品现网：Relative to start time，48 hours（即出行前 2 天）。\n当天来不及出票就不要设成 0。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "最晚能卖到出行前多久。真后台先选截止类型下拉，再填小时数。",
+      "format": "本产品现网：Relative to start time，48 hours（即出行前 2 天）。\n当天来不及出票就不要设成 0。"
+    },
+    {
+      "id": "confirmation",
+      "stepId": "booking.process",
+      "target": "fields",
+      "fieldIds": [
+        "confirmationMethod",
+        "notificationEmail"
+      ],
+      "titleZh": "确认方式",
+      "what": "下单后即时确认还是人工确认，以及是否接收预订通知邮件。真后台是下拉。",
+      "why": "库存已对接才选即时确认。\n现网：Instant confirmation (Recommended)；通知邮件 Yes。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "下单后即时确认还是人工确认，以及是否接收预订通知邮件。真后台是下拉。",
+      "format": "库存已对接才选即时确认。\n现网：Instant confirmation (Recommended)；通知邮件 Yes。"
+    },
+    {
+      "id": "cancellation",
+      "stepId": "booking.cancellation",
+      "target": "fields",
+      "fieldIds": [
+        "cancellationPolicy"
+      ],
+      "titleZh": "取消政策",
+      "what": "选取消政策。",
+      "why": "现网 Policy type: All sales final。说明：Travelers will not receive any refund regardless of cancellation status. 采购可退时先问负责人，不要自己改成免费取消。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "选取消政策。",
+      "format": "现网 Policy type: All sales final。说明：Travelers will not receive any refund regardless of cancellation status. 采购可退时先问负责人，不要自己改成免费取消。"
+    },
+    {
+      "id": "cancelExtras",
+      "stepId": "booking.cancellation",
+      "target": "fields",
+      "fieldIds": [
+        "badWeather",
+        "notEnoughTravelers"
+      ],
+      "titleZh": "天气和人数不足",
+      "what": "恶劣天气、人数不足是否可作为取消理由。",
+      "why": "门票通常不因天气/不成团自动退。这两项无需勾选。现网 Other post-booking policies: None。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "恶劣天气、人数不足是否可作为取消理由。",
+      "format": "门票通常不因天气/不成团自动退。这两项无需勾选。现网 Other post-booking policies: None。"
+    },
+    {
+      "id": "requiredInfo",
+      "stepId": "booking.requiredInfo",
+      "target": "fields",
+      "fieldIds": [
+        "requiredTravelerFields",
+        "passportTiming"
+      ],
+      "titleZh": "要客人填什么",
+      "what": "预订时要客人填哪些资料。",
+      "why": "只收出票需要的。现网自动收集 Lead Traveler's Name、Phone Number；另外要 Full Names。不要无故要求客人上传或填写护照资料。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "预订时要客人填哪些资料。",
+      "format": "只收出票需要的。现网自动收集 Lead Traveler's Name、Phone Number；另外要 Full Names。不要无故要求客人上传或填写护照资料。"
+    },
+    {
+      "id": "ticketBuilder",
+      "stepId": "tickets.builder",
+      "target": "fields",
+      "fieldIds": [
+        "ticketType",
+        "ticketsPer"
+      ],
+      "titleZh": "票种设置",
+      "what": "票类型（电子/纸质）以及一张订单出几张票。",
+      "why": "现网：Mobile or paper ticket accepted；One per booking。须和核销一致。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "票类型（电子/纸质）以及一张订单出几张票。",
+      "format": "现网：Mobile or paper ticket accepted；One per booking。须和核销一致。"
+    },
+    {
+      "id": "separateEntry",
+      "stepId": "tickets.redemption",
+      "target": "fields",
+      "fieldIds": [
+        "separateEntryTicket"
+      ],
+      "titleZh": "凭证是不是入园票",
+      "what": "平台凭证能不能当入园凭证。",
+      "why": "现网 Exchange requirements：Separate direct entry ticket will be delivered to traveler。凭证不能进园的产品必须选另发官方票。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "平台凭证能不能当入园凭证。",
+      "format": "现网 Exchange requirements：Separate direct entry ticket will be delivered to traveler。凭证不能进园的产品必须选另发官方票。"
+    },
+    {
+      "id": "redemption",
+      "stepId": "tickets.redemption",
+      "target": "fields",
+      "fieldIds": [
+        "redemptionInstructions"
+      ],
+      "titleZh": "核销说明",
+      "what": "用英文写清每种票怎么用。",
+      "why": "先写凭证不能扫，再分段写乐园票和地铁票。不要只写 Show this voucher at the gate。\n现网结构：\n- STOP: THIS VOUCHER IS NOT YOUR ENTRY TICKET\n- 乐园票：官方 QR 入园\n- 地铁通票：Metro / Toei 闸机扫官方 QR，首次进站起算 24 小时，不含 JR",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "用英文写清每种票怎么用。",
+      "format": "先写凭证不能扫，再分段写乐园票和地铁票。不要只写 Show this voucher at the gate。\n现网结构：\n- STOP: THIS VOUCHER IS NOT YOUR ENTRY TICKET\n- 乐园票：官方 QR 入园\n- 地铁通票：Metro / Toei 闸机扫官方 QR，首次进站起算 24 小时，不含 JR"
+    },
+    {
+      "id": "preview",
+      "stepId": "tickets.preview",
+      "target": "fields",
+      "fieldIds": [
+        "ticketPreview",
+        "companyLogo"
+      ],
+      "titleZh": "票面预览",
+      "what": "预览客人票面，可选公司 Logo。",
+      "why": "训练页只做示意。现网 Ticket preview：Click the edit button to add your logo。Logo 用公司文件。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "预览客人票面，可选公司 Logo。",
+      "format": "训练页只做示意。现网 Ticket preview：Click the edit button to add your logo。Logo 用公司文件。"
+    },
+    {
+      "id": "intro-finish",
+      "stepId": "finish.tripadvisor",
+      "target": "section-intro",
+      "sectionId": "finish",
+      "fieldIds": [],
+      "titleZh": "Finish 介绍",
+      "what": "最后关联 Tripadvisor，并提交审核。",
+      "why": "训练页到此为止，提交按钮禁用。不要在真后台点 Submit 测试。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "最后关联 Tripadvisor，并提交审核。",
+      "format": "训练页到此为止，提交按钮禁用。不要在真后台点 Submit 测试。"
+    },
+    {
+      "id": "tripadvisor",
+      "stepId": "finish.tripadvisor",
+      "target": "fields",
+      "fieldIds": [
+        "tripadvisorListing"
+      ],
+      "titleZh": "关联 Tripadvisor",
+      "what": "把本产品连到对应的 Tripadvisor listing。",
+      "why": "现网 Listing name: Reotrip Tokyo；地点 Shinjuku, Tokyo。训练页只展示，不要在真后台乱连。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "把本产品连到对应的 Tripadvisor listing。",
+      "format": "现网 Listing name: Reotrip Tokyo；地点 Shinjuku, Tokyo。训练页只展示，不要在真后台乱连。"
+    },
+    {
+      "id": "submit",
+      "stepId": "finish.submit",
+      "target": "fields",
+      "fieldIds": [
+        "submitForReview"
+      ],
+      "titleZh": "提交审核",
+      "what": "把产品交给 Viator 审核。真实流程可能涉及付费。",
+      "why": "训练页按钮保持 Disabled。不要在真后台点 Submit / Pay / Publish 来测试。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "把产品交给 Viator 审核。真实流程可能涉及付费。",
+      "format": "训练页按钮保持 Disabled。不要在真后台点 Submit / Pay / Publish 来测试。"
+    },
+    {
+      "id": "unlock",
+      "stepId": "finish.submit",
+      "target": "footer",
+      "fieldIds": [],
+      "titleZh": "完成基础引导",
+      "what": "基础引导已走完。可以点左侧步骤，并用「?」查看字段说明。",
+      "why": "下一份门票至少核对：主票、时长口径、套餐包含、适用人群、核销、取消。不要整页照抄东迪。",
+      "example": "例句见「建议文案格式」。东迪只是这一份。",
+      "think": "换产品按该单供应链重写，不要照抄东迪。",
+      "fill": "基础引导已走完。可以点左侧步骤，并用「?」查看字段说明。",
+      "format": "下一份门票至少核对：主票、时长口径、套餐包含、适用人群、核销、取消。不要整页照抄东迪。"
+    }
+  ],
+  "sourceNoteZh": "fill/format 按 2026-08-25 只读 Manage P11：Product content + pricingAndSchedule + bookingSettings + tickets。"
+}

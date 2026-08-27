@@ -8,5 +8,6 @@ dist/
 .idea/
 .vscode/
 *.log
+.env
 browser-profile/
 *-draft-id
